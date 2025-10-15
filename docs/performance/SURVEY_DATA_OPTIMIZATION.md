@@ -271,3 +271,5 @@ CREATE INDEX idx_answers_survey_question ON lime_answers_{id}(sid, qid);
 This document provides the roadmap for resolving the performance issues in the Limesurvey module while maintaining data integrity and functionality.
 
 
+
+
