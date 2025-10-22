@@ -1,9 +1,10 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Modules\Limesurvey\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Modules\Limesurvey\Database\Factories\LimeTokens546331Factory;
 
 class LimeTokens546331 extends BaseModel
 {
@@ -35,14 +36,9 @@ class LimeTokens546331 extends BaseModel
         16 => 'mpid',
     ];
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'tid';
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_tokens_546331';
-
-    protected static function newFactory(): LimeTokens546331Factory
-    {
-        //return LimeTokens946595Factory::new();
-    }
 }

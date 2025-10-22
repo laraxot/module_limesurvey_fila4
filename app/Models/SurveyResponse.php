@@ -1,22 +1,14 @@
 <?php
-
 declare(strict_types=1);
-
 namespace Modules\Limesurvey\Models;
 
 use Exception;
-use Illuminate\Database\Eloquent\Builder;
+use Webmozart\Assert\Assert;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
 use Modules\Quaeris\Datas\DashboardFilterData;
 use Modules\Xot\Actions\Query\GetFieldnamesByTablenameAction;
-use Webmozart\Assert\Assert;
 
-/**
- * SurveyResponse Model.
- *
- * Modello con tabella dinamica per le risposte dei sondaggi LimeSurvey.
- * La tabella viene impostata dinamicamente usando setTableForSurvey().
- */
 class SurveyResponse extends BaseModel
 {
     public string $surveyId = '';
@@ -25,13 +17,13 @@ class SurveyResponse extends BaseModel
     public function setTableForSurvey($surveyId)
     {
         $this->surveyId = $surveyId;
-        $this->setTable('lime_survey_'.$surveyId);
+        $this->setTable('lime_survey_' . $surveyId);
     }
 
     // Esempio di recupero risposte in base all'ID del sondaggio
     public static function getResponsesForSurvey($surveyId)
     {
-        $instance = new static;
+        $instance = new static();
         $instance->setTableForSurvey($surveyId);
 
         return $instance; // Recupera tutte le risposte dal sondaggio specifico
@@ -40,9 +32,10 @@ class SurveyResponse extends BaseModel
     public function getFeedback(LimeQuestion $q)
     {
         $results = $q->brothers()
-            ->where('relevance', 'like', '%'.$q->full_title.'%')
-            ->orWhere('relevance', 'like', '%'.$q->fieldname.'%')
-            ->get();
+                ->where('relevance', 'like', '%'.$q->full_title.'%')
+                ->orWhere('relevance', 'like', '%'.$q->fieldname.'%')
+                ->get()
+                ;
         $html = '';
 
         // if($q->title == '02'){
@@ -59,27 +52,26 @@ class SurveyResponse extends BaseModel
         //     dddx($results);
         // }
 
-        foreach ($results as $row) {
+        foreach($results as $row){
             // dddx([$results, $row, $row->field_name]);
             $html = $this->{$row->field_name};
         }
-
         return $html;
     }
 
-    public function getFeedbackByTitle(LimeQuestion $q): ?string
-    {
+
+    public function getFeedbackByTitle(LimeQuestion $q):?string{
 
         $question_c = $q->brothers->firstWhere('title', $q->title.'c');
         $feedback = null;
-        if ($question_c === null && $q->parent !== null) {
+        if ($question_c === null && $q->parent !== null){
             $parent_question = $q->brothers->firstWhere('title', $q->parent->title.'c');
             if ($parent_question !== null) {
                 Assert::isInstanceOf($parent_question, LimeQuestion::class);
                 $field = $parent_question->sid.'X'.$parent_question->gid.'X'.$parent_question->qid;
                 $feedback = $this->{$field};
             }
-        } elseif ($question_c !== null) {
+        }elseif ($question_c !== null) {
             $question_field_name = $question_c->field_name;
             $feedback = $this->{$question_field_name};
         }
@@ -88,8 +80,8 @@ class SurveyResponse extends BaseModel
 
         // return 'WIP';
 
-        // (ipotesi) i feedback  sono delle colonne che vengono abilitate con delle regole
-        // circa come i campi in cui definiamo la visibility
+        // (ipotesi) i feedback  sono delle colonne che vengono abilitate con delle regole 
+        // circa come i campi in cui definiamo la visibility 
 
         // questa regola e' nel campo "relevance"
 
@@ -99,19 +91,20 @@ class SurveyResponse extends BaseModel
         // ((39275X41X483.NAOK == "N"))
         // o
         // ((Q25_SQ001.NAOK > 5) or (Q35_SQ001.NAOK > 5) or (Q47_SQ001.NAOK > 5) or (Q53_SQ001.NAOK > 5) or (Q63_SQ001.NAOK > 5) or (  is_empty(Q25_SQ001.NAOK)   and  is_empty(Q35_SQ001.NAOK)   and  is_empty(Q47_SQ001.NAOK)  and is_empty(Q53_SQ001.NAOK)  and  is_empty(Q63_SQ001.NAOK)  ))
-        // o
+        // o 
         // ((( ! is_empty(Q35_SQ001.NAOK) && (Q35_SQ001.NAOK <= 5))))
 
-        // percio' o c'e' il nome del fieldname di riferimento,
-        // se non c'e' padre il titolo della question ,
+        // percio' o c'e' il nome del fieldname di riferimento, 
+        // se non c'e' padre il titolo della question , 
         // e se c'e' il padre e' il titolo del padre ."_" . titolo del figlio
-
+       
     }
 
     /**
      * Undocumented function
      *
-     * @param  Builder|Builder  $query
+     * @param Builder|Builder $query
+     *
      * @return Builder|Builder
      */
     public function scopeWithAnswersLabel($query, string $qid, string $field_name, string $prefix = '', string $type = 'join')
@@ -124,7 +117,7 @@ class SurveyResponse extends BaseModel
                     $prefix.'answer' => LimeAnswer::select('answer')
                         ->leftJoin($ask_table_lang, static function ($join): void {
                             $join->on('lime_answers.aid', '=', 'lime_answer_l10ns.aid')
-                                ->where('language', '=', 'it');
+                                ->whereRaw('language="it"');
                         })
                         ->whereColumn('code', $field_name)
                         ->where('qid', $qid)
@@ -133,16 +126,16 @@ class SurveyResponse extends BaseModel
         }
         if ($type === 'join') {
             return $query // ->selectRaw('*,ask_lang.answer as label')
-            // ->addSelect(''.$prefix.'ask_lang.answer')
-            // ->addSelect(DB::Raw($this->getTable().'.*'))
+            //->addSelect(''.$prefix.'ask_lang.answer')
+            //->addSelect(DB::Raw($this->getTable().'.*'))
                 ->addSelect(DB::Raw($this->getTable().'.'.$this->getKeyName().' as _id'))
                 ->addSelect(DB::Raw(''.$prefix.'ask_lang.answer as '.$prefix.'answer'))
                 ->leftJoin($ask_table.' as '.$prefix.'ask', static function ($join) use ($qid, $field_name, $prefix): void {
                     $join->on(''.$prefix.'ask.code', '=', $field_name)
-                        ->where(''.$prefix.'ask.qid', '=', $qid);
+                        ->whereRaw(''.$prefix.'ask.qid = "'.$qid.'"');
                 })->leftJoin($ask_table_lang.' as '.$prefix.'ask_lang', static function ($join) use ($prefix): void {
                     $join->on(''.$prefix.'ask.aid', '=', ''.$prefix.'ask_lang.aid')
-                        ->where(''.$prefix.'ask_lang.language', '=', 'it');
+                        ->whereRaw(''.$prefix.'ask_lang.language="it"');
                 });
         }
         throw new Exception('type not in [join,subquery]');
@@ -152,15 +145,17 @@ class SurveyResponse extends BaseModel
     {
         $questions = LimeQuestion::where('sid', $this->surveyId)
             ->whereNotIn('type', ['X'])
-            ->get();
+            ->get()
+        ;
 
         $table = 'lime_survey_'.$this->surveyId;
         $fieldnames = app(GetFieldnamesByTablenameAction::class)->execute($table, 'limesurvey');
 
+
         foreach ($questions as $q) {
             Assert::isInstanceOf($q, LimeQuestion::class, '['.__LINE__.']['.class_basename(self::class).']');
 
-            if (! in_array($q->fieldname, $fieldnames)) {
+            if(!in_array($q->fieldname, $fieldnames)) {
                 continue;
             }
 
@@ -168,7 +163,7 @@ class SurveyResponse extends BaseModel
             if ($q->parent_qid !== 0) {
                 $main = $q->parent_qid;
             }
-            if ($q->hasTrans()) {
+            if($q->hasTrans()) {
                 $query = $query->withAnswersLabel($main, $q->fieldName, $q->fieldName, 'subquery');
             }
         }
@@ -179,7 +174,8 @@ class SurveyResponse extends BaseModel
     /**
      * Undocumented function
      *
-     * @param  Builder|Builder  $query
+     * @param Builder|Builder $query
+     *
      * @return Builder|Builder
      */
     public function scopeWithParticipants(Builder $builder): Builder
@@ -198,7 +194,8 @@ class SurveyResponse extends BaseModel
     {
 
         $query = $query->where('submitdate', '>=', $filter->startDate)
-            ->where('submitdate', '<=', $filter->endDate);
+            ->where('submitdate', '<=', $filter->endDate)
+        ;
 
         if ($filter->question_filter !== null) {
             $filter_field = $filter->question_filter_fieldname;

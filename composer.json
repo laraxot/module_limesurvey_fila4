@@ -24,7 +24,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Limesurvey\\": "app/"
+            "Modules\\Limesurvey\\": "app/",
+            "Modules\\Limesurvey\\Database\\Factories\\": "database/factories/",
+            "Modules\\Limesurvey\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "require_comment": {

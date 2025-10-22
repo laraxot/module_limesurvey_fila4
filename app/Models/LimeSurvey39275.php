@@ -1,8 +1,8 @@
 <?php
-declare(strict_types=1);
-namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSurvey39275Factory;
+declare(strict_types=1);
+
+namespace Modules\Limesurvey\Models;
 
 class LimeSurvey39275 extends BaseModel
 {
@@ -11,9 +11,4 @@ class LimeSurvey39275 extends BaseModel
      */
     protected $fillable = [];
     protected $table = 'lime_survey_39275';
-
-    protected static function newFactory(): LimeSurvey39275Factory
-    {
-        //return LimeSurvey39275Factory::new();
-    }
 }

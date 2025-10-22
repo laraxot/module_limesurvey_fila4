@@ -1,21 +1,21 @@
 <?php
-declare(strict_types=1);
-namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeTokens947365Factory;
+declare(strict_types=1);
+
+namespace Modules\Limesurvey\Models;
 
 class LimeTokens947365 extends BaseModel
 {
     /** @var bool */
     public $timestamps = false;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_tokens_947365';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'tid';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         0 => 'tid',
         1 => 'participant_id',
@@ -49,9 +49,4 @@ class LimeTokens947365 extends BaseModel
         29 => 'attribute_13',
         30 => 'attribute_14',
     ];
-
-    protected static function newFactory(): LimeTokens947365Factory
-    {
-        //return LimeTokens947365Factory::new();
-    }
 }
