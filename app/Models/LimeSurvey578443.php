@@ -13,34 +13,31 @@ use Modules\Quaeris\Datas\AnswersFilterData;
 /**
  * Modules\Limesurvey\Models\LimeSurvey578443
  *
- * @method static CachedBuilder|LimeSurvey578443 all($columns = [])
- * @method static CachedBuilder|LimeSurvey578443 avg($column)
- * @method static CachedBuilder|LimeSurvey578443 cache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey578443 cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSurvey578443 count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeSurvey578443 disableModelCaching()
- * @method static CachedBuilder|LimeSurvey578443 exists()
- * @method static LimeSurvey578443Factory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeSurvey578443 flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey578443 getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSurvey578443 inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSurvey578443 insert(array $values)
- * @method static CachedBuilder|LimeSurvey578443 isCachable()
- * @method static CachedBuilder|LimeSurvey578443 max($column)
- * @method static CachedBuilder|LimeSurvey578443 min($column)
- * @method static CachedBuilder|LimeSurvey578443 newModelQuery()
- * @method static CachedBuilder|LimeSurvey578443 newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSurvey578443 query()
- * @method static CachedBuilder|LimeSurvey578443 sum($column)
- * @method static CachedBuilder|LimeSurvey578443 truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
- *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
- *
+ * @method static CachedBuilder<static>|LimeSurvey578443 all($columns = [])
+ * @method static CachedBuilder<static>|LimeSurvey578443 avg($column)
+ * @method static CachedBuilder<static>|LimeSurvey578443 cache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeSurvey578443 cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder<static>|LimeSurvey578443 count($columns = '*')
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey578443 disableCache()
+ * @method static CachedBuilder<static>|LimeSurvey578443 disableModelCaching()
+ * @method static CachedBuilder<static>|LimeSurvey578443 exists()
+ * @method static CachedBuilder<static>|LimeSurvey578443 flushCache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeSurvey578443 getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeSurvey578443 inRandomOrder($seed = '')
+ * @method static CachedBuilder<static>|LimeSurvey578443 insert(array $values)
+ * @method static CachedBuilder<static>|LimeSurvey578443 isCachable()
+ * @method static CachedBuilder<static>|LimeSurvey578443 max($column)
+ * @method static CachedBuilder<static>|LimeSurvey578443 min($column)
+ * @method static CachedBuilder<static>|LimeSurvey578443 newModelQuery()
+ * @method static CachedBuilder<static>|LimeSurvey578443 newQuery()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey578443 ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeSurvey578443 query()
+ * @method static CachedBuilder<static>|LimeSurvey578443 sum($column)
+ * @method static CachedBuilder<static>|LimeSurvey578443 truncate()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey578443 withCacheCooldownSeconds(?int $seconds = null)
  * @mixin \Eloquent
  */
 class LimeSurvey578443 extends BaseModel implements LimeSurveyXXXContract

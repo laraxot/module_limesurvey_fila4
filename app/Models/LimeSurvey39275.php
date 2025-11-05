@@ -69,7 +69,6 @@ namespace Modules\Limesurvey\Models;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
- *
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey39275 all($columns = [])
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey39275 avg($column)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey39275 cache(array $tags = [])
@@ -153,7 +152,6 @@ namespace Modules\Limesurvey\Models;
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey39275 whereSubmitdate($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey39275 whereToken($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey39275 withCacheCooldownSeconds(?int $seconds = null)
- *
  * @mixin \Eloquent
  */
 class LimeSurvey39275 extends BaseModel

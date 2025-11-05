@@ -5,53 +5,45 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Limesurvey\Database\Factories\LimeDefaultvalueFactory;
-use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeDefaultvalue
- *
- * @method static CachedBuilder|LimeDefaultvalue all($columns = [])
- * @method static CachedBuilder|LimeDefaultvalue avg($column)
- * @method static CachedBuilder|LimeDefaultvalue cache(array $tags = [])
- * @method static CachedBuilder|LimeDefaultvalue cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeDefaultvalue count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeDefaultvalue disableModelCaching()
- * @method static CachedBuilder|LimeDefaultvalue exists()
- * @method static LimeDefaultvalueFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeDefaultvalue flushCache(array $tags = [])
- * @method static CachedBuilder|LimeDefaultvalue getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeDefaultvalue inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeDefaultvalue insert(array $values)
- * @method static CachedBuilder|LimeDefaultvalue isCachable()
- * @method static CachedBuilder|LimeDefaultvalue max($column)
- * @method static CachedBuilder|LimeDefaultvalue min($column)
- * @method static CachedBuilder|LimeDefaultvalue newModelQuery()
- * @method static CachedBuilder|LimeDefaultvalue newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeDefaultvalue query()
- * @method static CachedBuilder|LimeDefaultvalue sum($column)
- * @method static CachedBuilder|LimeDefaultvalue truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $dvid
  * @property int $qid
  * @property int $scale_id
  * @property int $sqid
  * @property string $specialtype
- *
- * @method static CachedBuilder|LimeDefaultvalue whereDvid($value)
- * @method static CachedBuilder|LimeDefaultvalue whereQid($value)
- * @method static CachedBuilder|LimeDefaultvalue whereScaleId($value)
- * @method static CachedBuilder|LimeDefaultvalue whereSpecialtype($value)
- * @method static CachedBuilder|LimeDefaultvalue whereSqid($value)
- *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
- *
+ * @method static CachedBuilder<static>|LimeDefaultvalue all($columns = [])
+ * @method static CachedBuilder<static>|LimeDefaultvalue avg($column)
+ * @method static CachedBuilder<static>|LimeDefaultvalue cache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeDefaultvalue cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder<static>|LimeDefaultvalue count($columns = '*')
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeDefaultvalue disableCache()
+ * @method static CachedBuilder<static>|LimeDefaultvalue disableModelCaching()
+ * @method static CachedBuilder<static>|LimeDefaultvalue exists()
+ * @method static CachedBuilder<static>|LimeDefaultvalue flushCache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeDefaultvalue getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeDefaultvalue inRandomOrder($seed = '')
+ * @method static CachedBuilder<static>|LimeDefaultvalue insert(array $values)
+ * @method static CachedBuilder<static>|LimeDefaultvalue isCachable()
+ * @method static CachedBuilder<static>|LimeDefaultvalue max($column)
+ * @method static CachedBuilder<static>|LimeDefaultvalue min($column)
+ * @method static CachedBuilder<static>|LimeDefaultvalue newModelQuery()
+ * @method static CachedBuilder<static>|LimeDefaultvalue newQuery()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeDefaultvalue ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeDefaultvalue query()
+ * @method static CachedBuilder<static>|LimeDefaultvalue sum($column)
+ * @method static CachedBuilder<static>|LimeDefaultvalue truncate()
+ * @method static CachedBuilder<static>|LimeDefaultvalue whereDvid($value)
+ * @method static CachedBuilder<static>|LimeDefaultvalue whereQid($value)
+ * @method static CachedBuilder<static>|LimeDefaultvalue whereScaleId($value)
+ * @method static CachedBuilder<static>|LimeDefaultvalue whereSpecialtype($value)
+ * @method static CachedBuilder<static>|LimeDefaultvalue whereSqid($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeDefaultvalue withCacheCooldownSeconds(?int $seconds = null)
  * @mixin \Eloquent
  */
 class LimeDefaultvalue extends BaseModel

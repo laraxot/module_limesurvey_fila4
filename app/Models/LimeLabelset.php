@@ -5,49 +5,41 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Limesurvey\Database\Factories\LimeLabelsetFactory;
-use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeLabelset
  *
- * @method static CachedBuilder|LimeLabelset all($columns = [])
- * @method static CachedBuilder|LimeLabelset avg($column)
- * @method static CachedBuilder|LimeLabelset cache(array $tags = [])
- * @method static CachedBuilder|LimeLabelset cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeLabelset count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeLabelset disableModelCaching()
- * @method static CachedBuilder|LimeLabelset exists()
- * @method static LimeLabelsetFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeLabelset flushCache(array $tags = [])
- * @method static CachedBuilder|LimeLabelset getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeLabelset inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeLabelset insert(array $values)
- * @method static CachedBuilder|LimeLabelset isCachable()
- * @method static CachedBuilder|LimeLabelset max($column)
- * @method static CachedBuilder|LimeLabelset min($column)
- * @method static CachedBuilder|LimeLabelset newModelQuery()
- * @method static CachedBuilder|LimeLabelset newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeLabelset query()
- * @method static CachedBuilder|LimeLabelset sum($column)
- * @method static CachedBuilder|LimeLabelset truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
- *
  * @property int $lid
  * @property string $label_name
  * @property string $languages
- *
- * @method static CachedBuilder|LimeLabelset whereLabelName($value)
- * @method static CachedBuilder|LimeLabelset whereLanguages($value)
- * @method static CachedBuilder|LimeLabelset whereLid($value)
- *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
- *
+ * @method static CachedBuilder<static>|LimeLabelset all($columns = [])
+ * @method static CachedBuilder<static>|LimeLabelset avg($column)
+ * @method static CachedBuilder<static>|LimeLabelset cache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeLabelset cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder<static>|LimeLabelset count($columns = '*')
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeLabelset disableCache()
+ * @method static CachedBuilder<static>|LimeLabelset disableModelCaching()
+ * @method static CachedBuilder<static>|LimeLabelset exists()
+ * @method static CachedBuilder<static>|LimeLabelset flushCache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeLabelset getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeLabelset inRandomOrder($seed = '')
+ * @method static CachedBuilder<static>|LimeLabelset insert(array $values)
+ * @method static CachedBuilder<static>|LimeLabelset isCachable()
+ * @method static CachedBuilder<static>|LimeLabelset max($column)
+ * @method static CachedBuilder<static>|LimeLabelset min($column)
+ * @method static CachedBuilder<static>|LimeLabelset newModelQuery()
+ * @method static CachedBuilder<static>|LimeLabelset newQuery()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeLabelset ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeLabelset query()
+ * @method static CachedBuilder<static>|LimeLabelset sum($column)
+ * @method static CachedBuilder<static>|LimeLabelset truncate()
+ * @method static CachedBuilder<static>|LimeLabelset whereLabelName($value)
+ * @method static CachedBuilder<static>|LimeLabelset whereLanguages($value)
+ * @method static CachedBuilder<static>|LimeLabelset whereLid($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeLabelset withCacheCooldownSeconds(?int $seconds = null)
  * @mixin \Eloquent
  */
 class LimeLabelset extends BaseModel

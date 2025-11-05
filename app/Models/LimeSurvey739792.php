@@ -14,30 +14,6 @@ use Modules\Quaeris\Datas\AnswersFilterData;
 /**
  * Modules\Limesurvey\Models\LimeSurvey739792
  *
- * @method static CachedBuilder|LimeSurvey739792 all($columns = [])
- * @method static CachedBuilder|LimeSurvey739792 avg($column)
- * @method static CachedBuilder|LimeSurvey739792 cache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey739792 cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSurvey739792 count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeSurvey739792 disableModelCaching()
- * @method static CachedBuilder|LimeSurvey739792 exists()
- * @method static LimeSurvey739792Factory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeSurvey739792 flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey739792 getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSurvey739792 inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSurvey739792 insert(array $values)
- * @method static CachedBuilder|LimeSurvey739792 isCachable()
- * @method static CachedBuilder|LimeSurvey739792 max($column)
- * @method static CachedBuilder|LimeSurvey739792 min($column)
- * @method static CachedBuilder|LimeSurvey739792 newModelQuery()
- * @method static CachedBuilder|LimeSurvey739792 newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSurvey739792 query()
- * @method static CachedBuilder|LimeSurvey739792 sum($column)
- * @method static CachedBuilder|LimeSurvey739792 truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
- *
  * @property int $id
  * @property string|null $token
  * @property string|null $submitdate
@@ -55,29 +31,48 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @property string|null $739792X1740X40892SQ001
  * @property string|null $739792X1740X40894
  * @property string|null $739792X1740X40912
- *
- * @method static Builder|LimeSurvey739792 where739792X1740X40889($value)
- * @method static Builder|LimeSurvey739792 where739792X1740X40890($value)
- * @method static Builder|LimeSurvey739792 where739792X1740X40891SQ001($value)
- * @method static Builder|LimeSurvey739792 where739792X1740X40892SQ001($value)
- * @method static Builder|LimeSurvey739792 where739792X1740X40893($value)
- * @method static Builder|LimeSurvey739792 where739792X1740X40894($value)
- * @method static Builder|LimeSurvey739792 where739792X1740X40912($value)
- * @method static Builder|LimeSurvey739792 whereDatestamp($value)
- * @method static Builder|LimeSurvey739792 whereId($value)
- * @method static Builder|LimeSurvey739792 whereIpaddr($value)
- * @method static Builder|LimeSurvey739792 whereLastpage($value)
- * @method static Builder|LimeSurvey739792 whereRefurl($value)
- * @method static Builder|LimeSurvey739792 whereSeed($value)
- * @method static Builder|LimeSurvey739792 whereStartdate($value)
- * @method static Builder|LimeSurvey739792 whereStartlanguage($value)
- * @method static Builder|LimeSurvey739792 whereSubmitdate($value)
- * @method static Builder|LimeSurvey739792 whereToken($value)
- *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
- *
+ * @method static CachedBuilder<static>|LimeSurvey739792 all($columns = [])
+ * @method static CachedBuilder<static>|LimeSurvey739792 avg($column)
+ * @method static CachedBuilder<static>|LimeSurvey739792 cache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeSurvey739792 cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder<static>|LimeSurvey739792 count($columns = '*')
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey739792 disableCache()
+ * @method static CachedBuilder<static>|LimeSurvey739792 disableModelCaching()
+ * @method static CachedBuilder<static>|LimeSurvey739792 exists()
+ * @method static CachedBuilder<static>|LimeSurvey739792 flushCache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeSurvey739792 getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeSurvey739792 inRandomOrder($seed = '')
+ * @method static CachedBuilder<static>|LimeSurvey739792 insert(array $values)
+ * @method static CachedBuilder<static>|LimeSurvey739792 isCachable()
+ * @method static CachedBuilder<static>|LimeSurvey739792 max($column)
+ * @method static CachedBuilder<static>|LimeSurvey739792 min($column)
+ * @method static CachedBuilder<static>|LimeSurvey739792 newModelQuery()
+ * @method static CachedBuilder<static>|LimeSurvey739792 newQuery()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey739792 ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeSurvey739792 query()
+ * @method static CachedBuilder<static>|LimeSurvey739792 sum($column)
+ * @method static CachedBuilder<static>|LimeSurvey739792 truncate()
+ * @method static CachedBuilder<static>|LimeSurvey739792 where739792X1740X40889($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 where739792X1740X40890($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 where739792X1740X40891SQ001($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 where739792X1740X40892SQ001($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 where739792X1740X40893($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 where739792X1740X40894($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 where739792X1740X40912($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 whereDatestamp($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 whereId($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 whereIpaddr($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 whereLastpage($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 whereRefurl($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 whereSeed($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 whereStartdate($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 whereStartlanguage($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 whereSubmitdate($value)
+ * @method static CachedBuilder<static>|LimeSurvey739792 whereToken($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey739792 withCacheCooldownSeconds(?int $seconds = null)
  * @mixin \Eloquent
  */
 class LimeSurvey739792 extends BaseModel implements LimeSurveyXXXContract
