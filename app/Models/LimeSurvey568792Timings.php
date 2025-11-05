@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSurvey568792TimingsFactory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Limesurvey\Database\Factories\LimeSurvey568792TimingsFactory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey568792Timings
@@ -96,6 +96,10 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder|LimeSurvey568792Timings whereId($value)
  * @method static CachedBuilder|LimeSurvey568792Timings whereInterviewtime($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey568792Timings extends BaseModel
@@ -103,18 +107,18 @@ class LimeSurvey568792Timings extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_survey_568792_timings';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'interviewtime', '568792X987time', '568792X987X32761time', '568792X988time', '568792X988X32785time', '568792X989time', '568792X989X32745time', '568792X989X32746time', '568792X993time', '568792X993X32799time', '568792X993X32800time', '568792X993X32801time', '568792X994time', '568792X994X32802time', '568792X994X32803time', '568792X994X32804time', '568792X994X32808time', '568792X990time', '568792X990X32747time', '568792X990X32809time', '568792X990X32810time', '568792X990X32811time', '568792X990X32812time', '568792X991time', '568792X991X32759time', '568792X991X32760time', '568792X991X32762time', '568792X991X32763time',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

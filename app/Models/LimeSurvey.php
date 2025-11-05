@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSurveyFactory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Modules\Limesurvey\Database\Factories\LimeSurveyFactory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use stdClass;
 
 /**
@@ -178,6 +178,10 @@ use stdClass;
  * @method static CachedBuilder|LimeSurvey whereUsecookie($value)
  * @method static CachedBuilder|LimeSurvey whereUsetokens($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey extends BaseModel
@@ -185,13 +189,13 @@ class LimeSurvey extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_surveys';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'sid';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'owner_id',
         'gsid',
@@ -254,7 +258,7 @@ class LimeSurvey extends BaseModel
         'googleanalyticsapikey',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 
@@ -339,6 +343,7 @@ class LimeSurvey extends BaseModel
             return $this->hasMany(LimeGroup::class, 'sid', 'sid')
                 ->with('labels');
         }
+
         return $this->hasMany(LimeGroup::class, 'sid', 'sid');
         // ->with('labels')
     }

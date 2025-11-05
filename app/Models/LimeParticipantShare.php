@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeParticipantShareFactory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Modules\Limesurvey\Database\Factories\LimeParticipantShareFactory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeParticipantShare
@@ -47,6 +47,10 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder|LimeParticipantShare whereParticipantId($value)
  * @method static CachedBuilder|LimeParticipantShare whereShareUid($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class LimeParticipantShare extends BaseModel
@@ -54,18 +58,18 @@ class LimeParticipantShare extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_participant_shares';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'participant_id';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'share_uid', 'date_added', 'can_edit',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 return [
 
     'survey_id' => 'ID del Sondaggio',

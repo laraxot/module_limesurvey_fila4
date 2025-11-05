@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSurvey628829Factory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
+use Modules\Limesurvey\Database\Factories\LimeSurvey628829Factory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey628829
@@ -118,6 +118,10 @@ use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
  * @method static CachedBuilder|LimeSurvey628829 whereSubmitdate($value)
  * @method static CachedBuilder|LimeSurvey628829 whereToken($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey628829 extends BaseModel implements LimeSurveyXXXContract
@@ -125,18 +129,18 @@ class LimeSurvey628829 extends BaseModel implements LimeSurveyXXXContract
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_survey_628829';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'token', 'submitdate', 'lastpage', 'startlanguage', 'seed', 'startdate', 'datestamp', 'ipaddr', '628829X1070X33470', '628829X1070X33471', '628829X1065X33488', '628829X1065X33489', '628829X1065X33489other', '628829X1065X33398', '628829X1065X33399', '628829X1065X33400', '628829X1065X33401', '628829X1065X33474', '628829X1065X33473', '628829X1066X33490', '628829X1066X33465', '628829X1066X33426', '628829X1066X33448', '628829X1066X33449', '628829X1066X33456', '628829X1066X33457', '628829X1067X33466', '628829X1068X33404', '628829X1068X33405', '628829X1068X33406', '628829X1068X33406other', '628829X1069X33467', '628829X1069X33467other', '628829X1069X33468', '628829X1069X33469', '628829X1069X33469other', '628829X1069X33472', '628829X1069X33472other',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

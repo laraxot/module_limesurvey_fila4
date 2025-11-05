@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSurvey299355TimingsFactory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Limesurvey\Database\Factories\LimeSurvey299355TimingsFactory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey299355Timings
@@ -74,6 +74,10 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder|LimeSurvey299355Timings whereId($value)
  * @method static CachedBuilder|LimeSurvey299355Timings whereInterviewtime($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey299355Timings extends BaseModel
@@ -81,18 +85,18 @@ class LimeSurvey299355Timings extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_survey_299355_timings';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'interviewtime', '299355X1029time', '299355X1029X33153time', '299355X1029X33154time', '299355X1029X33155time', '299355X1030time', '299355X1030X33156time', '299355X1031time', '299355X1031X33157time', '299355X1031X33158time', '299355X1032time', '299355X1032X33159time', '299355X1032X33160time', '299355X1032X33161time', '299355X1032X33162time', '299355X1032X33163time', '299355X1032X33164time',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

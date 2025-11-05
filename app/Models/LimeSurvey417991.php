@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSurvey417991Factory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
-use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Builder;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
+use Modules\Limesurvey\Database\Factories\LimeSurvey417991Factory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey417991
@@ -81,6 +81,10 @@ use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
  * @method static Builder|LimeSurvey417991 whereSubmitdate($value)
  * @method static Builder|LimeSurvey417991 whereToken($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey417991 extends BaseModel implements LimeSurveyXXXContract
@@ -88,18 +92,18 @@ class LimeSurvey417991 extends BaseModel implements LimeSurveyXXXContract
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_survey_417991';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'token', 'submitdate', 'lastpage', 'startlanguage', 'seed', '417991X1025X33130', '417991X1026X331312', '417991X1026X331313', '417991X1026X331314', '417991X1026X331315', '417991X1026X331316', '417991X1026X331317', '417991X1026X331318', '417991X1026X331319', '417991X1026X3314110', '417991X1027X33143',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

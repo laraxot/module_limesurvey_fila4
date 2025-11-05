@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSurvey726613Factory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
+use Modules\Limesurvey\Database\Factories\LimeSurvey726613Factory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey726613
@@ -150,6 +150,10 @@ use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
  * @method static CachedBuilder|LimeSurvey726613 whereSubmitdate($value)
  * @method static CachedBuilder|LimeSurvey726613 whereToken($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey726613 extends BaseModel implements LimeSurveyXXXContract
@@ -157,18 +161,18 @@ class LimeSurvey726613 extends BaseModel implements LimeSurveyXXXContract
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_survey_726613';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'token', 'submitdate', 'lastpage', 'startlanguage', 'seed', 'startdate', 'datestamp', 'ipaddr', '726613X995X33066', '726613X995X32856', '726613X995X32857', '726613X995X32858', '726613X995X32859', '726613X995X32860', '726613X995X32861', '726613X995X32862', '726613X995X328631', '726613X995X328632', '726613X995X328633', '726613X995X328634', '726613X995X328635', '726613X995X328711', '726613X995X328712', '726613X995X328713', '726613X995X32880', '726613X995X3288110', '726613X995X3288111', '726613X995X32890', '726613X995X32891', '726613X995X32892', '726613X995X32893', '726613X995X32894', '726613X995X3290512', '726613X995X3290513', '726613X995X3290514', '726613X995X3290515', '726613X995X3290516', '726613X995X3290517', '726613X995X3290518', '726613X995X3291519', '726613X995X3291520', '726613X995X3291521', '726613X995X3292722', '726613X995X32937', '726613X995X3293824', '726613X995X32940', '726613X995X32941', '726613X995X32942', '726613X995X32943', '726613X995X32944', '726613X995X32945', '726613X995X32833', '726613X995X32834', '726613X995X32834other',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

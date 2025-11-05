@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSurvey285519Factory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
+use Modules\Limesurvey\Database\Factories\LimeSurvey285519Factory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey285519
@@ -500,6 +500,43 @@ use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
  * @method static \Illuminate\Database\Eloquent\Builder|LimeSurvey285519 where285519X1034X331849#0($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LimeSurvey285519 where285519X1034X331849#1($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318410#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318410#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318411#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318411#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318412#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318412#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318413#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318413#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318414#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318414#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318415#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318415#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318416#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318416#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318417#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318417#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318418#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318418#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318419#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X3318419#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X331844#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X331844#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X331845#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X331845#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X331846#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X331846#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X331847#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X331847#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X331848#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X331848#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X331849#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey285519 where285519X1034X331849#1($value)
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey285519 extends BaseModel implements LimeSurveyXXXContract
@@ -507,18 +544,18 @@ class LimeSurvey285519 extends BaseModel implements LimeSurveyXXXContract
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_survey_285519';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'token', 'submitdate', 'lastpage', 'startlanguage', 'seed', 'startdate', 'datestamp', 'ipaddr', '285519X1033X33181', '285519X1033X33182', '285519X1033X33182other', '285519X1033X33183', '285519X1034X331844#0', '285519X1034X331844#1', '285519X1034X331845#0', '285519X1034X331845#1', '285519X1034X331846#0', '285519X1034X331846#1', '285519X1034X331847#0', '285519X1034X331847#1', '285519X1034X331848#0', '285519X1034X331848#1', '285519X1034X331849#0', '285519X1034X331849#1', '285519X1034X3318410#0', '285519X1034X3318410#1', '285519X1034X3318411#0', '285519X1034X3318411#1', '285519X1034X3318412#0', '285519X1034X3318412#1', '285519X1034X3318413#0', '285519X1034X3318413#1', '285519X1034X3318414#0', '285519X1034X3318414#1', '285519X1034X3318415#0', '285519X1034X3318415#1', '285519X1034X3318416#0', '285519X1034X3318416#1', '285519X1034X3318417#0', '285519X1034X3318417#1', '285519X1034X3318418#0', '285519X1034X3318418#1', '285519X1034X3318419#0', '285519X1034X3318419#1', '285519X1035X33185', '285519X1035X33186', '285519X1036X33187', '285519X1036X33188', '285519X1036X33189', '285519X1036X33189other', '285519X1036X33190', '285519X1036X33191', '285519X1036X33192',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

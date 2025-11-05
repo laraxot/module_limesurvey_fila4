@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Modules\Limesurvey\Filament\Widgets;
 
 use Filament\Widgets\ChartWidget;
@@ -9,7 +11,9 @@ use Modules\Limesurvey\Models\SurveyResponse;
 class MultipleChoiceChart extends ChartWidget
 {
     public $surveyId;
+
     public $questionId;
+
     protected ?string $heading = 'Risposte a Scelta Multipla';
 
     // Imposta surveyId e questionId durante la creazione del widget

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSurvey733454TimingsFactory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Limesurvey\Database\Factories\LimeSurvey733454TimingsFactory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey733454Timings
@@ -100,6 +100,10 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder|LimeSurvey733454Timings whereId($value)
  * @method static CachedBuilder|LimeSurvey733454Timings whereInterviewtime($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey733454Timings extends BaseModel
@@ -107,18 +111,18 @@ class LimeSurvey733454Timings extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_survey_733454_timings';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'interviewtime', '733454X953time', '733454X953X32199time', '733454X954time', '733454X954X32179time', '733454X954X32180time', '733454X954X32185time', '733454X955time', '733454X955X32186time', '733454X955X32187time', '733454X958time', '733454X958X32188time', '733454X958X32190time', '733454X958X32255time', '733454X956time', '733454X956X32177time', '733454X956X32176time', '733454X956X32178time', '733454X956X32183time', '733454X956X32182time', '733454X956X32181time', '733454X956X32184time', '733454X956X32193time', '733454X957time', '733454X957X32194time', '733454X957X32196time', '733454X957X32197time', '733454X957X32198time', '733454X957X32200time', '733454X957X32201time',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

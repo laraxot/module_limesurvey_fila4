@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSavedControlFactory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Modules\Limesurvey\Database\Factories\LimeSavedControlFactory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSavedControl
@@ -61,6 +61,10 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder|LimeSavedControl whereSrid($value)
  * @method static CachedBuilder|LimeSavedControl whereStatus($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class LimeSavedControl extends BaseModel
@@ -68,18 +72,18 @@ class LimeSavedControl extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_saved_control';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'scid';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'sid', 'srid', 'identifier', 'access_code', 'email', 'ip', 'saved_thisstep', 'status', 'saved_date', 'refurl',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

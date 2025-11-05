@@ -1,24 +1,31 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Modules\Limesurvey\Filament\Widgets;
 
 use Filament\Support\RawJs;
 use Filament\Widgets\ChartWidget;
-use Illuminate\Support\Facades\DB;
-use Modules\Quaeris\Services\TrendX;
-use Modules\Limesurvey\Models\SurveyResponse;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
+use Illuminate\Support\Facades\DB;
+use Modules\Limesurvey\Models\SurveyResponse;
+use Modules\Quaeris\Services\TrendX;
 
 class TypeExclamationPoint extends ChartWidget
 {
     use InteractsWithPageFilters;
 
     public $surveyId;
+
     public $fieldName;
+
     public $questionId;
+
     public $title;
+
     protected ?string $heading = '';
-    public string$totalResponses;
+
+    public string $totalResponses;
 
     protected function getType(): string
     {
@@ -41,23 +48,20 @@ class TypeExclamationPoint extends ChartWidget
             ->withAnswersLabel($this->questionId, $this->fieldName)
             ->select($select)
             ->whereNotNull($this->fieldName)
-            ->whereNotNull('submitdate')
-            // ->where('submitdate', '>=', $this->filters['startDate'])
-            // ->where('submitdate', '<=', $this->filters['endDate'])
-        ;
+            ->whereNotNull('submitdate');
+        // ->where('submitdate', '>=', $this->filters['startDate'])
+        // ->where('submitdate', '<=', $this->filters['endDate'])
 
-        if (!empty($this->date_from) && !empty($this->date_to)) {
+        if (! empty($this->date_from) && ! empty($this->date_to)) {
             // Se entrambe le date sono presenti
             $query->whereBetween('submitdate', [$this->date_from, $this->date_to]);
-        } elseif (!empty($this->date_from)) {
+        } elseif (! empty($this->date_from)) {
             // Se solo la data di inizio è presente
             $query->where('submitdate', '>=', $this->date_from);
-        } elseif (!empty($this->date_to)) {
+        } elseif (! empty($this->date_to)) {
             // Se solo la data di fine è presente
             $query->where('submitdate', '<=', $this->date_to);
         }
-
-
 
         $res = TrendX::query($query)
             ->dateColumn('submitdate')
@@ -68,7 +72,7 @@ class TypeExclamationPoint extends ChartWidget
             ->perMonth()
             ->groupBy($this->fieldName)
             ->orderBy('value')
-            //->average($this->fieldName);
+            // ->average($this->fieldName);
             ->count($this->fieldName)
             ->sortByDesc('aggregate'); // Ordinamento sulla collection
 
@@ -79,6 +83,7 @@ class TypeExclamationPoint extends ChartWidget
             $item->aggregate = $this->totalResponses > 0
                 ? round(($item->aggregate / $this->totalResponses) * 100, 2)
                 : 0;
+
             return $item;
         });
 
@@ -91,7 +96,7 @@ class TypeExclamationPoint extends ChartWidget
         }
 
         return [
-            //'labels' => $res->pluck('date')->toArray(),
+            // 'labels' => $res->pluck('date')->toArray(),
             'labels' => $res->pluck('value_lang')->toArray(),
             'datasets' => [
                 [

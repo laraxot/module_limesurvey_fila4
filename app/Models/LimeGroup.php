@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeGroupFactory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Modules\Limesurvey\Database\Factories\LimeGroupFactory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeGroup
@@ -52,6 +52,10 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static CachedBuilder|LimeGroup whereRandomizationGroup($value)
  * @method static CachedBuilder|LimeGroup whereSid($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class LimeGroup extends BaseModel
@@ -59,18 +63,18 @@ class LimeGroup extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_groups';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'gid';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'language', 'sid', 'group_name', 'group_order', 'description', 'randomization_group', 'grelevance',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 
