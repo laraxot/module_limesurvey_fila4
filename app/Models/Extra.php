@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Xot\Models\Extra as BaseExtra;
+use Modules\Xot\Models\BaseExtra;
 
 /**
  * @property string $id
@@ -21,8 +21,8 @@ use Modules\Xot\Models\Extra as BaseExtra;
  * @property string|null $created_by
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property string|null $deleted_by
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @method static \Modules\Limesurvey\Database\Factories\ExtraFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Extra newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Extra newQuery()

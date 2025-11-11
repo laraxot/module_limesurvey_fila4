@@ -179,3 +179,5 @@ Anche con requirements specifici (no timestamps, tabelle dinamiche), XotBaseMode
 
 
 
+
+
