@@ -24,6 +24,7 @@ use Illuminate\Support\Carbon;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeSavedControl all($columns = [])
  * @method static CachedBuilder<static>|LimeSavedControl avg($column)
  * @method static CachedBuilder<static>|LimeSavedControl cache(array $tags = [])
@@ -57,6 +58,7 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder<static>|LimeSavedControl whereSrid($value)
  * @method static CachedBuilder<static>|LimeSavedControl whereStatus($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSavedControl withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeSavedControl extends BaseModel

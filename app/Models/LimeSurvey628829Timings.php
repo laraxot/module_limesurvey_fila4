@@ -5,9 +5,6 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Limesurvey\Database\Factories\LimeSurvey628829TimingsFactory;
-use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey628829Timings
@@ -48,6 +45,7 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeSurvey628829Timings all($columns = [])
  * @method static CachedBuilder<static>|LimeSurvey628829Timings avg($column)
  * @method static CachedBuilder<static>|LimeSurvey628829Timings cache(array $tags = [])
@@ -103,6 +101,7 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @method static CachedBuilder<static>|LimeSurvey628829Timings whereId($value)
  * @method static CachedBuilder<static>|LimeSurvey628829Timings whereInterviewtime($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey628829Timings withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey628829Timings extends BaseModel

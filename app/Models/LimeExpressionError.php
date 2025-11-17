@@ -22,6 +22,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeExpressionError all($columns = [])
  * @method static CachedBuilder<static>|LimeExpressionError avg($column)
  * @method static CachedBuilder<static>|LimeExpressionError cache(array $tags = [])
@@ -54,6 +55,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeExpressionError whereSid($value)
  * @method static CachedBuilder<static>|LimeExpressionError whereType($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeExpressionError withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeExpressionError extends BaseModel

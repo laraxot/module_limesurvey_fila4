@@ -5,11 +5,8 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
-use Modules\Limesurvey\Database\Factories\LimeSurvey723653Factory;
-use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey723653
@@ -78,6 +75,7 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeSurvey723653 all($columns = [])
  * @method static CachedBuilder<static>|LimeSurvey723653 avg($column)
  * @method static CachedBuilder<static>|LimeSurvey723653 cache(array $tags = [])
@@ -161,6 +159,7 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @method static CachedBuilder<static>|LimeSurvey723653 whereSubmitdate($value)
  * @method static CachedBuilder<static>|LimeSurvey723653 whereToken($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey723653 withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey723653 extends BaseModel implements LimeSurveyXXXContract

@@ -30,6 +30,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeSurvey285519Timings all($columns = [])
  * @method static CachedBuilder<static>|LimeSurvey285519Timings avg($column)
  * @method static CachedBuilder<static>|LimeSurvey285519Timings cache(array $tags = [])
@@ -70,6 +71,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeSurvey285519Timings whereId($value)
  * @method static CachedBuilder<static>|LimeSurvey285519Timings whereInterviewtime($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey285519Timings withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey285519Timings extends BaseModel

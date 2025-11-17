@@ -24,6 +24,7 @@ use Illuminate\Support\Carbon;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeNotification all($columns = [])
  * @method static CachedBuilder<static>|LimeNotification avg($column)
  * @method static CachedBuilder<static>|LimeNotification cache(array $tags = [])
@@ -57,6 +58,7 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder<static>|LimeNotification whereStatus($value)
  * @method static CachedBuilder<static>|LimeNotification whereTitle($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeNotification withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeNotification extends BaseModel

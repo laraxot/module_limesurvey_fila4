@@ -54,6 +54,7 @@ use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeSurvey153279 all($columns = [])
  * @method static CachedBuilder<static>|LimeSurvey153279 avg($column)
  * @method static CachedBuilder<static>|LimeSurvey153279 cache(array $tags = [])
@@ -116,6 +117,7 @@ use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
  * @method static CachedBuilder<static>|LimeSurvey153279 whereSubmitdate($value)
  * @method static CachedBuilder<static>|LimeSurvey153279 whereToken($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey153279 withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey153279 extends BaseModel implements LimeSurveyXXXContract

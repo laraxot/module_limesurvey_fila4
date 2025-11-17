@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Illuminate\Database\Eloquent\Builder;
+
 /**
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
@@ -45,12 +47,14 @@ class TokensResponse extends BaseModel
         $this->setTable('lime_tokens_'.$surveyId);
     }
 
-    // Esempio di recupero risposte in base all'ID del sondaggio
-    public static function getResponsesForSurvey($surveyId)
+    /**
+     * @return Builder<self>
+     */
+    public static function getResponsesForSurvey(string $surveyId): Builder
     {
         $instance = new static;
         $instance->setTableForSurvey($surveyId);
 
-        return $instance; // Recupera tutte le risposte dal sondaggio specifico
+        return $instance->newQuery();
     }
 }

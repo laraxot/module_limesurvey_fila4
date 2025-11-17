@@ -20,6 +20,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimePlugin all($columns = [])
  * @method static CachedBuilder<static>|LimePlugin avg($column)
  * @method static CachedBuilder<static>|LimePlugin cache(array $tags = [])
@@ -50,6 +51,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimePlugin wherePriority($value)
  * @method static CachedBuilder<static>|LimePlugin whereVersion($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimePlugin withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimePlugin extends BaseModel

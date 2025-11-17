@@ -23,6 +23,7 @@ use Modules\Xot\Models\BaseExtra;
  * @property string|null $deleted_by
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static \Modules\Limesurvey\Database\Factories\ExtraFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Extra newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Extra newQuery()
@@ -38,6 +39,7 @@ use Modules\Xot\Models\BaseExtra;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Extra whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Extra whereUpdatedBy($value)
  * @method static Builder<static>|Extra withExtraAttributes()
+ *
  * @mixin \Eloquent
  */
 class Extra extends BaseExtra

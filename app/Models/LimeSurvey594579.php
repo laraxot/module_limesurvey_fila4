@@ -7,8 +7,6 @@ namespace Modules\Limesurvey\Models;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
-use Modules\Limesurvey\Database\Factories\LimeSurvey594579Factory;
-use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey594579
@@ -16,6 +14,7 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeSurvey594579 all($columns = [])
  * @method static CachedBuilder<static>|LimeSurvey594579 avg($column)
  * @method static CachedBuilder<static>|LimeSurvey594579 cache(array $tags = [])
@@ -38,6 +37,7 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @method static CachedBuilder<static>|LimeSurvey594579 sum($column)
  * @method static CachedBuilder<static>|LimeSurvey594579 truncate()
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey594579 withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey594579 extends BaseModel implements LimeSurveyXXXContract

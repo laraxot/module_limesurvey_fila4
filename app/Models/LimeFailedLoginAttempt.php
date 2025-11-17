@@ -17,6 +17,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt all($columns = [])
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt avg($column)
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt cache(array $tags = [])
@@ -44,6 +45,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt whereLastAttempt($value)
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt whereNumberAttempts($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeFailedLoginAttempt withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeFailedLoginAttempt extends BaseModel
