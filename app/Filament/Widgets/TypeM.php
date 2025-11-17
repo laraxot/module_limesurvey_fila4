@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Filament\Widgets;
 
 use Filament\Widgets\ChartWidget;
-use Illuminate\Support\Facades\DB;
 use Modules\Limesurvey\Models\LimeQuestion;
 use Modules\Limesurvey\Models\LimeQuestionL10n;
 use Modules\Limesurvey\Models\SurveyResponse;
@@ -46,13 +45,13 @@ class TypeM extends ChartWidget
             Assert::isInstanceOf($son->l10n, LimeQuestionL10n::class);
 
             // Aggiunge il campo al SELECT
-            $select[] = "$field_name";
+            $select[] = "{$field_name}";
 
             // Aggiunge l'etichetta della domanda l10n->question come alias
-            $select[] = "'{$son->l10n->question}' AS label_$k";
+            $select[] = "'{$son->l10n->question}' AS label_{$k}";
 
             // Esempio aggiuntivo: puoi mantenere i conteggi condizionali, se necessario
-            $select[] = "COUNT(NULLIF($field_name, '')) AS value_$k";
+            $select[] = "COUNT(NULLIF({$field_name}, '')) AS value_{$k}";
             // $select[] = "COUNT(NULLIF($field_name, '')) * 100 / $tot AS avg_$k";
         }
 

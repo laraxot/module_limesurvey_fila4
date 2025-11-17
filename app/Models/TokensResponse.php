@@ -42,7 +42,7 @@ class TokensResponse extends BaseModel
     protected $primaryKey = 'tid';
 
     // Il nome della tabella viene impostato dinamicamente
-    public function setTableForSurvey($surveyId)
+    public function setTableForSurvey($surveyId): void
     {
         $this->setTable('lime_tokens_'.$surveyId);
     }
@@ -52,7 +52,7 @@ class TokensResponse extends BaseModel
      */
     public static function getResponsesForSurvey(string $surveyId): Builder
     {
-        $instance = new static;
+        $instance = new static();
         $instance->setTableForSurvey($surveyId);
 
         return $instance->newQuery();

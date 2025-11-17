@@ -53,7 +53,7 @@ class SurveyResponse extends BaseModel
     public string $surveyId = '';
 
     // Il nome della tabella viene impostato dinamicamente
-    public function setTableForSurvey($surveyId)
+    public function setTableForSurvey($surveyId): void
     {
         $this->surveyId = $surveyId;
         $this->setTable('lime_survey_'.$surveyId);
@@ -66,7 +66,7 @@ class SurveyResponse extends BaseModel
      */
     public static function getResponsesForSurvey(string $surveyId): Builder
     {
-        $instance = new static;
+        $instance = new static();
         $instance->setTableForSurvey($surveyId);
 
         return $instance->newQuery();
@@ -104,7 +104,6 @@ class SurveyResponse extends BaseModel
 
     public function getFeedbackByTitle(LimeQuestion $q): ?string
     {
-
         $question_c = $q->brothers->firstWhere('title', $q->title.'c');
         $feedback = null;
         if ($question_c === null && $q->parent !== null) {
@@ -140,16 +139,12 @@ class SurveyResponse extends BaseModel
         // percio' o c'e' il nome del fieldname di riferimento,
         // se non c'e' padre il titolo della question ,
         // e se c'e' il padre e' il titolo del padre ."_" . titolo del figlio
-
     }
 
     /**
      * Undocumented function
-     *
-     * @param  Builder|Builder  $query
-     * @return Builder|Builder
      */
-    public function scopeWithAnswersLabel($query, string $qid, string $field_name, string $prefix = '', string $type = 'join')
+    public function scopeWithAnswersLabel(Builder $query, string $qid, string $field_name, string $prefix = '', string $type = 'join'): Builder
     {
         $ask_table = 'lime_answers';
         $ask_table_lang = 'lime_answer_l10ns';
@@ -215,7 +210,6 @@ class SurveyResponse extends BaseModel
      * Undocumented function
      *
      * @param  Builder|Builder  $query
-     * @return Builder|Builder
      */
     public function scopeWithParticipants(Builder $builder): Builder
     {
@@ -231,7 +225,6 @@ class SurveyResponse extends BaseModel
 
     public function scopeOfDashboardFilterData(Builder $query, DashboardFilterData $filter): Builder
     {
-
         $query = $query->where('submitdate', '>=', $filter->startDate)
             ->where('submitdate', '<=', $filter->endDate);
 

@@ -12,12 +12,8 @@ class LimeLangField implements CastsAttributes
      * Cast the given value.
      *
      * param \Illuminate\Database\Eloquent\Model $model
-     *
-     * @param  string  $key
-     * @param  array  $attributes
-     * @return int|string|array|null
      */
-    public function get($model, $key, $value, $attributes)
+    public function get($model, string $key, $value, array $attributes): int|string|array|null
     {
         if ($value !== null) {
             return $value;
@@ -36,12 +32,8 @@ class LimeLangField implements CastsAttributes
      * Prepare the given value for storage.
      *
      * param \Illuminate\Database\Eloquent\Model $model
-     *
-     * @param  string  $key
-     * @param  array  $attributes
-     * @return int|string|array|null
      */
-    public function set($model, $key, $value, $attributes)
+    public function set($model, string $key, $value, array $attributes): int|string|array|null
     {
         // Access to an undefined property Illuminate\Database\Eloquent\Model::$user.
 

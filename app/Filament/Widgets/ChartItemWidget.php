@@ -33,16 +33,6 @@ class ChartItemWidget extends ChartWidget
         }
     }
 
-    protected function getData(): array
-    {
-        return $this->chartData;
-    }
-
-    protected function getType(): string
-    {
-        return $this->type;
-    }
-
     public function getHeading(): ?string
     {
         return $this->chartTitle;
@@ -51,6 +41,16 @@ class ChartItemWidget extends ChartWidget
     public function getDescription(): ?string
     {
         return $this->chartDescription;
+    }
+
+    protected function getData(): array
+    {
+        return $this->chartData;
+    }
+
+    protected function getType(): string
+    {
+        return $this->type;
     }
 
     protected function getOptions(): ?RawJs

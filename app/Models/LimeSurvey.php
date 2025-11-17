@@ -78,6 +78,7 @@ use stdClass;
  * @property string|null $googleanalyticsapikey
  * @property array<array-key, mixed>|null $tokenencryptionoptions
  * @property string $ipanonymize
+ *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read string|null $title
@@ -359,10 +360,8 @@ class LimeSurvey extends BaseModel
 
     /**
      * Undocumented function.
-     *
-     * @param  string|array|null  $value
      */
-    public function getAttributedescriptionsAttribute($value): array
+    public function getAttributedescriptionsAttribute(string|array|null $value): array
     {
         if ($value === null) {
             return [];

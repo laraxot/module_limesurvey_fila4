@@ -32,6 +32,7 @@ use Modules\Quaeris\Datas\DashboardFilterData;
  * @property string|null $deleted_at
  * @property string|null $deleted_by
  * @property string|null $feedback
+ *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Limesurvey\Models\LimeQuestion|null $question
@@ -186,7 +187,6 @@ class SurveyFlipResponse extends BaseModel
 
     public function scopeOfDashboardFilterData(Builder $query, DashboardFilterData $filter): Builder
     {
-
         $query = $query->where('submitdate', '>=', $filter->startDate)
             ->where('submitdate', '<=', $filter->endDate);
 
@@ -235,11 +235,11 @@ class SurveyFlipResponse extends BaseModel
             ->when(
                 $filter->min_value,
                 function (Builder $query, int $value): Builder {
-                    return $query->where(function (Builder $q) use ($value) {
+                    return $query->where(function (Builder $q) use ($value): void {
                         $q->whereNull('value')
                             ->whereRaw('answer REGEXP "^-?[0-9]+(\.[0-9]+)?$"')
                             ->where('answer', '>=', $value)
-                            ->orWhere(function (Builder $q) use ($value) {
+                            ->orWhere(function (Builder $q) use ($value): void {
                                 $q->whereNotNull('value')
                                     ->whereRaw('value REGEXP "^-?[0-9]+(\.[0-9]+)?$"')
                                     ->where('value', '>=', $value);
@@ -250,11 +250,11 @@ class SurveyFlipResponse extends BaseModel
             ->when(
                 $filter->max_value,
                 function (Builder $query, int $value): Builder {
-                    return $query->where(function (Builder $q) use ($value) {
+                    return $query->where(function (Builder $q) use ($value): void {
                         $q->whereNull('value')
                             ->whereRaw('answer REGEXP "^-?[0-9]+(\.[0-9]+)?$"')
                             ->where('answer', '<=', $value)
-                            ->orWhere(function (Builder $q) use ($value) {
+                            ->orWhere(function (Builder $q) use ($value): void {
                                 $q->whereNotNull('value')
                                     ->whereRaw('value REGEXP "^-?[0-9]+(\.[0-9]+)?$"')
                                     ->where('value', '<=', $value);

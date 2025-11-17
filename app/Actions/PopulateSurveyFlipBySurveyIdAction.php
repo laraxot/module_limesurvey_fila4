@@ -19,7 +19,6 @@ class PopulateSurveyFlipBySurveyIdAction
 
     public function execute(string $survey_id): void
     {
-
         $survey_response = SurveyResponse::getResponsesForSurvey($survey_id);
         $max_id = SurveyFlipResponse::where('survey_id', $survey_id)->max('old_id') ?? 0;
         $table = 'lime_survey_'.$survey_id;

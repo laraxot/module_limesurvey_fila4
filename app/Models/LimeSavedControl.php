@@ -21,6 +21,7 @@ use Illuminate\Support\Carbon;
  * @property string $status
  * @property Carbon $saved_date
  * @property string|null $refurl
+ *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

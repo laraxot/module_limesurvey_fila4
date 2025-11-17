@@ -14,6 +14,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property string $last_attempt
  * @property int $number_attempts
  * @property int $is_frontend
+ *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

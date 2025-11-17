@@ -76,7 +76,7 @@ class TypeL extends ChartWidget
         // Calcola le percentuali
         $percentages = $res->map(function ($item) use ($totalResponses) {
             $item->aggregate = $totalResponses > 0
-                ? round(($item->aggregate / $totalResponses) * 100, 2)
+                ? round($item->aggregate / $totalResponses * 100, 2)
                 : 0;
 
             return $item;

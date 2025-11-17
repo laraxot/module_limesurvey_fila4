@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -36,6 +35,7 @@ use Webmozart\Assert\Assert;
  * @property string|null $question_theme_name
  * @property int $same_script
  * @property int|string|array $question
+ *
  * @property-read Collection<int, \Modules\Limesurvey\Models\LimeAnswer> $answers
  * @property-read int|null $answers_count
  * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $brothers
@@ -280,7 +280,7 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
         // if ($this->type === 'F') {
         //     return $res.$this->qid.''.$this->child?->title;
         // }
-        if ($this->type === 'F' && $this->child != null) {
+        if ($this->type === 'F' && $this->child !== null) {
             return $res.$this->qid.''.$this->child->title;
         }
         if ($this->type === 'F') {
@@ -295,9 +295,7 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
 
     public function getTextAttribute(?string $value): string
     {
-        $value = strip_tags($this->getFullTitle());
-
-        return $value;
+        return strip_tags($this->getFullTitle());
     }
 
     public function getFullTitle(): string
@@ -326,9 +324,7 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
 
         // dddx($ancestors);
 
-        $value = implode('_', $ancestors);
-
-        return $value;
+        return implode('_', $ancestors);
 
         // $ancestors = $this->ancestorsAndSelf()
         //     ->with('l10n') // Carica la relazione l10n per evitare problemi N+1
@@ -347,13 +343,11 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
 
     public function getFullTitleAttribute(?string $value): ?string
     {
-        if ($value != null) {
+        if ($value !== null) {
             return $value;
         }
 
-        $value = $this->getFullTitle();
-
-        return $value;
+        return $this->getFullTitle();
     }
 
     public function getFullType(): string
