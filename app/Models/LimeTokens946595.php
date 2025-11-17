@@ -30,7 +30,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string|null $attribute_4
  * @property string|null $attribute_5
  * @property string|null $attribute_6
- *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

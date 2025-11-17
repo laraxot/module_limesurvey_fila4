@@ -18,7 +18,6 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property string $group_name
  * @property string|null $description
  * @property string $language
- *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

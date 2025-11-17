@@ -66,7 +66,6 @@ namespace Modules\Limesurvey\Models;
  * @property string|null $39275X44X531
  * @property string|null $39275X45X543
  * @property string|null $39275X45X542
- *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

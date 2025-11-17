@@ -84,7 +84,6 @@ use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
  * @property string|null $787795X951X32134SQ002
  * @property string|null $787795X952X32142
  * @property string|null $787795X952X32141
- *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

@@ -14,7 +14,6 @@ use Illuminate\Support\Carbon;
  * @property int $share_uid
  * @property Carbon $date_added
  * @property string $can_edit
- *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

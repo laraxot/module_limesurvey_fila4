@@ -36,7 +36,6 @@ namespace Modules\Limesurvey\Models;
  * @property string|null $attribute_12
  * @property string|null $attribute_13
  * @property string|null $attribute_14
- *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

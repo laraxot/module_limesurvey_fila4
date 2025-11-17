@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Modules\Limesurvey\Casts\LimeLangField;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
 use Modules\Xot\Contracts\HasRecursiveRelationshipsContract;
-use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
+use Modules\Xot\Models\Traits\TypedHasRecursiveRelationships;
 use Webmozart\Assert\Assert;
 
 /**
@@ -35,7 +35,6 @@ use Webmozart\Assert\Assert;
  * @property string|null $question_theme_name
  * @property int $same_script
  * @property int|string|array $question
- *
  * @property-read Collection<int, \Modules\Limesurvey\Models\LimeAnswer> $answers
  * @property-read int|null $answers_count
  * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $brothers
@@ -121,7 +120,7 @@ use Webmozart\Assert\Assert;
  */
 class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContract
 {
-    use HasRecursiveRelationships;
+    use TypedHasRecursiveRelationships;
 
     /** @var bool */
     public $timestamps = true;

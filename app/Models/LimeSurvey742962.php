@@ -95,7 +95,6 @@ use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
  * @property Carbon|null $742962X922X31761
  * @property string|null $742962X922X31763
  * @property string|null $742962X922X31764
- *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
