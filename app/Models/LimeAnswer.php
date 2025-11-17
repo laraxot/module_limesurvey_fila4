@@ -8,9 +8,6 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeAnswerFactory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Modules\Limesurvey\Casts\LimeLangField;
@@ -18,48 +15,46 @@ use Modules\Limesurvey\Casts\LimeLangField;
 /**
  * Modules\Limesurvey\Models\LimeAnswer
  *
- * @property int|string|array|null                          $answer
- * @property mixed                                          $query
- * @property LimeAnswerL10n|null $l10n
- *
- * @method static CachedBuilder|LimeAnswer                                 all($columns = [])
- * @method static CachedBuilder|LimeAnswer                                 avg($column)
- * @method static CachedBuilder|LimeAnswer                                 cache(array $tags = [])
- * @method static CachedBuilder|LimeAnswer                                 cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeAnswer                                 count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeAnswer                                 disableModelCaching()
- * @method static CachedBuilder|LimeAnswer                                 exists()
- * @method static LimeAnswerFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeAnswer                                 flushCache(array $tags = [])
- * @method static CachedBuilder|LimeAnswer getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeAnswer                                 inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeAnswer                                 insert(array $values)
- * @method static CachedBuilder|LimeAnswer                                 isCachable()
- * @method static CachedBuilder|LimeAnswer                                 max($column)
- * @method static CachedBuilder|LimeAnswer                                 min($column)
- * @method static CachedBuilder|LimeAnswer                                 newModelQuery()
- * @method static CachedBuilder|LimeAnswer                                 newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeAnswer                                 query()
- * @method static CachedBuilder|LimeAnswer                                 sum($column)
- * @method static CachedBuilder|LimeAnswer                                 truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
- *
- * @property int    $aid
- * @property int    $qid
+ * @property int $aid
+ * @property int $qid
  * @property string $code
- * @property int    $sortorder
- * @property int    $assessment_value
- * @property int    $scale_id
- *
- * @method static CachedBuilder|LimeAnswer whereAid($value)
- * @method static CachedBuilder|LimeAnswer whereAssessmentValue($value)
- * @method static CachedBuilder|LimeAnswer whereCode($value)
- * @method static CachedBuilder|LimeAnswer whereQid($value)
- * @method static CachedBuilder|LimeAnswer whereScaleId($value)
- * @method static CachedBuilder|LimeAnswer whereSortorder($value)
- *
+ * @property int $sortorder
+ * @property int $assessment_value
+ * @property int $scale_id
+ * @property int|string|array $answer
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read mixed $query
+ * @property-read \Modules\Limesurvey\Models\LimeAnswerL10n|null $l10n
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @method static CachedBuilder<static>|LimeAnswer all($columns = [])
+ * @method static CachedBuilder<static>|LimeAnswer avg($column)
+ * @method static CachedBuilder<static>|LimeAnswer cache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeAnswer cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder<static>|LimeAnswer count($columns = '*')
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeAnswer disableCache()
+ * @method static CachedBuilder<static>|LimeAnswer disableModelCaching()
+ * @method static CachedBuilder<static>|LimeAnswer exists()
+ * @method static CachedBuilder<static>|LimeAnswer flushCache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeAnswer getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeAnswer inRandomOrder($seed = '')
+ * @method static CachedBuilder<static>|LimeAnswer insert(array $values)
+ * @method static CachedBuilder<static>|LimeAnswer isCachable()
+ * @method static CachedBuilder<static>|LimeAnswer max($column)
+ * @method static CachedBuilder<static>|LimeAnswer min($column)
+ * @method static CachedBuilder<static>|LimeAnswer newModelQuery()
+ * @method static CachedBuilder<static>|LimeAnswer newQuery()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeAnswer ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeAnswer query()
+ * @method static CachedBuilder<static>|LimeAnswer sum($column)
+ * @method static CachedBuilder<static>|LimeAnswer truncate()
+ * @method static CachedBuilder<static>|LimeAnswer whereAid($value)
+ * @method static CachedBuilder<static>|LimeAnswer whereAssessmentValue($value)
+ * @method static CachedBuilder<static>|LimeAnswer whereCode($value)
+ * @method static CachedBuilder<static>|LimeAnswer whereQid($value)
+ * @method static CachedBuilder<static>|LimeAnswer whereScaleId($value)
+ * @method static CachedBuilder<static>|LimeAnswer whereSortorder($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeAnswer withCacheCooldownSeconds(?int $seconds = null)
  * @mixin \Eloquent
  */
 class LimeAnswer extends BaseModel
@@ -67,6 +62,7 @@ class LimeAnswer extends BaseModel
     public $timestamps = false;
 
     protected $table = 'lime_answers';
+
     protected $primaryKey = 'aid';
 
     /**
@@ -117,7 +113,5 @@ class LimeAnswer extends BaseModel
             ->where('language', $lang);
     }
 
-    public function getQueryAttribute()
-    {
-    }
+    public function getQueryAttribute() {}
 }

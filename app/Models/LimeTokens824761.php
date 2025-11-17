@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeTokens824761Factory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Modules\Limesurvey\Database\Factories\LimeTokens824761Factory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeTokens824761
@@ -73,6 +73,10 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder|LimeTokens824761 whereValidfrom($value)
  * @method static CachedBuilder|LimeTokens824761 whereValiduntil($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class LimeTokens824761 extends BaseModel
@@ -80,18 +84,18 @@ class LimeTokens824761 extends BaseModel
     /** @var bool */
     public $timestamps = false;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_tokens_824761';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'tid';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'participant_id', 'firstname', 'lastname', 'email', 'emailstatus', 'token', 'language', 'blacklisted', 'sent', 'remindersent', 'remindercount', 'completed', 'usesleft', 'validfrom', 'validuntil', 'mpid',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

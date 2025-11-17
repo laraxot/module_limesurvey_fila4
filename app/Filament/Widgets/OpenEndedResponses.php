@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Modules\Limesurvey\Filament\Widgets;
 
 use Filament\Widgets\Widget;
@@ -8,7 +10,9 @@ use Modules\Limesurvey\Models\SurveyResponse;
 class OpenEndedResponses extends Widget
 {
     public $surveyId;
+
     public $questionId;
+
     protected static ?string $heading = 'Risposte Aperte';
 
     public function __construct($surveyId, $questionId)

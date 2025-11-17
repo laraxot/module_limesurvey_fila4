@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 // use Laravel\Scout\Searchable;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Xot\Models\Traits\HasExtraTrait;
@@ -12,16 +13,13 @@ use Modules\Xot\Models\XotBaseModel;
 
 /**
  * Class BaseModel.
- *
- * Base model per tutti i modelli del modulo Limesurvey.
- * Estende XotBaseModel e configura la connection 'limesurvey'.
  */
 abstract class BaseModel extends XotBaseModel
 {
-    use HasExtraTrait;
-    
     // use Updater;
     // use Searchable;
+    use Cachable;
+    use HasExtraTrait;
 
     /** @var bool */
     public $incrementing = true;

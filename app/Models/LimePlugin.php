@@ -4,37 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimePluginFactory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
  * Modules\Limesurvey\Models\LimePlugin
- *
- * @method static CachedBuilder|LimePlugin all($columns = [])
- * @method static CachedBuilder|LimePlugin avg($column)
- * @method static CachedBuilder|LimePlugin cache(array $tags = [])
- * @method static CachedBuilder|LimePlugin cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimePlugin count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimePlugin disableModelCaching()
- * @method static CachedBuilder|LimePlugin exists()
- * @method static LimePluginFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimePlugin flushCache(array $tags = [])
- * @method static CachedBuilder|LimePlugin getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimePlugin inRandomOrder($seed = '')
- * @method static CachedBuilder|LimePlugin insert(array $values)
- * @method static CachedBuilder|LimePlugin isCachable()
- * @method static CachedBuilder|LimePlugin max($column)
- * @method static CachedBuilder|LimePlugin min($column)
- * @method static CachedBuilder|LimePlugin newModelQuery()
- * @method static CachedBuilder|LimePlugin newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimePlugin query()
- * @method static CachedBuilder|LimePlugin sum($column)
- * @method static CachedBuilder|LimePlugin truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $id
  * @property string $name
@@ -44,16 +17,39 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property string|null $load_error_message
  * @property string|null $plugin_type
  * @property int $priority
- *
- * @method static CachedBuilder|LimePlugin whereActive($value)
- * @method static CachedBuilder|LimePlugin whereId($value)
- * @method static CachedBuilder|LimePlugin whereLoadError($value)
- * @method static CachedBuilder|LimePlugin whereLoadErrorMessage($value)
- * @method static CachedBuilder|LimePlugin whereName($value)
- * @method static CachedBuilder|LimePlugin wherePluginType($value)
- * @method static CachedBuilder|LimePlugin wherePriority($value)
- * @method static CachedBuilder|LimePlugin whereVersion($value)
- *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @method static CachedBuilder<static>|LimePlugin all($columns = [])
+ * @method static CachedBuilder<static>|LimePlugin avg($column)
+ * @method static CachedBuilder<static>|LimePlugin cache(array $tags = [])
+ * @method static CachedBuilder<static>|LimePlugin cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder<static>|LimePlugin count($columns = '*')
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimePlugin disableCache()
+ * @method static CachedBuilder<static>|LimePlugin disableModelCaching()
+ * @method static CachedBuilder<static>|LimePlugin exists()
+ * @method static CachedBuilder<static>|LimePlugin flushCache(array $tags = [])
+ * @method static CachedBuilder<static>|LimePlugin getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimePlugin inRandomOrder($seed = '')
+ * @method static CachedBuilder<static>|LimePlugin insert(array $values)
+ * @method static CachedBuilder<static>|LimePlugin isCachable()
+ * @method static CachedBuilder<static>|LimePlugin max($column)
+ * @method static CachedBuilder<static>|LimePlugin min($column)
+ * @method static CachedBuilder<static>|LimePlugin newModelQuery()
+ * @method static CachedBuilder<static>|LimePlugin newQuery()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimePlugin ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimePlugin query()
+ * @method static CachedBuilder<static>|LimePlugin sum($column)
+ * @method static CachedBuilder<static>|LimePlugin truncate()
+ * @method static CachedBuilder<static>|LimePlugin whereActive($value)
+ * @method static CachedBuilder<static>|LimePlugin whereId($value)
+ * @method static CachedBuilder<static>|LimePlugin whereLoadError($value)
+ * @method static CachedBuilder<static>|LimePlugin whereLoadErrorMessage($value)
+ * @method static CachedBuilder<static>|LimePlugin whereName($value)
+ * @method static CachedBuilder<static>|LimePlugin wherePluginType($value)
+ * @method static CachedBuilder<static>|LimePlugin wherePriority($value)
+ * @method static CachedBuilder<static>|LimePlugin whereVersion($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimePlugin withCacheCooldownSeconds(?int $seconds = null)
  * @mixin \Eloquent
  */
 class LimePlugin extends BaseModel
@@ -61,18 +57,18 @@ class LimePlugin extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_plugins';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'name', 'active', 'version',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

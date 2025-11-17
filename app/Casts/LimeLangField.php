@@ -13,9 +13,8 @@ class LimeLangField implements CastsAttributes
      *
      * param \Illuminate\Database\Eloquent\Model $model
      *
-     * @param string $key
-     * @param array  $attributes
-     *
+     * @param  string  $key
+     * @param  array  $attributes
      * @return int|string|array|null
      */
     public function get($model, $key, $value, $attributes)
@@ -38,9 +37,8 @@ class LimeLangField implements CastsAttributes
      *
      * param \Illuminate\Database\Eloquent\Model $model
      *
-     * @param string $key
-     * @param array  $attributes
-     *
+     * @param  string  $key
+     * @param  array  $attributes
      * @return int|string|array|null
      */
     public function set($model, $key, $value, $attributes)

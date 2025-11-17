@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Modules\Limesurvey\Filament\Widgets;
 
 use Filament\Widgets\ChartWidget;
@@ -10,8 +12,11 @@ use Modules\Quaeris\Services\TrendX;
 class RankingChart extends ChartWidget
 {
     public $surveyId;
+
     public $fieldName;
+
     public $questionId;
+
     protected ?string $heading = 'Risposte di Classifica (Ranking)';
 
     protected function getType(): string
@@ -22,11 +27,11 @@ class RankingChart extends ChartWidget
 
     protected function getData(): array
     {
-        //$this->surveyId = '39275'; //gaia weekly
-        //$this->fieldName = '39275X39X465';
-        //$this->questionId = '465';
-        //$this->fieldName = '39275X40X475SQ001';
-        //$this->questionId = '477';
+        // $this->surveyId = '39275'; //gaia weekly
+        // $this->fieldName = '39275X39X465';
+        // $this->questionId = '465';
+        // $this->fieldName = '39275X40X475SQ001';
+        // $this->questionId = '477';
 
         $select = [];
         $select[] = DB::raw("{$this->fieldName} as value");
@@ -38,9 +43,8 @@ class RankingChart extends ChartWidget
             ->withAnswersLabel($this->questionId, $this->fieldName)
             ->select($select)
             ->whereNotNull($this->fieldName)
-            ->whereNotNull('submitdate')
-        ;
-        //*
+            ->whereNotNull('submitdate');
+        // *
         $res = TrendX::query($query)
             ->dateColumn('submitdate')
             ->between(
@@ -50,10 +54,10 @@ class RankingChart extends ChartWidget
             ->perMonth()
             ->groupBy($this->fieldName)
             ->orderBy('value_lang')
-            //->average($this->fieldName);
+            // ->average($this->fieldName);
             ->count($this->fieldName);
-        //*/
-        //$res = $query->groupBy("{$this->fieldName}")->get();
+        // */
+        // $res = $query->groupBy("{$this->fieldName}")->get();
 
         /*
         dddx([
@@ -63,7 +67,7 @@ class RankingChart extends ChartWidget
         ]);
         //*/
         return [
-            //'labels' => $res->pluck('date')->toArray(),
+            // 'labels' => $res->pluck('date')->toArray(),
             'labels' => $res->pluck('value_lang')->toArray(),
             'datasets' => [
                 [

@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Modules\Limesurvey\Filament\Widgets;
 
 use Filament\Widgets\ChartWidget;
@@ -10,9 +12,13 @@ use Modules\Quaeris\Services\TrendX;
 class TypeT extends ChartWidget
 {
     public $surveyId;
+
     public $fieldName;
+
     public $questionId;
+
     public $title;
+
     protected ?string $heading = 'Risposte a Risposta Singola';
 
     protected function getType(): string
@@ -35,9 +41,7 @@ class TypeT extends ChartWidget
             ->withAnswersLabel($this->questionId, $this->fieldName)
             ->select($select)
             ->whereNotNull($this->fieldName)
-            ->whereNotNull('submitdate')
-
-        ;
+            ->whereNotNull('submitdate');
         $res = TrendX::query($query)
             ->dateColumn('submitdate')
             ->between(
@@ -47,11 +51,11 @@ class TypeT extends ChartWidget
             ->perMonth()
             ->groupBy($this->fieldName)
             ->orderBy('value')
-            //->average($this->fieldName);
+            // ->average($this->fieldName);
             ->count($this->fieldName);
 
         return [
-            //'labels' => $res->pluck('date')->toArray(),
+            // 'labels' => $res->pluck('date')->toArray(),
             'labels' => $res->pluck('value')->toArray(),
             'datasets' => [
                 [

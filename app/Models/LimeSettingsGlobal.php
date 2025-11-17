@@ -8,38 +8,36 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSettingsGlobalFactory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
  * Modules\Limesurvey\Models\LimeSettingsGlobal
  *
- * @method static CachedBuilder|LimeSettingsGlobal all($columns = [])
- * @method static CachedBuilder|LimeSettingsGlobal avg($column)
- * @method static CachedBuilder|LimeSettingsGlobal cache(array $tags = [])
- * @method static CachedBuilder|LimeSettingsGlobal cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSettingsGlobal count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeSettingsGlobal disableModelCaching()
- * @method static CachedBuilder|LimeSettingsGlobal exists()
- * @method static LimeSettingsGlobalFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeSettingsGlobal flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSettingsGlobal getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSettingsGlobal inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSettingsGlobal insert(array $values)
- * @method static CachedBuilder|LimeSettingsGlobal isCachable()
- * @method static CachedBuilder|LimeSettingsGlobal max($column)
- * @method static CachedBuilder|LimeSettingsGlobal min($column)
- * @method static CachedBuilder|LimeSettingsGlobal newModelQuery()
- * @method static CachedBuilder|LimeSettingsGlobal newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSettingsGlobal query()
- * @method static CachedBuilder|LimeSettingsGlobal sum($column)
- * @method static CachedBuilder|LimeSettingsGlobal truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
- *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @method static CachedBuilder<static>|LimeSettingsGlobal all($columns = [])
+ * @method static CachedBuilder<static>|LimeSettingsGlobal avg($column)
+ * @method static CachedBuilder<static>|LimeSettingsGlobal cache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeSettingsGlobal cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder<static>|LimeSettingsGlobal count($columns = '*')
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSettingsGlobal disableCache()
+ * @method static CachedBuilder<static>|LimeSettingsGlobal disableModelCaching()
+ * @method static CachedBuilder<static>|LimeSettingsGlobal exists()
+ * @method static CachedBuilder<static>|LimeSettingsGlobal flushCache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeSettingsGlobal getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeSettingsGlobal inRandomOrder($seed = '')
+ * @method static CachedBuilder<static>|LimeSettingsGlobal insert(array $values)
+ * @method static CachedBuilder<static>|LimeSettingsGlobal isCachable()
+ * @method static CachedBuilder<static>|LimeSettingsGlobal max($column)
+ * @method static CachedBuilder<static>|LimeSettingsGlobal min($column)
+ * @method static CachedBuilder<static>|LimeSettingsGlobal newModelQuery()
+ * @method static CachedBuilder<static>|LimeSettingsGlobal newQuery()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSettingsGlobal ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeSettingsGlobal query()
+ * @method static CachedBuilder<static>|LimeSettingsGlobal sum($column)
+ * @method static CachedBuilder<static>|LimeSettingsGlobal truncate()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSettingsGlobal withCacheCooldownSeconds(?int $seconds = null)
  * @mixin \Eloquent
  */
 class LimeSettingsGlobal extends BaseModel

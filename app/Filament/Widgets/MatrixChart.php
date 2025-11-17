@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Modules\Limesurvey\Filament\Widgets;
 
 use Filament\Widgets\ChartWidget;
@@ -9,8 +11,11 @@ use Modules\Limesurvey\Models\SurveyResponse;
 class MatrixChart extends ChartWidget
 {
     public $surveyId;
+
     public $questionId;
+
     public $subQuestions; // Lista delle sotto-domande (righe della matrice)
+
     protected ?string $heading = 'Risposte a Domande a Matrice';
 
     public function __construct($surveyId, $questionId, $subQuestions)

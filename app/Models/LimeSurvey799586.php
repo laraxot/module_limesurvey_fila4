@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSurvey799586Factory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
+use Modules\Limesurvey\Database\Factories\LimeSurvey799586Factory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey799586
@@ -632,6 +632,49 @@ use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
  * @method static \Illuminate\Database\Eloquent\Builder|LimeSurvey799586 where799586X1013X33027B23#0($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LimeSurvey799586 where799586X1013X33027B23#1($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1008X33015B01#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1008X33015B01#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1008X33015B02#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1008X33015B02#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33018B04#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33018B04#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33018B05#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33018B05#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33018B06#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33018B06#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33018B07#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33018B07#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33018B09#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33018B09#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33018B10#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33018B10#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33043B08#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1010X33043B08#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1011X33021B12#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1011X33021B12#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1011X33021B13#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1011X33021B13#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1011X33021B14#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1011X33021B14#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1011X33021B15#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1011X33021B15#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1012X33024B17#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1012X33024B17#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1012X33024B18#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1012X33024B18#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1012X33024B19#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1012X33024B19#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1012X33024B20#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1012X33024B20#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1013X33027B22#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1013X33027B22#1($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1013X33027B23#0($value)
+ * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1013X33027B23#1($value)
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey799586 extends BaseModel implements LimeSurveyXXXContract
@@ -639,18 +682,18 @@ class LimeSurvey799586 extends BaseModel implements LimeSurveyXXXContract
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_survey_799586';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'token', 'submitdate', 'lastpage', 'startlanguage', 'seed', 'startdate', 'datestamp', 'ipaddr', '799586X1018X33007', '799586X1007X33041', '799586X1007X33012', '799586X1007X33013', '799586X1007X33014', '799586X1009X33044', '799586X1008X33015B01#0', '799586X1008X33015B01#1', '799586X1008X33015B02#0', '799586X1008X33015B02#1', '799586X1008X33016', '799586X1008X33017', '799586X1010X33018B04#0', '799586X1010X33018B04#1', '799586X1010X33018B05#0', '799586X1010X33018B05#1', '799586X1010X33018B06#0', '799586X1010X33018B06#1', '799586X1010X33018B07#0', '799586X1010X33018B07#1', '799586X1010X33018B09#0', '799586X1010X33018B09#1', '799586X1010X33018B10#0', '799586X1010X33018B10#1', '799586X1010X33043B08#0', '799586X1010X33043B08#1', '799586X1010X33019', '799586X1010X33020', '799586X1011X33021B12#0', '799586X1011X33021B12#1', '799586X1011X33021B13#0', '799586X1011X33021B13#1', '799586X1011X33021B14#0', '799586X1011X33021B14#1', '799586X1011X33021B15#0', '799586X1011X33021B15#1', '799586X1011X33022', '799586X1011X33023', '799586X1012X33024B17#0', '799586X1012X33024B17#1', '799586X1012X33024B18#0', '799586X1012X33024B18#1', '799586X1012X33024B19#0', '799586X1012X33024B19#1', '799586X1012X33024B20#0', '799586X1012X33024B20#1', '799586X1012X33025', '799586X1012X33026', '799586X1013X33027B22#0', '799586X1013X33027B22#1', '799586X1013X33027B23#0', '799586X1013X33027B23#1', '799586X1013X33028', '799586X1013X33029', '799586X1014X33030', '799586X1014X330311', '799586X1014X330312', '799586X1014X330313', '799586X1014X330314', '799586X1014X330315', '799586X1015X33032', '799586X1015X33033', '799586X1015X33034', '799586X1015X33042', '799586X1015X33035', '799586X1015X33036', '799586X1015X33036other', '799586X1016X33008', '799586X1016X33009', '799586X1016X33010', '799586X1016X33037', '799586X1016X33011', '799586X1016X33038', '799586X1017X33006', '799586X1017X33006other', '799586X1017X33039', '799586X1017X33040', '799586X1017X33045',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

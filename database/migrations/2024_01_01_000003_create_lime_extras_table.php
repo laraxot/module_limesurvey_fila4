@@ -9,8 +9,10 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 /**
  * Class CreateLimeQuestionL10nsTable.
  */
-return new class () extends XotBaseMigration {
+return new class extends XotBaseMigration
+{
     protected ?string $model_class = Extra::class;
+
     /**
      * Run the migrations.
      */
@@ -42,6 +44,4 @@ return new class () extends XotBaseMigration {
             }
         );
     }
-
-
 };

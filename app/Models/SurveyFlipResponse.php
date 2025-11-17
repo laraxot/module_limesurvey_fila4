@@ -4,16 +4,84 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Builder;
+use Modules\Quaeris\Datas\AlertDashboardFilterData;
 use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Quaeris\Datas\DashboardFilterData;
-use Modules\Quaeris\Datas\AlertDashboardFilterData;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class SurveyFlipResponse.
+ *
+ * @property int $id
+ * @property string|null $survey_id
+ * @property string|null $question_id
+ * @property string|null $question_type
+ * @property string|null $token
+ * @property string|null $answer
+ * @property string|null $value
+ * @property \Illuminate\Support\Carbon|null $submitdate
+ * @property string|null $fieldname
+ * @property string|null $old_id
+ * @property string|null $created_at
+ * @property string|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property string|null $deleted_at
+ * @property string|null $deleted_by
+ * @property string|null $feedback
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Limesurvey\Models\LimeQuestion|null $question
+ * @property-read \Modules\Limesurvey\Models\LimeSurvey|null $survey
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse all($columns = [])
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse avg($column)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse cache(array $tags = [])
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse cachedValue(array $arguments, string $cacheKey)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse count($columns = '*')
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse disableCache()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse disableModelCaching()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse exists()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse flushCache(array $tags = [])
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse inRandomOrder($seed = '')
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse insert(array $values)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse isCachable()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse max($column)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse min($column)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse newModelQuery()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse newQuery()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse ofAlertDashboardFilterData(\Modules\Quaeris\Datas\AlertDashboardFilterData $filter)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse ofAlertDashboardFilterDataOLD(\Modules\Quaeris\Datas\AlertDashboardFilterData $filter)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse ofDashboardFilterData(\Modules\Quaeris\Datas\DashboardFilterData $filter)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse query()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse sum($column)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse truncate()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereAnswer($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereCreatedAt($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereCreatedBy($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereDeletedAt($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereDeletedBy($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereFeedback($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereFieldname($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereId($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereOldId($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereQuestionId($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereQuestionType($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereSubmitdate($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereSurveyId($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereToken($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereUpdatedAt($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereUpdatedBy($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereValue($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse withCacheCooldownSeconds(?int $seconds = null)
+ *
+ * @mixin \Eloquent
  */
 class SurveyFlipResponse extends BaseModel
 {
@@ -48,8 +116,6 @@ class SurveyFlipResponse extends BaseModel
 
     /**
      * Relazione con il modello LimeQuestion.
-     *
-     * @return BelongsTo
      */
     public function question(): BelongsTo
     {
@@ -58,8 +124,6 @@ class SurveyFlipResponse extends BaseModel
 
     /**
      * Relazione con il modello Survey.
-     *
-     * @return BelongsTo
      */
     public function survey(): BelongsTo
     {
@@ -70,35 +134,27 @@ class SurveyFlipResponse extends BaseModel
      * Relazione con il modello Participant dalla tabella lime_tokens_<survey_id>.
      *
      * @return HasOne
-    
+
     public function participant(): HasOne
     {
         // Costruisce dinamicamente il nome della tabella
         $table = 'lime_tokens_' . $this->survey_id;
-    
+
         return $this->hasOne($table, 'token', 'participant_id'); // Relazione 1 a 1
     }
     */
     /**
      * Restituisce i partecipanti per un determinato survey_id.
-     *
-     * @param string $survey_id
-     *
-     * @return Collection
      */
     public static function getParticipants(string $survey_id): Collection
     {
-        $table = 'lime_tokens_' . $survey_id;
+        $table = 'lime_tokens_'.$survey_id;
 
         return DB::table($table)->get(); // Ottieni tutti i partecipanti per il survey_id specificato
     }
 
     /**
      * Ottiene le risposte per un determinato survey_id.
-     *
-     * @param string $survey_id
-     *
-     * @return Collection
      */
     public static function getResponsesBySurveyId(string $survey_id): Collection
     {
@@ -128,11 +184,11 @@ class SurveyFlipResponse extends BaseModel
         );
     }
 
-    public function scopeOfDashboardFilterData(Builder $query,DashboardFilterData $filter): Builder{
+    public function scopeOfDashboardFilterData(Builder $query, DashboardFilterData $filter): Builder
+    {
 
-        $query=$query->where('submitdate', '>=', $filter->startDate)
-            ->where('submitdate', '<=', $filter->endDate)
-        ;
+        $query = $query->where('submitdate', '>=', $filter->startDate)
+            ->where('submitdate', '<=', $filter->endDate);
 
         if ($filter->question_filter !== null) {
             $filter_field = $filter->question_filter_fieldname;
@@ -147,7 +203,7 @@ class SurveyFlipResponse extends BaseModel
     public function scopeOfAlertDashboardFilterData(Builder $query, AlertDashboardFilterData $filter): Builder
     {
         $dashboard_filter_data = $filter->getDashboardFilterData();
-    
+
         $query = $query->ofDashboardFilterData($dashboard_filter_data)
             // ->whereNull('value')  // Filtro principale: solo record con value NULL
             // Verifica che answer contenga solo numeri (con possibili zeri iniziali)
@@ -167,14 +223,14 @@ class SurveyFlipResponse extends BaseModel
                     return $query->whereRaw('CAST(REGEXP_REPLACE(answer, "^0+", "") AS DECIMAL) <= ?', [$value]);
                 }
             );
-    
+
         return $query;
     }
 
     public function scopeOfAlertDashboardFilterDataOLD(Builder $query, AlertDashboardFilterData $filter): Builder
     {
         $dashboard_filter_data = $filter->getDashboardFilterData();
-    
+
         $query = $query->ofDashboardFilterData($dashboard_filter_data)
             ->when(
                 $filter->min_value,
@@ -206,8 +262,7 @@ class SurveyFlipResponse extends BaseModel
                     });
                 }
             );
-    
+
         return $query;
     }
-    
 }

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSurveysGroupFactory;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Modules\Limesurvey\Database\Factories\LimeSurveysGroupFactory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurveysGroup
@@ -63,6 +63,10 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder|LimeSurveysGroup whereTemplate($value)
  * @method static CachedBuilder|LimeSurveysGroup whereTitle($value)
  *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class LimeSurveysGroup extends BaseModel
@@ -70,18 +74,18 @@ class LimeSurveysGroup extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_surveys_groups';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'gsid';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'name', 'title', 'template', 'description', 'sortorder', 'owner_id', 'parent_id', 'created', 'modified', 'created_by',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Limesurvey\Database\Factories\LimeSurveyFactory;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
@@ -17,40 +15,6 @@ use stdClass;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey
- *
- * @property-read array $attributedescriptions
- * @property-read string|null $title
- * @property-read \Illuminate\Database\Eloquent\Collection<int, LimeGroup> $groups
- * @property-read int|null $groups_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, LimeGroupL10n> $groups_l10n
- * @property-read int|null $groups_l10n_count
- * @property-read LimeSurveysLanguagesetting|null $lang
- * @property-read \Illuminate\Database\Eloquent\Collection<int, LimeQuestion> $questions
- * @property-read int|null $questions_count
- *
- * @method static CachedBuilder|LimeSurvey all($columns = [])
- * @method static CachedBuilder|LimeSurvey avg($column)
- * @method static CachedBuilder|LimeSurvey cache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSurvey count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeSurvey disableModelCaching()
- * @method static CachedBuilder|LimeSurvey exists()
- * @method static LimeSurveyFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeSurvey flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSurvey inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSurvey insert(array $values)
- * @method static CachedBuilder|LimeSurvey isCachable()
- * @method static CachedBuilder|LimeSurvey max($column)
- * @method static CachedBuilder|LimeSurvey min($column)
- * @method static CachedBuilder|LimeSurvey newModelQuery()
- * @method static CachedBuilder|LimeSurvey newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSurvey query()
- * @method static CachedBuilder|LimeSurvey sum($column)
- * @method static CachedBuilder|LimeSurvey truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $sid
  * @property int $owner_id
@@ -89,6 +53,7 @@ use stdClass;
  * @property string $usecaptcha
  * @property string $usetokens
  * @property string|null $bounce_email
+ * @property array $attributedescriptions
  * @property string|null $emailresponseto
  * @property string|null $emailnotificationto
  * @property int $tokenlength
@@ -111,72 +76,103 @@ use stdClass;
  * @property string|null $alloweditaftercompletion
  * @property string|null $googleanalyticsstyle
  * @property string|null $googleanalyticsapikey
- * @property array|null $tokenencryptionoptions
+ * @property array<array-key, mixed>|null $tokenencryptionoptions
  * @property string $ipanonymize
- *
- * @method static CachedBuilder|LimeSurvey whereActive($value)
- * @method static CachedBuilder|LimeSurvey whereAdditionalLanguages($value)
- * @method static CachedBuilder|LimeSurvey whereAdmin($value)
- * @method static CachedBuilder|LimeSurvey whereAdminemail($value)
- * @method static CachedBuilder|LimeSurvey whereAlloweditaftercompletion($value)
- * @method static CachedBuilder|LimeSurvey whereAllowprev($value)
- * @method static CachedBuilder|LimeSurvey whereAllowregister($value)
- * @method static CachedBuilder|LimeSurvey whereAllowsave($value)
- * @method static CachedBuilder|LimeSurvey whereAnonymized($value)
- * @method static CachedBuilder|LimeSurvey whereAssessments($value)
- * @method static CachedBuilder|LimeSurvey whereAttributedescriptions($value)
- * @method static CachedBuilder|LimeSurvey whereAutonumberStart($value)
- * @method static CachedBuilder|LimeSurvey whereAutoredirect($value)
- * @method static CachedBuilder|LimeSurvey whereBounceEmail($value)
- * @method static CachedBuilder|LimeSurvey whereBounceaccountencryption($value)
- * @method static CachedBuilder|LimeSurvey whereBounceaccounthost($value)
- * @method static CachedBuilder|LimeSurvey whereBounceaccountpass($value)
- * @method static CachedBuilder|LimeSurvey whereBounceaccounttype($value)
- * @method static CachedBuilder|LimeSurvey whereBounceaccountuser($value)
- * @method static CachedBuilder|LimeSurvey whereBounceprocessing($value)
- * @method static CachedBuilder|LimeSurvey whereBouncetime($value)
- * @method static CachedBuilder|LimeSurvey whereDatecreated($value)
- * @method static CachedBuilder|LimeSurvey whereDatestamp($value)
- * @method static CachedBuilder|LimeSurvey whereEmailnotificationto($value)
- * @method static CachedBuilder|LimeSurvey whereEmailresponseto($value)
- * @method static CachedBuilder|LimeSurvey whereExpires($value)
- * @method static CachedBuilder|LimeSurvey whereFaxto($value)
- * @method static CachedBuilder|LimeSurvey whereFormat($value)
- * @method static CachedBuilder|LimeSurvey whereGoogleanalyticsapikey($value)
- * @method static CachedBuilder|LimeSurvey whereGoogleanalyticsstyle($value)
- * @method static CachedBuilder|LimeSurvey whereGsid($value)
- * @method static CachedBuilder|LimeSurvey whereHtmlemail($value)
- * @method static CachedBuilder|LimeSurvey whereIpaddr($value)
- * @method static CachedBuilder|LimeSurvey whereIpanonymize($value)
- * @method static CachedBuilder|LimeSurvey whereLanguage($value)
- * @method static CachedBuilder|LimeSurvey whereListpublic($value)
- * @method static CachedBuilder|LimeSurvey whereNavigationdelay($value)
- * @method static CachedBuilder|LimeSurvey whereNokeyboard($value)
- * @method static CachedBuilder|LimeSurvey whereOwnerId($value)
- * @method static CachedBuilder|LimeSurvey wherePrintanswers($value)
- * @method static CachedBuilder|LimeSurvey wherePublicgraphs($value)
- * @method static CachedBuilder|LimeSurvey wherePublicstatistics($value)
- * @method static CachedBuilder|LimeSurvey whereQuestionindex($value)
- * @method static CachedBuilder|LimeSurvey whereRefurl($value)
- * @method static CachedBuilder|LimeSurvey whereSavetimings($value)
- * @method static CachedBuilder|LimeSurvey whereSendconfirmation($value)
- * @method static CachedBuilder|LimeSurvey whereShowgroupinfo($value)
- * @method static CachedBuilder|LimeSurvey whereShownoanswer($value)
- * @method static CachedBuilder|LimeSurvey whereShowprogress($value)
- * @method static CachedBuilder|LimeSurvey whereShowqnumcode($value)
- * @method static CachedBuilder|LimeSurvey whereShowsurveypolicynotice($value)
- * @method static CachedBuilder|LimeSurvey whereShowwelcome($value)
- * @method static CachedBuilder|LimeSurvey whereShowxquestions($value)
- * @method static CachedBuilder|LimeSurvey whereSid($value)
- * @method static CachedBuilder|LimeSurvey whereStartdate($value)
- * @method static CachedBuilder|LimeSurvey whereTemplate($value)
- * @method static CachedBuilder|LimeSurvey whereTokenanswerspersistence($value)
- * @method static CachedBuilder|LimeSurvey whereTokenencryptionoptions($value)
- * @method static CachedBuilder|LimeSurvey whereTokenlength($value)
- * @method static CachedBuilder|LimeSurvey whereUsecaptcha($value)
- * @method static CachedBuilder|LimeSurvey whereUsecookie($value)
- * @method static CachedBuilder|LimeSurvey whereUsetokens($value)
- *
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read string|null $title
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeGroup> $groups
+ * @property-read int|null $groups_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeGroupL10n> $groups_l10n
+ * @property-read int|null $groups_l10n_count
+ * @property-read \Modules\Limesurvey\Models\LimeSurveysLanguagesetting|null $lang
+ * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $questions
+ * @property-read int|null $questions_count
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @method static CachedBuilder<static>|LimeSurvey all($columns = [])
+ * @method static CachedBuilder<static>|LimeSurvey avg($column)
+ * @method static CachedBuilder<static>|LimeSurvey cache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeSurvey cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder<static>|LimeSurvey count($columns = '*')
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey disableCache()
+ * @method static CachedBuilder<static>|LimeSurvey disableModelCaching()
+ * @method static CachedBuilder<static>|LimeSurvey exists()
+ * @method static CachedBuilder<static>|LimeSurvey flushCache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeSurvey getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeSurvey inRandomOrder($seed = '')
+ * @method static CachedBuilder<static>|LimeSurvey insert(array $values)
+ * @method static CachedBuilder<static>|LimeSurvey isCachable()
+ * @method static CachedBuilder<static>|LimeSurvey max($column)
+ * @method static CachedBuilder<static>|LimeSurvey min($column)
+ * @method static CachedBuilder<static>|LimeSurvey newModelQuery()
+ * @method static CachedBuilder<static>|LimeSurvey newQuery()
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeSurvey query()
+ * @method static CachedBuilder<static>|LimeSurvey sum($column)
+ * @method static CachedBuilder<static>|LimeSurvey truncate()
+ * @method static CachedBuilder<static>|LimeSurvey whereActive($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereAdditionalLanguages($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereAdmin($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereAdminemail($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereAlloweditaftercompletion($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereAllowprev($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereAllowregister($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereAllowsave($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereAnonymized($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereAssessments($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereAttributedescriptions($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereAutonumberStart($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereAutoredirect($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereBounceEmail($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereBounceaccountencryption($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereBounceaccounthost($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereBounceaccountpass($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereBounceaccounttype($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereBounceaccountuser($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereBounceprocessing($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereBouncetime($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereDatecreated($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereDatestamp($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereEmailnotificationto($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereEmailresponseto($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereExpires($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereFaxto($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereFormat($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereGoogleanalyticsapikey($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereGoogleanalyticsstyle($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereGsid($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereHtmlemail($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereIpaddr($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereIpanonymize($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereLanguage($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereListpublic($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereNavigationdelay($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereNokeyboard($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereOwnerId($value)
+ * @method static CachedBuilder<static>|LimeSurvey wherePrintanswers($value)
+ * @method static CachedBuilder<static>|LimeSurvey wherePublicgraphs($value)
+ * @method static CachedBuilder<static>|LimeSurvey wherePublicstatistics($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereQuestionindex($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereRefurl($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereSavetimings($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereSendconfirmation($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereShowgroupinfo($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereShownoanswer($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereShowprogress($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereShowqnumcode($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereShowsurveypolicynotice($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereShowwelcome($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereShowxquestions($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereSid($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereStartdate($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereTemplate($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereTokenanswerspersistence($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereTokenencryptionoptions($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereTokenlength($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereUsecaptcha($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereUsecookie($value)
+ * @method static CachedBuilder<static>|LimeSurvey whereUsetokens($value)
+ * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey withCacheCooldownSeconds(?int $seconds = null)
  * @mixin \Eloquent
  */
 class LimeSurvey extends BaseModel
@@ -184,13 +180,13 @@ class LimeSurvey extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /**  @var string   */
+    /** @var string */
     protected $table = 'lime_surveys';
 
-    /**  @var string   */
+    /** @var string */
     protected $primaryKey = 'sid';
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $fillable = [
         'owner_id',
         'gsid',
@@ -253,7 +249,7 @@ class LimeSurvey extends BaseModel
         'googleanalyticsapikey',
     ];
 
-    /** @var array<int, string>  */
+    /** @var array<int, string> */
     protected $hidden = [
     ];
 
@@ -338,6 +334,7 @@ class LimeSurvey extends BaseModel
             return $this->hasMany(LimeGroup::class, 'sid', 'sid')
                 ->with('labels');
         }
+
         return $this->hasMany(LimeGroup::class, 'sid', 'sid');
         // ->with('labels')
     }

@@ -1,26 +1,34 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Modules\Limesurvey\Filament\Widgets;
 
 use Exception;
-use Filament\Widgets\ChartWidget;
 use Filament\Support\RawJs;
+use Filament\Widgets\ChartWidget;
 
 class ChartItemWidget extends ChartWidget
 {
     public string $type;
+
     public array $chartData;
+
     public ?string $chartTitle = null;
+
     public ?string $chartDescription = null;
+
     public string|RawJs|null $chartOptions = null;
 
     protected ?string $pollingInterval = null;
+
     protected string $color = 'info';
+
     protected ?string $maxHeight = '300px';
 
     public function mount(): void
     {
-        if (!isset($this->type) || !isset($this->chartData)) {
+        if (! isset($this->type) || ! isset($this->chartData)) {
             throw new Exception('Chart type and data must be set');
         }
     }
@@ -55,6 +63,6 @@ class ChartItemWidget extends ChartWidget
             return $this->chartOptions;
         }
 
-        return RawJs::make('{' . $this->chartOptions . '}');
+        return RawJs::make('{'.$this->chartOptions.'}');
     }
 }
