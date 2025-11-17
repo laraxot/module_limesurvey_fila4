@@ -4,10 +4,37 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Limesurvey\Database\Factories\LimeSurvey422747TimingsFactory;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey422747Timings
+ *
+ * @method static CachedBuilder|LimeSurvey422747Timings all($columns = [])
+ * @method static CachedBuilder|LimeSurvey422747Timings avg($column)
+ * @method static CachedBuilder|LimeSurvey422747Timings cache(array $tags = [])
+ * @method static CachedBuilder|LimeSurvey422747Timings cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeSurvey422747Timings count($columns = '*')
+ * @method static CachedBuilder|BaseModel disableCache()
+ * @method static CachedBuilder|LimeSurvey422747Timings disableModelCaching()
+ * @method static CachedBuilder|LimeSurvey422747Timings exists()
+ * @method static LimeSurvey422747TimingsFactory factory($count = null, $state = [])
+ * @method static CachedBuilder|LimeSurvey422747Timings flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeSurvey422747Timings getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeSurvey422747Timings inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeSurvey422747Timings insert(array $values)
+ * @method static CachedBuilder|LimeSurvey422747Timings isCachable()
+ * @method static CachedBuilder|LimeSurvey422747Timings max($column)
+ * @method static CachedBuilder|LimeSurvey422747Timings min($column)
+ * @method static CachedBuilder|LimeSurvey422747Timings newModelQuery()
+ * @method static CachedBuilder|LimeSurvey422747Timings newQuery()
+ * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeSurvey422747Timings query()
+ * @method static CachedBuilder|LimeSurvey422747Timings sum($column)
+ * @method static CachedBuilder|LimeSurvey422747Timings truncate()
+ * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $id
  * @property float|null $interviewtime
@@ -42,65 +69,40 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property float|null $422747X945X32055time
  * @property float|null $422747X945X32057time
  * @property float|null $422747X945X32058time
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeSurvey422747Timings all($columns = [])
- * @method static CachedBuilder<static>|LimeSurvey422747Timings avg($column)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSurvey422747Timings cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey422747Timings disableCache()
- * @method static CachedBuilder<static>|LimeSurvey422747Timings disableModelCaching()
- * @method static CachedBuilder<static>|LimeSurvey422747Timings exists()
- * @method static CachedBuilder<static>|LimeSurvey422747Timings flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSurvey422747Timings getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeSurvey422747Timings insert(array $values)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings isCachable()
- * @method static CachedBuilder<static>|LimeSurvey422747Timings max($column)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings min($column)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings newModelQuery()
- * @method static CachedBuilder<static>|LimeSurvey422747Timings newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey422747Timings ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings query()
- * @method static CachedBuilder<static>|LimeSurvey422747Timings sum($column)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings truncate()
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X941X32033time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X941X32034time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X941X32035time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X941X32056time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X941time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X942X32036time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X942X32042time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X942X32043time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X942X32044time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X942X32045time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X942X32046time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X942time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X943X32037time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X943X32047time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X943X32048time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X943X32049time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X943time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X944X32038time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X944X32039time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X944X32040time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X944X32041time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X944X32050time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X944X32052time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X944time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X945X32051time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X945X32053time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X945X32054time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X945X32055time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X945X32057time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X945X32058time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings where422747X945time($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings whereId($value)
- * @method static CachedBuilder<static>|LimeSurvey422747Timings whereInterviewtime($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey422747Timings withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X941X32033time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X941X32034time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X941X32035time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X941X32056time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X941time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X942X32036time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X942X32042time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X942X32043time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X942X32044time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X942X32045time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X942X32046time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X942time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X943X32037time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X943X32047time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X943X32048time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X943X32049time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X943time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X944X32038time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X944X32039time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X944X32040time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X944X32041time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X944X32050time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X944X32052time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X944time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X945X32051time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X945X32053time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X945X32054time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X945X32055time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X945X32057time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X945X32058time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings where422747X945time($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings whereId($value)
+ * @method static CachedBuilder|LimeSurvey422747Timings whereInterviewtime($value)
  *
  * @mixin \Eloquent
  */
@@ -109,18 +111,18 @@ class LimeSurvey422747Timings extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /** @var string */
+    /**  @var string   */
     protected $table = 'lime_survey_422747_timings';
 
-    /** @var string */
+    /**  @var string   */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $fillable = [
         'interviewtime', '422747X941time', '422747X941X32056time', '422747X941X32033time', '422747X941X32034time', '422747X941X32035time', '422747X942time', '422747X942X32036time', '422747X942X32042time', '422747X942X32043time', '422747X942X32044time', '422747X942X32045time', '422747X942X32046time', '422747X943time', '422747X943X32037time', '422747X943X32047time', '422747X943X32048time', '422747X943X32049time', '422747X944time', '422747X944X32038time', '422747X944X32039time', '422747X944X32040time', '422747X944X32041time', '422747X944X32052time', '422747X944X32050time', '422747X945time', '422747X945X32051time', '422747X945X32053time', '422747X945X32054time', '422747X945X32055time', '422747X945X32057time', '422747X945X32058time',
     ];
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $hidden = [
     ];
 

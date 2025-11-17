@@ -1,30 +1,95 @@
 <?php
-
 declare(strict_types=1);
-
 namespace Modules\Limesurvey\Filament\Widgets;
 
 use Filament\Widgets\Widget;
 use Illuminate\Support\Facades\Cache;
 use Modules\Limesurvey\Models\SurveyResponse;
+use Modules\Limesurvey\Filament\Widgets\ChartItemWidget;
 
 class TypeF extends Widget
 {
     public $surveyId;
-
     public $fieldName;
-
     public $questionId;
-
     public $title;
-
     public string $date_from;
-
     public string $date_to;
-
     protected static ?string $heading = '';
 
     protected string $view = 'limesurvey::filament.widgets.type-f';
+
+    /**
+     * Base della query con condizioni comuni.
+     */
+    protected function baseSurveyQuery()
+    {
+        $query = SurveyResponse::getResponsesForSurvey($this->surveyId)
+            ->whereNotNull('submitdate')
+            ->whereBetween('submitdate', [$this->date_from, $this->date_to])
+            ;
+        return $query;
+    }
+
+    /**
+     * Ottiene il conteggio totale e la media globale (0-10) con una singola query.
+     */
+    protected function getTotalAndAverage()
+    {
+        return Cache::remember("survey_stats_{$this->surveyId}_{$this->date_from}_{$this->date_to}", now()->addMinutes(5), function () {
+            $result = $this->baseSurveyQuery()
+                ->selectRaw('
+                    COUNT(' . $this->fieldName . ') AS total, 
+                    ROUND(AVG(CASE WHEN ' . $this->fieldName . ' BETWEEN 0 AND 10 THEN ' . $this->fieldName . ' END), 2) AS overall_average
+                ')
+                ->first();
+    
+            return [
+                'total' => $result->total ?? 0,
+                'average' => $result->overall_average ?? 0,
+            ];
+        });
+    }
+    
+
+    /**
+     * Query aggregata per medie mensili o settimanali.
+     */
+    protected function getAggregateStats($groupByFormat, $groupByAlias)
+    {
+        return $this->baseSurveyQuery()
+            ->selectRaw("
+                DATE_FORMAT(submitdate, '{$groupByFormat}') AS {$groupByAlias},
+                COUNT(CASE WHEN {$this->fieldName} BETWEEN 0 AND 10 THEN 1 END) AS response_count,
+                ROUND(AVG(CASE WHEN {$this->fieldName} BETWEEN 0 AND 10 THEN {$this->fieldName} END), 2) AS average
+            ")
+            ->groupBy($groupByAlias)
+            ->orderBy($groupByAlias, 'asc')
+            ->get();
+    }
+
+
+    /**
+     * Medie mensili limitate ai 3 risultati più recenti.
+     */
+    protected function getMonthlyStats()
+    {
+        return $this->getAggregateStats("%Y-%m", 'month')
+            ->sortByDesc('month')  // Ordina per mese in ordine decrescente
+            ->take(3)               // Prendi solo i primi 3 risultati
+            ->sortBy('month');      // Riordina in ordine cronologico
+    }
+
+    /**
+     * Medie settimanali limitate ai 3 risultati più recenti.
+     */
+    protected function getWeeklyStats()
+    {
+        return $this->getAggregateStats("%Y-%u", 'week_label')
+            ->sortByDesc('week_label')  // Ordina per settimana in ordine decrescente
+            ->take(3)                   // Prendi solo i primi 3 risultati
+            ->sortBy('week_label');     // Riordina in ordine cronologico
+    }
 
     /**
      * Genera i widget per i grafici.
@@ -118,7 +183,7 @@ class TypeF extends Widget
         JS;
 
         // Configurazione delle opzioni per il grafico a barre
-        $barOptions = <<<'JS'
+        $barOptions = <<<JS
             'plugins': {
                 'legend': {
                     'display': false,
@@ -190,16 +255,16 @@ class TypeF extends Widget
                     'type' => 'doughnut',
                     'chartTitle' => '',
                     'chartData' => [
-                        'labels' => ['Media'],
+                        'labels' => ["Media"], 
                         'datasets' => [
                             [
                                 'data' => [$average, 10 - $average],
-                                'backgroundColor' => ['#ccc', '#FFFFFF'],
-                            ],
-                        ],
+                                'backgroundColor' => ["#ccc", "#FFFFFF"],
+                            ]
+                        ]
                     ],
                     'chartOptions' => $doughnutOptions,
-                ],
+                ]
             ],
             // Primo grafico a barre (mensile)
             [
@@ -211,15 +276,15 @@ class TypeF extends Widget
                         'labels' => $monthlyLabels,
                         'datasets' => [
                             [
-                                'label' => 'Media Mensile',
+                                'label' => "Media Mensile",
                                 'data' => $monthlyAverages,
                                 'data2' => $monthlyCounts, // Aggiunto il numero di rispondenti
-                                'backgroundColor' => ['#36A2EB', '#36A2EB', '#36A2EB'],
-                            ],
-                        ],
+                                'backgroundColor' => ["#36A2EB", "#36A2EB", "#36A2EB"],
+                            ]
+                        ]
                     ],
                     'chartOptions' => $barOptions,
-                ],
+                ]
             ],
             // Secondo grafico a barre (settimanale)
             [
@@ -231,84 +296,16 @@ class TypeF extends Widget
                         'labels' => $weeklyLabels,
                         'datasets' => [
                             [
-                                'label' => 'Media Settimanale',
+                                'label' => "Media Settimanale",
                                 'data' => $weeklyAverages,
                                 'data2' => $weeklyCounts, // Aggiunto il numero di rispondenti
-                                'backgroundColor' => ['#36A2EB', '#36A2EB', '#36A2EB'],
-                            ],
-                        ],
+                                'backgroundColor' => ["#36A2EB", "#36A2EB", "#36A2EB"],
+                            ]
+                        ]
                     ],
                     'chartOptions' => $barOptions,
-                ],
-            ],
+                ]
+            ]
         ];
-    }
-
-    /**
-     * Base della query con condizioni comuni.
-     */
-    protected function baseSurveyQuery()
-    {
-        return SurveyResponse::getResponsesForSurvey($this->surveyId)
-            ->whereNotNull('submitdate')
-            ->whereBetween('submitdate', [$this->date_from, $this->date_to]);
-    }
-
-    /**
-     * Ottiene il conteggio totale e la media globale (0-10) con una singola query.
-     */
-    protected function getTotalAndAverage()
-    {
-        return Cache::remember("survey_stats_{$this->surveyId}_{$this->date_from}_{$this->date_to}", now()->addMinutes(5), function () {
-            $result = $this->baseSurveyQuery()
-                ->selectRaw('
-                    COUNT('.$this->fieldName.') AS total, 
-                    ROUND(AVG(CASE WHEN '.$this->fieldName.' BETWEEN 0 AND 10 THEN '.$this->fieldName.' END), 2) AS overall_average
-                ')
-                ->first();
-
-            return [
-                'total' => $result->total ?? 0,
-                'average' => $result->overall_average ?? 0,
-            ];
-        });
-    }
-
-    /**
-     * Query aggregata per medie mensili o settimanali.
-     */
-    protected function getAggregateStats($groupByFormat, $groupByAlias)
-    {
-        return $this->baseSurveyQuery()
-            ->selectRaw("
-                DATE_FORMAT(submitdate, '{$groupByFormat}') AS {$groupByAlias},
-                COUNT(CASE WHEN {$this->fieldName} BETWEEN 0 AND 10 THEN 1 END) AS response_count,
-                ROUND(AVG(CASE WHEN {$this->fieldName} BETWEEN 0 AND 10 THEN {$this->fieldName} END), 2) AS average
-            ")
-            ->groupBy($groupByAlias)
-            ->orderBy($groupByAlias, 'asc')
-            ->get();
-    }
-
-    /**
-     * Medie mensili limitate ai 3 risultati più recenti.
-     */
-    protected function getMonthlyStats()
-    {
-        return $this->getAggregateStats('%Y-%m', 'month')
-            ->sortByDesc('month')  // Ordina per mese in ordine decrescente
-            ->take(3)               // Prendi solo i primi 3 risultati
-            ->sortBy('month');      // Riordina in ordine cronologico
-    }
-
-    /**
-     * Medie settimanali limitate ai 3 risultati più recenti.
-     */
-    protected function getWeeklyStats()
-    {
-        return $this->getAggregateStats('%Y-%u', 'week_label')
-            ->sortByDesc('week_label')  // Ordina per settimana in ordine decrescente
-            ->take(3)                   // Prendi solo i primi 3 risultati
-            ->sortBy('week_label');     // Riordina in ordine cronologico
     }
 }

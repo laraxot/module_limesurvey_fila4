@@ -1,7 +1,5 @@
 <?php
-
 declare(strict_types=1);
-
 namespace Modules\Limesurvey\Filament\Widgets;
 
 use Filament\Widgets\ChartWidget;
@@ -12,13 +10,9 @@ use Modules\Quaeris\Services\TrendX;
 class TypeN extends ChartWidget
 {
     public $surveyId;
-
     public $fieldName;
-
     public $questionId;
-
     public $title;
-
     protected ?string $heading = '';
 
     protected function getType(): string
@@ -33,7 +27,7 @@ class TypeN extends ChartWidget
         // Recupera le risposte dal sondaggio specifico
         $select = [];
         $select[] = DB::raw("{$this->fieldName} as value");
-        // $select[] = DB::raw("count({$this->fieldName}) as count");
+        //$select[] = DB::raw("count({$this->fieldName}) as count");
         $select[] = DB::raw('answer as value_lang');
 
         // Supponiamo che le opzioni siano memorizzate con posizioni: answer_<qid>_<rank>
@@ -41,8 +35,10 @@ class TypeN extends ChartWidget
             ->withAnswersLabel($this->questionId, $this->fieldName)
             ->select($select)
             ->whereNotNull($this->fieldName)
-            ->whereNotNull('submitdate');
-        // ->ddRawSql()
+            ->whereNotNull('submitdate')
+            //->ddRawSql()
+
+        ;
         $res = TrendX::query($query)
             ->dateColumn('submitdate')
             ->between(
@@ -52,11 +48,11 @@ class TypeN extends ChartWidget
             ->perMonth()
             ->groupBy($this->fieldName)
             ->orderBy('value')
-            // ->average($this->fieldName);
+            //->average($this->fieldName);
             ->count($this->fieldName);
 
         return [
-            // 'labels' => $res->pluck('date')->toArray(),
+            //'labels' => $res->pluck('date')->toArray(),
             'labels' => $res->pluck('value')->toArray(),
             'datasets' => [
                 [

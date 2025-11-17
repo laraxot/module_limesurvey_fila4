@@ -1,26 +1,21 @@
 <?php
-
 declare(strict_types=1);
-
 namespace Modules\Limesurvey\Filament\Widgets;
 
-use Filament\Widgets\ChartWidget;
-use Modules\Limesurvey\Models\LimeQuestion;
-use Modules\Limesurvey\Models\LimeQuestionL10n;
-use Modules\Limesurvey\Models\SurveyResponse;
-use Modules\Quaeris\Services\TrendX;
 use Webmozart\Assert\Assert;
+use Filament\Widgets\ChartWidget;
+use Illuminate\Support\Facades\DB;
+use Modules\Quaeris\Services\TrendX;
+use Modules\Limesurvey\Models\LimeQuestion;
+use Modules\Limesurvey\Models\SurveyResponse;
+use Modules\Limesurvey\Models\LimeQuestionL10n;
 
 class TypeM extends ChartWidget
 {
     public $surveyId;
-
     public $fieldName;
-
     public $questionId;
-
     public $title;
-
     protected ?string $heading = 'Risposte a Risposta Singola';
 
     protected function getType(): string
@@ -45,15 +40,19 @@ class TypeM extends ChartWidget
             Assert::isInstanceOf($son->l10n, LimeQuestionL10n::class);
 
             // Aggiunge il campo al SELECT
-            $select[] = "{$field_name}";
+            $select[] = "$field_name";
 
             // Aggiunge l'etichetta della domanda l10n->question come alias
-            $select[] = "'{$son->l10n->question}' AS label_{$k}";
+            $select[] = "'{$son->l10n->question}' AS label_$k";
 
             // Esempio aggiuntivo: puoi mantenere i conteggi condizionali, se necessario
-            $select[] = "COUNT(NULLIF({$field_name}, '')) AS value_{$k}";
+            $select[] = "COUNT(NULLIF($field_name, '')) AS value_$k";
             // $select[] = "COUNT(NULLIF($field_name, '')) * 100 / $tot AS avg_$k";
         }
+
+
+
+
 
         // $select[] = DB::raw("{$this->fieldName} as value");
         // $select[] = DB::raw("count({$this->fieldName}) as count");
@@ -64,7 +63,9 @@ class TypeM extends ChartWidget
             // ->withAnswersLabel($this->questionId, $this->fieldName)
             ->select($select)
             // ->whereNotNull($this->fieldName)
-            ->whereNotNull('submitdate');
+            ->whereNotNull('submitdate')
+
+        ;
 
         dddx([$query->toSql(), $query->get(), $select]);
 
@@ -77,11 +78,11 @@ class TypeM extends ChartWidget
             ->perMonth()
             ->groupBy($this->fieldName)
             ->orderBy('value')
-            // ->average($this->fieldName);
+            //->average($this->fieldName);
             ->count($this->fieldName);
 
         return [
-            // 'labels' => $res->pluck('date')->toArray(),
+            //'labels' => $res->pluck('date')->toArray(),
             'labels' => $res->pluck('value')->toArray(),
             'datasets' => [
                 [

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Modules\Limesurvey\Database\Factories\LimeSurveysLanguagesettingFactory;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Quaeris\Datas\AnswersFilterData;
+use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
  * Modules\Limesurvey\Models\LimeSurveysLanguagesetting
@@ -92,10 +92,6 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsUrldescription($value)
  * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsWelcometext($value)
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
- *
  * @mixin \Eloquent
  */
 class LimeSurveysLanguagesetting extends BaseModel
@@ -103,19 +99,19 @@ class LimeSurveysLanguagesetting extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /** @var string */
+    /**  @var string   */
     protected $table = 'lime_surveys_languagesettings';
 
-    /** @var string */
+    /**  @var string   */
     protected $primaryKey = 'surveyls_survey_id';
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $fillable = [
         'surveyls_survey_id',
         'surveyls_language', 'surveyls_title', 'surveyls_description', 'surveyls_welcometext', 'surveyls_endtext', 'surveyls_policy_notice', 'surveyls_policy_error', 'surveyls_policy_notice_label', 'surveyls_url', 'surveyls_urldescription', 'surveyls_email_invite_subj', 'surveyls_email_invite', 'surveyls_email_remind_subj', 'surveyls_email_remind', 'surveyls_email_register_subj', 'surveyls_email_register', 'surveyls_email_confirm_subj', 'surveyls_email_confirm', 'surveyls_dateformat', 'surveyls_attributecaptions', 'email_admin_notification_subj', 'email_admin_notification', 'email_admin_responses_subj', 'email_admin_responses', 'surveyls_numberformat', 'attachments',
     ];
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $hidden = [
     ];
 

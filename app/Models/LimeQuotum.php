@@ -8,10 +8,37 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Limesurvey\Database\Factories\LimeQuotumFactory;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
  * Modules\Limesurvey\Models\LimeQuotum
+ *
+ * @method static CachedBuilder|LimeQuotum all($columns = [])
+ * @method static CachedBuilder|LimeQuotum avg($column)
+ * @method static CachedBuilder|LimeQuotum cache(array $tags = [])
+ * @method static CachedBuilder|LimeQuotum cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeQuotum count($columns = '*')
+ * @method static CachedBuilder|BaseModel disableCache()
+ * @method static CachedBuilder|LimeQuotum disableModelCaching()
+ * @method static CachedBuilder|LimeQuotum exists()
+ * @method static LimeQuotumFactory factory($count = null, $state = [])
+ * @method static CachedBuilder|LimeQuotum flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeQuotum getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeQuotum inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeQuotum insert(array $values)
+ * @method static CachedBuilder|LimeQuotum isCachable()
+ * @method static CachedBuilder|LimeQuotum max($column)
+ * @method static CachedBuilder|LimeQuotum min($column)
+ * @method static CachedBuilder|LimeQuotum newModelQuery()
+ * @method static CachedBuilder|LimeQuotum newQuery()
+ * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeQuotum query()
+ * @method static CachedBuilder|LimeQuotum sum($column)
+ * @method static CachedBuilder|LimeQuotum truncate()
+ * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $id
  * @property int|null $sid
@@ -20,39 +47,14 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property int|null $action
  * @property int $active
  * @property int $autoload_url
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeQuotum all($columns = [])
- * @method static CachedBuilder<static>|LimeQuotum avg($column)
- * @method static CachedBuilder<static>|LimeQuotum cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeQuotum cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeQuotum count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeQuotum disableCache()
- * @method static CachedBuilder<static>|LimeQuotum disableModelCaching()
- * @method static CachedBuilder<static>|LimeQuotum exists()
- * @method static CachedBuilder<static>|LimeQuotum flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeQuotum getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
- * @method static CachedBuilder<static>|LimeQuotum inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeQuotum insert(array $values)
- * @method static CachedBuilder<static>|LimeQuotum isCachable()
- * @method static CachedBuilder<static>|LimeQuotum max($column)
- * @method static CachedBuilder<static>|LimeQuotum min($column)
- * @method static CachedBuilder<static>|LimeQuotum newModelQuery()
- * @method static CachedBuilder<static>|LimeQuotum newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeQuotum ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeQuotum query()
- * @method static CachedBuilder<static>|LimeQuotum sum($column)
- * @method static CachedBuilder<static>|LimeQuotum truncate()
- * @method static CachedBuilder<static>|LimeQuotum whereAction($value)
- * @method static CachedBuilder<static>|LimeQuotum whereActive($value)
- * @method static CachedBuilder<static>|LimeQuotum whereAutoloadUrl($value)
- * @method static CachedBuilder<static>|LimeQuotum whereId($value)
- * @method static CachedBuilder<static>|LimeQuotum whereName($value)
- * @method static CachedBuilder<static>|LimeQuotum whereQlimit($value)
- * @method static CachedBuilder<static>|LimeQuotum whereSid($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeQuotum withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeQuotum whereAction($value)
+ * @method static CachedBuilder|LimeQuotum whereActive($value)
+ * @method static CachedBuilder|LimeQuotum whereAutoloadUrl($value)
+ * @method static CachedBuilder|LimeQuotum whereId($value)
+ * @method static CachedBuilder|LimeQuotum whereName($value)
+ * @method static CachedBuilder|LimeQuotum whereQlimit($value)
+ * @method static CachedBuilder|LimeQuotum whereSid($value)
  *
  * @mixin \Eloquent
  */

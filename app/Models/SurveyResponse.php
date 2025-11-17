@@ -12,64 +12,29 @@ use Modules\Xot\Actions\Query\GetFieldnamesByTablenameAction;
 use Webmozart\Assert\Assert;
 
 /**
- * SurveyResponse Model
+ * SurveyResponse Model.
  *
- * @method Builder withParticipants()
- * @method Builder ofDashboardFilterData(DashboardFilterData $filter)
- * @method Builder withAnswersLabel(string|int $qid, string $field_name, string $prefix = '', string $type = 'join')
- * @method Builder withAllAnswers(string $type = 'join')
- *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
- *
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse all($columns = [])
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse avg($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse cache(array $tags = [])
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse cachedValue(array $arguments, string $cacheKey)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse disableCache()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse disableModelCaching()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse exists()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse flushCache(array $tags = [])
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse inRandomOrder($seed = '')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse insert(array $values)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse isCachable()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse max($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse min($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse newModelQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse query()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse sum($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse truncate()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse withCacheCooldownSeconds(?int $seconds = null)
- *
- * @mixin \Eloquent
+ * Modello con tabella dinamica per le risposte dei sondaggi LimeSurvey.
+ * La tabella viene impostata dinamicamente usando setTableForSurvey().
  */
 class SurveyResponse extends BaseModel
 {
     public string $surveyId = '';
 
     // Il nome della tabella viene impostato dinamicamente
-    public function setTableForSurvey($surveyId): void
+    public function setTableForSurvey($surveyId)
     {
         $this->surveyId = $surveyId;
         $this->setTable('lime_survey_'.$surveyId);
     }
 
-    /**
-     * Restituisce un builder puntato sulla tabella dinamica del sondaggio passato.
-     *
-     * @return Builder<self>
-     */
-    public static function getResponsesForSurvey(string $surveyId): Builder
+    // Esempio di recupero risposte in base all'ID del sondaggio
+    public static function getResponsesForSurvey($surveyId)
     {
         $instance = new static;
         $instance->setTableForSurvey($surveyId);
 
-        return $instance->newQuery();
+        return $instance; // Recupera tutte le risposte dal sondaggio specifico
     }
 
     public function getFeedback(LimeQuestion $q)
@@ -104,6 +69,7 @@ class SurveyResponse extends BaseModel
 
     public function getFeedbackByTitle(LimeQuestion $q): ?string
     {
+
         $question_c = $q->brothers->firstWhere('title', $q->title.'c');
         $feedback = null;
         if ($question_c === null && $q->parent !== null) {
@@ -139,12 +105,16 @@ class SurveyResponse extends BaseModel
         // percio' o c'e' il nome del fieldname di riferimento,
         // se non c'e' padre il titolo della question ,
         // e se c'e' il padre e' il titolo del padre ."_" . titolo del figlio
+
     }
 
     /**
      * Undocumented function
+     *
+     * @param  Builder|Builder  $query
+     * @return Builder|Builder
      */
-    public function scopeWithAnswersLabel(Builder $query, string $qid, string $field_name, string $prefix = '', string $type = 'join'): Builder
+    public function scopeWithAnswersLabel($query, string $qid, string $field_name, string $prefix = '', string $type = 'join')
     {
         $ask_table = 'lime_answers';
         $ask_table_lang = 'lime_answer_l10ns';
@@ -154,7 +124,7 @@ class SurveyResponse extends BaseModel
                     $prefix.'answer' => LimeAnswer::select('answer')
                         ->leftJoin($ask_table_lang, static function ($join): void {
                             $join->on('lime_answers.aid', '=', 'lime_answer_l10ns.aid')
-                                ->whereRaw('language="it"');
+                                ->where('language', '=', 'it');
                         })
                         ->whereColumn('code', $field_name)
                         ->where('qid', $qid)
@@ -169,10 +139,10 @@ class SurveyResponse extends BaseModel
                 ->addSelect(DB::Raw(''.$prefix.'ask_lang.answer as '.$prefix.'answer'))
                 ->leftJoin($ask_table.' as '.$prefix.'ask', static function ($join) use ($qid, $field_name, $prefix): void {
                     $join->on(''.$prefix.'ask.code', '=', $field_name)
-                        ->whereRaw(''.$prefix.'ask.qid = "'.$qid.'"');
+                        ->where(''.$prefix.'ask.qid', '=', $qid);
                 })->leftJoin($ask_table_lang.' as '.$prefix.'ask_lang', static function ($join) use ($prefix): void {
                     $join->on(''.$prefix.'ask.aid', '=', ''.$prefix.'ask_lang.aid')
-                        ->whereRaw(''.$prefix.'ask_lang.language="it"');
+                        ->where(''.$prefix.'ask_lang.language', '=', 'it');
                 });
         }
         throw new Exception('type not in [join,subquery]');
@@ -210,6 +180,7 @@ class SurveyResponse extends BaseModel
      * Undocumented function
      *
      * @param  Builder|Builder  $query
+     * @return Builder|Builder
      */
     public function scopeWithParticipants(Builder $builder): Builder
     {
@@ -225,6 +196,7 @@ class SurveyResponse extends BaseModel
 
     public function scopeOfDashboardFilterData(Builder $query, DashboardFilterData $filter): Builder
     {
+
         $query = $query->where('submitdate', '>=', $filter->startDate)
             ->where('submitdate', '<=', $filter->endDate);
 

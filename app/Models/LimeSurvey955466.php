@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
 use Modules\Limesurvey\Database\Factories\LimeSurvey955466Factory;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Quaeris\Datas\AnswersFilterData;
+use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey955466
@@ -93,10 +93,6 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @method static CachedBuilder|LimeSurvey955466 whereSubmitdate($value)
  * @method static CachedBuilder|LimeSurvey955466 whereToken($value)
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
- *
  * @mixin \Eloquent
  */
 class LimeSurvey955466 extends BaseModel implements LimeSurveyXXXContract
@@ -104,13 +100,13 @@ class LimeSurvey955466 extends BaseModel implements LimeSurveyXXXContract
     /** @var bool */
     public $timestamps = false;
 
-    /** @var string */
+    /**  @var string   */
     protected $table = 'lime_survey_955466';
 
-    /** @var string */
+    /**  @var string   */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $fillable = [
         0 => 'id',
         1 => 'token',
@@ -136,7 +132,7 @@ class LimeSurvey955466 extends BaseModel implements LimeSurveyXXXContract
         21 => '955466X1143X34111',
     ];
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $hidden = [
     ];
 

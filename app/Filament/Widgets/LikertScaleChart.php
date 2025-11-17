@@ -1,7 +1,5 @@
 <?php
-
 declare(strict_types=1);
-
 namespace Modules\Limesurvey\Filament\Widgets;
 
 use Filament\Widgets\ChartWidget;
@@ -11,9 +9,7 @@ use Modules\Limesurvey\Models\SurveyResponse;
 class LikertScaleChart extends ChartWidget
 {
     public $surveyId;
-
     public $questionId;
-
     protected ?string $heading = 'Risposte Scala Likert';
 
     public function __construct($surveyId, $questionId)

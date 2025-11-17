@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Modules\Limesurvey\Database\Factories\LimeUserGroupFactory;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Quaeris\Datas\AnswersFilterData;
+use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
  * Modules\Limesurvey\Models\LimeUserGroup
@@ -46,10 +46,6 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @method static CachedBuilder|LimeUserGroup whereOwnerId($value)
  * @method static CachedBuilder|LimeUserGroup whereUgid($value)
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
- *
  * @mixin \Eloquent
  */
 class LimeUserGroup extends BaseModel
@@ -57,18 +53,18 @@ class LimeUserGroup extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /** @var string */
+    /**  @var string   */
     protected $table = 'lime_user_groups';
 
-    /** @var string */
+    /**  @var string   */
     protected $primaryKey = 'ugid';
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $fillable = [
         'name', 'description', 'owner_id',
     ];
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $hidden = [
     ];
 

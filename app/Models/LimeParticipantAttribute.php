@@ -4,43 +4,45 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Limesurvey\Database\Factories\LimeParticipantAttributeFactory;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
  * Modules\Limesurvey\Models\LimeParticipantAttribute
  *
+ * @method static CachedBuilder|LimeParticipantAttribute all($columns = [])
+ * @method static CachedBuilder|LimeParticipantAttribute avg($column)
+ * @method static CachedBuilder|LimeParticipantAttribute cache(array $tags = [])
+ * @method static CachedBuilder|LimeParticipantAttribute cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeParticipantAttribute count($columns = '*')
+ * @method static CachedBuilder|BaseModel disableCache()
+ * @method static CachedBuilder|LimeParticipantAttribute disableModelCaching()
+ * @method static CachedBuilder|LimeParticipantAttribute exists()
+ * @method static LimeParticipantAttributeFactory factory($count = null, $state = [])
+ * @method static CachedBuilder|LimeParticipantAttribute flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeParticipantAttribute getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeParticipantAttribute inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeParticipantAttribute insert(array $values)
+ * @method static CachedBuilder|LimeParticipantAttribute isCachable()
+ * @method static CachedBuilder|LimeParticipantAttribute max($column)
+ * @method static CachedBuilder|LimeParticipantAttribute min($column)
+ * @method static CachedBuilder|LimeParticipantAttribute newModelQuery()
+ * @method static CachedBuilder|LimeParticipantAttribute newQuery()
+ * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeParticipantAttribute query()
+ * @method static CachedBuilder|LimeParticipantAttribute sum($column)
+ * @method static CachedBuilder|LimeParticipantAttribute truncate()
+ * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @property string $participant_id
  * @property int $attribute_id
  * @property string $value
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeParticipantAttribute all($columns = [])
- * @method static CachedBuilder<static>|LimeParticipantAttribute avg($column)
- * @method static CachedBuilder<static>|LimeParticipantAttribute cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeParticipantAttribute cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeParticipantAttribute count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantAttribute disableCache()
- * @method static CachedBuilder<static>|LimeParticipantAttribute disableModelCaching()
- * @method static CachedBuilder<static>|LimeParticipantAttribute exists()
- * @method static CachedBuilder<static>|LimeParticipantAttribute flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeParticipantAttribute getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
- * @method static CachedBuilder<static>|LimeParticipantAttribute inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeParticipantAttribute insert(array $values)
- * @method static CachedBuilder<static>|LimeParticipantAttribute isCachable()
- * @method static CachedBuilder<static>|LimeParticipantAttribute max($column)
- * @method static CachedBuilder<static>|LimeParticipantAttribute min($column)
- * @method static CachedBuilder<static>|LimeParticipantAttribute newModelQuery()
- * @method static CachedBuilder<static>|LimeParticipantAttribute newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantAttribute ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeParticipantAttribute query()
- * @method static CachedBuilder<static>|LimeParticipantAttribute sum($column)
- * @method static CachedBuilder<static>|LimeParticipantAttribute truncate()
- * @method static CachedBuilder<static>|LimeParticipantAttribute whereAttributeId($value)
- * @method static CachedBuilder<static>|LimeParticipantAttribute whereParticipantId($value)
- * @method static CachedBuilder<static>|LimeParticipantAttribute whereValue($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantAttribute withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeParticipantAttribute whereAttributeId($value)
+ * @method static CachedBuilder|LimeParticipantAttribute whereParticipantId($value)
+ * @method static CachedBuilder|LimeParticipantAttribute whereValue($value)
  *
  * @mixin \Eloquent
  */
@@ -49,18 +51,18 @@ class LimeParticipantAttribute extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /** @var string */
+    /**  @var string   */
     protected $table = 'lime_participant_attribute';
 
-    /** @var string */
+    /**  @var string   */
     protected $primaryKey = 'participant_id';
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $fillable = [
         'attribute_id', 'value',
     ];
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $hidden = [
     ];
 

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Modules\Limesurvey\Database\Factories\LimeTokens147256Factory;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Quaeris\Datas\AnswersFilterData;
+use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
  * Modules\Limesurvey\Models\LimeTokens147256
@@ -84,10 +84,6 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @method static CachedBuilder|LimeTokens147256 whereValidfrom($value)
  * @method static CachedBuilder|LimeTokens147256 whereValiduntil($value)
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
- *
  * @mixin \Eloquent
  */
 class LimeTokens147256 extends BaseModel
@@ -95,13 +91,13 @@ class LimeTokens147256 extends BaseModel
     /** @var bool */
     public $timestamps = false;
 
-    /** @var string */
+    /**  @var string   */
     protected $table = 'lime_tokens_147256';
 
-    /** @var string */
+    /**  @var string   */
     protected $primaryKey = 'tid';
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $fillable = [
         0 => 'tid',
         1 => 'participant_id',

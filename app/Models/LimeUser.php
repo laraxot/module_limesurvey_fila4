@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Carbon;
 use Modules\Limesurvey\Database\Factories\LimeUserFactory;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Quaeris\Datas\AnswersFilterData;
+use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Support\Carbon;
 
 /**
  * Modules\Limesurvey\Models\LimeUser
@@ -75,10 +75,6 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @method static CachedBuilder|LimeUser whereValidationKey($value)
  * @method static CachedBuilder|LimeUser whereValidationKeyExpiration($value)
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
- *
  * @mixin \Eloquent
  */
 class LimeUser extends BaseModel
@@ -86,18 +82,18 @@ class LimeUser extends BaseModel
     /** @var bool */
     public $timestamps = true;
 
-    /** @var string */
+    /**  @var string   */
     protected $table = 'lime_users';
 
-    /** @var string */
+    /**  @var string   */
     protected $primaryKey = 'uid';
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $fillable = [
         'users_name', 'password', 'full_name', 'parent_id', 'lang', 'email', 'htmleditormode', 'templateeditormode', 'questionselectormode', 'one_time_pw', 'dateformat', 'created', 'modified',
     ];
 
-    /** @var array<int, string> */
+    /** @var array<int, string>  */
     protected $hidden = [
     ];
 
