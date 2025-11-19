@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 // use Laravel\Scout\Searchable;
-use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Xot\Models\Traits\HasExtraTrait;
@@ -16,44 +15,9 @@ use Modules\Xot\Models\XotBaseModel;
  */
 abstract class BaseModel extends XotBaseModel
 {
-    // use Updater;
-    // use Searchable;
-    use Cachable;
     use HasExtraTrait;
-
-    /** @var bool */
-    public $incrementing = true;
-
-    /** @var bool */
-    public $timestamps = false;
-
     /** @var string */
     protected $connection = 'limesurvey';
-
-    /** @var list<string> */
-    protected $fillable = [
-        'id',
-    ];
-
-    /** @var array<string, string> */
-    protected $casts = [
-        // 'published_at' => 'datetime:Y-m-d', // da verificare
-    ];
-
-    /**
-     * @var array<string>
-     */
-    protected $dates = [];
-
-    /** @var string */
-    protected $primaryKey = 'id';
-
-    /**
-     * @var array
-     */
-    protected $hidden = [
-        // 'password'
-    ];
 
     /** @var array<int, string> */
     protected $appends = [

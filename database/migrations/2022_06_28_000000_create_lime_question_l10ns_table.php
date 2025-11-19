@@ -3,13 +3,9 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Schema\Blueprint;
-// ---- models ---
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-/**
- * Class CreateLimeQuestionL10nsTable.
- */
-class CreateLimeQuestionL10nsTable extends XotBaseMigration
+return new class extends XotBaseMigration
 {
     /**
      * Run the migrations.
@@ -37,8 +33,4 @@ class CreateLimeQuestionL10nsTable extends XotBaseMigration
             }
         );
     }
-
-    // end up
-
-    // end down
-}
+};

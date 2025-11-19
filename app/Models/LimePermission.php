@@ -23,6 +23,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimePermission all($columns = [])
  * @method static CachedBuilder<static>|LimePermission avg($column)
  * @method static CachedBuilder<static>|LimePermission cache(array $tags = [])
@@ -56,6 +57,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimePermission whereUid($value)
  * @method static CachedBuilder<static>|LimePermission whereUpdateP($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimePermission withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimePermission extends BaseModel

@@ -27,6 +27,7 @@ use Modules\Limesurvey\Casts\LimeLangField;
  * @property-read mixed $query
  * @property-read \Modules\Limesurvey\Models\LimeAnswerL10n|null $l10n
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeAnswer all($columns = [])
  * @method static CachedBuilder<static>|LimeAnswer avg($column)
  * @method static CachedBuilder<static>|LimeAnswer cache(array $tags = [])
@@ -55,6 +56,7 @@ use Modules\Limesurvey\Casts\LimeLangField;
  * @method static CachedBuilder<static>|LimeAnswer whereScaleId($value)
  * @method static CachedBuilder<static>|LimeAnswer whereSortorder($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeAnswer withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeAnswer extends BaseModel
@@ -113,5 +115,5 @@ class LimeAnswer extends BaseModel
             ->where('language', $lang);
     }
 
-    public function getQueryAttribute() {}
+    public function getQueryAttribute(): void {}
 }

@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property-read string $group_name
  * @property-read \Modules\Limesurvey\Models\LimeGroupL10n|null $labels
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeGroup all($columns = [])
  * @method static CachedBuilder<static>|LimeGroup avg($column)
  * @method static CachedBuilder<static>|LimeGroup cache(array $tags = [])
@@ -47,6 +48,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static CachedBuilder<static>|LimeGroup whereRandomizationGroup($value)
  * @method static CachedBuilder<static>|LimeGroup whereSid($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeGroup withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeGroup extends BaseModel

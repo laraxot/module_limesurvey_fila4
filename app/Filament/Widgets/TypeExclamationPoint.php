@@ -23,9 +23,9 @@ class TypeExclamationPoint extends ChartWidget
 
     public $title;
 
-    protected ?string $heading = '';
-
     public string $totalResponses;
+
+    protected ?string $heading = '';
 
     protected function getType(): string
     {
@@ -81,7 +81,7 @@ class TypeExclamationPoint extends ChartWidget
         // Calcola le percentuali
         $percentages = $res->map(function ($item) {
             $item->aggregate = $this->totalResponses > 0
-                ? round(($item->aggregate / $this->totalResponses) * 100, 2)
+                ? round($item->aggregate / $this->totalResponses * 100, 2)
                 : 0;
 
             return $item;

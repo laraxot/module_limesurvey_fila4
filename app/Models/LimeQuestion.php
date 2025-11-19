@@ -5,84 +5,82 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Modules\Limesurvey\Casts\LimeLangField;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
-use Modules\Xot\Contracts\HasRecursiveRelationshipsContract;
-use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 use Webmozart\Assert\Assert;
 
 /**
  * Modules\Limesurvey\Models\LimeQuestion
  *
- * @property int $qid
- * @property int $parent_qid
- * @property int $sid
- * @property int $gid
- * @property string $type
- * @property string $title
- * @property string|null $preg
- * @property string $other
- * @property string|null $mandatory
- * @property int $question_order
- * @property int $scale_id
- * @property int $same_default
- * @property string|null $relevance
- * @property string|null $modulename
- * @property string|null $encrypted
- * @property string|null $question_theme_name
- * @property int $same_script
- * @property int|string|array $question
- * @property-read Collection<int, \Modules\Limesurvey\Models\LimeAnswer> $answers
- * @property-read int|null $answers_count
- * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $brothers
- * @property-read int|null $brothers_count
- * @property-read LimeQuestion|null $child
- * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $children
- * @property-read int|null $children_count
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read string $field_name
- * @property-read string|null $full_title
- * @property-read int|null $group_order
- * @property-read string $text
- * @property-read \Modules\Limesurvey\Models\LimeGroup|null $group
- * @property-read \Modules\Limesurvey\Models\LimeQuestionL10n|null $l10n
- * @property-read \Modules\Limesurvey\Models\LimeGroup|null $limeGroup
- * @property-read \Modules\Limesurvey\Models\LimeQuestion|null $parent
- * @property-read Collection<int, \Modules\Limesurvey\Models\LimeAnswer> $props
- * @property-read int|null $props_count
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
- * @property-read int $depth
- * @property-read string $path
- * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $ancestors The model's recursive parents.
+ * @property int                                                                      $qid
+ * @property int                                                                      $parent_qid
+ * @property int                                                                      $sid
+ * @property int                                                                      $gid
+ * @property string                                                                   $type
+ * @property string                                                                   $title
+ * @property string|null                                                              $preg
+ * @property string                                                                   $other
+ * @property string|null                                                              $mandatory
+ * @property int                                                                      $question_order
+ * @property int                                                                      $scale_id
+ * @property int                                                                      $same_default
+ * @property string|null                                                              $relevance
+ * @property string|null                                                              $modulename
+ * @property string|null                                                              $encrypted
+ * @property string|null                                                              $question_theme_name
+ * @property int                                                                      $same_script
+ * @property int|string|array                                                         $question
+ * @property Collection<int, LimeAnswer>                                              $answers
+ * @property int|null                                                                 $answers_count
+ * @property \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $brothers
+ * @property int|null                                                                 $brothers_count
+ * @property LimeQuestion|null                                                        $child
+ * @property \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $children
+ * @property int|null                                                                 $children_count
+ * @property \Modules\Quaeris\Models\Profile|null                                     $creator
+ * @property Extra|null                                                               $extra
+ * @property string                                                                   $field_name
+ * @property string|null                                                              $full_title
+ * @property int|null                                                                 $group_order
+ * @property string                                                                   $text
+ * @property LimeGroup|null                                                           $group
+ * @property LimeQuestionL10n|null                                                    $l10n
+ * @property LimeGroup|null                                                           $limeGroup
+ * @property LimeQuestion|null                                                        $parent
+ * @property Collection<int, LimeAnswer>                                              $props
+ * @property int|null                                                                 $props_count
+ * @property \Modules\Quaeris\Models\Profile|null                                     $updater
+ * @property int                                                                      $depth
+ * @property string                                                                   $path
+ * @property \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $ancestors           The model's recursive parents.
  * @property-read int|null $ancestors_count
- * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $ancestorsAndSelf The model's recursive parents and itself.
+ * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $ancestorsAndSelf The model's recursive parents and itself.
  * @property-read int|null $ancestors_and_self_count
- * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $bloodline The model's ancestors, descendants and itself.
+ * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $bloodline The model's ancestors, descendants and itself.
  * @property-read int|null $bloodline_count
- * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $childrenAndSelf The model's direct children and itself.
+ * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $childrenAndSelf The model's direct children and itself.
  * @property-read int|null $children_and_self_count
- * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $descendants The model's recursive children.
+ * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $descendants The model's recursive children.
  * @property-read int|null $descendants_count
- * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $descendantsAndSelf The model's recursive children and itself.
+ * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $descendantsAndSelf The model's recursive children and itself.
  * @property-read int|null $descendants_and_self_count
- * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $parentAndSelf The model's direct parent and itself.
+ * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $parentAndSelf The model's direct parent and itself.
  * @property-read int|null $parent_and_self_count
- * @property-read \Modules\Limesurvey\Models\LimeQuestion|null $rootAncestor The model's topmost parent.
- * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $siblings The parent's other children.
+ * @property-read LimeQuestion|null $rootAncestor The model's topmost parent.
+ * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $siblings The parent's other children.
  * @property-read int|null $siblings_count
- * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $siblingsAndSelf All the parent's children.
+ * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $siblingsAndSelf All the parent's children.
  * @property-read int|null $siblings_and_self_count
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static> all($columns = ['*'])
+ *
+ * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static>      all($columns = ['*'])
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion breadthFirst()
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion depthFirst()
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion disableCache()
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion doesntHaveChildren()
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static> get($columns = ['*'])
+ * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static>      get($columns = ['*'])
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion getExpressionGrammar()
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion hasChildren()
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion hasParent()
@@ -115,15 +113,13 @@ use Webmozart\Assert\Assert;
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion withCacheCooldownSeconds(?int $seconds = null)
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion withGlobalScopes(array $scopes)
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion withRelationshipExpression($direction, callable $constraint, $initialDepth, $from = null, $maxDepth = null)
+ * @method        mixed                                                                   getExtra(string $key)                                                                                       Get extra data for this question by key
+ * @method        void                                                                    setExtra(string $key, mixed $value)                                                                         Set extra data for this question
+ *
  * @mixin \Eloquent
  */
-class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContract
+class LimeQuestion extends BaseTreeModel
 {
-    use HasRecursiveRelationships;
-
-    /** @var bool */
-    public $timestamps = true;
-
     /** @var string */
     protected $connection = 'limesurvey';
 
@@ -151,10 +147,6 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
         'same_default',
         'relevance',
         'modulename',
-    ];
-
-    /** @var array<int, string> */
-    protected $hidden = [
     ];
 
     /** @return array<string, string>     */
@@ -208,12 +200,12 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
     }
     */
 
-    public function getParentKeyName()
+    public function getParentKeyName(): string
     {
         return 'parent_qid';
     }
 
-    public function getLocalKeyName()
+    public function getLocalKeyName(): string
     {
         return 'qid';
     }
@@ -238,15 +230,14 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
 
     public function hasTrans(): bool
     {
-        return in_array($this->type, [
+        return \in_array($this->type, [
             // '1','B','T','G','L','!',
             // 'Y','5','S','R','N',
             // 'X',';','D','F','M',
             // 'Q','K','E','*','P','U',
             // 'A','C'
             '!', '1', 'F', 'L', 'R',
-
-        ]);
+        ], true);
     }
 
     // public function getFeedback():?string{
@@ -260,7 +251,7 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
 
     public function getFieldNameAttribute(?string $value): string
     {
-        if ($value !== null) {
+        if (null !== $value) {
             return $value;
         }
         /*
@@ -278,13 +269,13 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
         // if ($this->type === 'F') {
         //     return $res.$this->qid.''.$this->child?->title;
         // }
-        if ($this->type === 'F' && $this->child != null) {
+        if ('F' === $this->type && null !== $this->child) {
             return $res.$this->qid.''.$this->child->title;
         }
-        if ($this->type === 'F') {
+        if ('F' === $this->type) {
             return $res.$this->parent->qid.$this->title;
         }
-        if ($this->parent_qid === 0) {
+        if (0 === $this->parent_qid) {
             return $res.$this->qid;
         }
 
@@ -293,9 +284,7 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
 
     public function getTextAttribute(?string $value): string
     {
-        $value = strip_tags($this->getFullTitle());
-
-        return $value;
+        return strip_tags($this->getFullTitle());
     }
 
     public function getFullTitle(): string
@@ -304,7 +293,7 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
             return $value;
         }
         $title = '';
-        if ($this->parent !== null) {
+        if (null !== $this->parent) {
             $title .= $this->parent->getFullTitle().' - ';
         }
 
@@ -324,9 +313,7 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
 
         // dddx($ancestors);
 
-        $value = implode('_', $ancestors);
-
-        return $value;
+        return implode('_', $ancestors);
 
         // $ancestors = $this->ancestorsAndSelf()
         //     ->with('l10n') // Carica la relazione l10n per evitare problemi N+1
@@ -345,13 +332,11 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
 
     public function getFullTitleAttribute(?string $value): ?string
     {
-        if ($value != null) {
+        if (null !== $value) {
             return $value;
         }
 
-        $value = $this->getFullTitle();
-
-        return $value;
+        return $this->getFullTitle();
     }
 
     public function getFullType(): string
@@ -361,7 +346,7 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
         }
 
         $title = '';
-        if ($this->parent !== null) {
+        if (null !== $this->parent) {
             $title .= $this->parent->getFullType();
         }
 
@@ -373,7 +358,7 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
 
     public function brothers(): HasMany
     {
-        return $this->hasMany(LimeQuestion::class, 'sid', 'sid');
+        return $this->hasMany(self::class, 'sid', 'sid');
     }
 
     public function getFeedback(LimeSurveyXXXContract $row): ?string
@@ -383,15 +368,15 @@ class LimeQuestion extends BaseModel implements HasRecursiveRelationshipsContrac
         }
         $question_c = $this->brothers->firstWhere('title', $this->title.'c');
         $feedback = null;
-        if ($question_c === null && $this->parent !== null) {
+        if (null === $question_c && null !== $this->parent) {
             $parent_question = $this->brothers->firstWhere('title', $this->parent->title.'c');
 
-            if ($parent_question !== null) {
-                Assert::isInstanceOf($parent_question, LimeQuestion::class);
+            if (null !== $parent_question) {
+                Assert::isInstanceOf($parent_question, self::class);
                 $field = $parent_question->sid.'X'.$parent_question->gid.'X'.$parent_question->qid;
                 $feedback = $row->{$field};
             }
-        } elseif ($question_c !== null) {
+        } elseif (null !== $question_c) {
             // Assert::isInstanceOf($question_c, QuestionChart::class);
             $question_field_name = $question_c->field_name;
             $feedback = $row->{$question_field_name};

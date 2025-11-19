@@ -5,19 +5,22 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @implements CastsAttributes<int|string|array|null, mixed>
+ */
 class LimeLangField implements CastsAttributes
 {
     /**
      * Cast the given value.
      *
-     * param \Illuminate\Database\Eloquent\Model $model
-     *
+     * @param  Model  $model
      * @param  string  $key
+     * @param  mixed  $value
      * @param  array  $attributes
-     * @return int|string|array|null
      */
-    public function get($model, $key, $value, $attributes)
+    public function get($model, $key, $value, $attributes): int|string|array|null
     {
         if ($value !== null) {
             return $value;
@@ -26,7 +29,7 @@ class LimeLangField implements CastsAttributes
         $l10n = $model->l10n;
 
         if ($l10n === null) {
-            return;
+            return null;
         }
 
         return $l10n->{$key};
@@ -35,13 +38,12 @@ class LimeLangField implements CastsAttributes
     /**
      * Prepare the given value for storage.
      *
-     * param \Illuminate\Database\Eloquent\Model $model
-     *
+     * @param  Model  $model
      * @param  string  $key
+     * @param  mixed  $value
      * @param  array  $attributes
-     * @return int|string|array|null
      */
-    public function set($model, $key, $value, $attributes)
+    public function set($model, $key, $value, $attributes): array
     {
         // Access to an undefined property Illuminate\Database\Eloquent\Model::$user.
 

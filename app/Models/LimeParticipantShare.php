@@ -17,6 +17,7 @@ use Illuminate\Support\Carbon;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeParticipantShare all($columns = [])
  * @method static CachedBuilder<static>|LimeParticipantShare avg($column)
  * @method static CachedBuilder<static>|LimeParticipantShare cache(array $tags = [])
@@ -43,6 +44,7 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder<static>|LimeParticipantShare whereParticipantId($value)
  * @method static CachedBuilder<static>|LimeParticipantShare whereShareUid($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantShare withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeParticipantShare extends BaseModel

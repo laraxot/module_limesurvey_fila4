@@ -23,6 +23,7 @@ use Illuminate\Support\Carbon;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeParticipant all($columns = [])
  * @method static CachedBuilder<static>|LimeParticipant avg($column)
  * @method static CachedBuilder<static>|LimeParticipant cache(array $tags = [])
@@ -55,6 +56,7 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder<static>|LimeParticipant whereOwnerUid($value)
  * @method static CachedBuilder<static>|LimeParticipant whereParticipantId($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipant withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeParticipant extends BaseModel

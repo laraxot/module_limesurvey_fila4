@@ -16,6 +16,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeSettingsGlobal all($columns = [])
  * @method static CachedBuilder<static>|LimeSettingsGlobal avg($column)
  * @method static CachedBuilder<static>|LimeSettingsGlobal cache(array $tags = [])
@@ -38,6 +39,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeSettingsGlobal sum($column)
  * @method static CachedBuilder<static>|LimeSettingsGlobal truncate()
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSettingsGlobal withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeSettingsGlobal extends BaseModel

@@ -89,6 +89,7 @@ use stdClass;
  * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $questions
  * @property-read int|null $questions_count
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeSurvey all($columns = [])
  * @method static CachedBuilder<static>|LimeSurvey avg($column)
  * @method static CachedBuilder<static>|LimeSurvey cache(array $tags = [])
@@ -173,6 +174,7 @@ use stdClass;
  * @method static CachedBuilder<static>|LimeSurvey whereUsecookie($value)
  * @method static CachedBuilder<static>|LimeSurvey whereUsetokens($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeSurvey extends BaseModel
@@ -357,10 +359,8 @@ class LimeSurvey extends BaseModel
 
     /**
      * Undocumented function.
-     *
-     * @param  string|array|null  $value
      */
-    public function getAttributedescriptionsAttribute($value): array
+    public function getAttributedescriptionsAttribute(string|array|null $value): array
     {
         if ($value === null) {
             return [];

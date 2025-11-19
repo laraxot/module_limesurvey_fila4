@@ -15,6 +15,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang all($columns = [])
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang avg($column)
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang cache(array $tags = [])
@@ -40,6 +41,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang whereAttributeName($value)
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang whereLang($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantAttributeNamesLang withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeParticipantAttributeNamesLang extends BaseModel

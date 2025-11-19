@@ -32,7 +32,7 @@ return [
         ],
     ],
     'navigation' => [
-        'label' => 'survey flip response.navigation',
-        'group' => 'survey flip response.navigation',
+        'label' => 'Risposta Survey Invertita',
+        'group' => 'Risposte Survey',
     ],
 ];

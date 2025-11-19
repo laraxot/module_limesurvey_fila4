@@ -29,6 +29,11 @@
             "Modules\\Limesurvey\\Database\\Seeders\\": "database/seeders/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Limesurvey\\Tests\\": "tests/"
+        }
+    },
     "require_comment": {
         "thecodingmachine/safe": "^2.5"
     },

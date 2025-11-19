@@ -72,7 +72,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class LimeTokens546331 extends BaseModel
 {
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
 
     /** @var bool */
     public $timestamps = false;

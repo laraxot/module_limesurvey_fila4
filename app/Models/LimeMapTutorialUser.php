@@ -15,6 +15,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static CachedBuilder<static>|LimeMapTutorialUser all($columns = [])
  * @method static CachedBuilder<static>|LimeMapTutorialUser avg($column)
  * @method static CachedBuilder<static>|LimeMapTutorialUser cache(array $tags = [])
@@ -40,6 +41,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeMapTutorialUser whereTid($value)
  * @method static CachedBuilder<static>|LimeMapTutorialUser whereUid($value)
  * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeMapTutorialUser withCacheCooldownSeconds(?int $seconds = null)
+ *
  * @mixin \Eloquent
  */
 class LimeMapTutorialUser extends BaseModel
