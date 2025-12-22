@@ -17,6 +17,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property string|null $load_error_message
  * @property string|null $plugin_type
  * @property int $priority
+ *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

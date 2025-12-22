@@ -56,6 +56,7 @@ use Webmozart\Assert\Assert;
  * @property int                                                                      $depth
  * @property string                                                                   $path
  * @property \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $ancestors           The model's recursive parents.
+ *
  * @property-read int|null $ancestors_count
  * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $ancestorsAndSelf The model's recursive parents and itself.
  * @property-read int|null $ancestors_and_self_count
@@ -251,7 +252,7 @@ class LimeQuestion extends BaseTreeModel
 
     public function getFieldNameAttribute(?string $value): string
     {
-        if (null !== $value) {
+        if ($value !== null) {
             return $value;
         }
         /*
@@ -269,13 +270,13 @@ class LimeQuestion extends BaseTreeModel
         // if ($this->type === 'F') {
         //     return $res.$this->qid.''.$this->child?->title;
         // }
-        if ('F' === $this->type && null !== $this->child) {
+        if ($this->type === 'F' && $this->child !== null) {
             return $res.$this->qid.''.$this->child->title;
         }
-        if ('F' === $this->type) {
+        if ($this->type === 'F') {
             return $res.$this->parent->qid.$this->title;
         }
-        if (0 === $this->parent_qid) {
+        if ($this->parent_qid === 0) {
             return $res.$this->qid;
         }
 
@@ -293,7 +294,7 @@ class LimeQuestion extends BaseTreeModel
             return $value;
         }
         $title = '';
-        if (null !== $this->parent) {
+        if ($this->parent !== null) {
             $title .= $this->parent->getFullTitle().' - ';
         }
 
@@ -332,7 +333,7 @@ class LimeQuestion extends BaseTreeModel
 
     public function getFullTitleAttribute(?string $value): ?string
     {
-        if (null !== $value) {
+        if ($value !== null) {
             return $value;
         }
 
@@ -346,7 +347,7 @@ class LimeQuestion extends BaseTreeModel
         }
 
         $title = '';
-        if (null !== $this->parent) {
+        if ($this->parent !== null) {
             $title .= $this->parent->getFullType();
         }
 
@@ -368,15 +369,15 @@ class LimeQuestion extends BaseTreeModel
         }
         $question_c = $this->brothers->firstWhere('title', $this->title.'c');
         $feedback = null;
-        if (null === $question_c && null !== $this->parent) {
+        if ($question_c === null && $this->parent !== null) {
             $parent_question = $this->brothers->firstWhere('title', $this->parent->title.'c');
 
-            if (null !== $parent_question) {
+            if ($parent_question !== null) {
                 Assert::isInstanceOf($parent_question, self::class);
                 $field = $parent_question->sid.'X'.$parent_question->gid.'X'.$parent_question->qid;
                 $feedback = $row->{$field};
             }
-        } elseif (null !== $question_c) {
+        } elseif ($question_c !== null) {
             // Assert::isInstanceOf($question_c, QuestionChart::class);
             $question_field_name = $question_c->field_name;
             $feedback = $row->{$question_field_name};

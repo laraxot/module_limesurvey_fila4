@@ -16,6 +16,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property string $quotals_message
  * @property string|null $quotals_url
  * @property string|null $quotals_urldescrip
+ *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

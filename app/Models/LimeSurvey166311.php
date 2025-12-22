@@ -61,6 +61,7 @@ use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
  * @property string|null $166311X1562X3877557
  * @property string|null $166311X1562X38776
  * @property string|null $166311X1563X38777
+ *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

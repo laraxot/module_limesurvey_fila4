@@ -32,6 +32,7 @@ use Modules\Quaeris\Datas\DashboardFilterData;
  * @property string|null $deleted_at
  * @property string|null $deleted_by
  * @property string|null $feedback
+ *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Limesurvey\Models\LimeQuestion|null $question

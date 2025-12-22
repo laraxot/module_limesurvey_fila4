@@ -40,6 +40,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property float|null $733454X957X32198time
  * @property float|null $733454X957X32200time
  * @property float|null $733454X957X32201time
+ *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

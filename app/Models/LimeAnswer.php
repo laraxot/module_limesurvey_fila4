@@ -22,6 +22,7 @@ use Modules\Limesurvey\Casts\LimeLangField;
  * @property int $assessment_value
  * @property int $scale_id
  * @property int|string|array $answer
+ *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read mixed $query
@@ -115,5 +116,7 @@ class LimeAnswer extends BaseModel
             ->where('language', $lang);
     }
 
-    public function getQueryAttribute(): void {}
+    public function getQueryAttribute(): void
+    {
+    }
 }

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 /**
  * @property int $tid
  * @property string|null $participant_id
@@ -24,6 +22,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string|null $validfrom
  * @property string|null $validuntil
  * @property int|null $mpid
+ *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Limesurvey\Models\Extra|null $extra
  * @property-read \Modules\Quaeris\Models\Profile|null $updater

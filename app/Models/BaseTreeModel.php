@@ -5,10 +5,6 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 // use Laravel\Scout\Searchable;
-use Modules\Xot\Models\XotBaseModel;
-use Illuminate\Database\Eloquent\Builder;
-use Modules\Quaeris\Datas\AnswersFilterData;
-use Modules\Xot\Models\Traits\HasExtraTrait;
 use Modules\Xot\Contracts\HasRecursiveRelationshipsContract;
 use Modules\Xot\Models\Traits\TypedHasRecursiveRelationships;
 
