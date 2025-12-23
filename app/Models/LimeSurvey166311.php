@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
 use Modules\Limesurvey\Database\Factories\LimeSurvey166311Factory;
 use Modules\Quaeris\Datas\AnswersFilterData;
