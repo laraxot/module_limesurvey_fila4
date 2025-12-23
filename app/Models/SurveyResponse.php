@@ -154,7 +154,7 @@ class SurveyResponse extends BaseModel
                     $prefix.'answer' => LimeAnswer::select('answer')
                         ->leftJoin($ask_table_lang, static function ($join): void {
                             $join->on('lime_answers.aid', '=', 'lime_answer_l10ns.aid')
-                                ->whereRaw('language="it"');
+                                ->where('language', '=', 'it');
                         })
                         ->whereColumn('code', $field_name)
                         ->where('qid', $qid)
@@ -169,10 +169,10 @@ class SurveyResponse extends BaseModel
                 ->addSelect(DB::Raw(''.$prefix.'ask_lang.answer as '.$prefix.'answer'))
                 ->leftJoin($ask_table.' as '.$prefix.'ask', static function ($join) use ($qid, $field_name, $prefix): void {
                     $join->on(''.$prefix.'ask.code', '=', $field_name)
-                        ->whereRaw(''.$prefix.'ask.qid = "'.$qid.'"');
+                        ->where(''.$prefix.'ask.qid', '=', $qid);
                 })->leftJoin($ask_table_lang.' as '.$prefix.'ask_lang', static function ($join) use ($prefix): void {
                     $join->on(''.$prefix.'ask.aid', '=', ''.$prefix.'ask_lang.aid')
-                        ->whereRaw(''.$prefix.'ask_lang.language="it"');
+                        ->where(''.$prefix.'ask_lang.language', '=', 'it');
                 });
         }
         throw new Exception('type not in [join,subquery]');
