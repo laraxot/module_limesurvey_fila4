@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
+use Modules\Limesurvey\Database\Factories\LimeSurvey325712Factory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSurvey325712

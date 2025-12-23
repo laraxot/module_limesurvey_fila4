@@ -9,6 +9,9 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Limesurvey\Database\Factories\LimeSettingsGlobalFactory;
+use Modules\Quaeris\Datas\AnswersFilterData;
 
 /**
  * Modules\Limesurvey\Models\LimeSettingsGlobal
