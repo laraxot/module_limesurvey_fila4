@@ -19,7 +19,6 @@ class SurveyFlipResponseResource extends XotBaseResource
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack'; // Updated navigation icon
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Limesurvey';
     // protected static ?string $label = 'Survey Flip Response';
     // protected static ?string $pluralLabel = 'Survey Flip Responses';
 

@@ -45,11 +45,7 @@
         "symplify/phpstan-rules": "*",
         "nunomaduro/phpinsights": "^2.9",
         "larastan/larastan": "*",
-<<<<<<< HEAD
-        "vimeo/psalm": "^5.15",
-=======
         "vimeo/psalm": "*",
->>>>>>> 85a48bc (.)
         "enlightn/enlightn": "^2.5"
     },
     "repositories_comment": [ {
