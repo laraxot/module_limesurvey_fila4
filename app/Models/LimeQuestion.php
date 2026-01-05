@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Staudenmeir\LaravelAdjacencyList\Eloquent\Builder;
+use Modules\Quaeris\Datas\AnswersFilterData;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -40,7 +44,7 @@ use Webmozart\Assert\Assert;
  * @property LimeQuestion|null                                                        $child
  * @property \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $children
  * @property int|null                                                                 $children_count
- * @property \Modules\Quaeris\Models\Profile|null                                     $creator
+ * @property Profile|null $creator
  * @property Extra|null                                                               $extra
  * @property string                                                                   $field_name
  * @property string|null                                                              $full_title
@@ -52,7 +56,7 @@ use Webmozart\Assert\Assert;
  * @property LimeQuestion|null                                                        $parent
  * @property Collection<int, LimeAnswer>                                              $props
  * @property int|null                                                                 $props_count
- * @property \Modules\Quaeris\Models\Profile|null                                     $updater
+ * @property Profile|null $updater
  * @property int                                                                      $depth
  * @property string                                                                   $path
  * @property \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $ancestors           The model's recursive parents.
@@ -77,43 +81,43 @@ use Webmozart\Assert\Assert;
  * @property-read int|null $siblings_and_self_count
  *
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static>      all($columns = ['*'])
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion breadthFirst()
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion depthFirst()
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion disableCache()
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion doesntHaveChildren()
+ * @method static Builder<static>|LimeQuestion breadthFirst()
+ * @method static Builder<static>|LimeQuestion depthFirst()
+ * @method static Builder<static>|LimeQuestion disableCache()
+ * @method static Builder<static>|LimeQuestion doesntHaveChildren()
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, static>      get($columns = ['*'])
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion getExpressionGrammar()
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion hasChildren()
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion hasParent()
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion isLeaf()
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion isRoot()
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion newModelQuery()
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion newQuery()
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion query()
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion tree($maxDepth = null)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion treeOf(\Illuminate\Database\Eloquent\Model|callable $constraint, $maxDepth = null)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereDepth($operator, $value = null)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereEncrypted($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereGid($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereMandatory($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereModulename($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereOther($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereParentQid($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion wherePreg($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereQid($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereQuestionOrder($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereQuestionThemeName($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereRelevance($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereSameDefault($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereSameScript($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereScaleId($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereSid($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereTitle($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion whereType($value)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion withCacheCooldownSeconds(?int $seconds = null)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion withGlobalScopes(array $scopes)
- * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|LimeQuestion withRelationshipExpression($direction, callable $constraint, $initialDepth, $from = null, $maxDepth = null)
+ * @method static Builder<static>|LimeQuestion getExpressionGrammar()
+ * @method static Builder<static>|LimeQuestion hasChildren()
+ * @method static Builder<static>|LimeQuestion hasParent()
+ * @method static Builder<static>|LimeQuestion isLeaf()
+ * @method static Builder<static>|LimeQuestion isRoot()
+ * @method static Builder<static>|LimeQuestion newModelQuery()
+ * @method static Builder<static>|LimeQuestion newQuery()
+ * @method static Builder<static>|LimeQuestion ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static Builder<static>|LimeQuestion query()
+ * @method static Builder<static>|LimeQuestion tree($maxDepth = null)
+ * @method static Builder<static>|LimeQuestion treeOf((Model|callable) $constraint, $maxDepth = null)
+ * @method static Builder<static>|LimeQuestion whereDepth($operator, $value = null)
+ * @method static Builder<static>|LimeQuestion whereEncrypted($value)
+ * @method static Builder<static>|LimeQuestion whereGid($value)
+ * @method static Builder<static>|LimeQuestion whereMandatory($value)
+ * @method static Builder<static>|LimeQuestion whereModulename($value)
+ * @method static Builder<static>|LimeQuestion whereOther($value)
+ * @method static Builder<static>|LimeQuestion whereParentQid($value)
+ * @method static Builder<static>|LimeQuestion wherePreg($value)
+ * @method static Builder<static>|LimeQuestion whereQid($value)
+ * @method static Builder<static>|LimeQuestion whereQuestionOrder($value)
+ * @method static Builder<static>|LimeQuestion whereQuestionThemeName($value)
+ * @method static Builder<static>|LimeQuestion whereRelevance($value)
+ * @method static Builder<static>|LimeQuestion whereSameDefault($value)
+ * @method static Builder<static>|LimeQuestion whereSameScript($value)
+ * @method static Builder<static>|LimeQuestion whereScaleId($value)
+ * @method static Builder<static>|LimeQuestion whereSid($value)
+ * @method static Builder<static>|LimeQuestion whereTitle($value)
+ * @method static Builder<static>|LimeQuestion whereType($value)
+ * @method static Builder<static>|LimeQuestion withCacheCooldownSeconds(?int $seconds = null)
+ * @method static Builder<static>|LimeQuestion withGlobalScopes(array $scopes)
+ * @method static Builder<static>|LimeQuestion withRelationshipExpression($direction, callable $constraint, $initialDepth, $from = null, $maxDepth = null)
  * @method        mixed                                                                   getExtra(string $key)                                                                                       Get extra data for this question by key
  * @method        void                                                                    setExtra(string $key, mixed $value)                                                                         Set extra data for this question
  *

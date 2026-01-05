@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
@@ -13,20 +16,20 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property string $attribute_name
  * @property string $lang
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang all($columns = [])
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang avg($column)
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantAttributeNamesLang disableCache()
+ * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang disableCache()
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang disableModelCaching()
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang exists()
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang insert(array $values)
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang isCachable()
@@ -34,14 +37,14 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang min($column)
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang newModelQuery()
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantAttributeNamesLang ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang query()
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang sum($column)
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang truncate()
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang whereAttributeId($value)
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang whereAttributeName($value)
  * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang whereLang($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantAttributeNamesLang withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

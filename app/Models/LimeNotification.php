@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Support\Carbon;
 
@@ -22,20 +25,20 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created
  * @property Carbon|null $first_read
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeNotification all($columns = [])
  * @method static CachedBuilder<static>|LimeNotification avg($column)
  * @method static CachedBuilder<static>|LimeNotification cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeNotification cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeNotification count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeNotification disableCache()
+ * @method static CachedBuilder<static>|LimeNotification disableCache()
  * @method static CachedBuilder<static>|LimeNotification disableModelCaching()
  * @method static CachedBuilder<static>|LimeNotification exists()
  * @method static CachedBuilder<static>|LimeNotification flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeNotification getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeNotification getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeNotification inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeNotification insert(array $values)
  * @method static CachedBuilder<static>|LimeNotification isCachable()
@@ -43,7 +46,7 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder<static>|LimeNotification min($column)
  * @method static CachedBuilder<static>|LimeNotification newModelQuery()
  * @method static CachedBuilder<static>|LimeNotification newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeNotification ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeNotification ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeNotification query()
  * @method static CachedBuilder<static>|LimeNotification sum($column)
  * @method static CachedBuilder<static>|LimeNotification truncate()
@@ -58,7 +61,7 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder<static>|LimeNotification whereMessage($value)
  * @method static CachedBuilder<static>|LimeNotification whereStatus($value)
  * @method static CachedBuilder<static>|LimeNotification whereTitle($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeNotification withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeNotification withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Support\Carbon;
 
@@ -15,20 +18,20 @@ use Illuminate\Support\Carbon;
  * @property Carbon $date_added
  * @property string $can_edit
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeParticipantShare all($columns = [])
  * @method static CachedBuilder<static>|LimeParticipantShare avg($column)
  * @method static CachedBuilder<static>|LimeParticipantShare cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeParticipantShare cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeParticipantShare count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantShare disableCache()
+ * @method static CachedBuilder<static>|LimeParticipantShare disableCache()
  * @method static CachedBuilder<static>|LimeParticipantShare disableModelCaching()
  * @method static CachedBuilder<static>|LimeParticipantShare exists()
  * @method static CachedBuilder<static>|LimeParticipantShare flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeParticipantShare getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeParticipantShare getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeParticipantShare inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeParticipantShare insert(array $values)
  * @method static CachedBuilder<static>|LimeParticipantShare isCachable()
@@ -36,7 +39,7 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder<static>|LimeParticipantShare min($column)
  * @method static CachedBuilder<static>|LimeParticipantShare newModelQuery()
  * @method static CachedBuilder<static>|LimeParticipantShare newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantShare ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeParticipantShare ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeParticipantShare query()
  * @method static CachedBuilder<static>|LimeParticipantShare sum($column)
  * @method static CachedBuilder<static>|LimeParticipantShare truncate()
@@ -44,7 +47,7 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder<static>|LimeParticipantShare whereDateAdded($value)
  * @method static CachedBuilder<static>|LimeParticipantShare whereParticipantId($value)
  * @method static CachedBuilder<static>|LimeParticipantShare whereShareUid($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantShare withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeParticipantShare withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

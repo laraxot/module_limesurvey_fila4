@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
@@ -13,20 +16,20 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property int $attribute_id
  * @property string $value
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue all($columns = [])
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue avg($column)
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantAttributeValue disableCache()
+ * @method static CachedBuilder<static>|LimeParticipantAttributeValue disableCache()
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue disableModelCaching()
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue exists()
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeParticipantAttributeValue getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeParticipantAttributeValue getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue insert(array $values)
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue isCachable()
@@ -34,14 +37,14 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue min($column)
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue newModelQuery()
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantAttributeValue ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeParticipantAttributeValue ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue query()
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue sum($column)
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue truncate()
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue whereAttributeId($value)
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue whereValue($value)
  * @method static CachedBuilder<static>|LimeParticipantAttributeValue whereValueId($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeParticipantAttributeValue withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeParticipantAttributeValue withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

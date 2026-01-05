@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -632,9 +633,9 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @method static \Illuminate\Database\Eloquent\Builder|LimeSurvey799586 where799586X1013X33027B23#0($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LimeSurvey799586 where799586X1013X33027B23#1($value)
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1008X33015B01#0($value)
  * @method static CachedBuilder<static>|LimeSurvey799586 where799586X1008X33015B01#1($value)

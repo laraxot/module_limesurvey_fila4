@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
@@ -16,20 +19,20 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property string $stg_name
  * @property string|null $stg_value
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeSettingsUser all($columns = [])
  * @method static CachedBuilder<static>|LimeSettingsUser avg($column)
  * @method static CachedBuilder<static>|LimeSettingsUser cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeSettingsUser cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeSettingsUser count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSettingsUser disableCache()
+ * @method static CachedBuilder<static>|LimeSettingsUser disableCache()
  * @method static CachedBuilder<static>|LimeSettingsUser disableModelCaching()
  * @method static CachedBuilder<static>|LimeSettingsUser exists()
  * @method static CachedBuilder<static>|LimeSettingsUser flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSettingsUser getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeSettingsUser getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeSettingsUser inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeSettingsUser insert(array $values)
  * @method static CachedBuilder<static>|LimeSettingsUser isCachable()
@@ -37,7 +40,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeSettingsUser min($column)
  * @method static CachedBuilder<static>|LimeSettingsUser newModelQuery()
  * @method static CachedBuilder<static>|LimeSettingsUser newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSettingsUser ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeSettingsUser ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeSettingsUser query()
  * @method static CachedBuilder<static>|LimeSettingsUser sum($column)
  * @method static CachedBuilder<static>|LimeSettingsUser truncate()
@@ -47,7 +50,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeSettingsUser whereStgName($value)
  * @method static CachedBuilder<static>|LimeSettingsUser whereStgValue($value)
  * @method static CachedBuilder<static>|LimeSettingsUser whereUid($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSettingsUser withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeSettingsUser withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

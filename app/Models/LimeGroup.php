@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -16,22 +19,22 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string $randomization_group
  * @property string|null $grelevance
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
  * @property-read string $group_name
- * @property-read \Modules\Limesurvey\Models\LimeGroupL10n|null $labels
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read LimeGroupL10n|null $labels
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeGroup all($columns = [])
  * @method static CachedBuilder<static>|LimeGroup avg($column)
  * @method static CachedBuilder<static>|LimeGroup cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeGroup cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeGroup count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeGroup disableCache()
+ * @method static CachedBuilder<static>|LimeGroup disableCache()
  * @method static CachedBuilder<static>|LimeGroup disableModelCaching()
  * @method static CachedBuilder<static>|LimeGroup exists()
  * @method static CachedBuilder<static>|LimeGroup flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeGroup getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeGroup getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeGroup inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeGroup insert(array $values)
  * @method static CachedBuilder<static>|LimeGroup isCachable()
@@ -39,7 +42,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static CachedBuilder<static>|LimeGroup min($column)
  * @method static CachedBuilder<static>|LimeGroup newModelQuery()
  * @method static CachedBuilder<static>|LimeGroup newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeGroup ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeGroup ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeGroup query()
  * @method static CachedBuilder<static>|LimeGroup sum($column)
  * @method static CachedBuilder<static>|LimeGroup truncate()
@@ -48,7 +51,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @method static CachedBuilder<static>|LimeGroup whereGroupOrder($value)
  * @method static CachedBuilder<static>|LimeGroup whereRandomizationGroup($value)
  * @method static CachedBuilder<static>|LimeGroup whereSid($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeGroup withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeGroup withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

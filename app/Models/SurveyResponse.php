@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
@@ -19,32 +23,32 @@ use Webmozart\Assert\Assert;
  * @method Builder withAnswersLabel(string|int $qid, string $field_name, string $prefix = '', string $type = 'join')
  * @method Builder withAllAnswers(string $type = 'join')
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse all($columns = [])
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse avg($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse cache(array $tags = [])
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse cachedValue(array $arguments, string $cacheKey)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse disableCache()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse disableModelCaching()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse exists()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse flushCache(array $tags = [])
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse inRandomOrder($seed = '')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse insert(array $values)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse isCachable()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse max($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse min($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse newModelQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse query()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse sum($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse truncate()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyResponse withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|SurveyResponse all($columns = [])
+ * @method static CachedBuilder<static>|SurveyResponse avg($column)
+ * @method static CachedBuilder<static>|SurveyResponse cache(array $tags = [])
+ * @method static CachedBuilder<static>|SurveyResponse cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder<static>|SurveyResponse count($columns = '*')
+ * @method static CachedBuilder<static>|SurveyResponse disableCache()
+ * @method static CachedBuilder<static>|SurveyResponse disableModelCaching()
+ * @method static CachedBuilder<static>|SurveyResponse exists()
+ * @method static CachedBuilder<static>|SurveyResponse flushCache(array $tags = [])
+ * @method static CachedBuilder<static>|SurveyResponse getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder<static>|SurveyResponse inRandomOrder($seed = '')
+ * @method static CachedBuilder<static>|SurveyResponse insert(array $values)
+ * @method static CachedBuilder<static>|SurveyResponse isCachable()
+ * @method static CachedBuilder<static>|SurveyResponse max($column)
+ * @method static CachedBuilder<static>|SurveyResponse min($column)
+ * @method static CachedBuilder<static>|SurveyResponse newModelQuery()
+ * @method static CachedBuilder<static>|SurveyResponse newQuery()
+ * @method static CachedBuilder<static>|SurveyResponse ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|SurveyResponse query()
+ * @method static CachedBuilder<static>|SurveyResponse sum($column)
+ * @method static CachedBuilder<static>|SurveyResponse truncate()
+ * @method static CachedBuilder<static>|SurveyResponse withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
@@ -20,20 +23,20 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property string|null $eqn
  * @property string|null $prettyprint
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeExpressionError all($columns = [])
  * @method static CachedBuilder<static>|LimeExpressionError avg($column)
  * @method static CachedBuilder<static>|LimeExpressionError cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeExpressionError cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeExpressionError count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeExpressionError disableCache()
+ * @method static CachedBuilder<static>|LimeExpressionError disableCache()
  * @method static CachedBuilder<static>|LimeExpressionError disableModelCaching()
  * @method static CachedBuilder<static>|LimeExpressionError exists()
  * @method static CachedBuilder<static>|LimeExpressionError flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeExpressionError getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeExpressionError getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeExpressionError inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeExpressionError insert(array $values)
  * @method static CachedBuilder<static>|LimeExpressionError isCachable()
@@ -41,7 +44,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeExpressionError min($column)
  * @method static CachedBuilder<static>|LimeExpressionError newModelQuery()
  * @method static CachedBuilder<static>|LimeExpressionError newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeExpressionError ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeExpressionError ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeExpressionError query()
  * @method static CachedBuilder<static>|LimeExpressionError sum($column)
  * @method static CachedBuilder<static>|LimeExpressionError truncate()
@@ -55,7 +58,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeExpressionError whereQseq($value)
  * @method static CachedBuilder<static>|LimeExpressionError whereSid($value)
  * @method static CachedBuilder<static>|LimeExpressionError whereType($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeExpressionError withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeExpressionError withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

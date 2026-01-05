@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Illuminate\Support\Carbon;
+use Modules\Quaeris\Models\Profile;
+use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Collection;
@@ -22,7 +26,7 @@ use Modules\Quaeris\Datas\DashboardFilterData;
  * @property string|null $token
  * @property string|null $answer
  * @property string|null $value
- * @property \Illuminate\Support\Carbon|null $submitdate
+ * @property Carbon|null $submitdate
  * @property string|null $fieldname
  * @property string|null $old_id
  * @property string|null $created_at
@@ -33,54 +37,54 @@ use Modules\Quaeris\Datas\DashboardFilterData;
  * @property string|null $deleted_by
  * @property string|null $feedback
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Limesurvey\Models\LimeQuestion|null $question
- * @property-read \Modules\Limesurvey\Models\LimeSurvey|null $survey
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read LimeQuestion|null $question
+ * @property-read LimeSurvey|null $survey
+ * @property-read Profile|null $updater
  *
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse all($columns = [])
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse avg($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse cache(array $tags = [])
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse cachedValue(array $arguments, string $cacheKey)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse disableCache()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse disableModelCaching()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse exists()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse flushCache(array $tags = [])
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse inRandomOrder($seed = '')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse insert(array $values)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse isCachable()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse max($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse min($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse newModelQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse ofAlertDashboardFilterData(\Modules\Quaeris\Datas\AlertDashboardFilterData $filter)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse ofAlertDashboardFilterDataOLD(\Modules\Quaeris\Datas\AlertDashboardFilterData $filter)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse ofDashboardFilterData(\Modules\Quaeris\Datas\DashboardFilterData $filter)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse query()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse sum($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse truncate()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereAnswer($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereCreatedAt($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereCreatedBy($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereDeletedAt($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereDeletedBy($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereFeedback($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereFieldname($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereId($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereOldId($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereQuestionId($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereQuestionType($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereSubmitdate($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereSurveyId($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereToken($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereUpdatedAt($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereUpdatedBy($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse whereValue($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|SurveyFlipResponse withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|SurveyFlipResponse all($columns = [])
+ * @method static CachedBuilder<static>|SurveyFlipResponse avg($column)
+ * @method static CachedBuilder<static>|SurveyFlipResponse cache(array $tags = [])
+ * @method static CachedBuilder<static>|SurveyFlipResponse cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder<static>|SurveyFlipResponse count($columns = '*')
+ * @method static CachedBuilder<static>|SurveyFlipResponse disableCache()
+ * @method static CachedBuilder<static>|SurveyFlipResponse disableModelCaching()
+ * @method static CachedBuilder<static>|SurveyFlipResponse exists()
+ * @method static CachedBuilder<static>|SurveyFlipResponse flushCache(array $tags = [])
+ * @method static CachedBuilder<static>|SurveyFlipResponse getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder<static>|SurveyFlipResponse inRandomOrder($seed = '')
+ * @method static CachedBuilder<static>|SurveyFlipResponse insert(array $values)
+ * @method static CachedBuilder<static>|SurveyFlipResponse isCachable()
+ * @method static CachedBuilder<static>|SurveyFlipResponse max($column)
+ * @method static CachedBuilder<static>|SurveyFlipResponse min($column)
+ * @method static CachedBuilder<static>|SurveyFlipResponse newModelQuery()
+ * @method static CachedBuilder<static>|SurveyFlipResponse newQuery()
+ * @method static CachedBuilder<static>|SurveyFlipResponse ofAlertDashboardFilterData(AlertDashboardFilterData $filter)
+ * @method static CachedBuilder<static>|SurveyFlipResponse ofAlertDashboardFilterDataOLD(AlertDashboardFilterData $filter)
+ * @method static CachedBuilder<static>|SurveyFlipResponse ofDashboardFilterData(DashboardFilterData $filter)
+ * @method static CachedBuilder<static>|SurveyFlipResponse ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|SurveyFlipResponse query()
+ * @method static CachedBuilder<static>|SurveyFlipResponse sum($column)
+ * @method static CachedBuilder<static>|SurveyFlipResponse truncate()
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereAnswer($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereCreatedAt($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereCreatedBy($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereDeletedAt($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereDeletedBy($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereFeedback($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereFieldname($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereId($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereOldId($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereQuestionId($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereQuestionType($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereSubmitdate($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereSurveyId($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereToken($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereUpdatedAt($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereUpdatedBy($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse whereValue($value)
+ * @method static CachedBuilder<static>|SurveyFlipResponse withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

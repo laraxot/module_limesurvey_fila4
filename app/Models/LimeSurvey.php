@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
@@ -79,28 +82,28 @@ use stdClass;
  * @property array<array-key, mixed>|null $tokenencryptionoptions
  * @property string $ipanonymize
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
  * @property-read string|null $title
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeGroup> $groups
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, LimeGroup> $groups
  * @property-read int|null $groups_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeGroupL10n> $groups_l10n
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, LimeGroupL10n> $groups_l10n
  * @property-read int|null $groups_l10n_count
- * @property-read \Modules\Limesurvey\Models\LimeSurveysLanguagesetting|null $lang
- * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, \Modules\Limesurvey\Models\LimeQuestion> $questions
+ * @property-read LimeSurveysLanguagesetting|null $lang
+ * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $questions
  * @property-read int|null $questions_count
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeSurvey all($columns = [])
  * @method static CachedBuilder<static>|LimeSurvey avg($column)
  * @method static CachedBuilder<static>|LimeSurvey cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeSurvey cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeSurvey count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey disableCache()
+ * @method static CachedBuilder<static>|LimeSurvey disableCache()
  * @method static CachedBuilder<static>|LimeSurvey disableModelCaching()
  * @method static CachedBuilder<static>|LimeSurvey exists()
  * @method static CachedBuilder<static>|LimeSurvey flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSurvey getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeSurvey getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeSurvey inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeSurvey insert(array $values)
  * @method static CachedBuilder<static>|LimeSurvey isCachable()
@@ -108,7 +111,7 @@ use stdClass;
  * @method static CachedBuilder<static>|LimeSurvey min($column)
  * @method static CachedBuilder<static>|LimeSurvey newModelQuery()
  * @method static CachedBuilder<static>|LimeSurvey newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeSurvey ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeSurvey query()
  * @method static CachedBuilder<static>|LimeSurvey sum($column)
  * @method static CachedBuilder<static>|LimeSurvey truncate()
@@ -174,7 +177,7 @@ use stdClass;
  * @method static CachedBuilder<static>|LimeSurvey whereUsecaptcha($value)
  * @method static CachedBuilder<static>|LimeSurvey whereUsecookie($value)
  * @method static CachedBuilder<static>|LimeSurvey whereUsetokens($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeSurvey withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Xot\Models\Traits\HasXotFactory;
+use Modules\Quaeris\Models\Profile;
+use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
+
 /**
  * @property int $tid
  * @property string|null $participant_id
@@ -23,55 +29,55 @@ namespace Modules\Limesurvey\Models;
  * @property string|null $validuntil
  * @property int|null $mpid
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 all($columns = [])
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 avg($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 cache(array $tags = [])
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 cachedValue(array $arguments, string $cacheKey)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 disableCache()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 disableModelCaching()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 exists()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 flushCache(array $tags = [])
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 inRandomOrder($seed = '')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 insert(array $values)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 isCachable()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 max($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 min($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 newModelQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 query()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 sum($column)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 truncate()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereBlacklisted($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereCompleted($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereEmail($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereEmailstatus($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereFirstname($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereLanguage($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereLastname($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereMpid($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereParticipantId($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereRemindercount($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereRemindersent($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereSent($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereTid($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereToken($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereUsesleft($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereValidfrom($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 whereValiduntil($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeTokens546331 withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeTokens546331 all($columns = [])
+ * @method static CachedBuilder<static>|LimeTokens546331 avg($column)
+ * @method static CachedBuilder<static>|LimeTokens546331 cache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeTokens546331 cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder<static>|LimeTokens546331 count($columns = '*')
+ * @method static CachedBuilder<static>|LimeTokens546331 disableCache()
+ * @method static CachedBuilder<static>|LimeTokens546331 disableModelCaching()
+ * @method static CachedBuilder<static>|LimeTokens546331 exists()
+ * @method static CachedBuilder<static>|LimeTokens546331 flushCache(array $tags = [])
+ * @method static CachedBuilder<static>|LimeTokens546331 getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder<static>|LimeTokens546331 inRandomOrder($seed = '')
+ * @method static CachedBuilder<static>|LimeTokens546331 insert(array $values)
+ * @method static CachedBuilder<static>|LimeTokens546331 isCachable()
+ * @method static CachedBuilder<static>|LimeTokens546331 max($column)
+ * @method static CachedBuilder<static>|LimeTokens546331 min($column)
+ * @method static CachedBuilder<static>|LimeTokens546331 newModelQuery()
+ * @method static CachedBuilder<static>|LimeTokens546331 newQuery()
+ * @method static CachedBuilder<static>|LimeTokens546331 ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeTokens546331 query()
+ * @method static CachedBuilder<static>|LimeTokens546331 sum($column)
+ * @method static CachedBuilder<static>|LimeTokens546331 truncate()
+ * @method static CachedBuilder<static>|LimeTokens546331 whereBlacklisted($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereCompleted($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereEmail($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereEmailstatus($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereFirstname($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereLanguage($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereLastname($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereMpid($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereParticipantId($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereRemindercount($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereRemindersent($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereSent($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereTid($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereToken($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereUsesleft($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereValidfrom($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 whereValiduntil($value)
+ * @method static CachedBuilder<static>|LimeTokens546331 withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
 class LimeTokens546331 extends BaseModel
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasXotFactory;
 
     /** @var bool */
     public $timestamps = false;

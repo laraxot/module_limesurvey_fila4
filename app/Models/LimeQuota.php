@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
@@ -17,20 +20,20 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property int $active
  * @property int $autoload_url
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeQuota all($columns = [])
  * @method static CachedBuilder<static>|LimeQuota avg($column)
  * @method static CachedBuilder<static>|LimeQuota cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeQuota cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeQuota count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeQuota disableCache()
+ * @method static CachedBuilder<static>|LimeQuota disableCache()
  * @method static CachedBuilder<static>|LimeQuota disableModelCaching()
  * @method static CachedBuilder<static>|LimeQuota exists()
  * @method static CachedBuilder<static>|LimeQuota flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeQuota getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeQuota getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeQuota inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeQuota insert(array $values)
  * @method static CachedBuilder<static>|LimeQuota isCachable()
@@ -38,7 +41,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeQuota min($column)
  * @method static CachedBuilder<static>|LimeQuota newModelQuery()
  * @method static CachedBuilder<static>|LimeQuota newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeQuota ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeQuota ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeQuota query()
  * @method static CachedBuilder<static>|LimeQuota sum($column)
  * @method static CachedBuilder<static>|LimeQuota truncate()
@@ -49,7 +52,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeQuota whereName($value)
  * @method static CachedBuilder<static>|LimeQuota whereQlimit($value)
  * @method static CachedBuilder<static>|LimeQuota whereSid($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeQuota withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeQuota withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

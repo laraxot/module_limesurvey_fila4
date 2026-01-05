@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
@@ -17,20 +20,20 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property string|null $quotals_url
  * @property string|null $quotals_urldescrip
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting all($columns = [])
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting avg($column)
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeQuotaLanguagesetting disableCache()
+ * @method static CachedBuilder<static>|LimeQuotaLanguagesetting disableCache()
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting disableModelCaching()
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting exists()
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeQuotaLanguagesetting getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting insert(array $values)
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting isCachable()
@@ -38,7 +41,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting min($column)
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting newModelQuery()
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeQuotaLanguagesetting ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeQuotaLanguagesetting ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting query()
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting sum($column)
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting truncate()
@@ -49,7 +52,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting whereQuotalsQuotaId($value)
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting whereQuotalsUrl($value)
  * @method static CachedBuilder<static>|LimeQuotaLanguagesetting whereQuotalsUrldescrip($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeQuotaLanguagesetting withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeQuotaLanguagesetting withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

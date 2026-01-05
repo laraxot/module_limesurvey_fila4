@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
@@ -15,20 +18,20 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property int $number_attempts
  * @property int $is_frontend
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt all($columns = [])
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt avg($column)
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeFailedLoginAttempt disableCache()
+ * @method static CachedBuilder<static>|LimeFailedLoginAttempt disableCache()
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt disableModelCaching()
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt exists()
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeFailedLoginAttempt getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt insert(array $values)
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt isCachable()
@@ -36,7 +39,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt min($column)
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt newModelQuery()
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeFailedLoginAttempt ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeFailedLoginAttempt ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt query()
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt sum($column)
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt truncate()
@@ -45,7 +48,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt whereIsFrontend($value)
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt whereLastAttempt($value)
  * @method static CachedBuilder<static>|LimeFailedLoginAttempt whereNumberAttempts($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeFailedLoginAttempt withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeFailedLoginAttempt withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

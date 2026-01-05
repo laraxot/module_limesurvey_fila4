@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Support\Carbon;
 
@@ -22,20 +25,20 @@ use Illuminate\Support\Carbon;
  * @property Carbon $saved_date
  * @property string|null $refurl
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeSavedControl all($columns = [])
  * @method static CachedBuilder<static>|LimeSavedControl avg($column)
  * @method static CachedBuilder<static>|LimeSavedControl cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeSavedControl cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeSavedControl count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSavedControl disableCache()
+ * @method static CachedBuilder<static>|LimeSavedControl disableCache()
  * @method static CachedBuilder<static>|LimeSavedControl disableModelCaching()
  * @method static CachedBuilder<static>|LimeSavedControl exists()
  * @method static CachedBuilder<static>|LimeSavedControl flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSavedControl getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeSavedControl getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeSavedControl inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeSavedControl insert(array $values)
  * @method static CachedBuilder<static>|LimeSavedControl isCachable()
@@ -43,7 +46,7 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder<static>|LimeSavedControl min($column)
  * @method static CachedBuilder<static>|LimeSavedControl newModelQuery()
  * @method static CachedBuilder<static>|LimeSavedControl newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSavedControl ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeSavedControl ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeSavedControl query()
  * @method static CachedBuilder<static>|LimeSavedControl sum($column)
  * @method static CachedBuilder<static>|LimeSavedControl truncate()
@@ -58,7 +61,7 @@ use Illuminate\Support\Carbon;
  * @method static CachedBuilder<static>|LimeSavedControl whereSid($value)
  * @method static CachedBuilder<static>|LimeSavedControl whereSrid($value)
  * @method static CachedBuilder<static>|LimeSavedControl whereStatus($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSavedControl withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeSavedControl withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 
 /**
@@ -41,20 +44,20 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @property float|null $733454X957X32200time
  * @property float|null $733454X957X32201time
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @method static CachedBuilder<static>|LimeSurvey733454Timings all($columns = [])
  * @method static CachedBuilder<static>|LimeSurvey733454Timings avg($column)
  * @method static CachedBuilder<static>|LimeSurvey733454Timings cache(array $tags = [])
  * @method static CachedBuilder<static>|LimeSurvey733454Timings cachedValue(array $arguments, string $cacheKey)
  * @method static CachedBuilder<static>|LimeSurvey733454Timings count($columns = '*')
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey733454Timings disableCache()
+ * @method static CachedBuilder<static>|LimeSurvey733454Timings disableCache()
  * @method static CachedBuilder<static>|LimeSurvey733454Timings disableModelCaching()
  * @method static CachedBuilder<static>|LimeSurvey733454Timings exists()
  * @method static CachedBuilder<static>|LimeSurvey733454Timings flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSurvey733454Timings getModelCacheCooldown(\Illuminate\Database\Eloquent\Model $instance)
+ * @method static CachedBuilder<static>|LimeSurvey733454Timings getModelCacheCooldown(Model $instance)
  * @method static CachedBuilder<static>|LimeSurvey733454Timings inRandomOrder($seed = '')
  * @method static CachedBuilder<static>|LimeSurvey733454Timings insert(array $values)
  * @method static CachedBuilder<static>|LimeSurvey733454Timings isCachable()
@@ -62,7 +65,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeSurvey733454Timings min($column)
  * @method static CachedBuilder<static>|LimeSurvey733454Timings newModelQuery()
  * @method static CachedBuilder<static>|LimeSurvey733454Timings newQuery()
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey733454Timings ofFilterData(\Modules\Quaeris\Datas\AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder<static>|LimeSurvey733454Timings ofFilterData(AnswersFilterData $answersFilterData)
  * @method static CachedBuilder<static>|LimeSurvey733454Timings query()
  * @method static CachedBuilder<static>|LimeSurvey733454Timings sum($column)
  * @method static CachedBuilder<static>|LimeSurvey733454Timings truncate()
@@ -97,7 +100,7 @@ use GeneaLabs\LaravelModelCaching\CachedBuilder;
  * @method static CachedBuilder<static>|LimeSurvey733454Timings where733454X958time($value)
  * @method static CachedBuilder<static>|LimeSurvey733454Timings whereId($value)
  * @method static CachedBuilder<static>|LimeSurvey733454Timings whereInterviewtime($value)
- * @method static \GeneaLabs\LaravelModelCaching\CachedBuilder<static>|LimeSurvey733454Timings withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder<static>|LimeSurvey733454Timings withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

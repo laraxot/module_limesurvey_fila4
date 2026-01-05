@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
+use Modules\Quaeris\Models\Profile;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -75,9 +76,9 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @method static CachedBuilder|LimeTemplate whereVersion($value)
  * @method static CachedBuilder|LimeTemplate whereViewFolder($value)
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Limesurvey\Models\Extra|null $extra
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Extra|null $extra
+ * @property-read Profile|null $updater
  *
  * @mixin \Eloquent
  */
