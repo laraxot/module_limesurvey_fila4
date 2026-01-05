@@ -23,34 +23,34 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeSettingsUser all($columns = [])
- * @method static CachedBuilder<static>|LimeSettingsUser avg($column)
- * @method static CachedBuilder<static>|LimeSettingsUser cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSettingsUser cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeSettingsUser count($columns = '*')
- * @method static CachedBuilder<static>|LimeSettingsUser disableCache()
- * @method static CachedBuilder<static>|LimeSettingsUser disableModelCaching()
- * @method static CachedBuilder<static>|LimeSettingsUser exists()
- * @method static CachedBuilder<static>|LimeSettingsUser flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSettingsUser getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeSettingsUser inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeSettingsUser insert(array $values)
- * @method static CachedBuilder<static>|LimeSettingsUser isCachable()
- * @method static CachedBuilder<static>|LimeSettingsUser max($column)
- * @method static CachedBuilder<static>|LimeSettingsUser min($column)
- * @method static CachedBuilder<static>|LimeSettingsUser newModelQuery()
- * @method static CachedBuilder<static>|LimeSettingsUser newQuery()
- * @method static CachedBuilder<static>|LimeSettingsUser ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeSettingsUser query()
- * @method static CachedBuilder<static>|LimeSettingsUser sum($column)
- * @method static CachedBuilder<static>|LimeSettingsUser truncate()
- * @method static CachedBuilder<static>|LimeSettingsUser whereEntity($value)
- * @method static CachedBuilder<static>|LimeSettingsUser whereEntityId($value)
- * @method static CachedBuilder<static>|LimeSettingsUser whereId($value)
- * @method static CachedBuilder<static>|LimeSettingsUser whereStgName($value)
- * @method static CachedBuilder<static>|LimeSettingsUser whereStgValue($value)
- * @method static CachedBuilder<static>|LimeSettingsUser whereUid($value)
- * @method static CachedBuilder<static>|LimeSettingsUser withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeSettingsUser all($columns = [])
+ * @method static CachedBuilder|LimeSettingsUser avg($column)
+ * @method static CachedBuilder|LimeSettingsUser cache(array $tags = [])
+ * @method static CachedBuilder|LimeSettingsUser cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeSettingsUser count($columns = '*')
+ * @method static CachedBuilder|LimeSettingsUser disableCache()
+ * @method static CachedBuilder|LimeSettingsUser disableModelCaching()
+ * @method static CachedBuilder|LimeSettingsUser exists()
+ * @method static CachedBuilder|LimeSettingsUser flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeSettingsUser getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeSettingsUser inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeSettingsUser insert(array $values)
+ * @method static CachedBuilder|LimeSettingsUser isCachable()
+ * @method static CachedBuilder|LimeSettingsUser max($column)
+ * @method static CachedBuilder|LimeSettingsUser min($column)
+ * @method static CachedBuilder|LimeSettingsUser newModelQuery()
+ * @method static CachedBuilder|LimeSettingsUser newQuery()
+ * @method static CachedBuilder|LimeSettingsUser ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeSettingsUser query()
+ * @method static CachedBuilder|LimeSettingsUser sum($column)
+ * @method static CachedBuilder|LimeSettingsUser truncate()
+ * @method static CachedBuilder|LimeSettingsUser whereEntity($value)
+ * @method static CachedBuilder|LimeSettingsUser whereEntityId($value)
+ * @method static CachedBuilder|LimeSettingsUser whereId($value)
+ * @method static CachedBuilder|LimeSettingsUser whereStgName($value)
+ * @method static CachedBuilder|LimeSettingsUser whereStgValue($value)
+ * @method static CachedBuilder|LimeSettingsUser whereUid($value)
+ * @method static CachedBuilder|LimeSettingsUser withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -65,12 +65,12 @@ class LimeSettingsUser extends BaseModel
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'uid', 'entity', 'entity_id', 'stg_name', 'stg_value',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

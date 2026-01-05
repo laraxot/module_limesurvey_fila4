@@ -193,7 +193,7 @@ class LimeSurvey892883 extends BaseModel implements LimeSurveyXXXContract
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         0 => 'id',
         1 => 'token',
@@ -265,7 +265,7 @@ class LimeSurvey892883 extends BaseModel implements LimeSurveyXXXContract
     /**
      * The attributes excluded from the model's JSON form.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $hidden = [
     ];

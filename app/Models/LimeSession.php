@@ -20,31 +20,31 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeSession all($columns = [])
- * @method static CachedBuilder<static>|LimeSession avg($column)
- * @method static CachedBuilder<static>|LimeSession cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSession cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeSession count($columns = '*')
- * @method static CachedBuilder<static>|LimeSession disableCache()
- * @method static CachedBuilder<static>|LimeSession disableModelCaching()
- * @method static CachedBuilder<static>|LimeSession exists()
- * @method static CachedBuilder<static>|LimeSession flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSession getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeSession inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeSession insert(array $values)
- * @method static CachedBuilder<static>|LimeSession isCachable()
- * @method static CachedBuilder<static>|LimeSession max($column)
- * @method static CachedBuilder<static>|LimeSession min($column)
- * @method static CachedBuilder<static>|LimeSession newModelQuery()
- * @method static CachedBuilder<static>|LimeSession newQuery()
- * @method static CachedBuilder<static>|LimeSession ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeSession query()
- * @method static CachedBuilder<static>|LimeSession sum($column)
- * @method static CachedBuilder<static>|LimeSession truncate()
- * @method static CachedBuilder<static>|LimeSession whereData($value)
- * @method static CachedBuilder<static>|LimeSession whereExpire($value)
- * @method static CachedBuilder<static>|LimeSession whereId($value)
- * @method static CachedBuilder<static>|LimeSession withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeSession all($columns = [])
+ * @method static CachedBuilder|LimeSession avg($column)
+ * @method static CachedBuilder|LimeSession cache(array $tags = [])
+ * @method static CachedBuilder|LimeSession cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeSession count($columns = '*')
+ * @method static CachedBuilder|LimeSession disableCache()
+ * @method static CachedBuilder|LimeSession disableModelCaching()
+ * @method static CachedBuilder|LimeSession exists()
+ * @method static CachedBuilder|LimeSession flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeSession getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeSession inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeSession insert(array $values)
+ * @method static CachedBuilder|LimeSession isCachable()
+ * @method static CachedBuilder|LimeSession max($column)
+ * @method static CachedBuilder|LimeSession min($column)
+ * @method static CachedBuilder|LimeSession newModelQuery()
+ * @method static CachedBuilder|LimeSession newQuery()
+ * @method static CachedBuilder|LimeSession ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeSession query()
+ * @method static CachedBuilder|LimeSession sum($column)
+ * @method static CachedBuilder|LimeSession truncate()
+ * @method static CachedBuilder|LimeSession whereData($value)
+ * @method static CachedBuilder|LimeSession whereExpire($value)
+ * @method static CachedBuilder|LimeSession whereId($value)
+ * @method static CachedBuilder|LimeSession withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -59,12 +59,12 @@ class LimeSession extends BaseModel
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'expire', 'data',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

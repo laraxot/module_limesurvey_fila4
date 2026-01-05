@@ -98,7 +98,7 @@ class LimeTokens39275 extends BaseModel
     /** @var string */
     protected $primaryKey = 'tid';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         0 => 'tid',
         1 => 'participant_id',
@@ -126,7 +126,7 @@ class LimeTokens39275 extends BaseModel
     /**
      * The attributes excluded from the model's JSON form.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $hidden = [
     ];

@@ -22,33 +22,33 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt all($columns = [])
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt avg($column)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt count($columns = '*')
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt disableCache()
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt disableModelCaching()
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt exists()
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt insert(array $values)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt isCachable()
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt max($column)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt min($column)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt newModelQuery()
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt newQuery()
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt query()
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt sum($column)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt truncate()
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt whereId($value)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt whereIp($value)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt whereIsFrontend($value)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt whereLastAttempt($value)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt whereNumberAttempts($value)
- * @method static CachedBuilder<static>|LimeFailedLoginAttempt withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeFailedLoginAttempt all($columns = [])
+ * @method static CachedBuilder|LimeFailedLoginAttempt avg($column)
+ * @method static CachedBuilder|LimeFailedLoginAttempt cache(array $tags = [])
+ * @method static CachedBuilder|LimeFailedLoginAttempt cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeFailedLoginAttempt count($columns = '*')
+ * @method static CachedBuilder|LimeFailedLoginAttempt disableCache()
+ * @method static CachedBuilder|LimeFailedLoginAttempt disableModelCaching()
+ * @method static CachedBuilder|LimeFailedLoginAttempt exists()
+ * @method static CachedBuilder|LimeFailedLoginAttempt flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeFailedLoginAttempt getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeFailedLoginAttempt inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeFailedLoginAttempt insert(array $values)
+ * @method static CachedBuilder|LimeFailedLoginAttempt isCachable()
+ * @method static CachedBuilder|LimeFailedLoginAttempt max($column)
+ * @method static CachedBuilder|LimeFailedLoginAttempt min($column)
+ * @method static CachedBuilder|LimeFailedLoginAttempt newModelQuery()
+ * @method static CachedBuilder|LimeFailedLoginAttempt newQuery()
+ * @method static CachedBuilder|LimeFailedLoginAttempt ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeFailedLoginAttempt query()
+ * @method static CachedBuilder|LimeFailedLoginAttempt sum($column)
+ * @method static CachedBuilder|LimeFailedLoginAttempt truncate()
+ * @method static CachedBuilder|LimeFailedLoginAttempt whereId($value)
+ * @method static CachedBuilder|LimeFailedLoginAttempt whereIp($value)
+ * @method static CachedBuilder|LimeFailedLoginAttempt whereIsFrontend($value)
+ * @method static CachedBuilder|LimeFailedLoginAttempt whereLastAttempt($value)
+ * @method static CachedBuilder|LimeFailedLoginAttempt whereNumberAttempts($value)
+ * @method static CachedBuilder|LimeFailedLoginAttempt withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -63,12 +63,12 @@ class LimeFailedLoginAttempt extends BaseModel
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'ip', 'last_attempt', 'number_attempts',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

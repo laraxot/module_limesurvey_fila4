@@ -64,12 +64,12 @@ class LimeUserGroup extends BaseModel
     /** @var string */
     protected $primaryKey = 'ugid';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'name', 'description', 'owner_id',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

@@ -22,33 +22,33 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeLabel all($columns = [])
- * @method static CachedBuilder<static>|LimeLabel avg($column)
- * @method static CachedBuilder<static>|LimeLabel cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeLabel cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeLabel count($columns = '*')
- * @method static CachedBuilder<static>|LimeLabel disableCache()
- * @method static CachedBuilder<static>|LimeLabel disableModelCaching()
- * @method static CachedBuilder<static>|LimeLabel exists()
- * @method static CachedBuilder<static>|LimeLabel flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeLabel getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeLabel inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeLabel insert(array $values)
- * @method static CachedBuilder<static>|LimeLabel isCachable()
- * @method static CachedBuilder<static>|LimeLabel max($column)
- * @method static CachedBuilder<static>|LimeLabel min($column)
- * @method static CachedBuilder<static>|LimeLabel newModelQuery()
- * @method static CachedBuilder<static>|LimeLabel newQuery()
- * @method static CachedBuilder<static>|LimeLabel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeLabel query()
- * @method static CachedBuilder<static>|LimeLabel sum($column)
- * @method static CachedBuilder<static>|LimeLabel truncate()
- * @method static CachedBuilder<static>|LimeLabel whereAssessmentValue($value)
- * @method static CachedBuilder<static>|LimeLabel whereCode($value)
- * @method static CachedBuilder<static>|LimeLabel whereId($value)
- * @method static CachedBuilder<static>|LimeLabel whereLid($value)
- * @method static CachedBuilder<static>|LimeLabel whereSortorder($value)
- * @method static CachedBuilder<static>|LimeLabel withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeLabel all($columns = [])
+ * @method static CachedBuilder|LimeLabel avg($column)
+ * @method static CachedBuilder|LimeLabel cache(array $tags = [])
+ * @method static CachedBuilder|LimeLabel cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeLabel count($columns = '*')
+ * @method static CachedBuilder|LimeLabel disableCache()
+ * @method static CachedBuilder|LimeLabel disableModelCaching()
+ * @method static CachedBuilder|LimeLabel exists()
+ * @method static CachedBuilder|LimeLabel flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeLabel getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeLabel inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeLabel insert(array $values)
+ * @method static CachedBuilder|LimeLabel isCachable()
+ * @method static CachedBuilder|LimeLabel max($column)
+ * @method static CachedBuilder|LimeLabel min($column)
+ * @method static CachedBuilder|LimeLabel newModelQuery()
+ * @method static CachedBuilder|LimeLabel newQuery()
+ * @method static CachedBuilder|LimeLabel ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeLabel query()
+ * @method static CachedBuilder|LimeLabel sum($column)
+ * @method static CachedBuilder|LimeLabel truncate()
+ * @method static CachedBuilder|LimeLabel whereAssessmentValue($value)
+ * @method static CachedBuilder|LimeLabel whereCode($value)
+ * @method static CachedBuilder|LimeLabel whereId($value)
+ * @method static CachedBuilder|LimeLabel whereLid($value)
+ * @method static CachedBuilder|LimeLabel whereSortorder($value)
+ * @method static CachedBuilder|LimeLabel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -63,12 +63,12 @@ class LimeLabel extends BaseModel
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'lid', 'code', 'title', 'sortorder', 'language', 'assessment_value',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

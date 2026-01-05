@@ -28,39 +28,39 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimePermission all($columns = [])
- * @method static CachedBuilder<static>|LimePermission avg($column)
- * @method static CachedBuilder<static>|LimePermission cache(array $tags = [])
- * @method static CachedBuilder<static>|LimePermission cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimePermission count($columns = '*')
- * @method static CachedBuilder<static>|LimePermission disableCache()
- * @method static CachedBuilder<static>|LimePermission disableModelCaching()
- * @method static CachedBuilder<static>|LimePermission exists()
- * @method static CachedBuilder<static>|LimePermission flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimePermission getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimePermission inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimePermission insert(array $values)
- * @method static CachedBuilder<static>|LimePermission isCachable()
- * @method static CachedBuilder<static>|LimePermission max($column)
- * @method static CachedBuilder<static>|LimePermission min($column)
- * @method static CachedBuilder<static>|LimePermission newModelQuery()
- * @method static CachedBuilder<static>|LimePermission newQuery()
- * @method static CachedBuilder<static>|LimePermission ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimePermission query()
- * @method static CachedBuilder<static>|LimePermission sum($column)
- * @method static CachedBuilder<static>|LimePermission truncate()
- * @method static CachedBuilder<static>|LimePermission whereCreateP($value)
- * @method static CachedBuilder<static>|LimePermission whereDeleteP($value)
- * @method static CachedBuilder<static>|LimePermission whereEntity($value)
- * @method static CachedBuilder<static>|LimePermission whereEntityId($value)
- * @method static CachedBuilder<static>|LimePermission whereExportP($value)
- * @method static CachedBuilder<static>|LimePermission whereId($value)
- * @method static CachedBuilder<static>|LimePermission whereImportP($value)
- * @method static CachedBuilder<static>|LimePermission wherePermission($value)
- * @method static CachedBuilder<static>|LimePermission whereReadP($value)
- * @method static CachedBuilder<static>|LimePermission whereUid($value)
- * @method static CachedBuilder<static>|LimePermission whereUpdateP($value)
- * @method static CachedBuilder<static>|LimePermission withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimePermission all($columns = [])
+ * @method static CachedBuilder|LimePermission avg($column)
+ * @method static CachedBuilder|LimePermission cache(array $tags = [])
+ * @method static CachedBuilder|LimePermission cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimePermission count($columns = '*')
+ * @method static CachedBuilder|LimePermission disableCache()
+ * @method static CachedBuilder|LimePermission disableModelCaching()
+ * @method static CachedBuilder|LimePermission exists()
+ * @method static CachedBuilder|LimePermission flushCache(array $tags = [])
+ * @method static CachedBuilder|LimePermission getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimePermission inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimePermission insert(array $values)
+ * @method static CachedBuilder|LimePermission isCachable()
+ * @method static CachedBuilder|LimePermission max($column)
+ * @method static CachedBuilder|LimePermission min($column)
+ * @method static CachedBuilder|LimePermission newModelQuery()
+ * @method static CachedBuilder|LimePermission newQuery()
+ * @method static CachedBuilder|LimePermission ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimePermission query()
+ * @method static CachedBuilder|LimePermission sum($column)
+ * @method static CachedBuilder|LimePermission truncate()
+ * @method static CachedBuilder|LimePermission whereCreateP($value)
+ * @method static CachedBuilder|LimePermission whereDeleteP($value)
+ * @method static CachedBuilder|LimePermission whereEntity($value)
+ * @method static CachedBuilder|LimePermission whereEntityId($value)
+ * @method static CachedBuilder|LimePermission whereExportP($value)
+ * @method static CachedBuilder|LimePermission whereId($value)
+ * @method static CachedBuilder|LimePermission whereImportP($value)
+ * @method static CachedBuilder|LimePermission wherePermission($value)
+ * @method static CachedBuilder|LimePermission whereReadP($value)
+ * @method static CachedBuilder|LimePermission whereUid($value)
+ * @method static CachedBuilder|LimePermission whereUpdateP($value)
+ * @method static CachedBuilder|LimePermission withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -75,12 +75,12 @@ class LimePermission extends BaseModel
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'entity', 'entity_id', 'uid', 'permission', 'create_p', 'read_p', 'update_p', 'delete_p', 'import_p', 'export_p',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

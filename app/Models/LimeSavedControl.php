@@ -29,39 +29,39 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeSavedControl all($columns = [])
- * @method static CachedBuilder<static>|LimeSavedControl avg($column)
- * @method static CachedBuilder<static>|LimeSavedControl cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSavedControl cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeSavedControl count($columns = '*')
- * @method static CachedBuilder<static>|LimeSavedControl disableCache()
- * @method static CachedBuilder<static>|LimeSavedControl disableModelCaching()
- * @method static CachedBuilder<static>|LimeSavedControl exists()
- * @method static CachedBuilder<static>|LimeSavedControl flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSavedControl getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeSavedControl inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeSavedControl insert(array $values)
- * @method static CachedBuilder<static>|LimeSavedControl isCachable()
- * @method static CachedBuilder<static>|LimeSavedControl max($column)
- * @method static CachedBuilder<static>|LimeSavedControl min($column)
- * @method static CachedBuilder<static>|LimeSavedControl newModelQuery()
- * @method static CachedBuilder<static>|LimeSavedControl newQuery()
- * @method static CachedBuilder<static>|LimeSavedControl ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeSavedControl query()
- * @method static CachedBuilder<static>|LimeSavedControl sum($column)
- * @method static CachedBuilder<static>|LimeSavedControl truncate()
- * @method static CachedBuilder<static>|LimeSavedControl whereAccessCode($value)
- * @method static CachedBuilder<static>|LimeSavedControl whereEmail($value)
- * @method static CachedBuilder<static>|LimeSavedControl whereIdentifier($value)
- * @method static CachedBuilder<static>|LimeSavedControl whereIp($value)
- * @method static CachedBuilder<static>|LimeSavedControl whereRefurl($value)
- * @method static CachedBuilder<static>|LimeSavedControl whereSavedDate($value)
- * @method static CachedBuilder<static>|LimeSavedControl whereSavedThisstep($value)
- * @method static CachedBuilder<static>|LimeSavedControl whereScid($value)
- * @method static CachedBuilder<static>|LimeSavedControl whereSid($value)
- * @method static CachedBuilder<static>|LimeSavedControl whereSrid($value)
- * @method static CachedBuilder<static>|LimeSavedControl whereStatus($value)
- * @method static CachedBuilder<static>|LimeSavedControl withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeSavedControl all($columns = [])
+ * @method static CachedBuilder|LimeSavedControl avg($column)
+ * @method static CachedBuilder|LimeSavedControl cache(array $tags = [])
+ * @method static CachedBuilder|LimeSavedControl cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeSavedControl count($columns = '*')
+ * @method static CachedBuilder|LimeSavedControl disableCache()
+ * @method static CachedBuilder|LimeSavedControl disableModelCaching()
+ * @method static CachedBuilder|LimeSavedControl exists()
+ * @method static CachedBuilder|LimeSavedControl flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeSavedControl getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeSavedControl inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeSavedControl insert(array $values)
+ * @method static CachedBuilder|LimeSavedControl isCachable()
+ * @method static CachedBuilder|LimeSavedControl max($column)
+ * @method static CachedBuilder|LimeSavedControl min($column)
+ * @method static CachedBuilder|LimeSavedControl newModelQuery()
+ * @method static CachedBuilder|LimeSavedControl newQuery()
+ * @method static CachedBuilder|LimeSavedControl ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeSavedControl query()
+ * @method static CachedBuilder|LimeSavedControl sum($column)
+ * @method static CachedBuilder|LimeSavedControl truncate()
+ * @method static CachedBuilder|LimeSavedControl whereAccessCode($value)
+ * @method static CachedBuilder|LimeSavedControl whereEmail($value)
+ * @method static CachedBuilder|LimeSavedControl whereIdentifier($value)
+ * @method static CachedBuilder|LimeSavedControl whereIp($value)
+ * @method static CachedBuilder|LimeSavedControl whereRefurl($value)
+ * @method static CachedBuilder|LimeSavedControl whereSavedDate($value)
+ * @method static CachedBuilder|LimeSavedControl whereSavedThisstep($value)
+ * @method static CachedBuilder|LimeSavedControl whereScid($value)
+ * @method static CachedBuilder|LimeSavedControl whereSid($value)
+ * @method static CachedBuilder|LimeSavedControl whereSrid($value)
+ * @method static CachedBuilder|LimeSavedControl whereStatus($value)
+ * @method static CachedBuilder|LimeSavedControl withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -76,12 +76,12 @@ class LimeSavedControl extends BaseModel
     /** @var string */
     protected $primaryKey = 'scid';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'sid', 'srid', 'identifier', 'access_code', 'email', 'ip', 'saved_thisstep', 'status', 'saved_date', 'refurl',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

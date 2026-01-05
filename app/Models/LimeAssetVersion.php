@@ -20,31 +20,31 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeAssetVersion all($columns = [])
- * @method static CachedBuilder<static>|LimeAssetVersion avg($column)
- * @method static CachedBuilder<static>|LimeAssetVersion cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeAssetVersion cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeAssetVersion count($columns = '*')
- * @method static CachedBuilder<static>|LimeAssetVersion disableCache()
- * @method static CachedBuilder<static>|LimeAssetVersion disableModelCaching()
- * @method static CachedBuilder<static>|LimeAssetVersion exists()
- * @method static CachedBuilder<static>|LimeAssetVersion flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeAssetVersion getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeAssetVersion inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeAssetVersion insert(array $values)
- * @method static CachedBuilder<static>|LimeAssetVersion isCachable()
- * @method static CachedBuilder<static>|LimeAssetVersion max($column)
- * @method static CachedBuilder<static>|LimeAssetVersion min($column)
- * @method static CachedBuilder<static>|LimeAssetVersion newModelQuery()
- * @method static CachedBuilder<static>|LimeAssetVersion newQuery()
- * @method static CachedBuilder<static>|LimeAssetVersion ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeAssetVersion query()
- * @method static CachedBuilder<static>|LimeAssetVersion sum($column)
- * @method static CachedBuilder<static>|LimeAssetVersion truncate()
- * @method static CachedBuilder<static>|LimeAssetVersion whereId($value)
- * @method static CachedBuilder<static>|LimeAssetVersion wherePath($value)
- * @method static CachedBuilder<static>|LimeAssetVersion whereVersion($value)
- * @method static CachedBuilder<static>|LimeAssetVersion withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeAssetVersion all($columns = [])
+ * @method static CachedBuilder|LimeAssetVersion avg($column)
+ * @method static CachedBuilder|LimeAssetVersion cache(array $tags = [])
+ * @method static CachedBuilder|LimeAssetVersion cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeAssetVersion count($columns = '*')
+ * @method static CachedBuilder|LimeAssetVersion disableCache()
+ * @method static CachedBuilder|LimeAssetVersion disableModelCaching()
+ * @method static CachedBuilder|LimeAssetVersion exists()
+ * @method static CachedBuilder|LimeAssetVersion flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeAssetVersion getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeAssetVersion inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeAssetVersion insert(array $values)
+ * @method static CachedBuilder|LimeAssetVersion isCachable()
+ * @method static CachedBuilder|LimeAssetVersion max($column)
+ * @method static CachedBuilder|LimeAssetVersion min($column)
+ * @method static CachedBuilder|LimeAssetVersion newModelQuery()
+ * @method static CachedBuilder|LimeAssetVersion newQuery()
+ * @method static CachedBuilder|LimeAssetVersion ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeAssetVersion query()
+ * @method static CachedBuilder|LimeAssetVersion sum($column)
+ * @method static CachedBuilder|LimeAssetVersion truncate()
+ * @method static CachedBuilder|LimeAssetVersion whereId($value)
+ * @method static CachedBuilder|LimeAssetVersion wherePath($value)
+ * @method static CachedBuilder|LimeAssetVersion whereVersion($value)
+ * @method static CachedBuilder|LimeAssetVersion withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -59,12 +59,12 @@ class LimeAssetVersion extends BaseModel
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'path', 'version',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

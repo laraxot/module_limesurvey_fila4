@@ -66,12 +66,12 @@ class LimeTutorialEntrie extends BaseModel
     /** @var string */
     protected $primaryKey = 'teid';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'ordering', 'title', 'content', 'settings',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

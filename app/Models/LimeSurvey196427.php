@@ -38,47 +38,47 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeSurvey196427 all($columns = [])
- * @method static CachedBuilder<static>|LimeSurvey196427 avg($column)
- * @method static CachedBuilder<static>|LimeSurvey196427 cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSurvey196427 cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeSurvey196427 count($columns = '*')
- * @method static CachedBuilder<static>|LimeSurvey196427 disableCache()
- * @method static CachedBuilder<static>|LimeSurvey196427 disableModelCaching()
- * @method static CachedBuilder<static>|LimeSurvey196427 exists()
- * @method static CachedBuilder<static>|LimeSurvey196427 flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeSurvey196427 getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeSurvey196427 inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeSurvey196427 insert(array $values)
- * @method static CachedBuilder<static>|LimeSurvey196427 isCachable()
- * @method static CachedBuilder<static>|LimeSurvey196427 max($column)
- * @method static CachedBuilder<static>|LimeSurvey196427 min($column)
- * @method static CachedBuilder<static>|LimeSurvey196427 newModelQuery()
- * @method static CachedBuilder<static>|LimeSurvey196427 newQuery()
- * @method static CachedBuilder<static>|LimeSurvey196427 ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeSurvey196427 query()
- * @method static CachedBuilder<static>|LimeSurvey196427 sum($column)
- * @method static CachedBuilder<static>|LimeSurvey196427 truncate()
- * @method static CachedBuilder<static>|LimeSurvey196427 where196427X1028X33144($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 where196427X1028X33145($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 where196427X1028X33146($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 where196427X1028X33147($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 where196427X1028X33148($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 where196427X1028X33149($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 where196427X1028X33150($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 where196427X1028X33151($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 where196427X1028X33152($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 whereDatestamp($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 whereId($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 whereIpaddr($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 whereLastpage($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 whereRefurl($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 whereSeed($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 whereStartdate($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 whereStartlanguage($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 whereSubmitdate($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 whereToken($value)
- * @method static CachedBuilder<static>|LimeSurvey196427 withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeSurvey196427 all($columns = [])
+ * @method static CachedBuilder|LimeSurvey196427 avg($column)
+ * @method static CachedBuilder|LimeSurvey196427 cache(array $tags = [])
+ * @method static CachedBuilder|LimeSurvey196427 cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeSurvey196427 count($columns = '*')
+ * @method static CachedBuilder|LimeSurvey196427 disableCache()
+ * @method static CachedBuilder|LimeSurvey196427 disableModelCaching()
+ * @method static CachedBuilder|LimeSurvey196427 exists()
+ * @method static CachedBuilder|LimeSurvey196427 flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeSurvey196427 getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeSurvey196427 inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeSurvey196427 insert(array $values)
+ * @method static CachedBuilder|LimeSurvey196427 isCachable()
+ * @method static CachedBuilder|LimeSurvey196427 max($column)
+ * @method static CachedBuilder|LimeSurvey196427 min($column)
+ * @method static CachedBuilder|LimeSurvey196427 newModelQuery()
+ * @method static CachedBuilder|LimeSurvey196427 newQuery()
+ * @method static CachedBuilder|LimeSurvey196427 ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeSurvey196427 query()
+ * @method static CachedBuilder|LimeSurvey196427 sum($column)
+ * @method static CachedBuilder|LimeSurvey196427 truncate()
+ * @method static CachedBuilder|LimeSurvey196427 where196427X1028X33144($value)
+ * @method static CachedBuilder|LimeSurvey196427 where196427X1028X33145($value)
+ * @method static CachedBuilder|LimeSurvey196427 where196427X1028X33146($value)
+ * @method static CachedBuilder|LimeSurvey196427 where196427X1028X33147($value)
+ * @method static CachedBuilder|LimeSurvey196427 where196427X1028X33148($value)
+ * @method static CachedBuilder|LimeSurvey196427 where196427X1028X33149($value)
+ * @method static CachedBuilder|LimeSurvey196427 where196427X1028X33150($value)
+ * @method static CachedBuilder|LimeSurvey196427 where196427X1028X33151($value)
+ * @method static CachedBuilder|LimeSurvey196427 where196427X1028X33152($value)
+ * @method static CachedBuilder|LimeSurvey196427 whereDatestamp($value)
+ * @method static CachedBuilder|LimeSurvey196427 whereId($value)
+ * @method static CachedBuilder|LimeSurvey196427 whereIpaddr($value)
+ * @method static CachedBuilder|LimeSurvey196427 whereLastpage($value)
+ * @method static CachedBuilder|LimeSurvey196427 whereRefurl($value)
+ * @method static CachedBuilder|LimeSurvey196427 whereSeed($value)
+ * @method static CachedBuilder|LimeSurvey196427 whereStartdate($value)
+ * @method static CachedBuilder|LimeSurvey196427 whereStartlanguage($value)
+ * @method static CachedBuilder|LimeSurvey196427 whereSubmitdate($value)
+ * @method static CachedBuilder|LimeSurvey196427 whereToken($value)
+ * @method static CachedBuilder|LimeSurvey196427 withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -93,12 +93,12 @@ class LimeSurvey196427 extends BaseModel implements LimeSurveyXXXContract
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'token', 'submitdate', 'lastpage', 'startlanguage', 'seed', 'startdate', 'datestamp', 'ipaddr', 'refurl', '196427X1028X33144', '196427X1028X33152', '196427X1028X33145', '196427X1028X33146', '196427X1028X33147', '196427X1028X33148', '196427X1028X33149', '196427X1028X33150', '196427X1028X33151',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

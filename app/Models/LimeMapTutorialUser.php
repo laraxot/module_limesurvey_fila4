@@ -20,31 +20,31 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeMapTutorialUser all($columns = [])
- * @method static CachedBuilder<static>|LimeMapTutorialUser avg($column)
- * @method static CachedBuilder<static>|LimeMapTutorialUser cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeMapTutorialUser cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeMapTutorialUser count($columns = '*')
- * @method static CachedBuilder<static>|LimeMapTutorialUser disableCache()
- * @method static CachedBuilder<static>|LimeMapTutorialUser disableModelCaching()
- * @method static CachedBuilder<static>|LimeMapTutorialUser exists()
- * @method static CachedBuilder<static>|LimeMapTutorialUser flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeMapTutorialUser getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeMapTutorialUser inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeMapTutorialUser insert(array $values)
- * @method static CachedBuilder<static>|LimeMapTutorialUser isCachable()
- * @method static CachedBuilder<static>|LimeMapTutorialUser max($column)
- * @method static CachedBuilder<static>|LimeMapTutorialUser min($column)
- * @method static CachedBuilder<static>|LimeMapTutorialUser newModelQuery()
- * @method static CachedBuilder<static>|LimeMapTutorialUser newQuery()
- * @method static CachedBuilder<static>|LimeMapTutorialUser ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeMapTutorialUser query()
- * @method static CachedBuilder<static>|LimeMapTutorialUser sum($column)
- * @method static CachedBuilder<static>|LimeMapTutorialUser truncate()
- * @method static CachedBuilder<static>|LimeMapTutorialUser whereTaken($value)
- * @method static CachedBuilder<static>|LimeMapTutorialUser whereTid($value)
- * @method static CachedBuilder<static>|LimeMapTutorialUser whereUid($value)
- * @method static CachedBuilder<static>|LimeMapTutorialUser withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeMapTutorialUser all($columns = [])
+ * @method static CachedBuilder|LimeMapTutorialUser avg($column)
+ * @method static CachedBuilder|LimeMapTutorialUser cache(array $tags = [])
+ * @method static CachedBuilder|LimeMapTutorialUser cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeMapTutorialUser count($columns = '*')
+ * @method static CachedBuilder|LimeMapTutorialUser disableCache()
+ * @method static CachedBuilder|LimeMapTutorialUser disableModelCaching()
+ * @method static CachedBuilder|LimeMapTutorialUser exists()
+ * @method static CachedBuilder|LimeMapTutorialUser flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeMapTutorialUser getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeMapTutorialUser inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeMapTutorialUser insert(array $values)
+ * @method static CachedBuilder|LimeMapTutorialUser isCachable()
+ * @method static CachedBuilder|LimeMapTutorialUser max($column)
+ * @method static CachedBuilder|LimeMapTutorialUser min($column)
+ * @method static CachedBuilder|LimeMapTutorialUser newModelQuery()
+ * @method static CachedBuilder|LimeMapTutorialUser newQuery()
+ * @method static CachedBuilder|LimeMapTutorialUser ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeMapTutorialUser query()
+ * @method static CachedBuilder|LimeMapTutorialUser sum($column)
+ * @method static CachedBuilder|LimeMapTutorialUser truncate()
+ * @method static CachedBuilder|LimeMapTutorialUser whereTaken($value)
+ * @method static CachedBuilder|LimeMapTutorialUser whereTid($value)
+ * @method static CachedBuilder|LimeMapTutorialUser whereUid($value)
+ * @method static CachedBuilder|LimeMapTutorialUser withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -59,12 +59,12 @@ class LimeMapTutorialUser extends BaseModel
     /** @var string */
     protected $primaryKey = 'tid';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'uid', 'taken',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

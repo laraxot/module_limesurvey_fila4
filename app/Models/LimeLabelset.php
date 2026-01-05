@@ -20,31 +20,31 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeLabelset all($columns = [])
- * @method static CachedBuilder<static>|LimeLabelset avg($column)
- * @method static CachedBuilder<static>|LimeLabelset cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeLabelset cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeLabelset count($columns = '*')
- * @method static CachedBuilder<static>|LimeLabelset disableCache()
- * @method static CachedBuilder<static>|LimeLabelset disableModelCaching()
- * @method static CachedBuilder<static>|LimeLabelset exists()
- * @method static CachedBuilder<static>|LimeLabelset flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeLabelset getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeLabelset inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeLabelset insert(array $values)
- * @method static CachedBuilder<static>|LimeLabelset isCachable()
- * @method static CachedBuilder<static>|LimeLabelset max($column)
- * @method static CachedBuilder<static>|LimeLabelset min($column)
- * @method static CachedBuilder<static>|LimeLabelset newModelQuery()
- * @method static CachedBuilder<static>|LimeLabelset newQuery()
- * @method static CachedBuilder<static>|LimeLabelset ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeLabelset query()
- * @method static CachedBuilder<static>|LimeLabelset sum($column)
- * @method static CachedBuilder<static>|LimeLabelset truncate()
- * @method static CachedBuilder<static>|LimeLabelset whereLabelName($value)
- * @method static CachedBuilder<static>|LimeLabelset whereLanguages($value)
- * @method static CachedBuilder<static>|LimeLabelset whereLid($value)
- * @method static CachedBuilder<static>|LimeLabelset withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeLabelset all($columns = [])
+ * @method static CachedBuilder|LimeLabelset avg($column)
+ * @method static CachedBuilder|LimeLabelset cache(array $tags = [])
+ * @method static CachedBuilder|LimeLabelset cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeLabelset count($columns = '*')
+ * @method static CachedBuilder|LimeLabelset disableCache()
+ * @method static CachedBuilder|LimeLabelset disableModelCaching()
+ * @method static CachedBuilder|LimeLabelset exists()
+ * @method static CachedBuilder|LimeLabelset flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeLabelset getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeLabelset inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeLabelset insert(array $values)
+ * @method static CachedBuilder|LimeLabelset isCachable()
+ * @method static CachedBuilder|LimeLabelset max($column)
+ * @method static CachedBuilder|LimeLabelset min($column)
+ * @method static CachedBuilder|LimeLabelset newModelQuery()
+ * @method static CachedBuilder|LimeLabelset newQuery()
+ * @method static CachedBuilder|LimeLabelset ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeLabelset query()
+ * @method static CachedBuilder|LimeLabelset sum($column)
+ * @method static CachedBuilder|LimeLabelset truncate()
+ * @method static CachedBuilder|LimeLabelset whereLabelName($value)
+ * @method static CachedBuilder|LimeLabelset whereLanguages($value)
+ * @method static CachedBuilder|LimeLabelset whereLid($value)
+ * @method static CachedBuilder|LimeLabelset withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -59,12 +59,12 @@ class LimeLabelset extends BaseModel
     /** @var string */
     protected $primaryKey = 'lid';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'label_name', 'languages',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

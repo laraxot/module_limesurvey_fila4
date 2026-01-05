@@ -64,12 +64,12 @@ class LimeTutorialEntryRelation extends BaseModel
     /** @var string */
     protected $primaryKey = 'teid';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'tid', 'uid', 'sid',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

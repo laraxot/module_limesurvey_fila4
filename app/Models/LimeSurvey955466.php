@@ -111,7 +111,7 @@ class LimeSurvey955466 extends BaseModel implements LimeSurveyXXXContract
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         0 => 'id',
         1 => 'token',
@@ -137,7 +137,7 @@ class LimeSurvey955466 extends BaseModel implements LimeSurveyXXXContract
         21 => '955466X1143X34111',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

@@ -89,12 +89,12 @@ class LimeSurveymenu extends BaseModel
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'parent_id', 'survey_id', 'user_id', 'name', 'ordering', 'level', 'title', 'position', 'description', 'showincollapse', 'active', 'changed_at', 'changed_by', 'created_at', 'created_by',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

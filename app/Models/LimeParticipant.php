@@ -28,38 +28,38 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeParticipant all($columns = [])
- * @method static CachedBuilder<static>|LimeParticipant avg($column)
- * @method static CachedBuilder<static>|LimeParticipant cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeParticipant cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeParticipant count($columns = '*')
- * @method static CachedBuilder<static>|LimeParticipant disableCache()
- * @method static CachedBuilder<static>|LimeParticipant disableModelCaching()
- * @method static CachedBuilder<static>|LimeParticipant exists()
- * @method static CachedBuilder<static>|LimeParticipant flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeParticipant getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeParticipant inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeParticipant insert(array $values)
- * @method static CachedBuilder<static>|LimeParticipant isCachable()
- * @method static CachedBuilder<static>|LimeParticipant max($column)
- * @method static CachedBuilder<static>|LimeParticipant min($column)
- * @method static CachedBuilder<static>|LimeParticipant newModelQuery()
- * @method static CachedBuilder<static>|LimeParticipant newQuery()
- * @method static CachedBuilder<static>|LimeParticipant ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeParticipant query()
- * @method static CachedBuilder<static>|LimeParticipant sum($column)
- * @method static CachedBuilder<static>|LimeParticipant truncate()
- * @method static CachedBuilder<static>|LimeParticipant whereBlacklisted($value)
- * @method static CachedBuilder<static>|LimeParticipant whereCreated($value)
- * @method static CachedBuilder<static>|LimeParticipant whereCreatedBy($value)
- * @method static CachedBuilder<static>|LimeParticipant whereEmail($value)
- * @method static CachedBuilder<static>|LimeParticipant whereFirstname($value)
- * @method static CachedBuilder<static>|LimeParticipant whereLanguage($value)
- * @method static CachedBuilder<static>|LimeParticipant whereLastname($value)
- * @method static CachedBuilder<static>|LimeParticipant whereModified($value)
- * @method static CachedBuilder<static>|LimeParticipant whereOwnerUid($value)
- * @method static CachedBuilder<static>|LimeParticipant whereParticipantId($value)
- * @method static CachedBuilder<static>|LimeParticipant withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeParticipant all($columns = [])
+ * @method static CachedBuilder|LimeParticipant avg($column)
+ * @method static CachedBuilder|LimeParticipant cache(array $tags = [])
+ * @method static CachedBuilder|LimeParticipant cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeParticipant count($columns = '*')
+ * @method static CachedBuilder|LimeParticipant disableCache()
+ * @method static CachedBuilder|LimeParticipant disableModelCaching()
+ * @method static CachedBuilder|LimeParticipant exists()
+ * @method static CachedBuilder|LimeParticipant flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeParticipant getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeParticipant inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeParticipant insert(array $values)
+ * @method static CachedBuilder|LimeParticipant isCachable()
+ * @method static CachedBuilder|LimeParticipant max($column)
+ * @method static CachedBuilder|LimeParticipant min($column)
+ * @method static CachedBuilder|LimeParticipant newModelQuery()
+ * @method static CachedBuilder|LimeParticipant newQuery()
+ * @method static CachedBuilder|LimeParticipant ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeParticipant query()
+ * @method static CachedBuilder|LimeParticipant sum($column)
+ * @method static CachedBuilder|LimeParticipant truncate()
+ * @method static CachedBuilder|LimeParticipant whereBlacklisted($value)
+ * @method static CachedBuilder|LimeParticipant whereCreated($value)
+ * @method static CachedBuilder|LimeParticipant whereCreatedBy($value)
+ * @method static CachedBuilder|LimeParticipant whereEmail($value)
+ * @method static CachedBuilder|LimeParticipant whereFirstname($value)
+ * @method static CachedBuilder|LimeParticipant whereLanguage($value)
+ * @method static CachedBuilder|LimeParticipant whereLastname($value)
+ * @method static CachedBuilder|LimeParticipant whereModified($value)
+ * @method static CachedBuilder|LimeParticipant whereOwnerUid($value)
+ * @method static CachedBuilder|LimeParticipant whereParticipantId($value)
+ * @method static CachedBuilder|LimeParticipant withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -74,12 +74,12 @@ class LimeParticipant extends BaseModel
     /** @var string */
     protected $primaryKey = 'participant_id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'firstname', 'lastname', 'email', 'language', 'blacklisted', 'owner_uid', 'created_by', 'created', 'modified',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

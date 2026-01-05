@@ -110,13 +110,13 @@ class LimeSurveysLanguagesetting extends BaseModel
     /** @var string */
     protected $primaryKey = 'surveyls_survey_id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'surveyls_survey_id',
         'surveyls_language', 'surveyls_title', 'surveyls_description', 'surveyls_welcometext', 'surveyls_endtext', 'surveyls_policy_notice', 'surveyls_policy_error', 'surveyls_policy_notice_label', 'surveyls_url', 'surveyls_urldescription', 'surveyls_email_invite_subj', 'surveyls_email_invite', 'surveyls_email_remind_subj', 'surveyls_email_remind', 'surveyls_email_register_subj', 'surveyls_email_register', 'surveyls_email_confirm_subj', 'surveyls_email_confirm', 'surveyls_dateformat', 'surveyls_attributecaptions', 'email_admin_notification_subj', 'email_admin_notification', 'email_admin_responses_subj', 'email_admin_responses', 'surveyls_numberformat', 'attachments',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

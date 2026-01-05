@@ -25,33 +25,33 @@ use Modules\Quaeris\Models\Profile;
  * @property-read LimeGroupL10n|null $labels
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeGroup all($columns = [])
- * @method static CachedBuilder<static>|LimeGroup avg($column)
- * @method static CachedBuilder<static>|LimeGroup cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeGroup cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeGroup count($columns = '*')
- * @method static CachedBuilder<static>|LimeGroup disableCache()
- * @method static CachedBuilder<static>|LimeGroup disableModelCaching()
- * @method static CachedBuilder<static>|LimeGroup exists()
- * @method static CachedBuilder<static>|LimeGroup flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeGroup getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeGroup inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeGroup insert(array $values)
- * @method static CachedBuilder<static>|LimeGroup isCachable()
- * @method static CachedBuilder<static>|LimeGroup max($column)
- * @method static CachedBuilder<static>|LimeGroup min($column)
- * @method static CachedBuilder<static>|LimeGroup newModelQuery()
- * @method static CachedBuilder<static>|LimeGroup newQuery()
- * @method static CachedBuilder<static>|LimeGroup ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeGroup query()
- * @method static CachedBuilder<static>|LimeGroup sum($column)
- * @method static CachedBuilder<static>|LimeGroup truncate()
- * @method static CachedBuilder<static>|LimeGroup whereGid($value)
- * @method static CachedBuilder<static>|LimeGroup whereGrelevance($value)
- * @method static CachedBuilder<static>|LimeGroup whereGroupOrder($value)
- * @method static CachedBuilder<static>|LimeGroup whereRandomizationGroup($value)
- * @method static CachedBuilder<static>|LimeGroup whereSid($value)
- * @method static CachedBuilder<static>|LimeGroup withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeGroup all($columns = [])
+ * @method static CachedBuilder|LimeGroup avg($column)
+ * @method static CachedBuilder|LimeGroup cache(array $tags = [])
+ * @method static CachedBuilder|LimeGroup cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeGroup count($columns = '*')
+ * @method static CachedBuilder|LimeGroup disableCache()
+ * @method static CachedBuilder|LimeGroup disableModelCaching()
+ * @method static CachedBuilder|LimeGroup exists()
+ * @method static CachedBuilder|LimeGroup flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeGroup getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeGroup inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeGroup insert(array $values)
+ * @method static CachedBuilder|LimeGroup isCachable()
+ * @method static CachedBuilder|LimeGroup max($column)
+ * @method static CachedBuilder|LimeGroup min($column)
+ * @method static CachedBuilder|LimeGroup newModelQuery()
+ * @method static CachedBuilder|LimeGroup newQuery()
+ * @method static CachedBuilder|LimeGroup ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeGroup query()
+ * @method static CachedBuilder|LimeGroup sum($column)
+ * @method static CachedBuilder|LimeGroup truncate()
+ * @method static CachedBuilder|LimeGroup whereGid($value)
+ * @method static CachedBuilder|LimeGroup whereGrelevance($value)
+ * @method static CachedBuilder|LimeGroup whereGroupOrder($value)
+ * @method static CachedBuilder|LimeGroup whereRandomizationGroup($value)
+ * @method static CachedBuilder|LimeGroup whereSid($value)
+ * @method static CachedBuilder|LimeGroup withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -66,12 +66,12 @@ class LimeGroup extends BaseModel
     /** @var string */
     protected $primaryKey = 'gid';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'language', 'sid', 'group_name', 'group_order', 'description', 'randomization_group', 'grelevance',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

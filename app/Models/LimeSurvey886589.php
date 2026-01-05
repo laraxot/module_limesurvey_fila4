@@ -96,12 +96,12 @@ class LimeSurvey886589 extends BaseModel implements LimeSurveyXXXContract
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'token', 'submitdate', 'lastpage', 'startlanguage', 'seed', '886589X223X24551Q1', '886589X223X24551Q2', '886589X223X24551Q3', '886589X223X24551Q4', '886589X224X24556', '886589X224X24556other', '886589X224X24557', '886589X224X24558SQ001', '886589X225X24560', '886589X225X24561', '886589X226X24562', '886589X226X24562other', '886589X226X24563',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

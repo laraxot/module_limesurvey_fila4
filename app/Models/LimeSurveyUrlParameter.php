@@ -66,12 +66,12 @@ class LimeSurveyUrlParameter extends BaseModel
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'sid', 'parameter', 'targetqid', 'targetsqid',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

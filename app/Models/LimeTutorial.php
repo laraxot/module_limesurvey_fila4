@@ -74,12 +74,12 @@ class LimeTutorial extends BaseModel
     /** @var string */
     protected $primaryKey = 'tid';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'name', 'title', 'icon', 'description', 'active', 'settings', 'permission', 'permission_grade',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

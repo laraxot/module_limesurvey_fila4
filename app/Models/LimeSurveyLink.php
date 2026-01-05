@@ -69,12 +69,12 @@ class LimeSurveyLink extends BaseModel
     /** @var string */
     protected $primaryKey = 'participant_id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'token_id', 'survey_id', 'date_created', 'date_invited', 'date_completed',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

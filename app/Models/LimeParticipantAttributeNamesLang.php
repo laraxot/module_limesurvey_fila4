@@ -20,31 +20,31 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang all($columns = [])
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang avg($column)
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang count($columns = '*')
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang disableCache()
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang disableModelCaching()
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang exists()
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang insert(array $values)
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang isCachable()
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang max($column)
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang min($column)
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang newModelQuery()
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang newQuery()
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang query()
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang sum($column)
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang truncate()
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang whereAttributeId($value)
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang whereAttributeName($value)
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang whereLang($value)
- * @method static CachedBuilder<static>|LimeParticipantAttributeNamesLang withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang all($columns = [])
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang avg($column)
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang cache(array $tags = [])
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang count($columns = '*')
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang disableCache()
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang disableModelCaching()
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang exists()
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang insert(array $values)
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang isCachable()
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang max($column)
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang min($column)
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang newModelQuery()
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang newQuery()
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang query()
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang sum($column)
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang truncate()
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang whereAttributeId($value)
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang whereAttributeName($value)
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang whereLang($value)
+ * @method static CachedBuilder|LimeParticipantAttributeNamesLang withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -59,12 +59,12 @@ class LimeParticipantAttributeNamesLang extends BaseModel
     /** @var string */
     protected $primaryKey = 'attribute_id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'lang', 'attribute_name',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

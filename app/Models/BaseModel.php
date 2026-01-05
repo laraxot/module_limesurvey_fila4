@@ -19,7 +19,7 @@ abstract class BaseModel extends XotBaseModel
     /** @var string */
     protected $connection = 'limesurvey';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $appends = [
     ];
 

@@ -24,35 +24,35 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeQuota all($columns = [])
- * @method static CachedBuilder<static>|LimeQuota avg($column)
- * @method static CachedBuilder<static>|LimeQuota cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeQuota cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeQuota count($columns = '*')
- * @method static CachedBuilder<static>|LimeQuota disableCache()
- * @method static CachedBuilder<static>|LimeQuota disableModelCaching()
- * @method static CachedBuilder<static>|LimeQuota exists()
- * @method static CachedBuilder<static>|LimeQuota flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeQuota getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeQuota inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeQuota insert(array $values)
- * @method static CachedBuilder<static>|LimeQuota isCachable()
- * @method static CachedBuilder<static>|LimeQuota max($column)
- * @method static CachedBuilder<static>|LimeQuota min($column)
- * @method static CachedBuilder<static>|LimeQuota newModelQuery()
- * @method static CachedBuilder<static>|LimeQuota newQuery()
- * @method static CachedBuilder<static>|LimeQuota ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeQuota query()
- * @method static CachedBuilder<static>|LimeQuota sum($column)
- * @method static CachedBuilder<static>|LimeQuota truncate()
- * @method static CachedBuilder<static>|LimeQuota whereAction($value)
- * @method static CachedBuilder<static>|LimeQuota whereActive($value)
- * @method static CachedBuilder<static>|LimeQuota whereAutoloadUrl($value)
- * @method static CachedBuilder<static>|LimeQuota whereId($value)
- * @method static CachedBuilder<static>|LimeQuota whereName($value)
- * @method static CachedBuilder<static>|LimeQuota whereQlimit($value)
- * @method static CachedBuilder<static>|LimeQuota whereSid($value)
- * @method static CachedBuilder<static>|LimeQuota withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeQuota all($columns = [])
+ * @method static CachedBuilder|LimeQuota avg($column)
+ * @method static CachedBuilder|LimeQuota cache(array $tags = [])
+ * @method static CachedBuilder|LimeQuota cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeQuota count($columns = '*')
+ * @method static CachedBuilder|LimeQuota disableCache()
+ * @method static CachedBuilder|LimeQuota disableModelCaching()
+ * @method static CachedBuilder|LimeQuota exists()
+ * @method static CachedBuilder|LimeQuota flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeQuota getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeQuota inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeQuota insert(array $values)
+ * @method static CachedBuilder|LimeQuota isCachable()
+ * @method static CachedBuilder|LimeQuota max($column)
+ * @method static CachedBuilder|LimeQuota min($column)
+ * @method static CachedBuilder|LimeQuota newModelQuery()
+ * @method static CachedBuilder|LimeQuota newQuery()
+ * @method static CachedBuilder|LimeQuota ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeQuota query()
+ * @method static CachedBuilder|LimeQuota sum($column)
+ * @method static CachedBuilder|LimeQuota truncate()
+ * @method static CachedBuilder|LimeQuota whereAction($value)
+ * @method static CachedBuilder|LimeQuota whereActive($value)
+ * @method static CachedBuilder|LimeQuota whereAutoloadUrl($value)
+ * @method static CachedBuilder|LimeQuota whereId($value)
+ * @method static CachedBuilder|LimeQuota whereName($value)
+ * @method static CachedBuilder|LimeQuota whereQlimit($value)
+ * @method static CachedBuilder|LimeQuota whereSid($value)
+ * @method static CachedBuilder|LimeQuota withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -67,12 +67,12 @@ class LimeQuota extends BaseModel
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'sid', 'name', 'qlimit', 'action', 'active', 'autoload_url',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

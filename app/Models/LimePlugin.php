@@ -25,36 +25,36 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimePlugin all($columns = [])
- * @method static CachedBuilder<static>|LimePlugin avg($column)
- * @method static CachedBuilder<static>|LimePlugin cache(array $tags = [])
- * @method static CachedBuilder<static>|LimePlugin cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimePlugin count($columns = '*')
- * @method static CachedBuilder<static>|LimePlugin disableCache()
- * @method static CachedBuilder<static>|LimePlugin disableModelCaching()
- * @method static CachedBuilder<static>|LimePlugin exists()
- * @method static CachedBuilder<static>|LimePlugin flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimePlugin getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimePlugin inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimePlugin insert(array $values)
- * @method static CachedBuilder<static>|LimePlugin isCachable()
- * @method static CachedBuilder<static>|LimePlugin max($column)
- * @method static CachedBuilder<static>|LimePlugin min($column)
- * @method static CachedBuilder<static>|LimePlugin newModelQuery()
- * @method static CachedBuilder<static>|LimePlugin newQuery()
- * @method static CachedBuilder<static>|LimePlugin ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimePlugin query()
- * @method static CachedBuilder<static>|LimePlugin sum($column)
- * @method static CachedBuilder<static>|LimePlugin truncate()
- * @method static CachedBuilder<static>|LimePlugin whereActive($value)
- * @method static CachedBuilder<static>|LimePlugin whereId($value)
- * @method static CachedBuilder<static>|LimePlugin whereLoadError($value)
- * @method static CachedBuilder<static>|LimePlugin whereLoadErrorMessage($value)
- * @method static CachedBuilder<static>|LimePlugin whereName($value)
- * @method static CachedBuilder<static>|LimePlugin wherePluginType($value)
- * @method static CachedBuilder<static>|LimePlugin wherePriority($value)
- * @method static CachedBuilder<static>|LimePlugin whereVersion($value)
- * @method static CachedBuilder<static>|LimePlugin withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimePlugin all($columns = [])
+ * @method static CachedBuilder|LimePlugin avg($column)
+ * @method static CachedBuilder|LimePlugin cache(array $tags = [])
+ * @method static CachedBuilder|LimePlugin cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimePlugin count($columns = '*')
+ * @method static CachedBuilder|LimePlugin disableCache()
+ * @method static CachedBuilder|LimePlugin disableModelCaching()
+ * @method static CachedBuilder|LimePlugin exists()
+ * @method static CachedBuilder|LimePlugin flushCache(array $tags = [])
+ * @method static CachedBuilder|LimePlugin getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimePlugin inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimePlugin insert(array $values)
+ * @method static CachedBuilder|LimePlugin isCachable()
+ * @method static CachedBuilder|LimePlugin max($column)
+ * @method static CachedBuilder|LimePlugin min($column)
+ * @method static CachedBuilder|LimePlugin newModelQuery()
+ * @method static CachedBuilder|LimePlugin newQuery()
+ * @method static CachedBuilder|LimePlugin ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimePlugin query()
+ * @method static CachedBuilder|LimePlugin sum($column)
+ * @method static CachedBuilder|LimePlugin truncate()
+ * @method static CachedBuilder|LimePlugin whereActive($value)
+ * @method static CachedBuilder|LimePlugin whereId($value)
+ * @method static CachedBuilder|LimePlugin whereLoadError($value)
+ * @method static CachedBuilder|LimePlugin whereLoadErrorMessage($value)
+ * @method static CachedBuilder|LimePlugin whereName($value)
+ * @method static CachedBuilder|LimePlugin wherePluginType($value)
+ * @method static CachedBuilder|LimePlugin wherePriority($value)
+ * @method static CachedBuilder|LimePlugin whereVersion($value)
+ * @method static CachedBuilder|LimePlugin withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -69,12 +69,12 @@ class LimePlugin extends BaseModel
     /** @var string */
     protected $primaryKey = 'id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'name', 'active', 'version',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

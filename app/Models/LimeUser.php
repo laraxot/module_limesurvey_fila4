@@ -93,12 +93,12 @@ class LimeUser extends BaseModel
     /** @var string */
     protected $primaryKey = 'uid';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'users_name', 'password', 'full_name', 'parent_id', 'lang', 'email', 'htmleditormode', 'templateeditormode', 'questionselectormode', 'one_time_pw', 'dateformat', 'created', 'modified',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

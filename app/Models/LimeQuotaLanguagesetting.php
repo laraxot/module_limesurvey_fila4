@@ -24,35 +24,35 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting all($columns = [])
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting avg($column)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting cache(array $tags = [])
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting count($columns = '*')
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting disableCache()
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting disableModelCaching()
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting exists()
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting flushCache(array $tags = [])
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting inRandomOrder($seed = '')
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting insert(array $values)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting isCachable()
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting max($column)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting min($column)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting newModelQuery()
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting newQuery()
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting query()
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting sum($column)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting truncate()
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting whereQuotalsId($value)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting whereQuotalsLanguage($value)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting whereQuotalsMessage($value)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting whereQuotalsName($value)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting whereQuotalsQuotaId($value)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting whereQuotalsUrl($value)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting whereQuotalsUrldescrip($value)
- * @method static CachedBuilder<static>|LimeQuotaLanguagesetting withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting all($columns = [])
+ * @method static CachedBuilder|LimeQuotaLanguagesetting avg($column)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting cache(array $tags = [])
+ * @method static CachedBuilder|LimeQuotaLanguagesetting cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting count($columns = '*')
+ * @method static CachedBuilder|LimeQuotaLanguagesetting disableCache()
+ * @method static CachedBuilder|LimeQuotaLanguagesetting disableModelCaching()
+ * @method static CachedBuilder|LimeQuotaLanguagesetting exists()
+ * @method static CachedBuilder|LimeQuotaLanguagesetting flushCache(array $tags = [])
+ * @method static CachedBuilder|LimeQuotaLanguagesetting getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting inRandomOrder($seed = '')
+ * @method static CachedBuilder|LimeQuotaLanguagesetting insert(array $values)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting isCachable()
+ * @method static CachedBuilder|LimeQuotaLanguagesetting max($column)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting min($column)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting newModelQuery()
+ * @method static CachedBuilder|LimeQuotaLanguagesetting newQuery()
+ * @method static CachedBuilder|LimeQuotaLanguagesetting ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting query()
+ * @method static CachedBuilder|LimeQuotaLanguagesetting sum($column)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting truncate()
+ * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsId($value)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsLanguage($value)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsMessage($value)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsName($value)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsQuotaId($value)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsUrl($value)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsUrldescrip($value)
+ * @method static CachedBuilder|LimeQuotaLanguagesetting withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -67,12 +67,12 @@ class LimeQuotaLanguagesetting extends BaseModel
     /** @var string */
     protected $primaryKey = 'quotals_id';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'quotals_quota_id', 'quotals_language', 'quotals_name', 'quotals_message', 'quotals_url', 'quotals_urldescrip',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

@@ -81,12 +81,12 @@ class LimeSurveysGroup extends BaseModel
     /** @var string */
     protected $primaryKey = 'gsid';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'name', 'title', 'template', 'description', 'sortorder', 'owner_id', 'parent_id', 'created', 'modified', 'created_by',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $hidden = [
     ];
 

@@ -134,7 +134,7 @@ class LimeQuestion extends BaseTreeModel
     /** @var string */
     protected $primaryKey = 'qid';
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $fillable = [
         'language',
         'parent_qid',
@@ -183,7 +183,7 @@ class LimeQuestion extends BaseTreeModel
         // 'extra',
     ];
 
-    /** @var array<int, string> */
+    /** @var list<string> */
     protected $appends = [
         // 'field_name',
     ];
