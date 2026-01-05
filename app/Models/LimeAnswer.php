@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Quaeris\Models\Profile;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Modules\Limesurvey\Casts\LimeLangField;
+use Modules\Quaeris\Datas\AnswersFilterData;
+use Modules\Quaeris\Models\Profile;
 
 /**
  * Modules\Limesurvey\Models\LimeAnswer

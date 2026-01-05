@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Spatie\SchemalessAttributes\SchemalessAttributes;
-use Illuminate\Support\Carbon;
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Limesurvey\Database\Factories\ExtraFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
+use Modules\Limesurvey\Database\Factories\ExtraFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Models\BaseExtra;
+use Spatie\SchemalessAttributes\SchemalessAttributes;
 
 /**
  * @property string $id

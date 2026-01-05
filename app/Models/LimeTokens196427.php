@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Quaeris\Models\Profile;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Modules\Limesurvey\Database\Factories\LimeTokens196427Factory;
 use Modules\Quaeris\Datas\AnswersFilterData;
+use Modules\Quaeris\Models\Profile;
 
 /**
  * Modules\Limesurvey\Models\LimeTokens196427

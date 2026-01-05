@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Modules\Quaeris\Models\Profile;
-use Staudenmeir\LaravelAdjacencyList\Eloquent\Builder;
-use Modules\Quaeris\Datas\AnswersFilterData;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Modules\Limesurvey\Casts\LimeLangField;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
+use Modules\Quaeris\Datas\AnswersFilterData;
+use Modules\Quaeris\Models\Profile;
+use Staudenmeir\LaravelAdjacencyList\Eloquent\Builder;
 use Webmozart\Assert\Assert;
 
 /**

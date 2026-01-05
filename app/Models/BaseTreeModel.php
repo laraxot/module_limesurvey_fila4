@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Models;
 
 // use Laravel\Scout\Searchable;
-use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 use Modules\Xot\Contracts\HasRecursiveRelationshipsContract;
+use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 /**
  * Base Tree Model for Limesurvey module.

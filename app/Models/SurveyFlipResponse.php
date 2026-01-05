@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use Illuminate\Support\Carbon;
-use Modules\Quaeris\Models\Profile;
 use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Modules\Quaeris\Datas\AlertDashboardFilterData;
 use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Quaeris\Datas\DashboardFilterData;
+use Modules\Quaeris\Models\Profile;
 
 /**
  * Class SurveyFlipResponse.
