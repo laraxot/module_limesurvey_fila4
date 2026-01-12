@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Quaeris\Datas\DashboardFilterData;
+use Modules\Quaeris\Datas\QuestionChartFilterData;
 use Modules\Quaeris\Models\Profile;
 use Modules\Xot\Actions\Query\GetFieldnamesByTablenameAction;
 use Webmozart\Assert\Assert;
@@ -70,7 +71,7 @@ class SurveyResponse extends BaseModel
      */
     public static function getResponsesForSurvey(string $surveyId): Builder
     {
-        $instance = new static();
+        $instance = new static;
         $instance->setTableForSurvey($surveyId);
 
         return $instance->newQuery();
@@ -240,5 +241,42 @@ class SurveyResponse extends BaseModel
         }
 
         return $query;
+    }
+
+    public function scopeOfQuestionChartFilterData(Builder $query, QuestionChartFilterData $filter): Builder
+    {
+        /*
+        if ($filters->date_from']) && $filters['date_from']) {
+            // @phpstan-ignore-next-line
+            $query->whereDate('submitdate', '>=', $filters['date_from']);
+        }
+
+        if (isset($filters['date_to']) && $filters['date_to']) {
+            // @phpstan-ignore-next-line
+            $query->whereDate('submitdate', '<=', $filters['date_to']);
+        }
+
+        if (isset($filters['answer_filter'])) {
+            // @phpstan-ignore-next-line
+            match ($filters['answer_filter']) {
+                // @phpstan-ignore-next-line
+                'answered' => $query->whereNotNull($record->field_name),
+                // @phpstan-ignore-next-line
+                'not_answered' => $query->whereNull($record->field_name),
+                default => null,
+            };
+        }
+            */
+        return $query;
+    }
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::addGlobalScope('ancient', function (Builder $builder) {
+            $builder->whereNotNull('submitdate');
+        });
     }
 }
