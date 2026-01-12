@@ -9,13 +9,28 @@
 
 Il database `quaeris_survey` è il database principale utilizzato dal modulo Limesurvey per gestire tutti i dati relativi ai questionari (survey). Questo database contiene sia tabelle statiche (configurazione) che tabelle dinamiche (dati delle risposte).
 
-### Statistiche Database
+### Statistiche Database (Gennaio 2026)
 
 - **Tabelle totali**: ~500+ tabelle
+- **Survey totali**: 400
+- **Survey attivi**: 228
 - **Tabelle survey dinamiche**: 228 (`lime_survey_{id}`)
 - **Tabelle token dinamiche**: 81 (`lime_tokens_{id}`)
 - **Tabelle timing dinamiche**: Multiple (`lime_survey_{id}_timings`)
 - **Tabelle archiviate**: Multiple (`lime_old_survey_*`)
+- **Domande totali**: 53,401
+- **Media domande per survey**: 133.5
+- **Risposte totali**: 49,549 (lime_answers)
+- **Traduzioni domande**: 55,201 (lime_question_l10ns)
+- **Traduzioni risposte**: 54,418 (lime_answer_l10ns)
+
+### Tabelle Più Grandi (per Rows)
+
+1. `lime_tokens_946595`: 192,061 righe (27.6 MB dati, 7.7 MB indici)
+2. `lime_question_attributes`: 157,341 righe (5.7 MB dati, 4.0 MB indici)
+3. `lime_tokens_39275`: 134,291 righe (21.3 MB dati, 5.9 MB indici)
+4. `lime_tokens_657328`: 100,298 righe (16.7 MB dati, 4.7 MB indici)
+5. `lime_tokens_892883`: 61,195 righe (14.8 MB dati, 3.3 MB indici)
 
 ## Architettura del Database
 
@@ -67,17 +82,39 @@ Contiene i gruppi di domande all'interno di un survey.
 Contiene tutte le domande dei survey.
 
 **Colonne Principali**:
-- `qid` (int, PK): Question ID
-- `parent_qid` (int): ID domanda padre (per domande annidate)
-- `sid` (int, FK): Survey ID
-- `gid` (int, FK): Group ID
-- `type` (string): Tipo di domanda (es. 'L', 'M', 'N', 'S', etc.)
-- `title` (string): Titolo della domanda
-- `question` (text): Testo della domanda (multilingua)
+- `qid` (int, PK, auto_increment): Question ID
+- `parent_qid` (int, MUL, default: 0): ID domanda padre (per domande annidate)
+- `sid` (int, MUL, default: 0): Survey ID
+- `gid` (int, MUL, default: 0): Group ID
+- `type` (varchar(30), MUL, default: 'T'): Tipo di domanda
+- `title` (varchar(20), MUL): Titolo della domanda
+- `question` (text, nullable): Testo della domanda (multilingua)
+- `preg` (text, nullable): Pattern regex per validazione
+- `other` (varchar(1), default: 'N'): Opzione "Altro"
+- `mandatory` (varchar(1), nullable): Obbligatorietà ('Y'/'N')
 - `question_order` (int): Ordine della domanda
-- `mandatory` (string|null): Obbligatorietà ('Y'/'N')
-- `relevance` (string|null): Condizione di rilevanza
+- `scale_id` (int): ID scala
+- `same_default` (int): Default condiviso
+- `relevance` (text, nullable): Condizione di rilevanza (espressione)
+- `modulename` (varchar(255), nullable): Nome modulo
+- `encrypted` (varchar(1), nullable): Crittografia
+- `question_theme_name` (varchar(255), nullable): Tema domanda
+- `same_script` (int): Script condiviso
 - `field_name` (computed): Nome campo dinamico (es. '39275X41X487')
+
+**Indici**:
+- PRIMARY KEY: `qid`
+- INDEX: `parent_qid`, `sid`, `gid`, `type`, `title`
+
+**Tipi di Domande Più Comuni**:
+- `T` (Text): 27,239 domande (51.0%) - Testo libero
+- `;` (Array): 10,410 domande (19.5%) - Array di opzioni
+- `F` (File): 4,174 domande (7.8%) - Upload file
+- `M` (Multiple): 3,518 domande (6.6%) - Scelta multipla
+- `L` (List): 2,645 domande (5.0%) - Lista dropdown
+- `1` (Scale): 1,981 domande (3.7%) - Scala numerica
+- `!` (Exclamation): 913 domande (1.7%) - Domanda esclamativa
+- Altri tipi: `:`, `B`, `S`, `K`, `X`, etc.
 
 **Relazioni**:
 - `belongsTo` → `LimeSurvey` (survey)
@@ -141,11 +178,18 @@ Tabella che contiene tutte le risposte di un survey specifico.
 
 **Colonne Standard**:
 - `id` (int, PK): ID risposta
-- `token` (string): Token del partecipante
-- `submitdate` (datetime): Data di invio
+- `token` (string): Token del partecipante (per join con tokens)
+- `submitdate` (datetime): Data di invio (usato per filtri temporali)
 - `lastpage` (int): Ultima pagina compilata
 - `startlanguage` (string): Lingua di inizio
 - `datestamp` (datetime): Timestamp creazione
+- `seed` (string): Seed per randomizzazione
+- `startdate` (datetime): Data inizio compilazione
+
+**Esempio Reale** (`lime_survey_39275`):
+- **61 colonne totali**: 8 colonne standard + 53 colonne dinamiche
+- **Colonne dinamiche**: `39275X39X465`, `39275X39X466`, `39275X40X539`, etc.
+- **Sub-domande**: `39275X40X475SQ001`, `39275X40X475SQ002`, etc.
 
 **Colonne Dinamiche**:
 Ogni domanda genera una o più colonne dinamiche con pattern:
@@ -228,39 +272,114 @@ Tabella per attributi extra dei modelli (pattern Laraxot).
 ### Struttura Gerarchica
 
 ```
-LimeSurvey (sid)
-├── LimeGroup (gid, sid)
-│   └── LimeQuestion (qid, gid, sid)
-│       ├── LimeAnswer (aid, qid) - opzioni risposta
-│       └── LimeQuestion (parent_qid) - domande annidate
-└── lime_survey_{sid} - risposte
-    └── lime_tokens_{sid} - partecipanti
+LimeSurvey (sid) - 400 survey, 228 attivi
+├── LimeGroup (gid, sid) - Gruppi di domande
+│   └── LimeQuestion (qid, gid, sid) - 53,401 domande totali
+│       ├── LimeAnswer (aid, qid) - 49,549 opzioni risposta
+│       ├── LimeQuestionL10n (qid, language) - 55,201 traduzioni
+│       └── LimeQuestion (parent_qid) - Domande annidate (tree structure)
+├── lime_survey_{sid} - 228 tabelle dinamiche (risposte)
+│   └── Colonne dinamiche: {sid}X{gid}X{qid}
+└── lime_tokens_{sid} - 81 tabelle dinamiche (partecipanti)
+    └── Join con lime_survey_{sid} tramite token
 ```
+
+### Nota sulle Foreign Key
+
+**⚠️ IMPORTANTE**: Il database `quaeris_survey` **NON utilizza foreign key fisiche** nel database. Le relazioni sono gestite a livello logico tramite Eloquent e sono basate su convenzioni di naming e valori di colonne.
+
+**Motivazione**:
+- Performance: Evita overhead di constraint checking
+- Flessibilità: Permette modifiche strutturali senza vincoli
+- Compatibilità: LimeSurvey originale non usa FK
+
+**Implicazioni**:
+- Le relazioni devono essere gestite a livello applicativo
+- Integrità referenziale garantita da Eloquent e validazione
+- Join manuali richiedono attenzione ai nomi colonne
 
 ### Relazioni Eloquent
 
 ```php
 // Survey → Groups
-$survey->groups; // HasMany
+$survey->groups; // HasMany (LimeGroup)
 
 // Survey → Questions
-$survey->questions; // HasMany
+$survey->questions; // HasMany (LimeQuestion)
+
+// Survey → Language Settings
+$survey->lang; // HasOne (LimeSurveysLanguagesetting)
 
 // Group → Questions
-$group->questions; // HasMany
+$group->questions; // HasMany (LimeQuestion)
+
+// Group → Labels (traduzioni)
+$group->labels; // HasOne (LimeGroupL10n)
 
 // Question → Answers
-$question->answers; // HasMany
+$question->answers; // HasMany (LimeAnswer)
 
-// Question → Parent/Children (Tree)
-$question->parent; // BelongsTo
-$question->children; // HasMany (AdjacencyList)
+// Question → Parent/Children (Tree - AdjacencyList)
+$question->parent; // BelongsTo (LimeQuestion)
+$question->children; // HasMany (LimeQuestion)
+$question->brothers; // HasMany (LimeQuestion) - stesse domande dello stesso survey
 
-// Survey → Responses (dinamico)
+// Question → Translations
+$question->l10n; // HasOne (LimeQuestionL10n)
+
+// Question → Group
+$question->group; // BelongsTo (LimeGroup)
+
+// Answer → Translations
+$answer->l10n; // HasOne (LimeAnswerL10n)
+
+// Survey → Responses (dinamico - tabelle dinamiche)
 SurveyResponse::getResponsesForSurvey($survey->sid);
 
-// Survey → Tokens (dinamico)
-LimeTokens{surveyId}::where('token', $token);
+// Survey → Tokens (dinamico - modelli generati)
+app(GetParticipantModelBySurveyIdAction::class)->execute($survey->sid);
+```
+
+### Scope Methods Disponibili
+
+#### SurveyResponse
+
+```php
+// Filtri temporali e domande
+->ofDashboardFilterData(DashboardFilterData $filter)
+->ofQuestionChartFilterData(QuestionChartFilterData $filter)
+->ofFilterData(AnswersFilterData $filter)
+
+// Join con label tradotte
+->withAnswersLabel(string|int $qid, string $field_name, string $prefix = '', string $type = 'join')
+->withAllAnswers(string $type = 'join') // Tutte le risposte con traduzioni
+
+// Join con partecipanti
+->withParticipants() // Join con lime_tokens_{sid}
+```
+
+#### LimeQuestion
+
+```php
+// Filtri
+->ofFilterData(AnswersFilterData $filter)
+
+// Tree queries (AdjacencyList)
+->tree() // Albero completo
+->isRoot() // Solo radici
+->isLeaf() // Solo foglie
+->hasChildren() // Con figli
+->hasParent() // Con padre
+->ancestors() // Antenati
+->descendants() // Discendenti
+->siblings() // Fratelli
+```
+
+#### BaseModel (tutti i modelli)
+
+```php
+// Filtri standard
+->ofFilterData(AnswersFilterData $filter)
 ```
 
 ## Pattern di Naming
@@ -365,14 +484,101 @@ $query = SurveyResponse::getResponsesForSurvey($surveyId)
 
 ### Indicizzazione
 
-Le tabelle dinamiche dovrebbero avere indici su:
-- `token` (per join con tokens)
-- `submitdate` (per filtri temporali)
-- Field names principali (se necessario)
+#### Tabelle Statiche
+
+**lime_surveys**:
+- PRIMARY KEY: `sid`
+- INDEX: `owner_id` (lime_idx1_surveys)
+- INDEX: `gsid` (lime_idx2_surveys)
+
+**lime_questions**:
+- PRIMARY KEY: `qid`
+- INDEX: `parent_qid` (per tree queries)
+- INDEX: `sid` (per filtri survey)
+- INDEX: `gid` (per filtri gruppo)
+- INDEX: `type` (per filtri tipo)
+- INDEX: `title` (per ricerca)
+
+**lime_answers**:
+- PRIMARY KEY: `aid`
+- INDEX: `qid` (per join con questions)
+
+#### Tabelle Dinamiche
+
+Le tabelle dinamiche `lime_survey_{sid}` dovrebbero avere indici su:
+- `token` (per join con `lime_tokens_{sid}`)
+- `submitdate` (per filtri temporali - CRITICO per performance)
+- Field names principali (se utilizzati frequentemente in WHERE)
+
+**⚠️ IMPORTANTE**: Verificare che gli indici esistano sulle tabelle dinamiche più utilizzate.
 
 ### Caching
 
-I modelli utilizzano `GeneaLabs\LaravelModelCaching` per cache automatica.
+I modelli utilizzano `GeneaLabs\LaravelModelCaching` per cache automatica:
+- Cache delle query Eloquent
+- Tag-based invalidation
+- Configurabile per modello
+
+### Query Optimization
+
+#### 1. Utilizzare Scope Methods
+
+**✅ CORRETTO**:
+```php
+SurveyResponse::getResponsesForSurvey($surveyId)
+    ->ofDashboardFilterData($filterData) // Scope ottimizzato
+    ->get();
+```
+
+**❌ ERRATO**:
+```php
+SurveyResponse::getResponsesForSurvey($surveyId)
+    ->where('submitdate', '>=', $dateFrom) // Query manuale
+    ->where('submitdate', '<=', $dateTo)
+    ->get();
+```
+
+#### 2. Eager Loading per Traduzioni
+
+**✅ CORRETTO**:
+```php
+// Una query con join
+->withAnswersLabel($qid, $fieldName, 'prefix', 'join')
+```
+
+**❌ ERRATO**:
+```php
+// N+1 queries
+foreach ($responses as $response) {
+    $response->answer_label; // Query per ogni risposta
+}
+```
+
+#### 3. Limitare Colonne
+
+**✅ CORRETTO**:
+```php
+->addSelect(['id', 'token', 'submitdate', $fieldName])
+```
+
+**❌ ERRATO**:
+```php
+->get(); // Carica tutte le colonne (61+ colonne dinamiche)
+```
+
+### Bottlenecks Identificati
+
+1. **Tabelle Token Grandi**: `lime_tokens_946595` con 192k righe
+   - Utilizzare indici su `token` e `email`
+   - Considerare partizionamento per survey molto grandi
+
+2. **Query con Multiple Join**: `withAllAnswers()` può generare molti join
+   - Preferire `subquery` type per performance migliori
+   - Limitare a domande necessarie
+
+3. **Tabelle Dinamiche con Molte Colonne**: 61+ colonne per survey
+   - Utilizzare `addSelect()` per limitare colonne caricate
+   - Evitare `SELECT *` su tabelle dinamiche
 
 ## Migrazioni e Backup
 
