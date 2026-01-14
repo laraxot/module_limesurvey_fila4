@@ -19,6 +19,7 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListSurveyFlipResponses extends XotBaseListRecords
 {
+    // phpstan fix attempt
     public TableLayoutEnum $layoutView = TableLayoutEnum::LIST;
 
     public string $survey_id = '';

@@ -36,6 +36,13 @@ $responses = SurveyResponse::getResponsesForSurvey($surveyId)
 
 ## Documentazione
 
-- [Database Architecture](./docs/database-quaeris-survey.md)
+### Database
+
+- [Database quaeris_survey - Analisi Completa](./docs/database-quaeris-survey.md) - Struttura completa, statistiche, tabelle
+- [Database Relationships - Dettaglio](./docs/database-relationships-detailed.md) - Relazioni logiche, implementazione Eloquent
+- [Database Query Patterns](./docs/database-query-patterns.md) - Pattern comuni, SQL generato, best practices
+
+### Altro
+
 - [Performance Optimization](./docs/performance/)
 - [Roadmap](./docs/roadmap.md)

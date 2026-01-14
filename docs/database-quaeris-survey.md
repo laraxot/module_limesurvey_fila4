@@ -9,6 +9,7 @@
 
 Il database `quaeris_survey` è il database principale utilizzato dal modulo Limesurvey per gestire tutti i dati relativi ai questionari (survey). Questo database contiene sia tabelle statiche (configurazione) che tabelle dinamiche (dati delle risposte).
 
+
 ### Statistiche Database (Gennaio 2026)
 
 - **Tabelle totali**: ~500+ tabelle
@@ -24,6 +25,7 @@ Il database `quaeris_survey` è il database principale utilizzato dal modulo Lim
 - **Traduzioni domande**: 55,201 (lime_question_l10ns)
 - **Traduzioni risposte**: 54,418 (lime_answer_l10ns)
 
+
 ### Tabelle Più Grandi (per Rows)
 
 1. `lime_tokens_946595`: 192,061 righe (27.6 MB dati, 7.7 MB indici)
@@ -32,11 +34,13 @@ Il database `quaeris_survey` è il database principale utilizzato dal modulo Lim
 4. `lime_tokens_657328`: 100,298 righe (16.7 MB dati, 4.7 MB indici)
 5. `lime_tokens_892883`: 61,195 righe (14.8 MB dati, 3.3 MB indici)
 
+
 ## Architettura del Database
 
 ### Tabelle Statiche (Configurazione)
 
 Le tabelle statiche contengono la configurazione e la struttura dei questionari:
+
 
 #### 1. `lime_surveys` (62 colonne)
 Tabella principale che contiene la configurazione di tutti i survey.
@@ -61,6 +65,7 @@ Tabella principale che contiene la configurazione di tutti i survey.
 
 **Modello**: `Modules\Limesurvey\Models\LimeSurvey`
 
+
 #### 2. `lime_groups` (5 colonne)
 Contiene i gruppi di domande all'interno di un survey.
 
@@ -77,6 +82,7 @@ Contiene i gruppi di domande all'interno di un survey.
 - `hasOne` → `LimeGroupL10n` (labels)
 
 **Modello**: `Modules\Limesurvey\Models\LimeGroup`
+
 
 #### 3. `lime_questions` (17 colonne)
 Contiene tutte le domande dei survey.
@@ -128,6 +134,7 @@ Contiene tutte le domande dei survey.
 
 **Nota**: Utilizza `Staudenmeir\LaravelAdjacencyList` per gestire la struttura ad albero delle domande annidate.
 
+
 #### 4. `lime_answers` (6 colonne)
 Contiene le opzioni di risposta per le domande di tipo scelta multipla.
 
@@ -145,6 +152,7 @@ Contiene le opzioni di risposta per le domande di tipo scelta multipla.
 
 **Modello**: `Modules\Limesurvey\Models\LimeAnswer`
 
+
 #### 5. `lime_answer_l10ns` (4 colonne)
 Traduzioni delle risposte.
 
@@ -154,6 +162,7 @@ Traduzioni delle risposte.
 - `answer` (text): Testo tradotto
 
 **Modello**: `Modules\Limesurvey\Models\LimeAnswerL10n`
+
 
 #### 6. `lime_participants` (10 colonne)
 Tabella principale dei partecipanti (token).
@@ -167,9 +176,11 @@ Tabella principale dei partecipanti (token).
 
 **Modello**: `Modules\Limesurvey\Models\LimeParticipant`
 
+
 ### Tabelle Dinamiche (Dati)
 
 Le tabelle dinamiche vengono create automaticamente quando viene creato un nuovo survey. Il pattern di naming è: `lime_{type}_{surveyId}`.
+
 
 #### 1. `lime_survey_{surveyId}` (Dinamica)
 Tabella che contiene tutte le risposte di un survey specifico.
@@ -210,6 +221,7 @@ SurveyResponse::getResponsesForSurvey('39275')
     ->get();
 ```
 
+
 #### 2. `lime_tokens_{surveyId}` (Dinamica)
 Tabella che contiene i token/partecipanti per un survey specifico.
 
@@ -238,6 +250,7 @@ I modelli vengono generati automaticamente: `LimeTokens{surveyId}` (es. `LimeTok
 app(GetParticipantModelBySurveyIdAction::class)->execute('39275');
 ```
 
+
 #### 3. `lime_survey_{surveyId}_timings` (Dinamica)
 Tabella che contiene i tempi di compilazione per ogni pagina.
 
@@ -251,6 +264,7 @@ Tabella che contiene i tempi di compilazione per ogni pagina.
 - `datestamp` (datetime): Timestamp
 
 **Modelli Dinamici**: `LimeSurvey{surveyId}Timings` (es. `LimeSurvey39275Timings`)
+
 
 ### Tabelle di Supporto
 
@@ -266,6 +280,7 @@ Tabella per attributi extra dei modelli (pattern Laraxot).
 - `created_by`, `updated_by`, `deleted_by`
 
 **Modello**: `Modules\Limesurvey\Models\Extra`
+
 
 ## Relazioni Principali
 
@@ -284,6 +299,7 @@ LimeSurvey (sid) - 400 survey, 228 attivi
     └── Join con lime_survey_{sid} tramite token
 ```
 
+
 ### Nota sulle Foreign Key
 
 **⚠️ IMPORTANTE**: Il database `quaeris_survey` **NON utilizza foreign key fisiche** nel database. Le relazioni sono gestite a livello logico tramite Eloquent e sono basate su convenzioni di naming e valori di colonne.
@@ -297,6 +313,7 @@ LimeSurvey (sid) - 400 survey, 228 attivi
 - Le relazioni devono essere gestite a livello applicativo
 - Integrità referenziale garantita da Eloquent e validazione
 - Join manuali richiedono attenzione ai nomi colonne
+
 
 ### Relazioni Eloquent
 
@@ -340,6 +357,7 @@ SurveyResponse::getResponsesForSurvey($survey->sid);
 app(GetParticipantModelBySurveyIdAction::class)->execute($survey->sid);
 ```
 
+
 ### Scope Methods Disponibili
 
 #### SurveyResponse
@@ -358,6 +376,7 @@ app(GetParticipantModelBySurveyIdAction::class)->execute($survey->sid);
 ->withParticipants() // Join con lime_tokens_{sid}
 ```
 
+
 #### LimeQuestion
 
 ```php
@@ -375,12 +394,318 @@ app(GetParticipantModelBySurveyIdAction::class)->execute($survey->sid);
 ->siblings() // Fratelli
 ```
 
+
 #### BaseModel (tutti i modelli)
 
 ```php
 // Filtri standard
 ->ofFilterData(AnswersFilterData $filter)
 ```
+
+
+## Implementazione Migliorata con SurveyResponse
+
+Il modello `SurveyResponse` offre un accesso immediato ai dati delle risposte ai sondaggi LimeSurvey senza la necessità di popolare preliminarmente i dati. Di seguito sono descritti i punti chiave di un'implementazione ottimizzata:
+
+
+- **Connessione al Database**: Utilizza la connessione `limesurvey` definita in `config/database.php`, che punta al database `quaeris_survey` tramite variabili d'ambiente come `DB_DATABASE_LIMESURVEY`.
+- **Tabelle Dinamiche**: Il modello imposta dinamicamente la tabella del sondaggio con il metodo `setTableForSurvey($surveyId)`, utilizzando il formato `lime_survey_{surveyId}`. Questo permette di accedere direttamente alle risposte di un sondaggio specifico.
+- **Recupero Dati**: Il metodo `getResponsesForSurvey($surveyId)` restituisce un builder Eloquent per query personalizzate sulle risposte di un sondaggio.
+- **Filtri e Aggregazioni**: Utilizzare `ofDashboardFilterData()` per applicare filtri basati su intervalli di date e condizioni specifiche sulle domande, ideale per dashboard e report.
+- **Etichette Risposte**: Metodi come `withAnswersLabel()` e `withAllAnswers()` permettono di arricchire i dati con etichette delle risposte, migliorando la leggibilità nei report.
+- **Caching**: Implementare caching con il pacchetto `GeneaLabs\LaravelModelCaching` (già presente nel modello) per ridurre il carico sul database durante query ripetitive. Configurare il cooldown del cache con `withCacheCooldownSeconds()`.
+- **Export Grafici in PDF**: Integrare con la pipeline esistente (JPGraph per rendering server-side delle immagini, Html2Pdf o Spatie laravel-pdf per embedding in PDF). Utilizzare query ottimizzate con indici per velocizzare l'estrazione dati.
+
+
+### Tradeoff e Considerazioni
+
+- **Vantaggi**: Accesso immediato ai dati, query flessibili con Eloquent, integrazione con filtri dashboard.
+- **Svantaggi**: Potenziale complessità con dataset molto grandi; necessità di ottimizzare query e caching.
+- **Engine PDF**: Scegliere Html2Pdf per compatibilità con template Blade semplici, Spatie laravel-pdf per supporto CSS moderno e rendering complesso (richiede Chromium).
+
+
+Questa implementazione si concentra sull'efficienza del data layer e sulla scalabilità per reporting avanzato.
+
+
+## Pattern di Naming
+
+### Field Names
+
+I field names seguono il pattern: `{sid}X{gid}X{qid}`
+
+**Esempi**:
+- `39275X41X487` - Domanda principale
+- `39275X41X487SQ001` - Prima sub-domanda
+- `39275X41X487SQ002` - Seconda sub-domanda
+
+
+### Tabelle Dinamiche
+
+- **Risposte**: `lime_survey_{sid}`
+- **Token**: `lime_tokens_{sid}`
+- **Timing**: `lime_survey_{sid}_timings`
+- **Archiviate**: `lime_old_survey_{sid}_{timestamp}`
+
+
+## Utilizzo nel Modulo Quaeris
+
+Il modulo Quaeris utilizza il database `quaeris_survey` per:
+
+
+1. **QuestionChart**: Visualizzazione grafici delle risposte
+2. **SurveyResponse**: Accesso alle risposte dei survey
+3. **Dashboard**: Statistiche e filtri
+4. **Export**: Esportazione dati
+
+
+### Esempio di Query Complessa
+
+```php
+// Ottenere risposte con label tradotte
+$responses = SurveyResponse::getResponsesForSurvey('39275')
+    ->withAnswersLabel($qid, $fieldName, 'prefix', 'join')
+    ->ofDashboardFilterData($filterData)
+    ->get();
+```
+
+
+## Configurazione Laravel
+
+### Connessione Database
+
+```php
+// config/database.php
+'limesurvey' => [
+    'driver' => 'mysql',
+    'host' => env('DB_HOST', '127.0.0.1'),
+    'port' => env('DB_PORT', '3306'),
+    'database' => env('DB_DATABASE_LIMESURVEY', 'quaeris_survey'),
+    'username' => env('DB_USERNAME_LIMESURVEY', 'user'),
+    'password' => env('DB_PASSWORD_LIMESURVEY', 'password'),
+    'charset' => 'utf8mb4',
+    'collation' => 'utf8mb4_unicode_ci',
+    'strict' => false,
+],
+```
+
+
+### BaseModel
+
+Tutti i modelli del modulo Limesurvey estendono `BaseModel` che ha:
+
+
+```php
+protected $connection = 'limesurvey';
+```
+
+
+## Best Practices
+
+### 1. Accesso a Tabelle Dinamiche
+
+**✅ CORRETTO**:
+```php
+SurveyResponse::getResponsesForSurvey($surveyId)
+    ->where('submitdate', '>=', $date)
+    ->get();
+```
+
+
+**❌ ERRATO**:
+```php
+// Non usare direttamente il nome tabella
+DB::table('lime_survey_'.$surveyId)->get();
+```
+
+
+### 2. Query con Join
+
+**✅ CORRETTO**:
+```php
+$query = SurveyResponse::getResponsesForSurvey($surveyId)
+    ->withAnswersLabel($qid, $fieldName, 'prefix', 'join')
+    ->withParticipants();
+```
+
+
+### 3. Filtri Dashboard
+
+**✅ CORRETTO**:
+```php
+$query = SurveyResponse::getResponsesForSurvey($surveyId)
+    ->ofDashboardFilterData($filterData);
+```
+
+
+## Performance
+
+### Indicizzazione
+
+#### Tabelle Statiche
+
+**lime_surveys**:
+- PRIMARY KEY: `sid`
+- INDEX: `owner_id` (lime_idx1_surveys)
+- INDEX: `gsid` (lime_idx2_surveys)
+
+
+**lime_questions**:
+- PRIMARY KEY: `qid`
+- INDEX: `parent_qid` (per tree queries)
+- INDEX: `sid` (per filtri survey)
+- INDEX: `gid` (per filtri gruppo)
+- INDEX: `type` (per filtri tipo)
+- INDEX: `title` (per ricerca)
+
+
+**lime_answers**:
+- PRIMARY KEY: `aid`
+- INDEX: `qid` (per join con questions)
+
+
+#### Tabelle Dinamiche
+
+Le tabelle dinamiche `lime_survey_{sid}` dovrebbero avere indici su:
+- `token` (per join con `lime_tokens_{sid}`)
+- `submitdate` (per filtri temporali - CRITICO per performance)
+- Field names principali (se utilizzati frequentemente in WHERE)
+
+
+**⚠️ IMPORTANTE**: Verificare che gli indici esistano sulle tabelle dinamiche più utilizzate.
+
+
+### Caching
+
+I modelli utilizzano `GeneaLabs\LaravelModelCaching` per cache automatica:
+- Cache delle query Eloquent
+- Tag-based invalidation
+- Configurabile per modello
+
+
+### Query Optimization
+
+#### 1. Utilizzare Scope Methods
+
+**✅ CORRETTO**:
+```php
+SurveyResponse::getResponsesForSurvey($surveyId)
+    ->ofDashboardFilterData($filterData) // Scope ottimizzato
+    ->get();
+```
+
+
+**❌ ERRATO**:
+```php
+SurveyResponse::getResponsesForSurvey($surveyId)
+    ->where('submitdate', '>=', $dateFrom) // Query manuale
+    ->where('submitdate', '<=', $dateTo)
+    ->get();
+```
+
+
+#### 2. Eager Loading per Traduzioni
+
+**✅ CORRETTO**:
+```php
+// Una query con join
+->withAnswersLabel($qid, $fieldName, 'prefix', 'join')
+```
+
+
+**❌ ERRATO**:
+```php
+// N+1 queries
+foreach ($responses as $response) {
+    $response->answer_label; // Query per ogni risposta
+}
+```
+
+
+#### 3. Limitare Colonne
+
+**✅ CORRETTO**:
+```php
+->addSelect(['id', 'token', 'submitdate', $fieldName])
+```
+
+
+**❌ ERRATO**:
+```php
+->get(); // Carica tutte le colonne (61+ colonne dinamiche)
+```
+
+
+### Bottlenecks Identificati
+
+1. **Tabelle Token Grandi**: `lime_tokens_946595` con 192k righe
+   - Utilizzare indici su `token` e `email`
+   - Considerare partizionamento per survey molto grandi
+
+
+2. **Query con Multiple Join**: `withAllAnswers()` può generare molti join
+   - Preferire `subquery` type per performance migliori
+   - Limitare a domande necessarie
+
+
+3. **Tabelle Dinamiche con Molte Colonne**: 61+ colonne per survey
+   - Utilizzare `addSelect()` per limitare colonne caricate
+   - Evitare `SELECT *` su tabelle dinamiche
+
+
+## Migrazioni e Backup
+
+### Tabelle Archiviate
+
+Le tabelle vecchie vengono archiviate con pattern:
+- `lime_old_survey_{sid}_{timestamp}`
+
+
+### Backup
+
+Il database `quaeris_survey` dovrebbe essere incluso nei backup regolari data la quantità di dati storici.
+
+
+## Riferimenti
+
+- [Modulo Limesurvey](../README.md)
+- [SurveyResponse Model](../app/Models/SurveyResponse.php)
+- [LimeSurvey Model](../app/Models/LimeSurvey.php)
+- [LimeQuestion Model](../app/Models/LimeQuestion.php)
+
+
+## Collegamenti
+
+- [Database Architecture Overview](../../Quaeris/docs/database-architecture.md)
+- [Survey Response Patterns](../../Quaeris/docs/question-chart-implementation.md)
+
+
+*Ultimo aggiornamento: Gennaio 2026*
+
+## Struttura del Database LimeSurvey
+
+- **Tabelle Statiche**: Contengono metadati del sondaggio come `lime_surveys`, `lime_questions`, `lime_groups`.
+- **Tabelle Dinamiche**: Contengono dati delle risposte, come `lime_survey_{sid}` per ogni sondaggio e `lime_tokens_{sid}` per i token dei partecipanti.
+- **Indici**: Importanti per query efficienti, specialmente su colonne come `submitdate` e `token`.
+
+## Implementazione Migliorata con SurveyResponse
+
+Il modello `SurveyResponse` offre un accesso immediato ai dati delle risposte ai sondaggi LimeSurvey senza la necessità di popolare preliminarmente i dati. Di seguito sono descritti i punti chiave di un'implementazione ottimizzata:
+
+- **Connessione al Database**: Utilizza la connessione `limesurvey` definita in `config/database.php`, che punta al database `quaeris_survey` tramite variabili d'ambiente come `DB_DATABASE_LIMESURVEY`.
+- **Tabelle Dinamiche**: Il modello imposta dinamicamente la tabella del sondaggio con il metodo `setTableForSurvey($surveyId)`, utilizzando il formato `lime_survey_{surveyId}`. Questo permette di accedere direttamente alle risposte di un sondaggio specifico.
+- **Recupero Dati**: Il metodo `getResponsesForSurvey($surveyId)` restituisce un builder Eloquent per query personalizzate sulle risposte di un sondaggio.
+- **Filtri e Aggregazioni**: Utilizzare `ofDashboardFilterData()` per applicare filtri basati su intervalli di date e condizioni specifiche sulle domande, ideale per dashboard e report.
+- **Etichette Risposte**: Metodi come `withAnswersLabel()` e `withAllAnswers()` permettono di arricchire i dati con etichette delle risposte, migliorando la leggibilità nei report.
+- **Caching**: Implementare caching con il pacchetto `GeneaLabs\LaravelModelCaching` (già presente nel modello) per ridurre il carico sul database durante query ripetitive. Configurare il cooldown del cache con `withCacheCooldownSeconds()`.
+- **Export Grafici in PDF**: Integrare con la pipeline esistente (JPGraph per rendering server-side delle immagini, Html2Pdf o Spatie laravel-pdf per embedding in PDF). Utilizzare query ottimizzate con indici per velocizzare l'estrazione dati.
+
+### Tradeoff e Considerazioni
+
+- **Vantaggi**: Accesso immediato ai dati, query flessibili con Eloquent, integrazione con filtri dashboard.
+- **Svantaggi**: Potenziale complessità con dataset molto grandi; necessità di ottimizzare query e caching.
+- **Engine PDF**: Scegliere Html2Pdf per compatibilità con template Blade semplici, Spatie laravel-pdf per supporto CSS moderno e rendering complesso (richiede Chromium).
+
+Questa implementazione si concentra sull'efficienza del data layer e sulla scalabilità per reporting avanzato.
 
 ## Pattern di Naming
 
@@ -604,3 +929,5 @@ Il database `quaeris_survey` dovrebbe essere incluso nei backup regolari data la
 - [Survey Response Patterns](../../Quaeris/docs/question-chart-implementation.md)
 
 *Ultimo aggiornamento: Gennaio 2026*
+
+```

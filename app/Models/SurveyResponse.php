@@ -71,7 +71,7 @@ class SurveyResponse extends BaseModel
      */
     public static function getResponsesForSurvey(string $surveyId): Builder
     {
-        $instance = new static();
+        $instance = new static;
         $instance->setTableForSurvey($surveyId);
 
         return $instance->newQuery();

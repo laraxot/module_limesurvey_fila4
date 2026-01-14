@@ -1,95 +1,113 @@
-# Jigsaw Docs Starter Template
+ # Modulo Limesurvey
+Il modulo **Limesurvey** integra nel monolite Laraxot un database e un set di modelli compatibili con **LimeSurvey** (upstream), così da poter:
 
-This is a starter template for creating a beautiful, customizable documentation site for your project with minimal effort. You’ll only have to change a few settings and you’re ready to go.
+- leggere struttura survey (survey, gruppi, domande, risposte)
+- leggere risposte dalle tabelle dinamiche `lime_survey_{sid}`
+- usare questa base dati per dashboard e report (grafici + PDF) nel modulo **Quaeris**
 
-[View a preview of the docs template.](http://jigsaw-docs-template.tighten.co/)
+Questo modulo è *infrastrutturale*: espone modelli/query/utility; la business logic di reporting sta principalmente in `Modules/Quaeris`.
 
-## Installation
+## Indice
 
-After installing Jigsaw, run the following command from your project directory:
+- [Panoramica e collegamenti](#panoramica-e-collegamenti)
+- [LimeSurvey upstream: architettura](#limesurvey-upstream-architettura)
+- [Database: tabelle dinamiche survey_{sid} e tokens_{sid}](#database-tabelle-dinamiche-survey_sid-e-tokens_sid)
+- [Statistiche ed export in LimeSurvey (cosa aspettarsi)](#statistiche-ed-export-in-limesurvey-cosa-aspettarsi)
+- [Integrazione Laraxot: query, label tradotte, performance](#integrazione-laraxot-query-label-tradotte-performance)
+- [Grafici e PDF: come si fa “alla Laraxot / Filament 4”](#grafici-e-pdf-come-si-fa-alla-laraxot--filament-4)
 
-```bash
-./vendor/bin/jigsaw init docs
-```
+## Panoramica e collegamenti
 
-This starter template includes samples of common page types, and comes pre-configured with:
+- **Docs principali del modulo**:
+  - `index.md`
+  - `limesurvey-deep-dive-architecture.md`
+  - `database-quaeris-survey.md`
+  - `database-schema.md`
+  - `upstream-references.md`
+- **Docs correlati (moduli)**:
+  - `../../Quaeris/docs/database-limesurvey-usage.md`
+  - `../../Quaeris/docs/pdf-generation-with-charts.md`
+  - `../../Chart/docs/charts-and-pdf-complete-guide.md`
+  - `../../Chart/docs/filament-charts-professional-guide.md`
+  - `../../Chart/docs/pdf-engines-comparison.md`
 
-- A fully responsive navigation bar
-- A sidebar navigation menu
-- [Tailwind CSS](https://tailwindcss.com/), a utility CSS framework that allows you to customize your design without touching a line of CSS
-- [Purgecss](https://www.purgecss.com/) to remove unused selectors from your CSS, resulting in smaller CSS files
-- Syntax highlighting using [highlight.js](https://highlightjs.org/)
-- A script that automatically generates a `sitemap.xml` file
-- A search bar powered by [Algolia DocSearch](https://community.algolia.com/docsearch/), and instructions on how to get started with their free indexing service
-- A custom 404 page
+## LimeSurvey upstream: architettura
 
----
+LimeSurvey (upstream: [github.com/LimeSurvey/LimeSurvey](https://github.com/LimeSurvey/LimeSurvey)) è un sistema survey maturo basato su **Yii 1.x** (legacy) con un’architettura MVC e un plugin system event-driven.
 
-![Docs starter template screenshot](https://user-images.githubusercontent.com/357312/50345478-40170c00-04fd-11e9-856c-ad46d1ac45cb.png)
+Concetti da portarsi dietro per l’integrazione:
 
----
+- **Survey**: contenitore master (ID = `sid`)
+- **Group**: gruppi di domande (ID = `gid`)
+- **Question**: domande (ID = `qid`, `parent_qid` per sub-questions)
+- **Answers**: opzioni risposta (per domande “list”) e relative l10n
+- **Responses**: *tabella dinamica per survey* (vedi sotto)
 
-### Configuring your new site
+Dettagli completi:
 
-As with all Jigsaw sites, configuration settings can be found in `config.php`; you can update the variables in that file with settings specific to your project. You can also add new configuration variables there to use across your site; take a look at the [Jigsaw documentation](http://jigsaw.tighten.co/docs/site-variables/) to learn more.
+- `limesurvey-deep-dive-architecture.md`
 
-```php
-// config.php
-return [
-    'baseUrl' => 'https://my-awesome-jigsaw-site.com/',
-    'production' => false,
-    'siteName' => 'My Site',
-    'siteDescription' => 'Give your documentation a boost with Jigsaw.',
-    'docsearchApiKey' => '',
-    'docsearchIndexName' => '',
-    'navigation' => require_once('navigation.php'),
-];
-```
+## Database: tabelle dinamiche survey_{sid} e tokens_{sid}
 
-> Tip: This configuration file is also where you’ll define any "collections" (for example, a collection of the contributors to your site, or a collection of blog posts). Check out the official [Jigsaw documentation](https://jigsaw.tighten.co/docs/collections/) to learn more.
+LimeSurvey crea tabelle dinamiche per ogni survey attiva:
 
----
+- `lime_survey_{sid}`: risposte (una riga = una response)
+- `lime_survey_{sid}_timings`: tempi di compilazione
+- `lime_tokens_{sid}`: token/partecipanti (se token management attivo)
 
-### Adding Content
+Campo risposta: LimeSurvey materializza una colonna per domanda, con naming “dinamico”:
 
-You can write your content using a [variety of file types](http://jigsaw.tighten.co/docs/content-other-file-types/). By default, this starter template expects your content to be located in the `source/docs` folder. If you change this, be sure to update the URL references in `navigation.php`.
+- base: `{sid}X{gid}X{qid}`
+- subquestion: `{sid}X{gid}X{qid}{sq_title}`
+- multiple choice: `{sid}X{gid}X{qid}[{code}]`
 
-The first section of each content page contains a YAML header that specifies how it should be rendered. The `title` attribute is used to dynamically generate HTML `title` and OpenGraph tags for each page. The `extends` attribute defines which parent Blade layout this content file will render with (e.g. `_layouts.documentation` will render with `source/_layouts/documentation.blade.php`), and the `section` attribute defines the Blade "section" that expects this content to be placed into it.
+Questo significa che nel codice Laravel bisogna gestire con attenzione l’accesso a proprietà dinamiche; in generale:
 
-```yaml
----
-title: Navigation
-description: Building a navigation menu for your site
-extends: _layouts.documentation
-section: content
----
-```
+- preferire `getAttribute($fieldName)` / array-access su model
+- evitare query “manuali” su `DB::table('lime_survey_'.$sid)` se esiste già uno scope/model dedicato
 
-[Read more about Jigsaw layouts.](https://jigsaw.tighten.co/docs/content-blade/)
+## Statistiche ed export in LimeSurvey (cosa aspettarsi)
 
----
+LimeSurvey offre una sezione “Responses & statistics” con:
 
-### Adding Assets
+- **Statistics (simple mode)**: grafici base
+- **Statistics (expert mode)**: filtri, output, grafici configurabili
 
-Any assets that need to be compiled (such as JavaScript, Less, or Sass files) can be added to the `source/_assets/` directory, and Laravel Mix will process them when running `npm run dev` or `npm run prod`. The processed assets will be stored in `/source/assets/build/` (note there is no underscore on this second `assets` directory).
+Output tipici in upstream:
 
-Then, when Jigsaw builds your site, the entire `/source/assets/` directory containing your built files (and any other directories containing static assets, such as images or fonts, that you choose to store there) will be copied to the destination build folders (`build_local`, on your local machine).
+- **HTML**: vista interattiva
+- **PDF**: *limitazioni sui grafici* (in upstream spesso solo pie/bar; dipende da versione e implementazione)
+- **Excel/CSV**: dati tabellari (in upstream l’Excel non include grafici)
 
-Files that don't require processing (such as images and fonts) can be added directly to `/source/assets/`.
+Nota pratica per Laraxot: anche se LimeSurvey ha export/statistiche, nel nostro stack i report “professionali” (Filament 4 + PDF con grafici) vanno costruiti nel monolite:
 
-[Read more about compiling assets in Jigsaw using Laravel Mix.](http://jigsaw.tighten.co/docs/compiling-assets/)
+- per controllo completo di layout, branding e performance
+- per caching e batch generation (queue)
+- per coerenza UX e permessi (Filament)
 
----
+## Integrazione Laraxot: query, label tradotte, performance
 
-## Building Your Site
+Pattern consigliati (vedi `../../Quaeris/docs/database-limesurvey-usage.md`):
 
-Now that you’ve edited your configuration variables and know how to customize your styles and content, let’s build the site.
+- **Base query**: `SurveyResponse::getResponsesForSurvey($sid)`
+- **Filtri standard**: `->ofDashboardFilterData(...)`
+- **Label tradotte**: `->withAnswersLabel($qid, $fieldName, ..., ...)` oppure `->withAllAnswers('subquery')`
 
-```bash
-# build static files with Jigsaw
-./vendor/bin/jigsaw build
+Per survey grandi:
 
-# compile assets with Laravel Mix
-# options: dev, prod
-npm run dev
-```
+- usare `subquery` per evitare join ripetuti
+- caching su struttura survey (questions, answers l10n)
+- evitare N+1 su l10n/answers
+
+## Grafici e PDF: come si fa “alla Laraxot / Filament 4”
+
+In Laraxot il reporting si compone di due livelli:
+
+- **Web (dashboard)**: Chart.js via widget Filament 4
+- **PDF**: immagini server-side (JPGraph) o export Chart.js a PNG/SVG e embedding in HTML2PDF
+
+Punti di verità (docs esistenti):
+
+- `../../Chart/docs/filament-charts-professional-guide.md`
+- `../../Chart/docs/charts-and-pdf-complete-guide.md`
+- `../../Quaeris/docs/spipu-pdf-charts-embedding-guide.md`

@@ -11,8 +11,6 @@
 /vendor/
 /vendor
 /node_modules/
-/node_modules
-/docs/vendor/
 package-lock.json
 yarn.lock
 composer.lock
@@ -26,7 +24,6 @@ npm-debug.log
 /build/
 build/
 dist/
-docs/cache/
 cache/
 
 # ==============================================
@@ -113,12 +110,6 @@ Thumbs.db
 .windsurf/
 .cursor/
 .phpstorm.meta.php
-
-# ==============================================
-# DOCUMENTATION CACHE
-# ==============================================
-docs/phpstan/
-docs/cache/
 
 # ==============================================
 # LANGUAGE FILES

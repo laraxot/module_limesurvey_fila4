@@ -1,84 +1,160 @@
-# Database Schema Analysis: Quaeris Survey (Limesurvey)
+# LimeSurvey Database Schema
 
-## Overview
-The `Modules/Limesurvey` module interacts with the `quaeris_survey` database (configured via the `limesurvey` connection). This database follows the standard Limesurvey 3.x/5.x schema.
+## Static Tables (Metadata)
 
-## Core Table Structure
+### lime_surveys
+The main survey configuration table containing all survey settings and properties.
 
-### 1. Surveys (`lime_surveys`)
-The central entity defining properties of a survey.
-- **Primary Key**: `sid` (int)
-- **owner_id** (int): FK to `lime_users.uid`
-- **active** (char 1): 'Y'/'N' - Is the survey currently active?
-- **expires** (datetime): Expiration timestamp.
-- **admin**, **adminemail**: Contact details.
-- **anonymized** (char 1): 'Y'/'N' - Are responses anonymous?
-- **format** (char 1): 'G' (Group-by-Group), 'Q' (Question-by-Question), 'A' (All-in-one).
-- **template** (varchar 100): Theme name.
-- **language** (varchar 50): Base language (e.g., 'it', 'en').
-- **additional_languages** (text): Space-separated list of other languages.
-- **tokenlength** (int): Default 15.
+| Column | Type | Description |
+|--------|------|-------------|
+| `sid` | int | Primary key, unique survey identifier |
+| `owner_id` | int | Creator of the survey |
+| `admin` | varchar | Administrator name |
+| `active` | char(1) | 'Y' if active, 'N' if inactive |
+| `expires` | datetime | Survey expiration date |
+| `startdate` | datetime | Survey start date |
+| `adminemail` | varchar | Administrator email |
+| `anonymized` | char(1) | 'Y' if responses are anonymized |
+| `format` | varchar | Survey format (A, G, S) |
+| `template` | varchar | Template name |
+| `language` | varchar | Base language |
+| `additional_languages` | varchar | Comma-separated list of additional languages |
+| `datestamp` | char(1) | 'Y' if date stamping is enabled |
+| `usecookie` | char(1) | 'Y' if cookie control is enabled |
+| `allowregister` | char(1) | 'Y' if registration is allowed |
+| `allowsave` | char(1) | 'Y' if saving and continuing later is allowed |
 
-### 2. Groups (`lime_groups`)
-Logical grouping of questions (pages in 'Group-by-Group' mode).
-- **Primary Key**: `gid` (int)
-- **sid** (int): FK to `lime_surveys.sid`
-- **group_order** (int): Positioning order.
-- **randomization_group** (varchar 20): For shuffling groups.
+### lime_groups
+Represents question groups (pages) within a survey.
 
-### 3. Questions (`lime_questions`)
-The questions within the survey.
-- **Primary Key**: `qid` (int)
-- **parent_qid** (int): 0 for main questions. For subquestions (e.g., in Array types), this points to the parent `qid`.
-- **sid** (int): FK to `lime_surveys.sid`
-- **gid** (int): FK to `lime_groups.gid`
-- **type** (varchar 30): Question Type Code (e.g., 'T' = Text, 'M' = Multiple Choice, 'L' = List, '5' = 5 Point Choice).
-- **title** (varchar 20): The "Code" of the question (e.g., 'Q1', 'demographics').
-- **question_order** (int): Positioning order.
-- **mandatory** (char 1): 'Y'/'N'.
-- **other** (char 1): 'Y'/'N' - Does it have an "Other" option?
-- **relevance** (text): Expression Manager logic for visibility (e.g., `((Q1.NAOK == "Y"))`).
+| Column | Type | Description |
+|--------|------|-------------|
+| `gid` | int | Primary key, unique group identifier |
+| `sid` | int | Foreign key to lime_surveys |
+| `group_order` | int | Order of the group within the survey |
+| `title` | varchar | Group title |
+| `description` | text | Group description |
+| `language` | varchar | Language code |
 
-### 4. Answers (`lime_answers`)
-Predefined answer options for closed questions (List, Multiple Choice).
-- **Primary Key**: `aid` (int)
-- **qid** (int): FK to `lime_questions.qid`
-- **code** (varchar 5): The stored value (e.g., 'A1', '1', 'Y').
-- **sortorder** (int): Display order.
-- **assessment_value** (int): For scoring.
+### lime_questions
+Contains individual questions within the survey structure.
 
-## key Relationships
-- `Survey` (1) -> (N) `Group` (on `sid`)
-- `Group` (1) -> (N) `Question` (on `gid`)
-- `Question` (1) -> (N) `Answer` (on `qid`)
-- `Question` (1) -> (N) `Question` (Subquestions, on `parent_qid`)
+| Column | Type | Description |
+|--------|------|-------------|
+| `qid` | int | Primary key, unique question identifier |
+| `parent_qid` | int | For sub-questions, references parent question |
+| `sid` | int | Foreign key to lime_surveys |
+| `gid` | int | Foreign key to lime_groups |
+| `type` | varchar | Question type code (A, B, C, D, etc.) |
+| `title` | varchar | Unique question identifier within survey |
+| `question` | text | Question text |
+| `help` | text | Question help text |
+| `other` | char(1) | 'Y' if "Other" option is available |
+| `mandatory` | char(1) | 'Y' if question is mandatory |
+| `question_order` | int | Order of question within group |
+| `scale_id` | int | For dual-scale questions (0=primary, 1=secondary) |
+| `relevance` | text | Expression determining question visibility |
 
-## 5. Translations (Localization)
-Limesurvey 3.x+ separates text content into dedicated `_l10ns` tables to support multilingual surveys.
+### lime_answers
+Predefined answers for closed-ended questions.
 
-### Questions L10n (`lime_question_l10ns`)
-- **id** (int): PK
-- **qid** (int): FK to `lime_questions.qid`
-- **question** (mediumtext): The actual question text.
-- **help** (mediumtext): Help text.
-- **language** (varchar 20): Language code (e.g., 'it', 'en').
+| Column | Type | Description |
+|--------|------|-------------|
+| `aid` | int | Primary key, unique answer identifier |
+| `qid` | int | Foreign key to lime_questions |
+| `code` | varchar | Answer code |
+| `answer` | text | Answer text |
+| `sortorder` | int | Display order |
+| `language` | varchar | Language code |
+| `assessment_value` | int | Value for assessment scoring |
 
-### Groups L10n (`lime_group_l10ns`)
-- **id** (int): PK
-- **gid** (int): FK to `lime_groups.gid`
-- **group_name** (text): Title of the group.
-- **description** (mediumtext): Group description.
-- **language** (varchar 20): Language code.
+## Localization Tables
 
-### Answers L10n (`lime_answer_l10ns`)
-- **id** (int): PK
-- **aid** (int): FK to `lime_answers.aid`
-- **answer** (mediumtext): The answer text/label.
-- **language** (varchar 20): Language code.
+### lime_survey_l10ns
+Localized survey information.
 
-## Dynamic Tables
-- **`lime_survey_{SID}`**: Stores responses.
-    - Columns: `{SID}X{GID}X{QID}` (e.g., `123X4X5`).
-    - Subquestions: `{SID}X{GID}X{QID}_{SQID}`.
-- **`lime_tokens_{SID}`**: Participants table.
+| Column | Type | Description |
+|--------|------|-------------|
+| `surveyls_survey_id` | int | Foreign key to lime_surveys |
+| `surveyls_language` | varchar | Language code |
+| `surveyls_title` | varchar | Localized survey title |
+| `surveyls_description` | text | Localized survey description |
 
+### lime_group_l10ns
+Localized group information.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `groupl10ns_gid` | int | Foreign key to lime_groups |
+| `language` | varchar | Language code |
+| `group_name` | varchar | Localized group name |
+| `description` | text | Localized group description |
+
+### lime_question_l10ns
+Localized question information.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `qid` | int | Foreign key to lime_questions |
+| `language` | varchar | Language code |
+| `question` | text | Localized question text |
+| `help` | text | Localized question help |
+
+### lime_answer_l10ns
+Localized answer information.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `aid` | int | Foreign key to lime_answers |
+| `language` | varchar | Language code |
+| `answer` | text | Localized answer text |
+
+## Dynamic Tables (Per Survey)
+
+### lime_survey_{SID}
+Created dynamically when a survey is activated. Contains responses for that specific survey.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | int | Primary key, response identifier |
+| `submitdate` | datetime | Date/time when survey was submitted |
+| `lastpage` | int | Last page visited by respondent |
+| `startlanguage` | varchar | Language used when starting the survey |
+| `token` | varchar | Participant token (if tokens enabled) |
+| `{SID}X{GID}X{QID}` | various | Response for specific question |
+| `{SID}X{GID}X{QID}_SQ001` | various | Response for sub-question |
+| `{SID}X{GID}X{QID}_other` | text | "Other" text response |
+
+### lime_tokens_{SID}
+Participant management table, created when tokens are enabled for a survey.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `tid` | int | Primary key, token identifier |
+| `tid_hex` | varchar | Hexadecimal token identifier |
+| `token` | varchar | Token string |
+| `sent` | varchar | Status of invitation sent ("Y", "N", "C") |
+| `completed` | varchar | Completion status ("Y" or empty) |
+| `email` | varchar | Participant email |
+| `firstname` | varchar | First name |
+| `lastname` | varchar | Last name |
+| `attribute_{N}` | varchar | Custom attributes |
+
+## Our Integration Tables
+
+### survey_flip_responses
+EAV (Entity-Attribute-Value) representation of LimeSurvey responses.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | int | Primary key |
+| `survey_id` | string | Original survey ID |
+| `question_id` | string | Original question ID |
+| `question_type` | string | Question type |
+| `token` | string | Participant token |
+| `answer` | string | Raw answer from LimeSurvey column |
+| `value` | string | Processed value (often from answer labels) |
+| `submitdate` | datetime | Submission date |
+| `fieldname` | string | Original LimeSurvey fieldname (e.g., 123X12X88) |
+| `old_id` | string | Original response ID from lime_survey_{SID} |
+| `feedback` | string | Associated feedback text |
