@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Modules\Limesurvey\Database\Factories\LimeSurveysLanguagesettingFactory;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Quaeris\Models\Profile;
 
 /**
@@ -42,7 +39,6 @@ use Modules\Quaeris\Models\Profile;
  * @property string|null $email_admin_responses
  * @property int $surveyls_numberformat
  * @property string|null $attachments
- *
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

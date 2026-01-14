@@ -8,11 +8,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Modules\Limesurvey\Casts\LimeLangField;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Quaeris\Models\Profile;
 
 /**
@@ -31,7 +29,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read mixed $query
  * @property-read LimeAnswerL10n|null $l10n
  * @property-read Profile|null $updater
- *
  *
  * @mixin \Eloquent
  */

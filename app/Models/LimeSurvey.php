@@ -4,15 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Quaeris\Models\Profile;
 use stdClass;
 
@@ -93,7 +89,6 @@ use stdClass;
  * @property-read \Staudenmeir\LaravelAdjacencyList\Eloquent\Collection<int, LimeQuestion> $questions
  * @property-read int|null $questions_count
  * @property-read Profile|null $updater
- *
  *
  * @mixin \Eloquent
  */
@@ -271,7 +266,7 @@ class LimeSurvey extends BaseModel
         // ->with('labels')
     }
 
-// ... (skipping some lines) ...
+    // ... (skipping some lines) ...
 
     // Functions ...
     /**
@@ -324,7 +319,7 @@ class LimeSurvey extends BaseModel
                 $key = (string) ($questions[$qid[0]] ?? $key);
 
                 if ($qid[1] !== '') {
-                    $key = $key.'['.$qid[1].']';
+                    $key .= '['.$qid[1].']';
                 }
             }
 

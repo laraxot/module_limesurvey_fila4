@@ -33,6 +33,7 @@ use Webmozart\Assert\Assert;
  * @property \Carbon\Carbon|null $datestamp
  * @property string|null $ipaddr
  * @property string|null $refurl
+ *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
@@ -176,7 +177,7 @@ class SurveyResponse extends BaseModel
                 ->leftJoin($ask_table.' as '.$prefix.'ask', static function (\Illuminate\Database\Query\JoinClause $join) use ($qid, $field_name, $prefix): void {
                     $join->on(''.$prefix.'ask.code', '=', $field_name)
                         ->where(''.$prefix.'ask.qid', '=', $qid);
-                // @phpstan-ignore-next-line method.nonObject
+                    // @phpstan-ignore-next-line method.nonObject
                 })->leftJoin($ask_table_lang.' as '.$prefix.'ask_lang', static function (\Illuminate\Database\Query\JoinClause $join) use ($prefix): void {
                     $join->on(''.$prefix.'ask.aid', '=', ''.$prefix.'ask_lang.aid')
                         ->where(''.$prefix.'ask_lang.language', '=', 'it');

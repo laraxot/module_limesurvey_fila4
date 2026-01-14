@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Quaeris\Models\Profile;
 use Modules\Xot\Models\Traits\HasXotFactory;
 
@@ -38,7 +35,6 @@ use Modules\Xot\Models\Traits\HasXotFactory;
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
- *
  *
  * @mixin \Eloquent
  */

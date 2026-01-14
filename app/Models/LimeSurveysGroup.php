@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Modules\Limesurvey\Database\Factories\LimeSurveysGroupFactory;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Quaeris\Models\Profile;
 
 /**
@@ -28,7 +25,6 @@ use Modules\Quaeris\Models\Profile;
  * @property Carbon|null $modified
  * @property int $created_by
  * @property int|null $alwaysavailable
- *
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

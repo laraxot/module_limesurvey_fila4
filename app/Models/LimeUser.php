@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Modules\Limesurvey\Database\Factories\LimeUserFactory;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Quaeris\Models\Profile;
 
 /**
@@ -34,7 +31,6 @@ use Modules\Quaeris\Models\Profile;
  * @property string|null $validation_key
  * @property string|null $validation_key_expiration
  * @property string|null $last_forgot_email_password
- *
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

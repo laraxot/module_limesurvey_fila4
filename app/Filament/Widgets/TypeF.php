@@ -259,11 +259,9 @@ class TypeF extends Widget
     protected function baseSurveyQuery(): Builder
     {
         /** @var Builder<SurveyResponse> $query */
-        $query = SurveyResponse::getResponsesForSurvey($this->surveyId)
+        return SurveyResponse::getResponsesForSurvey($this->surveyId)
             ->whereNotNull('submitdate')
             ->whereBetween('submitdate', [$this->date_from, $this->date_to]);
-
-        return $query;
     }
 
     /**
@@ -274,7 +272,7 @@ class TypeF extends Widget
     protected function getTotalAndAverage(): array
     {
         /** @var array{total: int|float, average: int|float} $stats */
-        $stats = Cache::remember("survey_stats_{$this->surveyId}_{$this->date_from}_{$this->date_to}", now()->addMinutes(5), function (): array {
+        return Cache::remember("survey_stats_{$this->surveyId}_{$this->date_from}_{$this->date_to}", now()->addMinutes(5), function (): array {
             $result = $this->baseSurveyQuery()
                 ->selectRaw('
                     COUNT('.$this->fieldName.') AS total,
@@ -295,8 +293,6 @@ class TypeF extends Widget
                 'average' => $average,
             ];
         });
-
-        return $stats;
     }
 
     /**

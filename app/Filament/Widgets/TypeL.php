@@ -18,8 +18,6 @@ class TypeL extends ChartWidget
 
     public int $questionId = 0;
 
-    protected ?string $heading = 'Type L';
-
     public string $title = '';
 
     public string $date_from = '';
@@ -27,6 +25,8 @@ class TypeL extends ChartWidget
     public string $date_to = '';
 
     public int $totalResponses = 0;
+
+    protected ?string $heading = 'Type L';
 
     protected function getType(): string
     {
@@ -80,10 +80,10 @@ class TypeL extends ChartWidget
 
         // Calcola le percentuali
         $percentages = $res->map(function (mixed $item) use ($totalResponses) {
-            if (!is_object($item) || !property_exists($item, 'aggregate')) {
+            if (! is_object($item) || ! property_exists($item, 'aggregate')) {
                 return $item;
             }
-            
+
             $item->aggregate = $totalResponses > 0
                 ? round(((float) $item->aggregate) / $totalResponses * 100, 2)
                 : 0;

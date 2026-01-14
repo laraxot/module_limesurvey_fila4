@@ -4,12 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Modules\Limesurvey\Contracts\LimeSurveyXXXContract;
 use Modules\Limesurvey\Database\Factories\LimeSurvey799586Factory;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Quaeris\Models\Profile;
 
 /**
@@ -27,11 +24,9 @@ use Modules\Quaeris\Models\Profile;
  * @property Carbon $datestamp
  * @property string|null $ipaddr
  *
- *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
- *
  *
  * @mixin \Eloquent
  */

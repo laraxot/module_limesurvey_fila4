@@ -18,8 +18,10 @@ use Modules\Quaeris\Datas\AnswersFilterData;
  * @property \Carbon\Carbon|null $datestamp
  * @property string|null $ipaddr
  * @property string|null $refurl
+ *
  * @method mixed getAttribute(string $key)
  * @method Builder ofFilterData(AnswersFilterData $answersFilterData)
+ *
  * @mixin \Illuminate\Database\Eloquent\Model
  */
 interface LimeSurveyXXXContract

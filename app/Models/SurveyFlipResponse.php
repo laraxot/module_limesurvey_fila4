@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
@@ -42,7 +40,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read LimeQuestion|null $question
  * @property-read LimeSurvey|null $survey
  * @property-read Profile|null $updater
- *
  *
  * @mixin \Eloquent
  */

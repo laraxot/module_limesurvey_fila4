@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Actions;
 
-use Illuminate\Support\Arr;
 use Modules\Limesurvey\Models\LimeQuestion;
 use Modules\Limesurvey\Models\SurveyFlipResponse;
 use Modules\Limesurvey\Models\SurveyResponse;

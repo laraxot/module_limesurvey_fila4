@@ -41,11 +41,11 @@ class MatrixChart extends ChartWidget
             // Ensure subQuestion has required keys and proper types
             $code = is_array($subQuestion) && isset($subQuestion['code']) ? (string) $subQuestion['code'] : '';
             $text = is_array($subQuestion) && isset($subQuestion['text']) ? (string) $subQuestion['text'] : '';
-            
+
             if ($code === '') {
                 continue; // Skip if code is empty
             }
-            
+
             // Recupera le risposte per ogni sotto-domanda della matrice
             $responses = SurveyResponse::getResponsesForSurvey($this->surveyId)
                 ->select(DB::raw('COUNT(*) as count'), DB::raw("answer_{$this->questionId}_{$code} as answer"))

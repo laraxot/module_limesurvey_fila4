@@ -414,8 +414,6 @@ class LimeQuestion extends BaseTreeModel
 
     // Relations ...
 
-
-
     public function child(): HasOne
     {
         return $this->hasOne(self::class, 'parent_qid', 'qid');

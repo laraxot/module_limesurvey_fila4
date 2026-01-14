@@ -19,11 +19,12 @@ class LimeLangField implements CastsAttributes
      * @param  string  $key
      * @param  mixed  $value
      * @param  array  $attributes
+     *
      * @return int|string|array|null
      */
     public function get($model, string $key, $value, array $attributes): int|string|array|null
     {
-        if (null !== $value) {
+        if ($value !== null) {
             if (\is_array($value) || \is_string($value) || \is_int($value)) {
                 return $value;
             }
@@ -33,7 +34,7 @@ class LimeLangField implements CastsAttributes
 
         $l10n = $attributes['l10n'] ?? $model->l10n ?? null;
 
-        if (null === $l10n) {
+        if ($l10n === null) {
             return null;
         }
 
@@ -51,7 +52,7 @@ class LimeLangField implements CastsAttributes
             return $result;
         }
 
-        if (null === $result) {
+        if ($result === null) {
             return null;
         }
 

@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Quaeris\Models\Profile;
 
 /**
@@ -24,7 +21,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read string $group_name
  * @property-read LimeGroupL10n|null $labels
  * @property-read Profile|null $updater
- *
  *
  * @mixin \Eloquent
  */

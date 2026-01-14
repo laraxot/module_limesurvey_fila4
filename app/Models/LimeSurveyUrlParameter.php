@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Models;
 
-use GeneaLabs\LaravelModelCaching\CachedBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Modules\Limesurvey\Database\Factories\LimeSurveyUrlParameterFactory;
-use Modules\Quaeris\Datas\AnswersFilterData;
 use Modules\Quaeris\Models\Profile;
 
 /**
@@ -20,7 +17,6 @@ use Modules\Quaeris\Models\Profile;
  * @property string $parameter
  * @property int|null $targetqid
  * @property int|null $targetsqid
- *
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra
