@@ -13,29 +13,7 @@ use Modules\Quaeris\Models\Profile;
 /**
  * Modules\Limesurvey\Models\LimeTemplateConfiguration
  *
- * @method static CachedBuilder|LimeTemplateConfiguration all($columns = [])
- * @method static CachedBuilder|LimeTemplateConfiguration avg($column)
- * @method static CachedBuilder|LimeTemplateConfiguration cache(array $tags = [])
- * @method static CachedBuilder|LimeTemplateConfiguration cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeTemplateConfiguration count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeTemplateConfiguration disableModelCaching()
- * @method static CachedBuilder|LimeTemplateConfiguration exists()
  * @method static LimeTemplateConfigurationFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeTemplateConfiguration flushCache(array $tags = [])
- * @method static CachedBuilder|LimeTemplateConfiguration getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeTemplateConfiguration inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeTemplateConfiguration insert(array $values)
- * @method static CachedBuilder|LimeTemplateConfiguration isCachable()
- * @method static CachedBuilder|LimeTemplateConfiguration max($column)
- * @method static CachedBuilder|LimeTemplateConfiguration min($column)
- * @method static CachedBuilder|LimeTemplateConfiguration newModelQuery()
- * @method static CachedBuilder|LimeTemplateConfiguration newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeTemplateConfiguration query()
- * @method static CachedBuilder|LimeTemplateConfiguration sum($column)
- * @method static CachedBuilder|LimeTemplateConfiguration truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $id
  * @property string $template_name
@@ -53,21 +31,6 @@ use Modules\Quaeris\Models\Profile;
  * @property string|null $packages_ltr
  * @property string|null $packages_rtl
  *
- * @method static CachedBuilder|LimeTemplateConfiguration whereCssframeworkCss($value)
- * @method static CachedBuilder|LimeTemplateConfiguration whereCssframeworkJs($value)
- * @method static CachedBuilder|LimeTemplateConfiguration whereCssframeworkName($value)
- * @method static CachedBuilder|LimeTemplateConfiguration whereFilesCss($value)
- * @method static CachedBuilder|LimeTemplateConfiguration whereFilesJs($value)
- * @method static CachedBuilder|LimeTemplateConfiguration whereFilesPrintCss($value)
- * @method static CachedBuilder|LimeTemplateConfiguration whereGsid($value)
- * @method static CachedBuilder|LimeTemplateConfiguration whereId($value)
- * @method static CachedBuilder|LimeTemplateConfiguration whereOptions($value)
- * @method static CachedBuilder|LimeTemplateConfiguration wherePackagesLtr($value)
- * @method static CachedBuilder|LimeTemplateConfiguration wherePackagesRtl($value)
- * @method static CachedBuilder|LimeTemplateConfiguration wherePackagesToLoad($value)
- * @method static CachedBuilder|LimeTemplateConfiguration whereSid($value)
- * @method static CachedBuilder|LimeTemplateConfiguration whereTemplateName($value)
- * @method static CachedBuilder|LimeTemplateConfiguration whereUid($value)
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

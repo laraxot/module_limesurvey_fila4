@@ -25,8 +25,8 @@ class LimeTokens282718Factory extends Factory
         return [
             'tid' => $this->faker->randomNumber(5),
             'participant_id' => $this->faker->randomNumber(5),
-            'firstname' => $this->faker->firstname,
-            'lastname' => $this->faker->lastname,
+            'firstname' => $this->faker->firstName,
+            'lastname' => $this->faker->lastName,
             'email' => $this->faker->email,
             'emailstatus' => $this->faker->text,
             'token' => $this->faker->word,

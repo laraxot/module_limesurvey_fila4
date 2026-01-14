@@ -20,28 +20,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeSettingsGlobal all($columns = [])
- * @method static CachedBuilder|LimeSettingsGlobal avg($column)
- * @method static CachedBuilder|LimeSettingsGlobal cache(array $tags = [])
- * @method static CachedBuilder|LimeSettingsGlobal cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSettingsGlobal count($columns = '*')
- * @method static CachedBuilder|LimeSettingsGlobal disableCache()
- * @method static CachedBuilder|LimeSettingsGlobal disableModelCaching()
- * @method static CachedBuilder|LimeSettingsGlobal exists()
- * @method static CachedBuilder|LimeSettingsGlobal flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSettingsGlobal getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSettingsGlobal inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSettingsGlobal insert(array $values)
- * @method static CachedBuilder|LimeSettingsGlobal isCachable()
- * @method static CachedBuilder|LimeSettingsGlobal max($column)
- * @method static CachedBuilder|LimeSettingsGlobal min($column)
- * @method static CachedBuilder|LimeSettingsGlobal newModelQuery()
- * @method static CachedBuilder|LimeSettingsGlobal newQuery()
- * @method static CachedBuilder|LimeSettingsGlobal ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSettingsGlobal query()
- * @method static CachedBuilder|LimeSettingsGlobal sum($column)
- * @method static CachedBuilder|LimeSettingsGlobal truncate()
- * @method static CachedBuilder|LimeSettingsGlobal withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

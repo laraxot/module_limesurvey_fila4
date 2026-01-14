@@ -19,20 +19,43 @@ class LimeLangField implements CastsAttributes
      * @param  string  $key
      * @param  mixed  $value
      * @param  array  $attributes
+     * @return int|string|array|null
      */
-    public function get($model, $key, $value, $attributes): int|string|array|null
+    public function get($model, string $key, $value, array $attributes): int|string|array|null
     {
-        if ($value !== null) {
-            return $value;
+        if (null !== $value) {
+            if (\is_array($value) || \is_string($value) || \is_int($value)) {
+                return $value;
+            }
+
+            return (string) $value;
         }
 
-        $l10n = $model->l10n;
+        $l10n = $attributes['l10n'] ?? $model->l10n ?? null;
 
-        if ($l10n === null) {
+        if (null === $l10n) {
             return null;
         }
 
-        return $l10n->{$key};
+        $result = null;
+
+        if (\is_array($l10n)) {
+            /** @var mixed|null */
+            $result = $l10n[$key] ?? null;
+        } elseif (\is_object($l10n)) {
+            /** @var mixed|null */
+            $result = $l10n->{$key} ?? null;
+        }
+
+        if (\is_array($result) || \is_string($result) || \is_int($result)) {
+            return $result;
+        }
+
+        if (null === $result) {
+            return null;
+        }
+
+        return (string) $result;
     }
 
     /**
@@ -45,8 +68,6 @@ class LimeLangField implements CastsAttributes
      */
     public function set($model, $key, $value, $attributes): array
     {
-        // Access to an undefined property Illuminate\Database\Eloquent\Model::$user.
-
         return $attributes;
     }
 }

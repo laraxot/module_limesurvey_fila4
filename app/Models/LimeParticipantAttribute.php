@@ -20,31 +20,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeParticipantAttribute all($columns = [])
- * @method static CachedBuilder|LimeParticipantAttribute avg($column)
- * @method static CachedBuilder|LimeParticipantAttribute cache(array $tags = [])
- * @method static CachedBuilder|LimeParticipantAttribute cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeParticipantAttribute count($columns = '*')
- * @method static CachedBuilder|LimeParticipantAttribute disableCache()
- * @method static CachedBuilder|LimeParticipantAttribute disableModelCaching()
- * @method static CachedBuilder|LimeParticipantAttribute exists()
- * @method static CachedBuilder|LimeParticipantAttribute flushCache(array $tags = [])
- * @method static CachedBuilder|LimeParticipantAttribute getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeParticipantAttribute inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeParticipantAttribute insert(array $values)
- * @method static CachedBuilder|LimeParticipantAttribute isCachable()
- * @method static CachedBuilder|LimeParticipantAttribute max($column)
- * @method static CachedBuilder|LimeParticipantAttribute min($column)
- * @method static CachedBuilder|LimeParticipantAttribute newModelQuery()
- * @method static CachedBuilder|LimeParticipantAttribute newQuery()
- * @method static CachedBuilder|LimeParticipantAttribute ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeParticipantAttribute query()
- * @method static CachedBuilder|LimeParticipantAttribute sum($column)
- * @method static CachedBuilder|LimeParticipantAttribute truncate()
- * @method static CachedBuilder|LimeParticipantAttribute whereAttributeId($value)
- * @method static CachedBuilder|LimeParticipantAttribute whereParticipantId($value)
- * @method static CachedBuilder|LimeParticipantAttribute whereValue($value)
- * @method static CachedBuilder|LimeParticipantAttribute withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

@@ -20,31 +20,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeLabelset all($columns = [])
- * @method static CachedBuilder|LimeLabelset avg($column)
- * @method static CachedBuilder|LimeLabelset cache(array $tags = [])
- * @method static CachedBuilder|LimeLabelset cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeLabelset count($columns = '*')
- * @method static CachedBuilder|LimeLabelset disableCache()
- * @method static CachedBuilder|LimeLabelset disableModelCaching()
- * @method static CachedBuilder|LimeLabelset exists()
- * @method static CachedBuilder|LimeLabelset flushCache(array $tags = [])
- * @method static CachedBuilder|LimeLabelset getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeLabelset inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeLabelset insert(array $values)
- * @method static CachedBuilder|LimeLabelset isCachable()
- * @method static CachedBuilder|LimeLabelset max($column)
- * @method static CachedBuilder|LimeLabelset min($column)
- * @method static CachedBuilder|LimeLabelset newModelQuery()
- * @method static CachedBuilder|LimeLabelset newQuery()
- * @method static CachedBuilder|LimeLabelset ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeLabelset query()
- * @method static CachedBuilder|LimeLabelset sum($column)
- * @method static CachedBuilder|LimeLabelset truncate()
- * @method static CachedBuilder|LimeLabelset whereLabelName($value)
- * @method static CachedBuilder|LimeLabelset whereLanguages($value)
- * @method static CachedBuilder|LimeLabelset whereLid($value)
- * @method static CachedBuilder|LimeLabelset withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

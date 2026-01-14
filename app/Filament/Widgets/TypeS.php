@@ -12,17 +12,19 @@ use Modules\Quaeris\Services\TrendX;
 class TypeS extends ChartWidget
 {
     // protected static ?string $heading = 'Risposte a Risposta Singola';
-    public $surveyId;
+    public string $surveyId;
 
-    public $fieldName;
+    public string $fieldName;
 
-    public $questionId;
+    public int $questionId;
 
-    public $title;
+    public string $title;
+
+    protected ?string $heading = 'Type S';
 
     protected function getType(): string
     {
-        static::$heading = strip_tags($this->title);
+        $this->heading = strip_tags($this->title);
 
         // Il tipo di grafico, in questo caso "pie" (torta)
         return 'bar';
@@ -30,7 +32,7 @@ class TypeS extends ChartWidget
 
     protected function getData(): array
     {
-        static::$heading = strip_tags($this->title);
+        $this->heading = strip_tags($this->title);
         // Recupera le risposte dal sondaggio specifico
         $select = [];
         $select[] = DB::raw("{$this->fieldName} as value");

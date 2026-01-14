@@ -28,35 +28,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeQuotum all($columns = [])
- * @method static CachedBuilder|LimeQuotum avg($column)
- * @method static CachedBuilder|LimeQuotum cache(array $tags = [])
- * @method static CachedBuilder|LimeQuotum cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeQuotum count($columns = '*')
- * @method static CachedBuilder|LimeQuotum disableCache()
- * @method static CachedBuilder|LimeQuotum disableModelCaching()
- * @method static CachedBuilder|LimeQuotum exists()
- * @method static CachedBuilder|LimeQuotum flushCache(array $tags = [])
- * @method static CachedBuilder|LimeQuotum getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeQuotum inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeQuotum insert(array $values)
- * @method static CachedBuilder|LimeQuotum isCachable()
- * @method static CachedBuilder|LimeQuotum max($column)
- * @method static CachedBuilder|LimeQuotum min($column)
- * @method static CachedBuilder|LimeQuotum newModelQuery()
- * @method static CachedBuilder|LimeQuotum newQuery()
- * @method static CachedBuilder|LimeQuotum ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeQuotum query()
- * @method static CachedBuilder|LimeQuotum sum($column)
- * @method static CachedBuilder|LimeQuotum truncate()
- * @method static CachedBuilder|LimeQuotum whereAction($value)
- * @method static CachedBuilder|LimeQuotum whereActive($value)
- * @method static CachedBuilder|LimeQuotum whereAutoloadUrl($value)
- * @method static CachedBuilder|LimeQuotum whereId($value)
- * @method static CachedBuilder|LimeQuotum whereName($value)
- * @method static CachedBuilder|LimeQuotum whereQlimit($value)
- * @method static CachedBuilder|LimeQuotum whereSid($value)
- * @method static CachedBuilder|LimeQuotum withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

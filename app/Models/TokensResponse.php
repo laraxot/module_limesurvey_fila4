@@ -15,28 +15,28 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|TokensResponse all($columns = [])
- * @method static CachedBuilder|TokensResponse avg($column)
- * @method static CachedBuilder|TokensResponse cache(array $tags = [])
- * @method static CachedBuilder|TokensResponse cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|TokensResponse count($columns = '*')
- * @method static CachedBuilder|TokensResponse disableCache()
- * @method static CachedBuilder|TokensResponse disableModelCaching()
- * @method static CachedBuilder|TokensResponse exists()
- * @method static CachedBuilder|TokensResponse flushCache(array $tags = [])
- * @method static CachedBuilder|TokensResponse getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|TokensResponse inRandomOrder($seed = '')
- * @method static CachedBuilder|TokensResponse insert(array $values)
- * @method static CachedBuilder|TokensResponse isCachable()
- * @method static CachedBuilder|TokensResponse max($column)
- * @method static CachedBuilder|TokensResponse min($column)
- * @method static CachedBuilder|TokensResponse newModelQuery()
- * @method static CachedBuilder|TokensResponse newQuery()
- * @method static CachedBuilder|TokensResponse ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|TokensResponse query()
- * @method static CachedBuilder|TokensResponse sum($column)
- * @method static CachedBuilder|TokensResponse truncate()
- * @method static CachedBuilder|TokensResponse withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder all($columns = [])
+ * @method static CachedBuilder avg($column)
+ * @method static CachedBuilder cache(array $tags = [])
+ * @method static CachedBuilder cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder count($columns = '*')
+ * @method static CachedBuilder disableCache()
+ * @method static CachedBuilder disableModelCaching()
+ * @method static CachedBuilder exists()
+ * @method static CachedBuilder flushCache(array $tags = [])
+ * @method static CachedBuilder getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder inRandomOrder($seed = '')
+ * @method static CachedBuilder insert(array $values)
+ * @method static CachedBuilder isCachable()
+ * @method static CachedBuilder max($column)
+ * @method static CachedBuilder min($column)
+ * @method static CachedBuilder newModelQuery()
+ * @method static CachedBuilder newQuery()
+ * @method static CachedBuilder ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder query()
+ * @method static CachedBuilder sum($column)
+ * @method static CachedBuilder truncate()
+ * @method static CachedBuilder withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -45,8 +45,10 @@ class TokensResponse extends BaseModel
     /** @var string */
     protected $primaryKey = 'tid';
 
-    // Il nome della tabella viene impostato dinamicamente
-    public function setTableForSurvey($surveyId): void
+    /**
+     * Il nome della tabella viene impostato dinamicamente
+     */
+    public function setTableForSurvey(string $surveyId): void
     {
         $this->setTable('lime_tokens_'.$surveyId);
     }

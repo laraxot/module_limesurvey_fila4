@@ -14,29 +14,7 @@ use Modules\Quaeris\Models\Profile;
 /**
  * Modules\Limesurvey\Models\LimeTemplate
  *
- * @method static CachedBuilder|LimeTemplate all($columns = [])
- * @method static CachedBuilder|LimeTemplate avg($column)
- * @method static CachedBuilder|LimeTemplate cache(array $tags = [])
- * @method static CachedBuilder|LimeTemplate cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeTemplate count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeTemplate disableModelCaching()
- * @method static CachedBuilder|LimeTemplate exists()
  * @method static LimeTemplateFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeTemplate flushCache(array $tags = [])
- * @method static CachedBuilder|LimeTemplate getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeTemplate inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeTemplate insert(array $values)
- * @method static CachedBuilder|LimeTemplate isCachable()
- * @method static CachedBuilder|LimeTemplate max($column)
- * @method static CachedBuilder|LimeTemplate min($column)
- * @method static CachedBuilder|LimeTemplate newModelQuery()
- * @method static CachedBuilder|LimeTemplate newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeTemplate query()
- * @method static CachedBuilder|LimeTemplate sum($column)
- * @method static CachedBuilder|LimeTemplate truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $id
  * @property string $name
@@ -57,24 +35,6 @@ use Modules\Quaeris\Models\Profile;
  * @property int|null $owner_id
  * @property string|null $extends
  *
- * @method static CachedBuilder|LimeTemplate whereApiVersion($value)
- * @method static CachedBuilder|LimeTemplate whereAuthor($value)
- * @method static CachedBuilder|LimeTemplate whereAuthorEmail($value)
- * @method static CachedBuilder|LimeTemplate whereAuthorUrl($value)
- * @method static CachedBuilder|LimeTemplate whereCopyright($value)
- * @method static CachedBuilder|LimeTemplate whereCreationDate($value)
- * @method static CachedBuilder|LimeTemplate whereDescription($value)
- * @method static CachedBuilder|LimeTemplate whereExtends($value)
- * @method static CachedBuilder|LimeTemplate whereFilesFolder($value)
- * @method static CachedBuilder|LimeTemplate whereFolder($value)
- * @method static CachedBuilder|LimeTemplate whereId($value)
- * @method static CachedBuilder|LimeTemplate whereLastUpdate($value)
- * @method static CachedBuilder|LimeTemplate whereLicense($value)
- * @method static CachedBuilder|LimeTemplate whereName($value)
- * @method static CachedBuilder|LimeTemplate whereOwnerId($value)
- * @method static CachedBuilder|LimeTemplate whereTitle($value)
- * @method static CachedBuilder|LimeTemplate whereVersion($value)
- * @method static CachedBuilder|LimeTemplate whereViewFolder($value)
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

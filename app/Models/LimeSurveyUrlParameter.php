@@ -13,29 +13,7 @@ use Modules\Quaeris\Models\Profile;
 /**
  * Modules\Limesurvey\Models\LimeSurveyUrlParameter
  *
- * @method static CachedBuilder|LimeSurveyUrlParameter all($columns = [])
- * @method static CachedBuilder|LimeSurveyUrlParameter avg($column)
- * @method static CachedBuilder|LimeSurveyUrlParameter cache(array $tags = [])
- * @method static CachedBuilder|LimeSurveyUrlParameter cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSurveyUrlParameter count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeSurveyUrlParameter disableModelCaching()
- * @method static CachedBuilder|LimeSurveyUrlParameter exists()
  * @method static LimeSurveyUrlParameterFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeSurveyUrlParameter flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSurveyUrlParameter getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSurveyUrlParameter inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSurveyUrlParameter insert(array $values)
- * @method static CachedBuilder|LimeSurveyUrlParameter isCachable()
- * @method static CachedBuilder|LimeSurveyUrlParameter max($column)
- * @method static CachedBuilder|LimeSurveyUrlParameter min($column)
- * @method static CachedBuilder|LimeSurveyUrlParameter newModelQuery()
- * @method static CachedBuilder|LimeSurveyUrlParameter newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSurveyUrlParameter query()
- * @method static CachedBuilder|LimeSurveyUrlParameter sum($column)
- * @method static CachedBuilder|LimeSurveyUrlParameter truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $id
  * @property int $sid
@@ -43,11 +21,6 @@ use Modules\Quaeris\Models\Profile;
  * @property int|null $targetqid
  * @property int|null $targetsqid
  *
- * @method static CachedBuilder|LimeSurveyUrlParameter whereId($value)
- * @method static CachedBuilder|LimeSurveyUrlParameter whereParameter($value)
- * @method static CachedBuilder|LimeSurveyUrlParameter whereSid($value)
- * @method static CachedBuilder|LimeSurveyUrlParameter whereTargetqid($value)
- * @method static CachedBuilder|LimeSurveyUrlParameter whereTargetsqid($value)
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

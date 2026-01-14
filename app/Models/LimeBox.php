@@ -25,36 +25,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeBox all($columns = [])
- * @method static CachedBuilder|LimeBox avg($column)
- * @method static CachedBuilder|LimeBox cache(array $tags = [])
- * @method static CachedBuilder|LimeBox cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeBox count($columns = '*')
- * @method static CachedBuilder|LimeBox disableCache()
- * @method static CachedBuilder|LimeBox disableModelCaching()
- * @method static CachedBuilder|LimeBox exists()
- * @method static CachedBuilder|LimeBox flushCache(array $tags = [])
- * @method static CachedBuilder|LimeBox getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeBox inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeBox insert(array $values)
- * @method static CachedBuilder|LimeBox isCachable()
- * @method static CachedBuilder|LimeBox max($column)
- * @method static CachedBuilder|LimeBox min($column)
- * @method static CachedBuilder|LimeBox newModelQuery()
- * @method static CachedBuilder|LimeBox newQuery()
- * @method static CachedBuilder|LimeBox ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeBox query()
- * @method static CachedBuilder|LimeBox sum($column)
- * @method static CachedBuilder|LimeBox truncate()
- * @method static CachedBuilder|LimeBox whereDesc($value)
- * @method static CachedBuilder|LimeBox whereIco($value)
- * @method static CachedBuilder|LimeBox whereId($value)
- * @method static CachedBuilder|LimeBox wherePage($value)
- * @method static CachedBuilder|LimeBox wherePosition($value)
- * @method static CachedBuilder|LimeBox whereTitle($value)
- * @method static CachedBuilder|LimeBox whereUrl($value)
- * @method static CachedBuilder|LimeBox whereUsergroup($value)
- * @method static CachedBuilder|LimeBox withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

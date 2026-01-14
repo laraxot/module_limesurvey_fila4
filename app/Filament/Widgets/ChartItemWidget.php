@@ -12,6 +12,9 @@ class ChartItemWidget extends ChartWidget
 {
     public string $type;
 
+        /**
+     * @var array<string, mixed>
+     */
     public array $chartData;
 
     public ?string $chartTitle = null;

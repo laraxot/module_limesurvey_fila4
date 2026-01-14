@@ -23,34 +23,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimePluginSetting all($columns = [])
- * @method static CachedBuilder|LimePluginSetting avg($column)
- * @method static CachedBuilder|LimePluginSetting cache(array $tags = [])
- * @method static CachedBuilder|LimePluginSetting cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimePluginSetting count($columns = '*')
- * @method static CachedBuilder|LimePluginSetting disableCache()
- * @method static CachedBuilder|LimePluginSetting disableModelCaching()
- * @method static CachedBuilder|LimePluginSetting exists()
- * @method static CachedBuilder|LimePluginSetting flushCache(array $tags = [])
- * @method static CachedBuilder|LimePluginSetting getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimePluginSetting inRandomOrder($seed = '')
- * @method static CachedBuilder|LimePluginSetting insert(array $values)
- * @method static CachedBuilder|LimePluginSetting isCachable()
- * @method static CachedBuilder|LimePluginSetting max($column)
- * @method static CachedBuilder|LimePluginSetting min($column)
- * @method static CachedBuilder|LimePluginSetting newModelQuery()
- * @method static CachedBuilder|LimePluginSetting newQuery()
- * @method static CachedBuilder|LimePluginSetting ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimePluginSetting query()
- * @method static CachedBuilder|LimePluginSetting sum($column)
- * @method static CachedBuilder|LimePluginSetting truncate()
- * @method static CachedBuilder|LimePluginSetting whereId($value)
- * @method static CachedBuilder|LimePluginSetting whereKey($value)
- * @method static CachedBuilder|LimePluginSetting whereModel($value)
- * @method static CachedBuilder|LimePluginSetting whereModelId($value)
- * @method static CachedBuilder|LimePluginSetting wherePluginId($value)
- * @method static CachedBuilder|LimePluginSetting whereValue($value)
- * @method static CachedBuilder|LimePluginSetting withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

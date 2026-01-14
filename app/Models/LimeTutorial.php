@@ -13,29 +13,7 @@ use Modules\Quaeris\Models\Profile;
 /**
  * Modules\Limesurvey\Models\LimeTutorial
  *
- * @method static CachedBuilder|LimeTutorial all($columns = [])
- * @method static CachedBuilder|LimeTutorial avg($column)
- * @method static CachedBuilder|LimeTutorial cache(array $tags = [])
- * @method static CachedBuilder|LimeTutorial cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeTutorial count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeTutorial disableModelCaching()
- * @method static CachedBuilder|LimeTutorial exists()
  * @method static LimeTutorialFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeTutorial flushCache(array $tags = [])
- * @method static CachedBuilder|LimeTutorial getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeTutorial inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeTutorial insert(array $values)
- * @method static CachedBuilder|LimeTutorial isCachable()
- * @method static CachedBuilder|LimeTutorial max($column)
- * @method static CachedBuilder|LimeTutorial min($column)
- * @method static CachedBuilder|LimeTutorial newModelQuery()
- * @method static CachedBuilder|LimeTutorial newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeTutorial query()
- * @method static CachedBuilder|LimeTutorial sum($column)
- * @method static CachedBuilder|LimeTutorial truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $tid
  * @property string|null $name
@@ -47,15 +25,6 @@ use Modules\Quaeris\Models\Profile;
  * @property string $permission
  * @property string $permission_grade
  *
- * @method static CachedBuilder|LimeTutorial whereActive($value)
- * @method static CachedBuilder|LimeTutorial whereDescription($value)
- * @method static CachedBuilder|LimeTutorial whereIcon($value)
- * @method static CachedBuilder|LimeTutorial whereName($value)
- * @method static CachedBuilder|LimeTutorial wherePermission($value)
- * @method static CachedBuilder|LimeTutorial wherePermissionGrade($value)
- * @method static CachedBuilder|LimeTutorial whereSettings($value)
- * @method static CachedBuilder|LimeTutorial whereTid($value)
- * @method static CachedBuilder|LimeTutorial whereTitle($value)
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

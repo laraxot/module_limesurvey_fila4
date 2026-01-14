@@ -14,29 +14,7 @@ use Modules\Quaeris\Models\Profile;
 /**
  * Modules\Limesurvey\Models\LimeUser
  *
- * @method static CachedBuilder|LimeUser all($columns = [])
- * @method static CachedBuilder|LimeUser avg($column)
- * @method static CachedBuilder|LimeUser cache(array $tags = [])
- * @method static CachedBuilder|LimeUser cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeUser count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeUser disableModelCaching()
- * @method static CachedBuilder|LimeUser exists()
  * @method static LimeUserFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeUser flushCache(array $tags = [])
- * @method static CachedBuilder|LimeUser getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeUser inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeUser insert(array $values)
- * @method static CachedBuilder|LimeUser isCachable()
- * @method static CachedBuilder|LimeUser max($column)
- * @method static CachedBuilder|LimeUser min($column)
- * @method static CachedBuilder|LimeUser newModelQuery()
- * @method static CachedBuilder|LimeUser newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeUser query()
- * @method static CachedBuilder|LimeUser sum($column)
- * @method static CachedBuilder|LimeUser truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $uid
  * @property string $users_name
@@ -57,24 +35,6 @@ use Modules\Quaeris\Models\Profile;
  * @property string|null $validation_key_expiration
  * @property string|null $last_forgot_email_password
  *
- * @method static CachedBuilder|LimeUser whereCreated($value)
- * @method static CachedBuilder|LimeUser whereDateformat($value)
- * @method static CachedBuilder|LimeUser whereEmail($value)
- * @method static CachedBuilder|LimeUser whereFullName($value)
- * @method static CachedBuilder|LimeUser whereHtmleditormode($value)
- * @method static CachedBuilder|LimeUser whereLang($value)
- * @method static CachedBuilder|LimeUser whereLastForgotEmailPassword($value)
- * @method static CachedBuilder|LimeUser whereLastLogin($value)
- * @method static CachedBuilder|LimeUser whereModified($value)
- * @method static CachedBuilder|LimeUser whereOneTimePw($value)
- * @method static CachedBuilder|LimeUser whereParentId($value)
- * @method static CachedBuilder|LimeUser wherePassword($value)
- * @method static CachedBuilder|LimeUser whereQuestionselectormode($value)
- * @method static CachedBuilder|LimeUser whereTemplateeditormode($value)
- * @method static CachedBuilder|LimeUser whereUid($value)
- * @method static CachedBuilder|LimeUser whereUsersName($value)
- * @method static CachedBuilder|LimeUser whereValidationKey($value)
- * @method static CachedBuilder|LimeUser whereValidationKeyExpiration($value)
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

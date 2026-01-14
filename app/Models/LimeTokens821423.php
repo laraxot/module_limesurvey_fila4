@@ -14,29 +14,7 @@ use Modules\Quaeris\Models\Profile;
 /**
  * Modules\Limesurvey\Models\LimeTokens821423
  *
- * @method static CachedBuilder|LimeTokens821423 all($columns = [])
- * @method static CachedBuilder|LimeTokens821423 avg($column)
- * @method static CachedBuilder|LimeTokens821423 cache(array $tags = [])
- * @method static CachedBuilder|LimeTokens821423 cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeTokens821423 count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeTokens821423 disableModelCaching()
- * @method static CachedBuilder|LimeTokens821423 exists()
  * @method static LimeTokens821423Factory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeTokens821423 flushCache(array $tags = [])
- * @method static CachedBuilder|LimeTokens821423 getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeTokens821423 inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeTokens821423 insert(array $values)
- * @method static CachedBuilder|LimeTokens821423 isCachable()
- * @method static CachedBuilder|LimeTokens821423 max($column)
- * @method static CachedBuilder|LimeTokens821423 min($column)
- * @method static CachedBuilder|LimeTokens821423 newModelQuery()
- * @method static CachedBuilder|LimeTokens821423 newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeTokens821423 query()
- * @method static CachedBuilder|LimeTokens821423 sum($column)
- * @method static CachedBuilder|LimeTokens821423 truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $tid
  * @property string|null $participant_id
@@ -60,27 +38,6 @@ use Modules\Quaeris\Models\Profile;
  * @property string|null $attribute_3
  * @property string|null $attribute_4
  *
- * @method static CachedBuilder|LimeTokens821423 whereAttribute1($value)
- * @method static CachedBuilder|LimeTokens821423 whereAttribute2($value)
- * @method static CachedBuilder|LimeTokens821423 whereAttribute3($value)
- * @method static CachedBuilder|LimeTokens821423 whereAttribute4($value)
- * @method static CachedBuilder|LimeTokens821423 whereBlacklisted($value)
- * @method static CachedBuilder|LimeTokens821423 whereCompleted($value)
- * @method static CachedBuilder|LimeTokens821423 whereEmail($value)
- * @method static CachedBuilder|LimeTokens821423 whereEmailstatus($value)
- * @method static CachedBuilder|LimeTokens821423 whereFirstname($value)
- * @method static CachedBuilder|LimeTokens821423 whereLanguage($value)
- * @method static CachedBuilder|LimeTokens821423 whereLastname($value)
- * @method static CachedBuilder|LimeTokens821423 whereMpid($value)
- * @method static CachedBuilder|LimeTokens821423 whereParticipantId($value)
- * @method static CachedBuilder|LimeTokens821423 whereRemindercount($value)
- * @method static CachedBuilder|LimeTokens821423 whereRemindersent($value)
- * @method static CachedBuilder|LimeTokens821423 whereSent($value)
- * @method static CachedBuilder|LimeTokens821423 whereTid($value)
- * @method static CachedBuilder|LimeTokens821423 whereToken($value)
- * @method static CachedBuilder|LimeTokens821423 whereUsesleft($value)
- * @method static CachedBuilder|LimeTokens821423 whereValidfrom($value)
- * @method static CachedBuilder|LimeTokens821423 whereValiduntil($value)
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

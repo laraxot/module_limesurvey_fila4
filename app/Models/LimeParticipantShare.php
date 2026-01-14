@@ -22,32 +22,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeParticipantShare all($columns = [])
- * @method static CachedBuilder|LimeParticipantShare avg($column)
- * @method static CachedBuilder|LimeParticipantShare cache(array $tags = [])
- * @method static CachedBuilder|LimeParticipantShare cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeParticipantShare count($columns = '*')
- * @method static CachedBuilder|LimeParticipantShare disableCache()
- * @method static CachedBuilder|LimeParticipantShare disableModelCaching()
- * @method static CachedBuilder|LimeParticipantShare exists()
- * @method static CachedBuilder|LimeParticipantShare flushCache(array $tags = [])
- * @method static CachedBuilder|LimeParticipantShare getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeParticipantShare inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeParticipantShare insert(array $values)
- * @method static CachedBuilder|LimeParticipantShare isCachable()
- * @method static CachedBuilder|LimeParticipantShare max($column)
- * @method static CachedBuilder|LimeParticipantShare min($column)
- * @method static CachedBuilder|LimeParticipantShare newModelQuery()
- * @method static CachedBuilder|LimeParticipantShare newQuery()
- * @method static CachedBuilder|LimeParticipantShare ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeParticipantShare query()
- * @method static CachedBuilder|LimeParticipantShare sum($column)
- * @method static CachedBuilder|LimeParticipantShare truncate()
- * @method static CachedBuilder|LimeParticipantShare whereCanEdit($value)
- * @method static CachedBuilder|LimeParticipantShare whereDateAdded($value)
- * @method static CachedBuilder|LimeParticipantShare whereParticipantId($value)
- * @method static CachedBuilder|LimeParticipantShare whereShareUid($value)
- * @method static CachedBuilder|LimeParticipantShare withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

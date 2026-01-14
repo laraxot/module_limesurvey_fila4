@@ -24,35 +24,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeQuotaLanguagesetting all($columns = [])
- * @method static CachedBuilder|LimeQuotaLanguagesetting avg($column)
- * @method static CachedBuilder|LimeQuotaLanguagesetting cache(array $tags = [])
- * @method static CachedBuilder|LimeQuotaLanguagesetting cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeQuotaLanguagesetting count($columns = '*')
- * @method static CachedBuilder|LimeQuotaLanguagesetting disableCache()
- * @method static CachedBuilder|LimeQuotaLanguagesetting disableModelCaching()
- * @method static CachedBuilder|LimeQuotaLanguagesetting exists()
- * @method static CachedBuilder|LimeQuotaLanguagesetting flushCache(array $tags = [])
- * @method static CachedBuilder|LimeQuotaLanguagesetting getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeQuotaLanguagesetting inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeQuotaLanguagesetting insert(array $values)
- * @method static CachedBuilder|LimeQuotaLanguagesetting isCachable()
- * @method static CachedBuilder|LimeQuotaLanguagesetting max($column)
- * @method static CachedBuilder|LimeQuotaLanguagesetting min($column)
- * @method static CachedBuilder|LimeQuotaLanguagesetting newModelQuery()
- * @method static CachedBuilder|LimeQuotaLanguagesetting newQuery()
- * @method static CachedBuilder|LimeQuotaLanguagesetting ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeQuotaLanguagesetting query()
- * @method static CachedBuilder|LimeQuotaLanguagesetting sum($column)
- * @method static CachedBuilder|LimeQuotaLanguagesetting truncate()
- * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsId($value)
- * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsLanguage($value)
- * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsMessage($value)
- * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsName($value)
- * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsQuotaId($value)
- * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsUrl($value)
- * @method static CachedBuilder|LimeQuotaLanguagesetting whereQuotalsUrldescrip($value)
- * @method static CachedBuilder|LimeQuotaLanguagesetting withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

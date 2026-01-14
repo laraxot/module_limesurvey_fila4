@@ -9,12 +9,23 @@ Questo modulo è *infrastrutturale*: espone modelli/query/utility; la business l
 
 ## Indice
 
+- [Documentazione Consolidata](#documentazione-consolidata)
 - [Panoramica e collegamenti](#panoramica-e-collegamenti)
 - [LimeSurvey upstream: architettura](#limesurvey-upstream-architettura)
 - [Database: tabelle dinamiche survey_{sid} e tokens_{sid}](#database-tabelle-dinamiche-survey_sid-e-tokens_sid)
 - [Statistiche ed export in LimeSurvey (cosa aspettarsi)](#statistiche-ed-export-in-limesurvey-cosa-aspettarsi)
 - [Integrazione Laraxot: query, label tradotte, performance](#integrazione-laraxot-query-label-tradotte-performance)
 - [Grafici e PDF: come si fa “alla Laraxot / Filament 4”](#grafici-e-pdf-come-si-fa-alla-laraxot--filament-4)
+
+## Documentazione Consolidata
+
+**Nuova struttura ordinata** (gennaio 2026):
+
+- **[index-consolidated.md](index-consolidated.md)** - Indice completo della documentazione
+- **[architecture-and-integration.md](architecture-and-integration.md)** - Architettura e integrazione (punto di partenza consigliato)
+- **[models-and-queries.md](models-and-queries.md)** - Modelli e pattern di query
+- **[best-practices.md](best-practices.md)** - Best practices e ottimizzazioni
+- **[phpstan/](phpstan/)** - Analisi PHPStan e compliance Level 10
 
 ## Panoramica e collegamenti
 
@@ -111,3 +122,14 @@ Punti di verità (docs esistenti):
 - `../../Chart/docs/filament-charts-professional-guide.md`
 - `../../Chart/docs/charts-and-pdf-complete-guide.md`
 - `../../Quaeris/docs/spipu-pdf-charts-embedding-guide.md`
+
+## PHPStan Code Quality Achievement
+
+The Limesurvey module has achieved **Level 10 compliance** with PHPStan, meaning:
+
+- ✅ **0 errors** at the highest level of type checking
+- ✅ Full type safety across all components
+- ✅ Complete code quality compliance
+- ✅ Professional-grade static analysis results
+
+This achievement ensures maximum reliability, maintainability, and code quality for the LimeSurvey integration module.

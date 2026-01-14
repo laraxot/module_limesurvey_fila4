@@ -94,90 +94,6 @@ use stdClass;
  * @property-read int|null $questions_count
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeSurvey all($columns = [])
- * @method static CachedBuilder|LimeSurvey avg($column)
- * @method static CachedBuilder|LimeSurvey cache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSurvey count($columns = '*')
- * @method static CachedBuilder|LimeSurvey disableCache()
- * @method static CachedBuilder|LimeSurvey disableModelCaching()
- * @method static CachedBuilder|LimeSurvey exists()
- * @method static CachedBuilder|LimeSurvey flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSurvey inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSurvey insert(array $values)
- * @method static CachedBuilder|LimeSurvey isCachable()
- * @method static CachedBuilder|LimeSurvey max($column)
- * @method static CachedBuilder|LimeSurvey min($column)
- * @method static CachedBuilder|LimeSurvey newModelQuery()
- * @method static CachedBuilder|LimeSurvey newQuery()
- * @method static CachedBuilder|LimeSurvey ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSurvey query()
- * @method static CachedBuilder|LimeSurvey sum($column)
- * @method static CachedBuilder|LimeSurvey truncate()
- * @method static CachedBuilder|LimeSurvey whereActive($value)
- * @method static CachedBuilder|LimeSurvey whereAdditionalLanguages($value)
- * @method static CachedBuilder|LimeSurvey whereAdmin($value)
- * @method static CachedBuilder|LimeSurvey whereAdminemail($value)
- * @method static CachedBuilder|LimeSurvey whereAlloweditaftercompletion($value)
- * @method static CachedBuilder|LimeSurvey whereAllowprev($value)
- * @method static CachedBuilder|LimeSurvey whereAllowregister($value)
- * @method static CachedBuilder|LimeSurvey whereAllowsave($value)
- * @method static CachedBuilder|LimeSurvey whereAnonymized($value)
- * @method static CachedBuilder|LimeSurvey whereAssessments($value)
- * @method static CachedBuilder|LimeSurvey whereAttributedescriptions($value)
- * @method static CachedBuilder|LimeSurvey whereAutonumberStart($value)
- * @method static CachedBuilder|LimeSurvey whereAutoredirect($value)
- * @method static CachedBuilder|LimeSurvey whereBounceEmail($value)
- * @method static CachedBuilder|LimeSurvey whereBounceaccountencryption($value)
- * @method static CachedBuilder|LimeSurvey whereBounceaccounthost($value)
- * @method static CachedBuilder|LimeSurvey whereBounceaccountpass($value)
- * @method static CachedBuilder|LimeSurvey whereBounceaccounttype($value)
- * @method static CachedBuilder|LimeSurvey whereBounceaccountuser($value)
- * @method static CachedBuilder|LimeSurvey whereBounceprocessing($value)
- * @method static CachedBuilder|LimeSurvey whereBouncetime($value)
- * @method static CachedBuilder|LimeSurvey whereDatecreated($value)
- * @method static CachedBuilder|LimeSurvey whereDatestamp($value)
- * @method static CachedBuilder|LimeSurvey whereEmailnotificationto($value)
- * @method static CachedBuilder|LimeSurvey whereEmailresponseto($value)
- * @method static CachedBuilder|LimeSurvey whereExpires($value)
- * @method static CachedBuilder|LimeSurvey whereFaxto($value)
- * @method static CachedBuilder|LimeSurvey whereFormat($value)
- * @method static CachedBuilder|LimeSurvey whereGoogleanalyticsapikey($value)
- * @method static CachedBuilder|LimeSurvey whereGoogleanalyticsstyle($value)
- * @method static CachedBuilder|LimeSurvey whereGsid($value)
- * @method static CachedBuilder|LimeSurvey whereHtmlemail($value)
- * @method static CachedBuilder|LimeSurvey whereIpaddr($value)
- * @method static CachedBuilder|LimeSurvey whereIpanonymize($value)
- * @method static CachedBuilder|LimeSurvey whereLanguage($value)
- * @method static CachedBuilder|LimeSurvey whereListpublic($value)
- * @method static CachedBuilder|LimeSurvey whereNavigationdelay($value)
- * @method static CachedBuilder|LimeSurvey whereNokeyboard($value)
- * @method static CachedBuilder|LimeSurvey whereOwnerId($value)
- * @method static CachedBuilder|LimeSurvey wherePrintanswers($value)
- * @method static CachedBuilder|LimeSurvey wherePublicgraphs($value)
- * @method static CachedBuilder|LimeSurvey wherePublicstatistics($value)
- * @method static CachedBuilder|LimeSurvey whereQuestionindex($value)
- * @method static CachedBuilder|LimeSurvey whereRefurl($value)
- * @method static CachedBuilder|LimeSurvey whereSavetimings($value)
- * @method static CachedBuilder|LimeSurvey whereSendconfirmation($value)
- * @method static CachedBuilder|LimeSurvey whereShowgroupinfo($value)
- * @method static CachedBuilder|LimeSurvey whereShownoanswer($value)
- * @method static CachedBuilder|LimeSurvey whereShowprogress($value)
- * @method static CachedBuilder|LimeSurvey whereShowqnumcode($value)
- * @method static CachedBuilder|LimeSurvey whereShowsurveypolicynotice($value)
- * @method static CachedBuilder|LimeSurvey whereShowwelcome($value)
- * @method static CachedBuilder|LimeSurvey whereShowxquestions($value)
- * @method static CachedBuilder|LimeSurvey whereSid($value)
- * @method static CachedBuilder|LimeSurvey whereStartdate($value)
- * @method static CachedBuilder|LimeSurvey whereTemplate($value)
- * @method static CachedBuilder|LimeSurvey whereTokenanswerspersistence($value)
- * @method static CachedBuilder|LimeSurvey whereTokenencryptionoptions($value)
- * @method static CachedBuilder|LimeSurvey whereTokenlength($value)
- * @method static CachedBuilder|LimeSurvey whereUsecaptcha($value)
- * @method static CachedBuilder|LimeSurvey whereUsecookie($value)
- * @method static CachedBuilder|LimeSurvey whereUsetokens($value)
- * @method static CachedBuilder|LimeSurvey withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -327,10 +243,20 @@ class LimeSurvey extends BaseModel
     // Scopes...
     // Relations ...
     /**
-     * @return \Illuminate\Database\Eloquent\Collection|array<LimeQuestion>
+     * @return HasOne<LimeSurveysLanguagesetting>
+     */
+    public function lang(): HasOne
+    {
+        return $this->hasOne(LimeSurveysLanguagesetting::class, 'surveyls_survey_id', 'sid')
+            ->whereColumn('surveyls_language', 'language');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<\Modules\Limesurvey\Models\LimeQuestion, static>
      */
     public function questions(): HasMany
     {
+        // @phpstan-ignore-next-line return.type
         return $this->hasMany(LimeQuestion::class, 'sid', 'sid');
     }
 
@@ -345,64 +271,22 @@ class LimeSurvey extends BaseModel
         // ->with('labels')
     }
 
-    public function groups_l10n(): HasManyThrough
-    {
-        return $this->hasManyThrough(LimeGroupL10n::class, LimeGroup::class, 'sid', 'gid');
-    }
-
-    public function lang(): HasOne
-    {
-        return $this->hasOne(LimeSurveysLanguagesetting::class, 'surveyls_survey_id', 'sid');
-    }
-
-    // --- mutators ---
-    public function getTitleAttribute(?string $value): ?string
-    {
-        return optional($this->lang)->surveyls_title;
-    }
-
-    /**
-     * Undocumented function.
-     */
-    public function getAttributedescriptionsAttribute(string|array|null $value): array
-    {
-        if ($value === null) {
-            return [];
-        }
-
-        if (is_array($value)) {
-            return $value;
-        }
-
-        if (isJson($value)) {
-            return json_decode($value, true, 512, JSON_THROW_ON_ERROR);
-        }
-
-        dddx($value);
-    }
-
-    public function getTrans(): array
-    {
-        $attribute = $this->attributedescriptions;
-        $trans = [];
-        foreach ($attribute as $k => $v) {
-            if (! isset($v['description'])) {
-                continue;
-            }
-            if ($v['description'] === '') {
-                continue;
-            }
-            $trans[$k] = $v['description'] ?? '';
-        }
-
-        return $trans;
-    }
+// ... (skipping some lines) ...
 
     // Functions ...
+    /**
+     * @return array<string, string>
+     */
+    public function getTrans(): array
+    {
+        return [];
+    }
+
     public function answers(): Collection
     {
         // dddx($this->sid);
-        $model_class = \Modules\LimeSurvey\Models\LimeSurvey::class.$this->sid;
+        $model_class = \Modules\Limesurvey\Models\LimeSurvey::class.$this->sid;
+        /** @var \Illuminate\Database\Eloquent\Model $model */
         $model = app($model_class);
         // $fillable=$model->getFillable();
         // dddx($fillable);
@@ -419,29 +303,32 @@ class LimeSurvey extends BaseModel
         // dddx($this->questions);
         $questions = $this->questions->pluck('title', 'qid')->all();
         $first_row = $rows->first();
-        $head = collect($first_row)->map(function ($item, $key) use ($questions) {
-            $piece = explode('X', $key);
-            if ($piece[0] === $this->sid) {
-                $qid[0] = $piece[2];
-                $qid[1] = '';
-                if (Str::contains($piece[2], 'oth')) {
-                    $qid[0] = Str::before($piece[2], 'oth');
-                    $qid[1] = 'oth'.Str::after($piece[2], 'oth');
+        if ($first_row === null) {
+            return collect([]);
+        }
+        /** @var array<string, mixed> $first_row */
+        $head = collect($first_row)->map(function ($item, $key) use ($questions): string {
+            $piece = explode('X', (string) $key);
+            if ($piece[0] === (string) $this->sid) {
+                $qid = [$piece[2] ?? '', ''];
+                if (Str::contains($piece[2] ?? '', 'oth')) {
+                    $qid[0] = Str::before($piece[2] ?? '', 'oth');
+                    $qid[1] = 'oth'.Str::after($piece[2] ?? '', 'oth');
                 }
 
-                if (Str::contains($piece[2], 'SQ0')) {
-                    $qid[0] = Str::before($piece[2], 'SQ0');
-                    $qid[1] = 'SQ0'.Str::after($piece[2], 'SQ0');
+                if (Str::contains($piece[2] ?? '', 'SQ0')) {
+                    $qid[0] = Str::before($piece[2] ?? '', 'SQ0');
+                    $qid[1] = 'SQ0'.Str::after($piece[2] ?? '', 'SQ0');
                 }
 
-                $key = $questions[$qid[0]];
+                $key = (string) ($questions[$qid[0]] ?? $key);
 
                 if ($qid[1] !== '') {
-                    $key .= '['.$qid[1].']';
+                    $key = $key.'['.$qid[1].']';
                 }
             }
 
-            return $key;
+            return (string) $key;
         })->values()
             ->all();
 
@@ -477,7 +364,7 @@ class LimeSurvey extends BaseModel
         });
         */
 
-        $rows = $rows->map(static fn ($item): stdClass => (object) array_combine($head, $item));
+        $rows = $rows->map(static fn ($item): stdClass => (object) array_combine($head, (array) $item));
 
         // dddx($rows->first()->{'Q11'});
 

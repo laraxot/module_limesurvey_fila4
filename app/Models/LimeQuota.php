@@ -24,35 +24,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeQuota all($columns = [])
- * @method static CachedBuilder|LimeQuota avg($column)
- * @method static CachedBuilder|LimeQuota cache(array $tags = [])
- * @method static CachedBuilder|LimeQuota cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeQuota count($columns = '*')
- * @method static CachedBuilder|LimeQuota disableCache()
- * @method static CachedBuilder|LimeQuota disableModelCaching()
- * @method static CachedBuilder|LimeQuota exists()
- * @method static CachedBuilder|LimeQuota flushCache(array $tags = [])
- * @method static CachedBuilder|LimeQuota getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeQuota inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeQuota insert(array $values)
- * @method static CachedBuilder|LimeQuota isCachable()
- * @method static CachedBuilder|LimeQuota max($column)
- * @method static CachedBuilder|LimeQuota min($column)
- * @method static CachedBuilder|LimeQuota newModelQuery()
- * @method static CachedBuilder|LimeQuota newQuery()
- * @method static CachedBuilder|LimeQuota ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeQuota query()
- * @method static CachedBuilder|LimeQuota sum($column)
- * @method static CachedBuilder|LimeQuota truncate()
- * @method static CachedBuilder|LimeQuota whereAction($value)
- * @method static CachedBuilder|LimeQuota whereActive($value)
- * @method static CachedBuilder|LimeQuota whereAutoloadUrl($value)
- * @method static CachedBuilder|LimeQuota whereId($value)
- * @method static CachedBuilder|LimeQuota whereName($value)
- * @method static CachedBuilder|LimeQuota whereQlimit($value)
- * @method static CachedBuilder|LimeQuota whereSid($value)
- * @method static CachedBuilder|LimeQuota withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

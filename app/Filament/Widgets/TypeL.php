@@ -12,30 +12,35 @@ use Modules\Quaeris\Services\TrendX;
 
 class TypeL extends ChartWidget
 {
-    public string $surveyId;
+    public string $surveyId = '';
 
-    public string $fieldName;
+    public string $fieldName = '';
 
-    public string $questionId;
+    public int $questionId = 0;
 
-    public string $title;
+    protected ?string $heading = 'Type L';
 
-    public string $date_from;
+    public string $title = '';
 
-    public string $date_to;
+    public string $date_from = '';
 
-    public int $totalResponses;
+    public string $date_to = '';
+
+    public int $totalResponses = 0;
 
     protected function getType(): string
     {
-        static::$heading = strip_tags($this->title);
+        $this->heading = strip_tags($this->title);
 
         return 'bar';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function getData(): array
     {
-        static::$heading = strip_tags($this->title);
+        $this->heading = strip_tags($this->title);
 
         // Recupera i dati
         $select = [];
@@ -70,13 +75,17 @@ class TypeL extends ChartWidget
             ->sortByDesc('aggregate'); // Ordinamento sulla collection
 
         // Calcola il totale delle risposte
-        $totalResponses = $res->sum('aggregate');
+        $totalResponses = (int) $res->sum('aggregate');
         $this->totalResponses = $totalResponses;
 
         // Calcola le percentuali
-        $percentages = $res->map(function ($item) use ($totalResponses) {
+        $percentages = $res->map(function (mixed $item) use ($totalResponses) {
+            if (!is_object($item) || !property_exists($item, 'aggregate')) {
+                return $item;
+            }
+            
             $item->aggregate = $totalResponses > 0
-                ? round($item->aggregate / $totalResponses * 100, 2)
+                ? round(((float) $item->aggregate) / $totalResponses * 100, 2)
                 : 0;
 
             return $item;

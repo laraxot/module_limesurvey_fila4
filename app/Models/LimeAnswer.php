@@ -32,34 +32,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read LimeAnswerL10n|null $l10n
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeAnswer all($columns = [])
- * @method static CachedBuilder|LimeAnswer avg($column)
- * @method static CachedBuilder|LimeAnswer cache(array $tags = [])
- * @method static CachedBuilder|LimeAnswer cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeAnswer count($columns = '*')
- * @method static CachedBuilder|LimeAnswer disableCache()
- * @method static CachedBuilder|LimeAnswer disableModelCaching()
- * @method static CachedBuilder|LimeAnswer exists()
- * @method static CachedBuilder|LimeAnswer flushCache(array $tags = [])
- * @method static CachedBuilder|LimeAnswer getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeAnswer inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeAnswer insert(array $values)
- * @method static CachedBuilder|LimeAnswer isCachable()
- * @method static CachedBuilder|LimeAnswer max($column)
- * @method static CachedBuilder|LimeAnswer min($column)
- * @method static CachedBuilder|LimeAnswer newModelQuery()
- * @method static CachedBuilder|LimeAnswer newQuery()
- * @method static CachedBuilder|LimeAnswer ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeAnswer query()
- * @method static CachedBuilder|LimeAnswer sum($column)
- * @method static CachedBuilder|LimeAnswer truncate()
- * @method static CachedBuilder|LimeAnswer whereAid($value)
- * @method static CachedBuilder|LimeAnswer whereAssessmentValue($value)
- * @method static CachedBuilder|LimeAnswer whereCode($value)
- * @method static CachedBuilder|LimeAnswer whereQid($value)
- * @method static CachedBuilder|LimeAnswer whereScaleId($value)
- * @method static CachedBuilder|LimeAnswer whereSortorder($value)
- * @method static CachedBuilder|LimeAnswer withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -94,13 +66,12 @@ class LimeAnswer extends BaseModel
     ];
 
     protected $appends = [
-        'query',
     ];
 
     /**
      * Undocumented variable.
      *
-     * @var array<string >
+     * @var list<string>
      */
     protected $with = [
         'l10n',
@@ -112,6 +83,7 @@ class LimeAnswer extends BaseModel
     public function l10n(): HasOne
     {
         $lang = app()->getLocale();
+        /** @var class-string<Model> $class */
         $class = static::class.'L10n';
         $pk = $this->primaryKey;
 
@@ -119,7 +91,8 @@ class LimeAnswer extends BaseModel
             ->where('language', $lang);
     }
 
-    public function getQueryAttribute(): void
+    public function getQueryAttribute(): mixed
     {
+        return null;
     }
 }

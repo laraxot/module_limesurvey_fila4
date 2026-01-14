@@ -14,29 +14,7 @@ use Modules\Quaeris\Models\Profile;
 /**
  * Modules\Limesurvey\Models\LimeSurveymenu
  *
- * @method static CachedBuilder|LimeSurveymenu all($columns = [])
- * @method static CachedBuilder|LimeSurveymenu avg($column)
- * @method static CachedBuilder|LimeSurveymenu cache(array $tags = [])
- * @method static CachedBuilder|LimeSurveymenu cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSurveymenu count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeSurveymenu disableModelCaching()
- * @method static CachedBuilder|LimeSurveymenu exists()
  * @method static LimeSurveymenuFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeSurveymenu flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSurveymenu getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSurveymenu inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSurveymenu insert(array $values)
- * @method static CachedBuilder|LimeSurveymenu isCachable()
- * @method static CachedBuilder|LimeSurveymenu max($column)
- * @method static CachedBuilder|LimeSurveymenu min($column)
- * @method static CachedBuilder|LimeSurveymenu newModelQuery()
- * @method static CachedBuilder|LimeSurveymenu newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSurveymenu query()
- * @method static CachedBuilder|LimeSurveymenu sum($column)
- * @method static CachedBuilder|LimeSurveymenu truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $id
  * @property int|null $parent_id
@@ -55,22 +33,6 @@ use Modules\Quaeris\Models\Profile;
  * @property Carbon|null $created_at
  * @property int $created_by
  *
- * @method static CachedBuilder|LimeSurveymenu whereActive($value)
- * @method static CachedBuilder|LimeSurveymenu whereChangedAt($value)
- * @method static CachedBuilder|LimeSurveymenu whereChangedBy($value)
- * @method static CachedBuilder|LimeSurveymenu whereCreatedAt($value)
- * @method static CachedBuilder|LimeSurveymenu whereCreatedBy($value)
- * @method static CachedBuilder|LimeSurveymenu whereDescription($value)
- * @method static CachedBuilder|LimeSurveymenu whereId($value)
- * @method static CachedBuilder|LimeSurveymenu whereLevel($value)
- * @method static CachedBuilder|LimeSurveymenu whereName($value)
- * @method static CachedBuilder|LimeSurveymenu whereOrdering($value)
- * @method static CachedBuilder|LimeSurveymenu whereParentId($value)
- * @method static CachedBuilder|LimeSurveymenu wherePosition($value)
- * @method static CachedBuilder|LimeSurveymenu whereShowincollapse($value)
- * @method static CachedBuilder|LimeSurveymenu whereSurveyId($value)
- * @method static CachedBuilder|LimeSurveymenu whereTitle($value)
- * @method static CachedBuilder|LimeSurveymenu whereUserId($value)
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

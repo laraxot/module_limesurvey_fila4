@@ -27,38 +27,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeExpressionError all($columns = [])
- * @method static CachedBuilder|LimeExpressionError avg($column)
- * @method static CachedBuilder|LimeExpressionError cache(array $tags = [])
- * @method static CachedBuilder|LimeExpressionError cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeExpressionError count($columns = '*')
- * @method static CachedBuilder|LimeExpressionError disableCache()
- * @method static CachedBuilder|LimeExpressionError disableModelCaching()
- * @method static CachedBuilder|LimeExpressionError exists()
- * @method static CachedBuilder|LimeExpressionError flushCache(array $tags = [])
- * @method static CachedBuilder|LimeExpressionError getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeExpressionError inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeExpressionError insert(array $values)
- * @method static CachedBuilder|LimeExpressionError isCachable()
- * @method static CachedBuilder|LimeExpressionError max($column)
- * @method static CachedBuilder|LimeExpressionError min($column)
- * @method static CachedBuilder|LimeExpressionError newModelQuery()
- * @method static CachedBuilder|LimeExpressionError newQuery()
- * @method static CachedBuilder|LimeExpressionError ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeExpressionError query()
- * @method static CachedBuilder|LimeExpressionError sum($column)
- * @method static CachedBuilder|LimeExpressionError truncate()
- * @method static CachedBuilder|LimeExpressionError whereEqn($value)
- * @method static CachedBuilder|LimeExpressionError whereErrortime($value)
- * @method static CachedBuilder|LimeExpressionError whereGid($value)
- * @method static CachedBuilder|LimeExpressionError whereGseq($value)
- * @method static CachedBuilder|LimeExpressionError whereId($value)
- * @method static CachedBuilder|LimeExpressionError wherePrettyprint($value)
- * @method static CachedBuilder|LimeExpressionError whereQid($value)
- * @method static CachedBuilder|LimeExpressionError whereQseq($value)
- * @method static CachedBuilder|LimeExpressionError whereSid($value)
- * @method static CachedBuilder|LimeExpressionError whereType($value)
- * @method static CachedBuilder|LimeExpressionError withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

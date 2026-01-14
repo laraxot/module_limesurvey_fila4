@@ -13,29 +13,7 @@ use Modules\Quaeris\Models\Profile;
 /**
  * Modules\Limesurvey\Models\LimeSurveysLanguagesetting
  *
- * @method static CachedBuilder|LimeSurveysLanguagesetting all($columns = [])
- * @method static CachedBuilder|LimeSurveysLanguagesetting avg($column)
- * @method static CachedBuilder|LimeSurveysLanguagesetting cache(array $tags = [])
- * @method static CachedBuilder|LimeSurveysLanguagesetting cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSurveysLanguagesetting count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeSurveysLanguagesetting disableModelCaching()
- * @method static CachedBuilder|LimeSurveysLanguagesetting exists()
  * @method static LimeSurveysLanguagesettingFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeSurveysLanguagesetting flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSurveysLanguagesetting getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSurveysLanguagesetting inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSurveysLanguagesetting insert(array $values)
- * @method static CachedBuilder|LimeSurveysLanguagesetting isCachable()
- * @method static CachedBuilder|LimeSurveysLanguagesetting max($column)
- * @method static CachedBuilder|LimeSurveysLanguagesetting min($column)
- * @method static CachedBuilder|LimeSurveysLanguagesetting newModelQuery()
- * @method static CachedBuilder|LimeSurveysLanguagesetting newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSurveysLanguagesetting query()
- * @method static CachedBuilder|LimeSurveysLanguagesetting sum($column)
- * @method static CachedBuilder|LimeSurveysLanguagesetting truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $surveyls_survey_id
  * @property string $surveyls_language
@@ -65,33 +43,6 @@ use Modules\Quaeris\Models\Profile;
  * @property int $surveyls_numberformat
  * @property string|null $attachments
  *
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereAttachments($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereEmailAdminNotification($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereEmailAdminNotificationSubj($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereEmailAdminResponses($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereEmailAdminResponsesSubj($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsAttributecaptions($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsDateformat($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsDescription($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsEmailConfirm($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsEmailConfirmSubj($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsEmailInvite($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsEmailInviteSubj($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsEmailRegister($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsEmailRegisterSubj($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsEmailRemind($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsEmailRemindSubj($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsEndtext($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsLanguage($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsNumberformat($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsPolicyError($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsPolicyNotice($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsPolicyNoticeLabel($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsSurveyId($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsTitle($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsUrl($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsUrldescription($value)
- * @method static CachedBuilder|LimeSurveysLanguagesetting whereSurveylsWelcometext($value)
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

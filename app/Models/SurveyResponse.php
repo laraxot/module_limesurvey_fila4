@@ -24,32 +24,41 @@ use Webmozart\Assert\Assert;
  * @method Builder withAnswersLabel(string|int $qid, string $field_name, string $prefix = '', string $type = 'join')
  * @method Builder withAllAnswers(string $type = 'join')
  *
+ * @property int $id
+ * @property string $old_id
+ * @property \Carbon\Carbon|null $submitdate
+ * @property string|null $token
+ * @property int|null $lastpage
+ * @property \Carbon\Carbon|null $startdate
+ * @property \Carbon\Carbon|null $datestamp
+ * @property string|null $ipaddr
+ * @property string|null $refurl
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|SurveyResponse all($columns = [])
- * @method static CachedBuilder|SurveyResponse avg($column)
- * @method static CachedBuilder|SurveyResponse cache(array $tags = [])
- * @method static CachedBuilder|SurveyResponse cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|SurveyResponse count($columns = '*')
- * @method static CachedBuilder|SurveyResponse disableCache()
- * @method static CachedBuilder|SurveyResponse disableModelCaching()
- * @method static CachedBuilder|SurveyResponse exists()
- * @method static CachedBuilder|SurveyResponse flushCache(array $tags = [])
- * @method static CachedBuilder|SurveyResponse getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|SurveyResponse inRandomOrder($seed = '')
- * @method static CachedBuilder|SurveyResponse insert(array $values)
- * @method static CachedBuilder|SurveyResponse isCachable()
- * @method static CachedBuilder|SurveyResponse max($column)
- * @method static CachedBuilder|SurveyResponse min($column)
- * @method static CachedBuilder|SurveyResponse newModelQuery()
- * @method static CachedBuilder|SurveyResponse newQuery()
- * @method static CachedBuilder|SurveyResponse ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|SurveyResponse query()
- * @method static CachedBuilder|SurveyResponse sum($column)
- * @method static CachedBuilder|SurveyResponse truncate()
- * @method static CachedBuilder|SurveyResponse withCacheCooldownSeconds(?int $seconds = null)
+ * @method static CachedBuilder all($columns = [])
+ * @method static CachedBuilder avg($column)
+ * @method static CachedBuilder cache(array $tags = [])
+ * @method static CachedBuilder cachedValue(array $arguments, string $cacheKey)
+ * @method static CachedBuilder count($columns = '*')
+ * @method static CachedBuilder disableCache()
+ * @method static CachedBuilder disableModelCaching()
+ * @method static CachedBuilder exists()
+ * @method static CachedBuilder flushCache(array $tags = [])
+ * @method static CachedBuilder getModelCacheCooldown(Model $instance)
+ * @method static CachedBuilder inRandomOrder($seed = '')
+ * @method static CachedBuilder insert(array $values)
+ * @method static CachedBuilder isCachable()
+ * @method static CachedBuilder max($column)
+ * @method static CachedBuilder min($column)
+ * @method static CachedBuilder newModelQuery()
+ * @method static CachedBuilder newQuery()
+ * @method static CachedBuilder ofFilterData(AnswersFilterData $answersFilterData)
+ * @method static CachedBuilder query()
+ * @method static CachedBuilder sum($column)
+ * @method static CachedBuilder truncate()
+ * @method static CachedBuilder withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -57,8 +66,10 @@ class SurveyResponse extends BaseModel
 {
     public string $surveyId = '';
 
-    // Il nome della tabella viene impostato dinamicamente
-    public function setTableForSurvey($surveyId): void
+    /**
+     * Il nome della tabella viene impostato dinamicamente
+     */
+    public function setTableForSurvey(string $surveyId): void
     {
         $this->surveyId = $surveyId;
         $this->setTable('lime_survey_'.$surveyId);
@@ -77,7 +88,7 @@ class SurveyResponse extends BaseModel
         return $instance->newQuery();
     }
 
-    public function getFeedback(LimeQuestion $q)
+    public function getFeedback(LimeQuestion $q): string
     {
         $results = $q->brothers()
             ->where('relevance', 'like', '%'.$q->full_title.'%')
@@ -85,23 +96,10 @@ class SurveyResponse extends BaseModel
             ->get();
         $html = '';
 
-        // if($q->title == '02'){
-        //     dddx([$q, $q->fieldname , $results->pluck('qid'), $results->count()]);
-        // }
-
-        // dddx([$q, $q->fieldname , $results->pluck('qid'), $results->count()]);
-
-        // if($q->fieldname == '946595X2254X48244'){
-        //     dddx($q);
-        // }
-
-        // if($results->count() > 0){
-        //     dddx($results);
-        // }
-
         foreach ($results as $row) {
+            /** @var LimeQuestion $row */
             // dddx([$results, $row, $row->field_name]);
-            $html = $this->{$row->field_name};
+            $html = (string) $this->{$row->field_name};
         }
 
         return $html;
@@ -115,12 +113,13 @@ class SurveyResponse extends BaseModel
             $parent_question = $q->brothers->firstWhere('title', $q->parent->title.'c');
             if ($parent_question !== null) {
                 Assert::isInstanceOf($parent_question, LimeQuestion::class);
+                /** @var LimeQuestion $parent_question */
                 $field = $parent_question->sid.'X'.$parent_question->gid.'X'.$parent_question->qid;
-                $feedback = $this->{$field};
+                $feedback = (string) $this->{$field};
             }
         } elseif ($question_c !== null) {
             $question_field_name = $question_c->field_name;
-            $feedback = $this->{$question_field_name};
+            $feedback = (string) $this->{$question_field_name};
         }
 
         return $feedback;
@@ -149,7 +148,7 @@ class SurveyResponse extends BaseModel
     /**
      * Undocumented function
      */
-    public function scopeWithAnswersLabel(Builder $query, string $qid, string $field_name, string $prefix = '', string $type = 'join'): Builder
+    public function scopeWithAnswersLabel(Builder $query, string|int $qid, string $field_name, string $prefix = '', string $type = 'join'): Builder
     {
         $ask_table = 'lime_answers';
         $ask_table_lang = 'lime_answer_l10ns';
@@ -157,7 +156,8 @@ class SurveyResponse extends BaseModel
             return $query
                 ->addSelect([
                     $prefix.'answer' => LimeAnswer::select('answer')
-                        ->leftJoin($ask_table_lang, static function ($join): void {
+                        // @phpstan-ignore-next-line method.nonObject
+                        ->leftJoin($ask_table_lang, static function (\Illuminate\Database\Query\JoinClause $join): void {
                             $join->on('lime_answers.aid', '=', 'lime_answer_l10ns.aid')
                                 ->where('language', '=', 'it');
                         })
@@ -172,10 +172,12 @@ class SurveyResponse extends BaseModel
             // ->addSelect(DB::Raw($this->getTable().'.*'))
                 ->addSelect(DB::Raw($this->getTable().'.'.$this->getKeyName().' as _id'))
                 ->addSelect(DB::Raw(''.$prefix.'ask_lang.answer as '.$prefix.'answer'))
-                ->leftJoin($ask_table.' as '.$prefix.'ask', static function ($join) use ($qid, $field_name, $prefix): void {
+                // @phpstan-ignore-next-line method.nonObject
+                ->leftJoin($ask_table.' as '.$prefix.'ask', static function (\Illuminate\Database\Query\JoinClause $join) use ($qid, $field_name, $prefix): void {
                     $join->on(''.$prefix.'ask.code', '=', $field_name)
                         ->where(''.$prefix.'ask.qid', '=', $qid);
-                })->leftJoin($ask_table_lang.' as '.$prefix.'ask_lang', static function ($join) use ($prefix): void {
+                // @phpstan-ignore-next-line method.nonObject
+                })->leftJoin($ask_table_lang.' as '.$prefix.'ask_lang', static function (\Illuminate\Database\Query\JoinClause $join) use ($prefix): void {
                     $join->on(''.$prefix.'ask.aid', '=', ''.$prefix.'ask_lang.aid')
                         ->where(''.$prefix.'ask_lang.language', '=', 'it');
                 });
@@ -204,7 +206,8 @@ class SurveyResponse extends BaseModel
                 $main = $q->parent_qid;
             }
             if ($q->hasTrans()) {
-                $query = $query->withAnswersLabel($main, $q->fieldName, $q->fieldName, 'subquery');
+                /** @var Builder<self> $query */
+                $query = $this->scopeWithAnswersLabel($query, $main, $q->fieldName, $q->fieldName, 'subquery');
             }
         }
 
@@ -214,7 +217,7 @@ class SurveyResponse extends BaseModel
     /**
      * Undocumented function
      *
-     * @param  Builder|Builder  $query
+     * @param  Builder  $builder
      */
     public function scopeWithParticipants(Builder $builder): Builder
     {
@@ -223,7 +226,8 @@ class SurveyResponse extends BaseModel
         $survey_table = 'lime_survey_'.$survey_id;
 
         return $builder
-            ->join($participants_table.' as u', static function ($join) use ($survey_table): void {
+            // @phpstan-ignore-next-line method.nonObject
+            ->join($participants_table.' as u', static function (\Illuminate\Database\Query\JoinClause $join) use ($survey_table): void {
                 $join->on('u.token', '=', $survey_table.'.token');
             });
     }

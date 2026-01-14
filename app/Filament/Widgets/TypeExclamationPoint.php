@@ -15,17 +15,26 @@ class TypeExclamationPoint extends ChartWidget
 {
     use InteractsWithPageFilters;
 
-    public $surveyId;
+    public string $surveyId;
 
-    public $fieldName;
+    public string $fieldName;
 
-    public $questionId;
+    public int $questionId;
 
-    public $title;
+    public string $title;
 
-    public string $totalResponses;
+    public string $date_from = '';
 
-    protected ?string $heading = '';
+    public string $date_to = '';
+
+    public int $totalResponses = 0;
+
+    protected ?string $heading = null;
+
+    public function getHeading(): ?string
+    {
+        return strip_tags($this->title);
+    }
 
     protected function getType(): string
     {
@@ -35,8 +44,6 @@ class TypeExclamationPoint extends ChartWidget
 
     protected function getData(): array
     {
-        static::$heading = strip_tags($this->title);
-
         // Recupera le risposte dal sondaggio specifico
         $select = [];
         $select[] = DB::raw("{$this->fieldName} as value");
@@ -45,7 +52,7 @@ class TypeExclamationPoint extends ChartWidget
 
         // Supponiamo che le opzioni siano memorizzate con posizioni: answer_<qid>_<rank>
         $query = SurveyResponse::getResponsesForSurvey($this->surveyId)
-            ->withAnswersLabel($this->questionId, $this->fieldName)
+            ->withAnswersLabel((string) $this->questionId, $this->fieldName)
             ->select($select)
             ->whereNotNull($this->fieldName)
             ->whereNotNull('submitdate');
@@ -76,13 +83,17 @@ class TypeExclamationPoint extends ChartWidget
             ->count($this->fieldName)
             ->sortByDesc('aggregate'); // Ordinamento sulla collection
 
-        $this->totalResponses = $res->sum('aggregate');
+        $this->totalResponses = (int) $res->sum('aggregate');
 
         // Calcola le percentuali
-        $percentages = $res->map(function ($item) {
-            $item->aggregate = $this->totalResponses > 0
-                ? round($item->aggregate / $this->totalResponses * 100, 2)
-                : 0;
+        $totalResponses = $this->totalResponses;
+        $percentages = $res->map(static function (mixed $item) use ($totalResponses): mixed {
+            if (is_object($item) && property_exists($item, 'aggregate')) {
+                /** @phpstan-ignore-next-line */
+                $item->aggregate = $totalResponses > 0
+                    ? round((float) $item->aggregate / $totalResponses * 100, 2)
+                    : 0;
+            }
 
             return $item;
         });

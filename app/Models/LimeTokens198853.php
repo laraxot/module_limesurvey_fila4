@@ -13,29 +13,7 @@ use Modules\Quaeris\Models\Profile;
 /**
  * Modules\Limesurvey\Models\LimeTokens198853
  *
- * @method static CachedBuilder|LimeTokens198853 all($columns = [])
- * @method static CachedBuilder|LimeTokens198853 avg($column)
- * @method static CachedBuilder|LimeTokens198853 cache(array $tags = [])
- * @method static CachedBuilder|LimeTokens198853 cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeTokens198853 count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeTokens198853 disableModelCaching()
- * @method static CachedBuilder|LimeTokens198853 exists()
  * @method static LimeTokens198853Factory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeTokens198853 flushCache(array $tags = [])
- * @method static CachedBuilder|LimeTokens198853 getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeTokens198853 inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeTokens198853 insert(array $values)
- * @method static CachedBuilder|LimeTokens198853 isCachable()
- * @method static CachedBuilder|LimeTokens198853 max($column)
- * @method static CachedBuilder|LimeTokens198853 min($column)
- * @method static CachedBuilder|LimeTokens198853 newModelQuery()
- * @method static CachedBuilder|LimeTokens198853 newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeTokens198853 query()
- * @method static CachedBuilder|LimeTokens198853 sum($column)
- * @method static CachedBuilder|LimeTokens198853 truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

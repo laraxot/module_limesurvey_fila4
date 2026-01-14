@@ -22,33 +22,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeDefaultvalue all($columns = [])
- * @method static CachedBuilder|LimeDefaultvalue avg($column)
- * @method static CachedBuilder|LimeDefaultvalue cache(array $tags = [])
- * @method static CachedBuilder|LimeDefaultvalue cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeDefaultvalue count($columns = '*')
- * @method static CachedBuilder|LimeDefaultvalue disableCache()
- * @method static CachedBuilder|LimeDefaultvalue disableModelCaching()
- * @method static CachedBuilder|LimeDefaultvalue exists()
- * @method static CachedBuilder|LimeDefaultvalue flushCache(array $tags = [])
- * @method static CachedBuilder|LimeDefaultvalue getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeDefaultvalue inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeDefaultvalue insert(array $values)
- * @method static CachedBuilder|LimeDefaultvalue isCachable()
- * @method static CachedBuilder|LimeDefaultvalue max($column)
- * @method static CachedBuilder|LimeDefaultvalue min($column)
- * @method static CachedBuilder|LimeDefaultvalue newModelQuery()
- * @method static CachedBuilder|LimeDefaultvalue newQuery()
- * @method static CachedBuilder|LimeDefaultvalue ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeDefaultvalue query()
- * @method static CachedBuilder|LimeDefaultvalue sum($column)
- * @method static CachedBuilder|LimeDefaultvalue truncate()
- * @method static CachedBuilder|LimeDefaultvalue whereDvid($value)
- * @method static CachedBuilder|LimeDefaultvalue whereQid($value)
- * @method static CachedBuilder|LimeDefaultvalue whereScaleId($value)
- * @method static CachedBuilder|LimeDefaultvalue whereSpecialtype($value)
- * @method static CachedBuilder|LimeDefaultvalue whereSqid($value)
- * @method static CachedBuilder|LimeDefaultvalue withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

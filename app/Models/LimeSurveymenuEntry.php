@@ -14,29 +14,7 @@ use Modules\Quaeris\Models\Profile;
 /**
  * Modules\Limesurvey\Models\LimeSurveymenuEntry
  *
- * @method static CachedBuilder|LimeSurveymenuEntry all($columns = [])
- * @method static CachedBuilder|LimeSurveymenuEntry avg($column)
- * @method static CachedBuilder|LimeSurveymenuEntry cache(array $tags = [])
- * @method static CachedBuilder|LimeSurveymenuEntry cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSurveymenuEntry count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeSurveymenuEntry disableModelCaching()
- * @method static CachedBuilder|LimeSurveymenuEntry exists()
  * @method static LimeSurveymenuEntryFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeSurveymenuEntry flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSurveymenuEntry getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSurveymenuEntry inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSurveymenuEntry insert(array $values)
- * @method static CachedBuilder|LimeSurveymenuEntry isCachable()
- * @method static CachedBuilder|LimeSurveymenuEntry max($column)
- * @method static CachedBuilder|LimeSurveymenuEntry min($column)
- * @method static CachedBuilder|LimeSurveymenuEntry newModelQuery()
- * @method static CachedBuilder|LimeSurveymenuEntry newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSurveymenuEntry query()
- * @method static CachedBuilder|LimeSurveymenuEntry sum($column)
- * @method static CachedBuilder|LimeSurveymenuEntry truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $id
  * @property int|null $menu_id
@@ -66,33 +44,6 @@ use Modules\Quaeris\Models\Profile;
  * @property Carbon|null $created_at
  * @property int $created_by
  *
- * @method static CachedBuilder|LimeSurveymenuEntry whereAction($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereActive($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereChangedAt($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereChangedBy($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereClasses($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereCreatedAt($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereCreatedBy($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereData($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereGetdatamethod($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereId($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereLanguage($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereMenuClass($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereMenuDescription($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereMenuIcon($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereMenuIconType($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereMenuId($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereMenuLink($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereMenuTitle($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereName($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereOrdering($value)
- * @method static CachedBuilder|LimeSurveymenuEntry wherePartial($value)
- * @method static CachedBuilder|LimeSurveymenuEntry wherePermission($value)
- * @method static CachedBuilder|LimeSurveymenuEntry wherePermissionGrade($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereShowincollapse($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereTemplate($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereTitle($value)
- * @method static CachedBuilder|LimeSurveymenuEntry whereUserId($value)
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

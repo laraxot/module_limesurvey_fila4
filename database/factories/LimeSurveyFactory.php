@@ -32,7 +32,7 @@ class LimeSurveyFactory extends Factory
             'adminemail' => $this->faker->word,
             'anonymized' => $this->faker->word,
             'faxto' => $this->faker->word,
-            'format' => $this->faker->format,
+            'format' => $this->faker->word,
             'savetimings' => $this->faker->word,
             'template' => $this->faker->word,
             'language' => $this->faker->word,

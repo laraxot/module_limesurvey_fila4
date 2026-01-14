@@ -11,11 +11,11 @@ use Modules\Quaeris\Services\TrendX;
 
 class RankingChart extends ChartWidget
 {
-    public $surveyId;
+    public string $surveyId;
 
-    public $fieldName;
+    public string $fieldName;
 
-    public $questionId;
+    public int $questionId;
 
     protected ?string $heading = 'Risposte di Classifica (Ranking)';
 
@@ -40,7 +40,7 @@ class RankingChart extends ChartWidget
 
         // Supponiamo che le opzioni siano memorizzate con posizioni: answer_<qid>_<rank>
         $query = SurveyResponse::getResponsesForSurvey($this->surveyId)
-            ->withAnswersLabel($this->questionId, $this->fieldName)
+            ->withAnswersLabel((string) $this->questionId, $this->fieldName)
             ->select($select)
             ->whereNotNull($this->fieldName)
             ->whereNotNull('submitdate');

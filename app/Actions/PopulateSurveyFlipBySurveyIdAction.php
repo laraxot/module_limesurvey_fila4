@@ -43,8 +43,8 @@ class PopulateSurveyFlipBySurveyIdAction
             // ->inRandomOrder()
             // ->where($table.'.token', 'kto12rdxDz0ZXIk')
             // ->where('submitdate', '>', '2024-01-01')
-            ->get()
-            ->take(10);
+            ->limit(10)
+            ->get();
         // dddx($rows);
         // dddx($rows->take(1));
 
@@ -60,6 +60,7 @@ class PopulateSurveyFlipBySurveyIdAction
                 if (! in_array($q->fieldname, $fieldnames)) {
                     continue;
                 }
+                /** @var array<string, mixed> $data */
                 $data = [
                     'old_id' => $row->old_id,
                     'survey_id' => $survey_id,
@@ -78,9 +79,31 @@ class PopulateSurveyFlipBySurveyIdAction
                 // }
 
                 // Salva solo se almeno uno tra answer e value non è null e non è stringa vuota
-                if ((! is_null($data['answer']) && trim($data['answer']) !== '') ||
-                    (! is_null($data['value']) && trim($data['value']) !== '')) {
-                    $where = Arr::only($data, ['old_id', 'survey_id', 'question_id']);
+                // Salva solo se almeno uno tra answer e value non è null e non è stringa vuota
+                $answerVal = $data['answer'] ?? null;
+                $valueVal = $data['value'] ?? null;
+
+                $answerStr = '';
+                if (is_string($answerVal)) {
+                    $answerStr = $answerVal;
+                } elseif (is_numeric($answerVal)) {
+                    $answerStr = (string) $answerVal;
+                }
+
+                $valueStr = '';
+                if (is_string($valueVal)) {
+                    $valueStr = $valueVal;
+                } elseif (is_numeric($valueVal)) {
+                    $valueStr = (string) $valueVal;
+                }
+
+                if ((! is_null($answerVal) && trim($answerStr) !== '') ||
+                    (! is_null($valueVal) && trim($valueStr) !== '')) {
+                    $where = [
+                        'old_id' => $data['old_id'],
+                        'survey_id' => $data['survey_id'],
+                        'question_id' => $data['question_id'],
+                    ];
                     SurveyFlipResponse::firstOrCreate($where, $data);
                 }
             }

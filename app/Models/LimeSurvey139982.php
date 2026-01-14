@@ -23,54 +23,11 @@ use Modules\Quaeris\Models\Profile;
  * @property Carbon $startdate
  * @property Carbon $datestamp
  * @property string|null $ipaddr
- * @property string|null $139982X812X30336SQ001
- * @property string|null $139982X812X30337
- * @property string|null $139982X812X30338
- * @property string|null $139982X812X30339
- * @property string|null $139982X812X30340
- * @property string|null $139982X812X30341
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeSurvey139982 all($columns = [])
- * @method static CachedBuilder|LimeSurvey139982 avg($column)
- * @method static CachedBuilder|LimeSurvey139982 cache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey139982 cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSurvey139982 count($columns = '*')
- * @method static CachedBuilder|LimeSurvey139982 disableCache()
- * @method static CachedBuilder|LimeSurvey139982 disableModelCaching()
- * @method static CachedBuilder|LimeSurvey139982 exists()
- * @method static CachedBuilder|LimeSurvey139982 flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey139982 getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSurvey139982 inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSurvey139982 insert(array $values)
- * @method static CachedBuilder|LimeSurvey139982 isCachable()
- * @method static CachedBuilder|LimeSurvey139982 max($column)
- * @method static CachedBuilder|LimeSurvey139982 min($column)
- * @method static CachedBuilder|LimeSurvey139982 newModelQuery()
- * @method static CachedBuilder|LimeSurvey139982 newQuery()
- * @method static CachedBuilder|LimeSurvey139982 ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSurvey139982 query()
- * @method static CachedBuilder|LimeSurvey139982 sum($column)
- * @method static CachedBuilder|LimeSurvey139982 truncate()
- * @method static CachedBuilder|LimeSurvey139982 where139982X812X30336SQ001($value)
- * @method static CachedBuilder|LimeSurvey139982 where139982X812X30337($value)
- * @method static CachedBuilder|LimeSurvey139982 where139982X812X30338($value)
- * @method static CachedBuilder|LimeSurvey139982 where139982X812X30339($value)
- * @method static CachedBuilder|LimeSurvey139982 where139982X812X30340($value)
- * @method static CachedBuilder|LimeSurvey139982 where139982X812X30341($value)
- * @method static CachedBuilder|LimeSurvey139982 whereDatestamp($value)
- * @method static CachedBuilder|LimeSurvey139982 whereId($value)
- * @method static CachedBuilder|LimeSurvey139982 whereIpaddr($value)
- * @method static CachedBuilder|LimeSurvey139982 whereLastpage($value)
- * @method static CachedBuilder|LimeSurvey139982 whereSeed($value)
- * @method static CachedBuilder|LimeSurvey139982 whereStartdate($value)
- * @method static CachedBuilder|LimeSurvey139982 whereStartlanguage($value)
- * @method static CachedBuilder|LimeSurvey139982 whereSubmitdate($value)
- * @method static CachedBuilder|LimeSurvey139982 whereToken($value)
- * @method static CachedBuilder|LimeSurvey139982 withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

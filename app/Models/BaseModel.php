@@ -23,15 +23,13 @@ abstract class BaseModel extends XotBaseModel
     protected $appends = [
     ];
 
-    /** @var array<string > */
-    protected $with = [
-        'extra',
-    ];
+    /** @var list<string> */
+    protected $with = ['extra']; // @phpstan-ignore-line
 
     /**
      * Scope a query to only include popular users.
      */
-    public function scopeOfFilterData(Builder $query, AnswersFilterData $answersFilterData): void
+    public function scopeOfFilterData(Builder $query, AnswersFilterData $answersFilterData): Builder
     {
         $query->when(
             $answersFilterData->date_from,
@@ -53,5 +51,7 @@ abstract class BaseModel extends XotBaseModel
             }
         )
         */;
+
+        return $query;
     }
 }

@@ -11,11 +11,11 @@ use Modules\Quaeris\Services\TrendX;
 
 class TypeB extends ChartWidget
 {
-    public $surveyId;
+    public string $surveyId = '';
 
-    public $fieldName;
+    public string $fieldName = '';
 
-    public $questionId;
+    public int $questionId = 0;
 
     protected ?string $heading = 'Risposte a Risposta Singola';
 
@@ -25,6 +25,9 @@ class TypeB extends ChartWidget
         return 'pie';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function getData(): array
     {
         // Recupera le risposte dal sondaggio specifico
@@ -39,6 +42,7 @@ class TypeB extends ChartWidget
             ->select($select)
             ->whereNotNull($this->fieldName)
             ->whereNotNull('submitdate');
+        /** @var \Illuminate\Support\Collection $res */
         $res = TrendX::query($query)
             ->dateColumn('submitdate')
             ->between(

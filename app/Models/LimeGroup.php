@@ -25,33 +25,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read LimeGroupL10n|null $labels
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeGroup all($columns = [])
- * @method static CachedBuilder|LimeGroup avg($column)
- * @method static CachedBuilder|LimeGroup cache(array $tags = [])
- * @method static CachedBuilder|LimeGroup cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeGroup count($columns = '*')
- * @method static CachedBuilder|LimeGroup disableCache()
- * @method static CachedBuilder|LimeGroup disableModelCaching()
- * @method static CachedBuilder|LimeGroup exists()
- * @method static CachedBuilder|LimeGroup flushCache(array $tags = [])
- * @method static CachedBuilder|LimeGroup getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeGroup inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeGroup insert(array $values)
- * @method static CachedBuilder|LimeGroup isCachable()
- * @method static CachedBuilder|LimeGroup max($column)
- * @method static CachedBuilder|LimeGroup min($column)
- * @method static CachedBuilder|LimeGroup newModelQuery()
- * @method static CachedBuilder|LimeGroup newQuery()
- * @method static CachedBuilder|LimeGroup ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeGroup query()
- * @method static CachedBuilder|LimeGroup sum($column)
- * @method static CachedBuilder|LimeGroup truncate()
- * @method static CachedBuilder|LimeGroup whereGid($value)
- * @method static CachedBuilder|LimeGroup whereGrelevance($value)
- * @method static CachedBuilder|LimeGroup whereGroupOrder($value)
- * @method static CachedBuilder|LimeGroup whereRandomizationGroup($value)
- * @method static CachedBuilder|LimeGroup whereSid($value)
- * @method static CachedBuilder|LimeGroup withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -103,6 +76,6 @@ class LimeGroup extends BaseModel
 
     public function getGroupNameAttribute(): string
     {
-        return $this->labels->group_name;
+        return $this->labels->group_name ?? '';
     }
 }

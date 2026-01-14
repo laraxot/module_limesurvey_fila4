@@ -23,34 +23,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeParticipantAttributeName all($columns = [])
- * @method static CachedBuilder|LimeParticipantAttributeName avg($column)
- * @method static CachedBuilder|LimeParticipantAttributeName cache(array $tags = [])
- * @method static CachedBuilder|LimeParticipantAttributeName cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeParticipantAttributeName count($columns = '*')
- * @method static CachedBuilder|LimeParticipantAttributeName disableCache()
- * @method static CachedBuilder|LimeParticipantAttributeName disableModelCaching()
- * @method static CachedBuilder|LimeParticipantAttributeName exists()
- * @method static CachedBuilder|LimeParticipantAttributeName flushCache(array $tags = [])
- * @method static CachedBuilder|LimeParticipantAttributeName getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeParticipantAttributeName inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeParticipantAttributeName insert(array $values)
- * @method static CachedBuilder|LimeParticipantAttributeName isCachable()
- * @method static CachedBuilder|LimeParticipantAttributeName max($column)
- * @method static CachedBuilder|LimeParticipantAttributeName min($column)
- * @method static CachedBuilder|LimeParticipantAttributeName newModelQuery()
- * @method static CachedBuilder|LimeParticipantAttributeName newQuery()
- * @method static CachedBuilder|LimeParticipantAttributeName ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeParticipantAttributeName query()
- * @method static CachedBuilder|LimeParticipantAttributeName sum($column)
- * @method static CachedBuilder|LimeParticipantAttributeName truncate()
- * @method static CachedBuilder|LimeParticipantAttributeName whereAttributeId($value)
- * @method static CachedBuilder|LimeParticipantAttributeName whereAttributeType($value)
- * @method static CachedBuilder|LimeParticipantAttributeName whereCoreAttribute($value)
- * @method static CachedBuilder|LimeParticipantAttributeName whereDefaultname($value)
- * @method static CachedBuilder|LimeParticipantAttributeName whereEncrypted($value)
- * @method static CachedBuilder|LimeParticipantAttributeName whereVisible($value)
- * @method static CachedBuilder|LimeParticipantAttributeName withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

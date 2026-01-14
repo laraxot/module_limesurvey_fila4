@@ -5,34 +5,41 @@ declare(strict_types=1);
 namespace Modules\Limesurvey\Filament\Widgets;
 
 use Filament\Widgets\Widget;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Modules\Limesurvey\Models\SurveyResponse;
 
 class TypeF extends Widget
 {
-    public $surveyId;
+    public string $surveyId;
 
-    public $fieldName;
+    public string $fieldName;
 
-    public $questionId;
+    public int $questionId;
 
-    public $title;
+    public string $title;
 
     public string $date_from;
 
     public string $date_to;
 
-    protected static ?string $heading = '';
+    protected ?string $heading = null;
 
     protected string $view = 'limesurvey::filament.widgets.type-f';
 
+    public function getHeading(): ?string
+    {
+        return strip_tags($this->title);
+    }
+
     /**
      * Genera i widget per i grafici.
+     *
+     * @return array<int, array<string, mixed>>
      */
     public function getChartWidgets(): array
     {
-        static::$heading = strip_tags($this->title);
-
         // Ottieni il conteggio totale e la media globale
         $globalStats = $this->getTotalAndAverage();
         $total = $globalStats['total'] ?? 0;
@@ -246,38 +253,58 @@ class TypeF extends Widget
 
     /**
      * Base della query con condizioni comuni.
+     *
+     * @return Builder<SurveyResponse>
      */
-    protected function baseSurveyQuery()
+    protected function baseSurveyQuery(): Builder
     {
-        return SurveyResponse::getResponsesForSurvey($this->surveyId)
+        /** @var Builder<SurveyResponse> $query */
+        $query = SurveyResponse::getResponsesForSurvey($this->surveyId)
             ->whereNotNull('submitdate')
             ->whereBetween('submitdate', [$this->date_from, $this->date_to]);
+
+        return $query;
     }
 
     /**
      * Ottiene il conteggio totale e la media globale (0-10) con una singola query.
+     *
+     * @return array{total: int|float, average: int|float}
      */
-    protected function getTotalAndAverage()
+    protected function getTotalAndAverage(): array
     {
-        return Cache::remember("survey_stats_{$this->surveyId}_{$this->date_from}_{$this->date_to}", now()->addMinutes(5), function () {
+        /** @var array{total: int|float, average: int|float} $stats */
+        $stats = Cache::remember("survey_stats_{$this->surveyId}_{$this->date_from}_{$this->date_to}", now()->addMinutes(5), function (): array {
             $result = $this->baseSurveyQuery()
                 ->selectRaw('
-                    COUNT('.$this->fieldName.') AS total, 
+                    COUNT('.$this->fieldName.') AS total,
                     ROUND(AVG(CASE WHEN '.$this->fieldName.' BETWEEN 0 AND 10 THEN '.$this->fieldName.' END), 2) AS overall_average
                 ')
                 ->first();
 
+            $total = 0;
+            $average = 0.0;
+
+            if ($result !== null) {
+                $total = (int) ($result->getAttribute('total') ?? 0);
+                $average = (float) ($result->getAttribute('overall_average') ?? 0);
+            }
+
             return [
-                'total' => $result->total ?? 0,
-                'average' => $result->overall_average ?? 0,
+                'total' => $total,
+                'average' => $average,
             ];
         });
+
+        return $stats;
     }
 
     /**
      * Query aggregata per medie mensili o settimanali.
+     *
+     * @return Collection<int, SurveyResponse>
      */
-    protected function getAggregateStats($groupByFormat, $groupByAlias)
+    protected function getAggregateStats(string $groupByFormat, string $groupByAlias): Collection
     {
         return $this->baseSurveyQuery()
             ->selectRaw("
@@ -292,8 +319,10 @@ class TypeF extends Widget
 
     /**
      * Medie mensili limitate ai 3 risultati più recenti.
+     *
+     * @return Collection<int, SurveyResponse>
      */
-    protected function getMonthlyStats()
+    protected function getMonthlyStats(): Collection
     {
         return $this->getAggregateStats('%Y-%m', 'month')
             ->sortByDesc('month')  // Ordina per mese in ordine decrescente
@@ -303,8 +332,10 @@ class TypeF extends Widget
 
     /**
      * Medie settimanali limitate ai 3 risultati più recenti.
+     *
+     * @return Collection<int, SurveyResponse>
      */
-    protected function getWeeklyStats()
+    protected function getWeeklyStats(): Collection
     {
         return $this->getAggregateStats('%Y-%u', 'week_label')
             ->sortByDesc('week_label')  // Ordina per settimana in ordine decrescente

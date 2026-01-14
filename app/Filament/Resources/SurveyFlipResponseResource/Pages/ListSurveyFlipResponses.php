@@ -50,39 +50,65 @@ class ListSurveyFlipResponses extends XotBaseListRecords
         // ->take(2)
     }
 
-    public function populate(array $data): void
-    {
-        // 892883
+            public function populate(array $data): void
+            {
+                // 892883
+                $surveyId = (string) (Arr::get((array) $data, 'survey_id') ?? '');
+                $this->survey_id = $surveyId;
+        
+                app(PopulateSurveyFlipBySurveyIdAction::class)->execute($this->survey_id);
+            }
+    
 
-        $this->survey_id = Arr::get($data, 'survey_id');
+        protected function getHeaderActions(): array
 
-        app(PopulateSurveyFlipBySurveyIdAction::class)->execute($this->survey_id);
-    }
+        {
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            CreateAction::make(),
-            /*
-            Actions\Action::make('export')
+            return [
 
-                //->action('exportResponses')
-                ->icon('heroicon-o-arrow-down-tray')
-                ->color('primary'),
-            */
-            Action::make('populate')
+                'create' => CreateAction::make(),
 
-                ->schema([
-                    Select::make('survey_id') // 892883
+                /*
 
-                        ->options(fn () => SurveyPdf::all()->pluck('name', 'survey_id')->toArray())
-                        ->required()
-                    // ->rules('required|string', Rule::exists('lime_tokens_'.request()->get('survey_id'), 'token'))
-                    ,
-                ])
-                ->action(fn ($data) => $this->populate($data))
-                ->icon('heroicon-o-plus')
-                ->color('success'),
-        ];
-    }
+                Actions\Action::make('export')
+
+    
+
+                    //->action('exportResponses')
+
+                    ->icon('heroicon-o-arrow-down-tray')
+
+                    ->color('primary'),
+
+                */
+
+                'populate' => Action::make('populate')
+
+    
+
+                    ->schema([
+
+                        Select::make('survey_id') // 892883
+
+    
+
+                            ->options(fn () => SurveyPdf::all()->pluck('name', 'survey_id')->toArray())
+
+                            ->required()
+
+                        // ->rules('required|string', Rule::exists('lime_tokens_'.request()->get('survey_id'), 'token'))
+
+                        ,
+
+                    ])
+
+                    ->action(fn (array $data) => $this->populate($data))
+
+                    ->icon('heroicon-o-plus')
+
+                    ->color('success'),
+
+            ];
+
+        }
 }

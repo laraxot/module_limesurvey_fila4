@@ -14,29 +14,7 @@ use Modules\Quaeris\Models\Profile;
 /**
  * Modules\Limesurvey\Models\LimeSurveyLink
  *
- * @method static CachedBuilder|LimeSurveyLink all($columns = [])
- * @method static CachedBuilder|LimeSurveyLink avg($column)
- * @method static CachedBuilder|LimeSurveyLink cache(array $tags = [])
- * @method static CachedBuilder|LimeSurveyLink cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSurveyLink count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeSurveyLink disableModelCaching()
- * @method static CachedBuilder|LimeSurveyLink exists()
  * @method static LimeSurveyLinkFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeSurveyLink flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSurveyLink getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSurveyLink inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSurveyLink insert(array $values)
- * @method static CachedBuilder|LimeSurveyLink isCachable()
- * @method static CachedBuilder|LimeSurveyLink max($column)
- * @method static CachedBuilder|LimeSurveyLink min($column)
- * @method static CachedBuilder|LimeSurveyLink newModelQuery()
- * @method static CachedBuilder|LimeSurveyLink newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSurveyLink query()
- * @method static CachedBuilder|LimeSurveyLink sum($column)
- * @method static CachedBuilder|LimeSurveyLink truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property string $participant_id
  * @property int $token_id
@@ -45,12 +23,6 @@ use Modules\Quaeris\Models\Profile;
  * @property Carbon|null $date_invited
  * @property Carbon|null $date_completed
  *
- * @method static CachedBuilder|LimeSurveyLink whereDateCompleted($value)
- * @method static CachedBuilder|LimeSurveyLink whereDateCreated($value)
- * @method static CachedBuilder|LimeSurveyLink whereDateInvited($value)
- * @method static CachedBuilder|LimeSurveyLink whereParticipantId($value)
- * @method static CachedBuilder|LimeSurveyLink whereSurveyId($value)
- * @method static CachedBuilder|LimeSurveyLink whereTokenId($value)
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

@@ -13,13 +13,13 @@ use Webmozart\Assert\Assert;
 
 class TypeM extends ChartWidget
 {
-    public $surveyId;
+    public string $surveyId = '';
 
-    public $fieldName;
+    public string $fieldName = '';
 
-    public $questionId;
+    public int $questionId = 0;
 
-    public $title;
+    public string $title = '';
 
     protected ?string $heading = 'Risposte a Risposta Singola';
 
@@ -29,9 +29,12 @@ class TypeM extends ChartWidget
         return 'pie';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function getData(): array
     {
-        static::$heading = strip_tags($this->title);
+        $this->heading = strip_tags($this->title);
         // Recupera le risposte dal sondaggio specifico
 
         $question_sons = LimeQuestion::where('parent_qid', $this->questionId)->with('l10n')->get();

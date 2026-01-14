@@ -22,33 +22,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeQuotaMember all($columns = [])
- * @method static CachedBuilder|LimeQuotaMember avg($column)
- * @method static CachedBuilder|LimeQuotaMember cache(array $tags = [])
- * @method static CachedBuilder|LimeQuotaMember cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeQuotaMember count($columns = '*')
- * @method static CachedBuilder|LimeQuotaMember disableCache()
- * @method static CachedBuilder|LimeQuotaMember disableModelCaching()
- * @method static CachedBuilder|LimeQuotaMember exists()
- * @method static CachedBuilder|LimeQuotaMember flushCache(array $tags = [])
- * @method static CachedBuilder|LimeQuotaMember getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeQuotaMember inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeQuotaMember insert(array $values)
- * @method static CachedBuilder|LimeQuotaMember isCachable()
- * @method static CachedBuilder|LimeQuotaMember max($column)
- * @method static CachedBuilder|LimeQuotaMember min($column)
- * @method static CachedBuilder|LimeQuotaMember newModelQuery()
- * @method static CachedBuilder|LimeQuotaMember newQuery()
- * @method static CachedBuilder|LimeQuotaMember ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeQuotaMember query()
- * @method static CachedBuilder|LimeQuotaMember sum($column)
- * @method static CachedBuilder|LimeQuotaMember truncate()
- * @method static CachedBuilder|LimeQuotaMember whereCode($value)
- * @method static CachedBuilder|LimeQuotaMember whereId($value)
- * @method static CachedBuilder|LimeQuotaMember whereQid($value)
- * @method static CachedBuilder|LimeQuotaMember whereQuotaId($value)
- * @method static CachedBuilder|LimeQuotaMember whereSid($value)
- * @method static CachedBuilder|LimeQuotaMember withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

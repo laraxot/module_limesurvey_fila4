@@ -176,7 +176,7 @@ class LimeQuestion extends BaseTreeModel
         'modulename' => 'string',
     ];
 
-    /** @var array<string > */
+    /** @var list<string> */
     protected $with = [
         'l10n',
         'parent',
@@ -217,7 +217,9 @@ class LimeQuestion extends BaseTreeModel
 
     public function getLabel(): string
     {
-        return $this->qid.']'.$this->title.']'.strip_tags($this->question);
+        $question = $this->question;
+
+        return $this->qid.']'.$this->title.']'.strip_tags(\is_string($question) ? $question : '');
     }
 
     /*
@@ -251,7 +253,10 @@ class LimeQuestion extends BaseTreeModel
 
     public function getGroupOrderAttribute(?int $value): ?int
     {
-        return $this->group()->first()->group_order;
+        /** @var LimeGroup|null $group */
+        $group = $this->group()->first();
+
+        return $group?->group_order;
     }
 
     public function getFieldNameAttribute(?string $value): string
@@ -277,7 +282,7 @@ class LimeQuestion extends BaseTreeModel
         if ($this->type === 'F' && $this->child !== null) {
             return $res.$this->qid.''.$this->child->title;
         }
-        if ($this->type === 'F') {
+        if ($this->type === 'F' && $this->parent !== null) {
             return $res.$this->parent->qid.$this->title;
         }
         if ($this->parent_qid === 0) {
@@ -302,7 +307,7 @@ class LimeQuestion extends BaseTreeModel
             $title .= $this->parent->getFullTitle().' - ';
         }
 
-        $value = $title.$this->l10n->question;
+        $value = $title.($this->l10n->question ?? '');
         $this->setExtra('full_title', $value);
 
         return $value;
@@ -368,7 +373,11 @@ class LimeQuestion extends BaseTreeModel
 
     public function getFeedback(LimeSurveyXXXContract $row): ?string
     {
-        if (\is_string($value = $this->getExtra('feedback'.$row->id))) {
+        /** @var \Illuminate\Database\Eloquent\Model&LimeSurveyXXXContract $model */
+        $model = $row;
+        $rowId = (string) $model->getAttribute('id');
+
+        if (\is_string($value = $this->getExtra('feedback'.$rowId))) {
             return $value;
         }
         $question_c = $this->brothers->firstWhere('title', $this->title.'c');
@@ -379,17 +388,17 @@ class LimeQuestion extends BaseTreeModel
             if ($parent_question !== null) {
                 Assert::isInstanceOf($parent_question, self::class);
                 $field = $parent_question->sid.'X'.$parent_question->gid.'X'.$parent_question->qid;
-                $feedback = $row->{$field};
+                $feedback = $model->getAttribute($field);
             }
         } elseif ($question_c !== null) {
             // Assert::isInstanceOf($question_c, QuestionChart::class);
             $question_field_name = $question_c->field_name;
-            $feedback = $row->{$question_field_name};
+            $feedback = $model->getAttribute($question_field_name);
         }
 
-        $this->setExtra('feedback'.$row->id, $feedback);
+        $this->setExtra('feedback'.$rowId, $feedback);
 
-        return $feedback;
+        return \is_string($feedback) ? $feedback : null;
     }
 
     public function getGroupName(): ?string
@@ -397,18 +406,15 @@ class LimeQuestion extends BaseTreeModel
         if (\is_string($value = $this->getExtra('group_name'))) {
             return $value;
         }
-        $value = $this->group->labels->group_name;
+        $value = $this->group?->labels?->group_name;
         $this->setExtra('group_name', $value);
 
-        return $value;
+        return \is_string($value) ? $value : null;
     }
 
     // Relations ...
 
-    public function parent(): BelongsTo
-    {
-        return $this->belongsTo(self::class);
-    }
+
 
     public function child(): HasOne
     {

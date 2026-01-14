@@ -17,28 +17,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeSurvey578443 all($columns = [])
- * @method static CachedBuilder|LimeSurvey578443 avg($column)
- * @method static CachedBuilder|LimeSurvey578443 cache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey578443 cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSurvey578443 count($columns = '*')
- * @method static CachedBuilder|LimeSurvey578443 disableCache()
- * @method static CachedBuilder|LimeSurvey578443 disableModelCaching()
- * @method static CachedBuilder|LimeSurvey578443 exists()
- * @method static CachedBuilder|LimeSurvey578443 flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey578443 getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSurvey578443 inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSurvey578443 insert(array $values)
- * @method static CachedBuilder|LimeSurvey578443 isCachable()
- * @method static CachedBuilder|LimeSurvey578443 max($column)
- * @method static CachedBuilder|LimeSurvey578443 min($column)
- * @method static CachedBuilder|LimeSurvey578443 newModelQuery()
- * @method static CachedBuilder|LimeSurvey578443 newQuery()
- * @method static CachedBuilder|LimeSurvey578443 ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSurvey578443 query()
- * @method static CachedBuilder|LimeSurvey578443 sum($column)
- * @method static CachedBuilder|LimeSurvey578443 truncate()
- * @method static CachedBuilder|LimeSurvey578443 withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

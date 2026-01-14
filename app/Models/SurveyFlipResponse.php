@@ -43,48 +43,6 @@ use Modules\Quaeris\Models\Profile;
  * @property-read LimeSurvey|null $survey
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|SurveyFlipResponse all($columns = [])
- * @method static CachedBuilder|SurveyFlipResponse avg($column)
- * @method static CachedBuilder|SurveyFlipResponse cache(array $tags = [])
- * @method static CachedBuilder|SurveyFlipResponse cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|SurveyFlipResponse count($columns = '*')
- * @method static CachedBuilder|SurveyFlipResponse disableCache()
- * @method static CachedBuilder|SurveyFlipResponse disableModelCaching()
- * @method static CachedBuilder|SurveyFlipResponse exists()
- * @method static CachedBuilder|SurveyFlipResponse flushCache(array $tags = [])
- * @method static CachedBuilder|SurveyFlipResponse getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|SurveyFlipResponse inRandomOrder($seed = '')
- * @method static CachedBuilder|SurveyFlipResponse insert(array $values)
- * @method static CachedBuilder|SurveyFlipResponse isCachable()
- * @method static CachedBuilder|SurveyFlipResponse max($column)
- * @method static CachedBuilder|SurveyFlipResponse min($column)
- * @method static CachedBuilder|SurveyFlipResponse newModelQuery()
- * @method static CachedBuilder|SurveyFlipResponse newQuery()
- * @method static CachedBuilder|SurveyFlipResponse ofAlertDashboardFilterData(AlertDashboardFilterData $filter)
- * @method static CachedBuilder|SurveyFlipResponse ofAlertDashboardFilterDataOLD(AlertDashboardFilterData $filter)
- * @method static CachedBuilder|SurveyFlipResponse ofDashboardFilterData(DashboardFilterData $filter)
- * @method static CachedBuilder|SurveyFlipResponse ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|SurveyFlipResponse query()
- * @method static CachedBuilder|SurveyFlipResponse sum($column)
- * @method static CachedBuilder|SurveyFlipResponse truncate()
- * @method static CachedBuilder|SurveyFlipResponse whereAnswer($value)
- * @method static CachedBuilder|SurveyFlipResponse whereCreatedAt($value)
- * @method static CachedBuilder|SurveyFlipResponse whereCreatedBy($value)
- * @method static CachedBuilder|SurveyFlipResponse whereDeletedAt($value)
- * @method static CachedBuilder|SurveyFlipResponse whereDeletedBy($value)
- * @method static CachedBuilder|SurveyFlipResponse whereFeedback($value)
- * @method static CachedBuilder|SurveyFlipResponse whereFieldname($value)
- * @method static CachedBuilder|SurveyFlipResponse whereId($value)
- * @method static CachedBuilder|SurveyFlipResponse whereOldId($value)
- * @method static CachedBuilder|SurveyFlipResponse whereQuestionId($value)
- * @method static CachedBuilder|SurveyFlipResponse whereQuestionType($value)
- * @method static CachedBuilder|SurveyFlipResponse whereSubmitdate($value)
- * @method static CachedBuilder|SurveyFlipResponse whereSurveyId($value)
- * @method static CachedBuilder|SurveyFlipResponse whereToken($value)
- * @method static CachedBuilder|SurveyFlipResponse whereUpdatedAt($value)
- * @method static CachedBuilder|SurveyFlipResponse whereUpdatedBy($value)
- * @method static CachedBuilder|SurveyFlipResponse whereValue($value)
- * @method static CachedBuilder|SurveyFlipResponse withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */
@@ -169,9 +127,9 @@ class SurveyFlipResponse extends BaseModel
     /**
      * Scope a query to filter responses based on provided filter data.
      */
-    public function scopeOfFilterData(Builder $query, AnswersFilterData $answersFilterData): void
+    public function scopeOfFilterData(Builder $query, AnswersFilterData $answersFilterData): Builder
     {
-        $query->when(
+        return $query->when(
             $answersFilterData->date_from,
             static function (Builder $q1) use ($answersFilterData): void {
                 $q1->where('submitdate', '>=', $answersFilterData->date_from);
@@ -208,7 +166,8 @@ class SurveyFlipResponse extends BaseModel
     {
         $dashboard_filter_data = $filter->getDashboardFilterData();
 
-        $query = $query->ofDashboardFilterData($dashboard_filter_data)
+        return $query->where('submitdate', '>=', $dashboard_filter_data->startDate)
+            ->where('submitdate', '<=', $dashboard_filter_data->endDate)
             // ->whereNull('value')  // Filtro principale: solo record con value NULL
             // Verifica che answer contenga solo numeri (con possibili zeri iniziali)
             ->whereRaw('answer REGEXP "^[0-9]+$"')
@@ -217,28 +176,27 @@ class SurveyFlipResponse extends BaseModel
             ->whereRaw('CAST(REGEXP_REPLACE(answer, "^0+", "") AS DECIMAL) <= 10')
             ->when(
                 $filter->min_value,
-                function (Builder $query, int $value): Builder {
+                function (Builder $query, mixed $value): Builder {
                     return $query->whereRaw('CAST(REGEXP_REPLACE(answer, "^0+", "") AS DECIMAL) >= ?', [$value]);
                 }
             )
             ->when(
                 $filter->max_value,
-                function (Builder $query, int $value): Builder {
+                function (Builder $query, mixed $value): Builder {
                     return $query->whereRaw('CAST(REGEXP_REPLACE(answer, "^0+", "") AS DECIMAL) <= ?', [$value]);
                 }
             );
-
-        return $query;
     }
 
     public function scopeOfAlertDashboardFilterDataOLD(Builder $query, AlertDashboardFilterData $filter): Builder
     {
         $dashboard_filter_data = $filter->getDashboardFilterData();
 
-        $query = $query->ofDashboardFilterData($dashboard_filter_data)
+        return $query->where('submitdate', '>=', $dashboard_filter_data->startDate)
+            ->where('submitdate', '<=', $dashboard_filter_data->endDate)
             ->when(
                 $filter->min_value,
-                function (Builder $query, int $value): Builder {
+                function (Builder $query, mixed $value): Builder {
                     return $query->where(function (Builder $q) use ($value): void {
                         $q->whereNull('value')
                             ->whereRaw('answer REGEXP "^-?[0-9]+(\.[0-9]+)?$"')
@@ -253,7 +211,7 @@ class SurveyFlipResponse extends BaseModel
             )
             ->when(
                 $filter->max_value,
-                function (Builder $query, int $value): Builder {
+                function (Builder $query, mixed $value): Builder {
                     return $query->where(function (Builder $q) use ($value): void {
                         $q->whereNull('value')
                             ->whereRaw('answer REGEXP "^-?[0-9]+(\.[0-9]+)?$"')
@@ -266,7 +224,5 @@ class SurveyFlipResponse extends BaseModel
                     });
                 }
             );
-
-        return $query;
     }
 }

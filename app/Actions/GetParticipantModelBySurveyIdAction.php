@@ -35,6 +35,8 @@ class GetParticipantModelBySurveyIdAction
                 ->execute($participant_class);
         }
 
-        return app($participant_class);
+        /** @var Model $model */
+        $model = app($participant_class);
+        return $model;
     }
 }

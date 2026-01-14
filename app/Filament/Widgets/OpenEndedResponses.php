@@ -9,13 +9,13 @@ use Modules\Limesurvey\Models\SurveyResponse;
 
 class OpenEndedResponses extends Widget
 {
-    public $surveyId;
+    public string $surveyId;
 
-    public $questionId;
+    public int $questionId;
 
-    protected static ?string $heading = 'Risposte Aperte';
+    protected ?string $heading = 'Risposte Aperte';
 
-    public function __construct($surveyId, $questionId)
+    public function __construct(string $surveyId, int $questionId)
     {
         $this->surveyId = $surveyId;
         $this->questionId = $questionId;

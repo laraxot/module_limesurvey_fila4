@@ -13,39 +13,13 @@ use Modules\Quaeris\Models\Profile;
 /**
  * Modules\Limesurvey\Models\LimeUserGroup
  *
- * @method static CachedBuilder|LimeUserGroup all($columns = [])
- * @method static CachedBuilder|LimeUserGroup avg($column)
- * @method static CachedBuilder|LimeUserGroup cache(array $tags = [])
- * @method static CachedBuilder|LimeUserGroup cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeUserGroup count($columns = '*')
- * @method static CachedBuilder|BaseModel disableCache()
- * @method static CachedBuilder|LimeUserGroup disableModelCaching()
- * @method static CachedBuilder|LimeUserGroup exists()
  * @method static LimeUserGroupFactory factory($count = null, $state = [])
- * @method static CachedBuilder|LimeUserGroup flushCache(array $tags = [])
- * @method static CachedBuilder|LimeUserGroup getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeUserGroup inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeUserGroup insert(array $values)
- * @method static CachedBuilder|LimeUserGroup isCachable()
- * @method static CachedBuilder|LimeUserGroup max($column)
- * @method static CachedBuilder|LimeUserGroup min($column)
- * @method static CachedBuilder|LimeUserGroup newModelQuery()
- * @method static CachedBuilder|LimeUserGroup newQuery()
- * @method static CachedBuilder|BaseModel ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeUserGroup query()
- * @method static CachedBuilder|LimeUserGroup sum($column)
- * @method static CachedBuilder|LimeUserGroup truncate()
- * @method static CachedBuilder|BaseModel withCacheCooldownSeconds(?int $seconds = null)
  *
  * @property int $ugid
  * @property string $name
  * @property string $description
  * @property int $owner_id
  *
- * @method static CachedBuilder|LimeUserGroup whereDescription($value)
- * @method static CachedBuilder|LimeUserGroup whereName($value)
- * @method static CachedBuilder|LimeUserGroup whereOwnerId($value)
- * @method static CachedBuilder|LimeUserGroup whereUgid($value)
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra

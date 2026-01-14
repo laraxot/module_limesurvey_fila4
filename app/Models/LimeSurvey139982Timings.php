@@ -14,49 +14,11 @@ use Modules\Quaeris\Models\Profile;
  *
  * @property int $id
  * @property float|null $interviewtime
- * @property float|null $139982X812time
- * @property float|null $139982X812X30336time
- * @property float|null $139982X812X30337time
- * @property float|null $139982X812X30338time
- * @property float|null $139982X812X30339time
- * @property float|null $139982X812X30340time
- * @property float|null $139982X812X30341time
  *
  * @property-read Profile|null $creator
  * @property-read Extra|null $extra
  * @property-read Profile|null $updater
  *
- * @method static CachedBuilder|LimeSurvey139982Timings all($columns = [])
- * @method static CachedBuilder|LimeSurvey139982Timings avg($column)
- * @method static CachedBuilder|LimeSurvey139982Timings cache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey139982Timings cachedValue(array $arguments, string $cacheKey)
- * @method static CachedBuilder|LimeSurvey139982Timings count($columns = '*')
- * @method static CachedBuilder|LimeSurvey139982Timings disableCache()
- * @method static CachedBuilder|LimeSurvey139982Timings disableModelCaching()
- * @method static CachedBuilder|LimeSurvey139982Timings exists()
- * @method static CachedBuilder|LimeSurvey139982Timings flushCache(array $tags = [])
- * @method static CachedBuilder|LimeSurvey139982Timings getModelCacheCooldown(Model $instance)
- * @method static CachedBuilder|LimeSurvey139982Timings inRandomOrder($seed = '')
- * @method static CachedBuilder|LimeSurvey139982Timings insert(array $values)
- * @method static CachedBuilder|LimeSurvey139982Timings isCachable()
- * @method static CachedBuilder|LimeSurvey139982Timings max($column)
- * @method static CachedBuilder|LimeSurvey139982Timings min($column)
- * @method static CachedBuilder|LimeSurvey139982Timings newModelQuery()
- * @method static CachedBuilder|LimeSurvey139982Timings newQuery()
- * @method static CachedBuilder|LimeSurvey139982Timings ofFilterData(AnswersFilterData $answersFilterData)
- * @method static CachedBuilder|LimeSurvey139982Timings query()
- * @method static CachedBuilder|LimeSurvey139982Timings sum($column)
- * @method static CachedBuilder|LimeSurvey139982Timings truncate()
- * @method static CachedBuilder|LimeSurvey139982Timings where139982X812X30336time($value)
- * @method static CachedBuilder|LimeSurvey139982Timings where139982X812X30337time($value)
- * @method static CachedBuilder|LimeSurvey139982Timings where139982X812X30338time($value)
- * @method static CachedBuilder|LimeSurvey139982Timings where139982X812X30339time($value)
- * @method static CachedBuilder|LimeSurvey139982Timings where139982X812X30340time($value)
- * @method static CachedBuilder|LimeSurvey139982Timings where139982X812X30341time($value)
- * @method static CachedBuilder|LimeSurvey139982Timings where139982X812time($value)
- * @method static CachedBuilder|LimeSurvey139982Timings whereId($value)
- * @method static CachedBuilder|LimeSurvey139982Timings whereInterviewtime($value)
- * @method static CachedBuilder|LimeSurvey139982Timings withCacheCooldownSeconds(?int $seconds = null)
  *
  * @mixin \Eloquent
  */

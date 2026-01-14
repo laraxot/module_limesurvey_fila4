@@ -27,7 +27,7 @@ class LimeSurvey417991Factory extends Factory
             'submitdate' => $this->faker->dateTime,
             'lastpage' => $this->faker->randomNumber(5, false),
             'startlanguage' => $this->faker->word,
-            'seed' => $this->faker->seed,
+            'seed' => $this->faker->word,
             '417991X1025X33130' => $this->faker->text,
             '417991X1026X331312' => $this->faker->word,
             '417991X1026X331313' => $this->faker->word,

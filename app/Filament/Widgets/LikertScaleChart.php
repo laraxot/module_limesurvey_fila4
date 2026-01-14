@@ -10,13 +10,13 @@ use Modules\Limesurvey\Models\SurveyResponse;
 
 class LikertScaleChart extends ChartWidget
 {
-    public $surveyId;
+    public string $surveyId;
 
-    public $questionId;
+    public int $questionId;
 
     protected ?string $heading = 'Risposte Scala Likert';
 
-    public function __construct($surveyId, $questionId)
+    public function __construct(string $surveyId, int $questionId)
     {
         $this->surveyId = $surveyId;
         $this->questionId = $questionId;

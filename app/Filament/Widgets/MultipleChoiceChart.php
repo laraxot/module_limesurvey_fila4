@@ -10,14 +10,14 @@ use Modules\Limesurvey\Models\SurveyResponse;
 
 class MultipleChoiceChart extends ChartWidget
 {
-    public $surveyId;
+    public string $surveyId;
 
-    public $questionId;
+    public int $questionId;
 
     protected ?string $heading = 'Risposte a Scelta Multipla';
 
     // Imposta surveyId e questionId durante la creazione del widget
-    public function __construct($surveyId, $questionId)
+    public function __construct(string $surveyId, int $questionId)
     {
         $this->surveyId = $surveyId;
         $this->questionId = $questionId;

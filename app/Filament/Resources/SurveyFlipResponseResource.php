@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Limesurvey\Filament\Resources;
 
+use Filament\Forms\Components\Component;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
 use Modules\Limesurvey\Filament\Resources\SurveyFlipResponseResource\Pages\CreateSurveyFlipResponse;
@@ -24,20 +25,23 @@ class SurveyFlipResponseResource extends XotBaseResource
 
     // protected static string $slug = 'survey-flip-responses';
 
+    /**
+     * @return array<string, TextInput|DateTimePicker>
+     */
     public static function getFormSchema(): array
     {
         return [
-            TextInput::make('survey_id')
+            'survey_id' => TextInput::make('survey_id')
                 ->required(),
-            TextInput::make('token')
+            'token' => TextInput::make('token')
                 ->required(),
-            TextInput::make('answer')
+            'answer' => TextInput::make('answer')
                 ->required(),
-            TextInput::make('value')
+            'value' => TextInput::make('value')
                 ->required(),
-            DateTimePicker::make('submitdate')
+            'submitdate' => DateTimePicker::make('submitdate')
                 ->required(),
-            TextInput::make('fieldname')
+            'fieldname' => TextInput::make('fieldname')
                 ->required(),
         ];
     }

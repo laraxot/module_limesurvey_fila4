@@ -11,13 +11,13 @@ use Modules\Quaeris\Services\TrendX;
 
 class TypeY extends ChartWidget
 {
-    public $surveyId;
+    public string $surveyId = '';
 
-    public $fieldName;
+    public string $fieldName = '';
 
-    public $questionId;
+    public int $questionId = 0;
 
-    public $title;
+    public string $title = '';
 
     protected ?string $heading = 'Risposte a Risposta Singola';
 
@@ -27,9 +27,12 @@ class TypeY extends ChartWidget
         return 'pie';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function getData(): array
     {
-        static::$heading = strip_tags($this->title);
+        $this->heading = strip_tags($this->title);
         // Recupera le risposte dal sondaggio specifico
         $select = [];
         $select[] = DB::raw("{$this->fieldName} as value");
