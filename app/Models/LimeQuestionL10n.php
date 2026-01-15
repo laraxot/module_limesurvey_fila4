@@ -32,6 +32,14 @@ class LimeQuestionL10n extends BaseModel
 
     protected $table = 'lime_question_l10ns';
 
+    protected $fillable = [
+        'qid',
+        'question',
+        'help',
+        'script',
+        'language',
+    ];
+
     /**
      * Get the casts for the model.
      *
@@ -40,15 +48,7 @@ class LimeQuestionL10n extends BaseModel
     protected function casts(): array
     {
         return [
-        'qid' => 'int',
-    ];
+            'qid' => 'int',
+        ];
     }
-
-    protected $fillable = [
-        'qid',
-        'question',
-        'help',
-        'script',
-        'language',
-    ];
 }

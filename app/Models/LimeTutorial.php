@@ -48,6 +48,14 @@ class LimeTutorial extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -57,17 +65,9 @@ class LimeTutorial extends BaseModel
     protected function casts(): array
     {
         return [
-        'tid' => 'int', 'name' => 'string', 'title' => 'string', 'icon' => 'string', 'description' => 'string', 'active' => 'int', 'settings' => 'string', 'permission' => 'string', 'permission_grade' => 'string',
-    ];
+            'tid' => 'int', 'name' => 'string', 'title' => 'string', 'icon' => 'string', 'description' => 'string', 'active' => 'int', 'settings' => 'string', 'permission' => 'string', 'permission_grade' => 'string',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

@@ -46,6 +46,14 @@ class LimeExpressionError extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -55,17 +63,9 @@ class LimeExpressionError extends BaseModel
     protected function casts(): array
     {
         return [
-        'id' => 'int', 'errortime' => 'string', 'sid' => 'int', 'gid' => 'int', 'qid' => 'int', 'gseq' => 'int', 'qseq' => 'int', 'type' => 'string', 'eqn' => 'string', 'prettyprint' => 'string',
-    ];
+            'id' => 'int', 'errortime' => 'string', 'sid' => 'int', 'gid' => 'int', 'qid' => 'int', 'gseq' => 'int', 'qseq' => 'int', 'type' => 'string', 'eqn' => 'string', 'prettyprint' => 'string',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

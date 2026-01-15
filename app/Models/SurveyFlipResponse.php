@@ -60,28 +60,6 @@ class SurveyFlipResponse extends BaseModel
         'feedback',
     ];
 
-
-    /**
-     * Get the casts for the model.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-        'survey_id' => 'string',
-        'question_id' => 'string',
-        'question_type' => 'string',
-        'answer' => 'string',
-        'value' => 'string',
-        'participant_id' => 'string',
-        'submitdate' => 'datetime',
-        'fieldname' => 'string',
-        'old_id' => 'string',
-        'feedback' => 'string',
-    ];
-    }
-
     /**
      * Relazione con il modello LimeQuestion.
      */
@@ -229,5 +207,26 @@ class SurveyFlipResponse extends BaseModel
                     });
                 }
             );
+    }
+
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'survey_id' => 'string',
+            'question_id' => 'string',
+            'question_type' => 'string',
+            'answer' => 'string',
+            'value' => 'string',
+            'participant_id' => 'string',
+            'submitdate' => 'datetime',
+            'fieldname' => 'string',
+            'old_id' => 'string',
+            'feedback' => 'string',
+        ];
     }
 }

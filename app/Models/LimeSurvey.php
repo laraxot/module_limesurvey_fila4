@@ -170,76 +170,6 @@ class LimeSurvey extends BaseModel
     protected $hidden = [
     ];
 
-    /**
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'sid' => 'int',
-            'owner_id' => 'int',
-            'gsid' => 'int',
-            'admin' => 'string',
-            'active' => 'string',
-            'expires' => 'datetime',
-            'startdate' => 'datetime',
-            'adminemail' => 'string',
-            'anonymized' => 'string',
-            'faxto' => 'string',
-            'format' => 'string',
-            'savetimings' => 'string',
-            'template' => 'string',
-            'language' => 'string',
-            'additional_languages' => 'string',
-            'datestamp' => 'string',
-            'usecookie' => 'string',
-            'allowregister' => 'string',
-            'allowsave' => 'string',
-            'autonumber_start' => 'int',
-            'autoredirect' => 'string',
-            'allowprev' => 'string',
-            'printanswers' => 'string',
-            'ipaddr' => 'string',
-            'refurl' => 'string',
-            'datecreated' => 'datetime',
-            'showsurveypolicynotice' => 'int',
-            'publicstatistics' => 'string',
-            'publicgraphs' => 'string',
-            'listpublic' => 'string',
-            'htmlemail' => 'string',
-            'sendconfirmation' => 'string',
-            'tokenanswerspersistence' => 'string',
-            'assessments' => 'string',
-            'usecaptcha' => 'string',
-            'usetokens' => 'string',
-            'bounce_email' => 'string',
-            'attributedescriptions' => 'array',
-            'emailresponseto' => 'string',
-            'emailnotificationto' => 'string',
-            'tokenlength' => 'int',
-            'showxquestions' => 'string',
-            'showgroupinfo' => 'string',
-            'shownoanswer' => 'string',
-            'showqnumcode' => 'string',
-            'bouncetime' => 'int',
-            'bounceprocessing' => 'string',
-            'bounceaccounttype' => 'string',
-            'bounceaccounthost' => 'string',
-            'bounceaccountpass' => 'string',
-            'bounceaccountencryption' => 'string',
-            'bounceaccountuser' => 'string',
-            'showwelcome' => 'string',
-            'showprogress' => 'string',
-            'questionindex' => 'int',
-            'navigationdelay' => 'int',
-            'nokeyboard' => 'string',
-            'alloweditaftercompletion' => 'string',
-            'googleanalyticsstyle' => 'string',
-            'googleanalyticsapikey' => 'string',
-            'tokenencryptionoptions' => 'array',
-        ];
-    }
-
     // Scopes...
     // Relations ...
     public function lang(): HasOne
@@ -366,5 +296,75 @@ class LimeSurvey extends BaseModel
         // dddx($rows->first()->{'Q11'});
 
         return $rows;
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'sid' => 'int',
+            'owner_id' => 'int',
+            'gsid' => 'int',
+            'admin' => 'string',
+            'active' => 'string',
+            'expires' => 'datetime',
+            'startdate' => 'datetime',
+            'adminemail' => 'string',
+            'anonymized' => 'string',
+            'faxto' => 'string',
+            'format' => 'string',
+            'savetimings' => 'string',
+            'template' => 'string',
+            'language' => 'string',
+            'additional_languages' => 'string',
+            'datestamp' => 'string',
+            'usecookie' => 'string',
+            'allowregister' => 'string',
+            'allowsave' => 'string',
+            'autonumber_start' => 'int',
+            'autoredirect' => 'string',
+            'allowprev' => 'string',
+            'printanswers' => 'string',
+            'ipaddr' => 'string',
+            'refurl' => 'string',
+            'datecreated' => 'datetime',
+            'showsurveypolicynotice' => 'int',
+            'publicstatistics' => 'string',
+            'publicgraphs' => 'string',
+            'listpublic' => 'string',
+            'htmlemail' => 'string',
+            'sendconfirmation' => 'string',
+            'tokenanswerspersistence' => 'string',
+            'assessments' => 'string',
+            'usecaptcha' => 'string',
+            'usetokens' => 'string',
+            'bounce_email' => 'string',
+            'attributedescriptions' => 'array',
+            'emailresponseto' => 'string',
+            'emailnotificationto' => 'string',
+            'tokenlength' => 'int',
+            'showxquestions' => 'string',
+            'showgroupinfo' => 'string',
+            'shownoanswer' => 'string',
+            'showqnumcode' => 'string',
+            'bouncetime' => 'int',
+            'bounceprocessing' => 'string',
+            'bounceaccounttype' => 'string',
+            'bounceaccounthost' => 'string',
+            'bounceaccountpass' => 'string',
+            'bounceaccountencryption' => 'string',
+            'bounceaccountuser' => 'string',
+            'showwelcome' => 'string',
+            'showprogress' => 'string',
+            'questionindex' => 'int',
+            'navigationdelay' => 'int',
+            'nokeyboard' => 'string',
+            'alloweditaftercompletion' => 'string',
+            'googleanalyticsstyle' => 'string',
+            'googleanalyticsapikey' => 'string',
+            'tokenencryptionoptions' => 'array',
+        ];
     }
 }

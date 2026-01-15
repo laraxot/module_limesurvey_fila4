@@ -56,8 +56,8 @@ class LimeSurvey541561 extends BaseModel implements LimeSurveyXXXContract
     protected function casts(): array
     {
         return [
-        'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', 'startdate' => 'datetime', 'datestamp' => 'datetime', 'ipaddr' => 'string', '541561X1003X32948' => 'string', '541561X1003X32949' => 'string', '541561X1003X32950' => 'string', '541561X1003X32951' => 'string', '541561X1003X329551' => 'string', '541561X1003X329552' => 'string', '541561X1003X32957' => 'string', '541561X1003X32957other' => 'string', '541561X1003X33000' => 'string', '541561X1003X329581' => 'string', '541561X1003X329582' => 'string', '541561X1003X329583' => 'string', '541561X1003X33004' => 'string', '541561X1003X33005' => 'string', '541561X1003X32973' => 'string', '541561X1003X32946' => 'string', '541561X1003X32947' => 'string', '541561X1003X32947other' => 'string',
-    ];
+            'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', 'startdate' => 'datetime', 'datestamp' => 'datetime', 'ipaddr' => 'string', '541561X1003X32948' => 'string', '541561X1003X32949' => 'string', '541561X1003X32950' => 'string', '541561X1003X32951' => 'string', '541561X1003X329551' => 'string', '541561X1003X329552' => 'string', '541561X1003X32957' => 'string', '541561X1003X32957other' => 'string', '541561X1003X33000' => 'string', '541561X1003X329581' => 'string', '541561X1003X329582' => 'string', '541561X1003X329583' => 'string', '541561X1003X33004' => 'string', '541561X1003X33005' => 'string', '541561X1003X32973' => 'string', '541561X1003X32946' => 'string', '541561X1003X32947' => 'string', '541561X1003X32947other' => 'string',
+        ];
     }
 
     // Scopes...

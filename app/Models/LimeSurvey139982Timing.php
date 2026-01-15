@@ -45,6 +45,14 @@ class LimeSurvey139982Timing extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -54,25 +62,17 @@ class LimeSurvey139982Timing extends BaseModel
     protected function casts(): array
     {
         return [
-        'id' => 'int',
-        'interviewtime' => 'float',
-        '139982X812time' => 'float',
-        '139982X812X30336time' => 'float',
-        '139982X812X30337time' => 'float',
-        '139982X812X30338time' => 'float',
-        '139982X812X30339time' => 'float',
-        '139982X812X30340time' => 'float',
-        '139982X812X30341time' => 'float',
-    ];
+            'id' => 'int',
+            'interviewtime' => 'float',
+            '139982X812time' => 'float',
+            '139982X812X30336time' => 'float',
+            '139982X812X30337time' => 'float',
+            '139982X812X30338time' => 'float',
+            '139982X812X30339time' => 'float',
+            '139982X812X30340time' => 'float',
+            '139982X812X30341time' => 'float',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

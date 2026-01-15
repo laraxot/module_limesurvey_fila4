@@ -154,36 +154,6 @@ class LimeQuestion extends BaseTreeModel
         'modulename',
     ];
 
-    /** @return array<string, string>     */
-    /**
-     * Get the casts for the model.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-        'qid' => 'int',
-        'language' => 'string',
-        'parent_qid' => 'int',
-        'sid' => 'int',
-        'gid' => 'int',
-        'type' => 'string',
-        'title' => 'string',
-        // 'question' => 'string',
-        'question' => LimeLangField::class,
-        'preg' => 'string',
-        'help' => 'string',
-        'other' => 'string',
-        'mandatory' => 'string',
-        'question_order' => 'int',
-        'scale_id' => 'int',
-        'same_default' => 'int',
-        'relevance' => 'string',
-        'modulename' => 'string',
-    ];
-    }
-
     /** @var list<string> */
     protected $with = [
         'l10n',
@@ -455,5 +425,35 @@ class LimeQuestion extends BaseTreeModel
 
         return $this->hasOne(LimeQuestionL10n::class, 'qid', 'qid')
             ->where('language', $lang);
+    }
+
+    /** @return array<string, string>     */
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'qid' => 'int',
+            'language' => 'string',
+            'parent_qid' => 'int',
+            'sid' => 'int',
+            'gid' => 'int',
+            'type' => 'string',
+            'title' => 'string',
+        // 'question' => 'string',
+            'question' => LimeLangField::class,
+            'preg' => 'string',
+            'help' => 'string',
+            'other' => 'string',
+            'mandatory' => 'string',
+            'question_order' => 'int',
+            'scale_id' => 'int',
+            'same_default' => 'int',
+            'relevance' => 'string',
+            'modulename' => 'string',
+        ];
     }
 }

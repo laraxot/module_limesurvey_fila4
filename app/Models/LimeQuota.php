@@ -43,6 +43,14 @@ class LimeQuota extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -52,17 +60,9 @@ class LimeQuota extends BaseModel
     protected function casts(): array
     {
         return [
-        'id' => 'int', 'sid' => 'int', 'name' => 'string', 'qlimit' => 'int', 'action' => 'int', 'active' => 'int', 'autoload_url' => 'int',
-    ];
+            'id' => 'int', 'sid' => 'int', 'name' => 'string', 'qlimit' => 'int', 'action' => 'int', 'active' => 'int', 'autoload_url' => 'int',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

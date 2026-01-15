@@ -50,8 +50,8 @@ class LimeParticipantShare extends BaseModel
     protected function casts(): array
     {
         return [
-        'participant_id' => 'string', 'share_uid' => 'int', 'date_added' => 'datetime', 'can_edit' => 'string',
-    ];
+            'participant_id' => 'string', 'share_uid' => 'int', 'date_added' => 'datetime', 'can_edit' => 'string',
+        ];
     }
 
     // Scopes...

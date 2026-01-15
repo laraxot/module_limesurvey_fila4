@@ -39,6 +39,14 @@ class LimeParticipantAttributeValue extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -48,17 +56,9 @@ class LimeParticipantAttributeValue extends BaseModel
     protected function casts(): array
     {
         return [
-        'value_id' => 'int', 'attribute_id' => 'int', 'value' => 'string',
-    ];
+            'value_id' => 'int', 'attribute_id' => 'int', 'value' => 'string',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

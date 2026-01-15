@@ -54,6 +54,14 @@ class LimeTemplateConfiguration extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -63,17 +71,9 @@ class LimeTemplateConfiguration extends BaseModel
     protected function casts(): array
     {
         return [
-        'id' => 'int', 'template_name' => 'string', 'sid' => 'int', 'gsid' => 'int', 'uid' => 'int', 'files_css' => 'string', 'files_js' => 'string', 'files_print_css' => 'string', 'options' => 'string', 'cssframework_name' => 'string', 'cssframework_css' => 'string', 'cssframework_js' => 'string', 'packages_to_load' => 'string', 'packages_ltr' => 'string', 'packages_rtl' => 'string',
-    ];
+            'id' => 'int', 'template_name' => 'string', 'sid' => 'int', 'gsid' => 'int', 'uid' => 'int', 'files_css' => 'string', 'files_js' => 'string', 'files_print_css' => 'string', 'options' => 'string', 'cssframework_name' => 'string', 'cssframework_css' => 'string', 'cssframework_js' => 'string', 'packages_to_load' => 'string', 'packages_ltr' => 'string', 'packages_rtl' => 'string',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

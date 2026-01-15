@@ -33,22 +33,6 @@ class LimeQuotum extends BaseModel
 
     protected $table = 'lime_quota';
 
-    /**
-     * Get the casts for the model.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-        'sid' => 'int',
-        'qlimit' => 'int',
-        'action' => 'int',
-        'active' => 'int',
-        'autoload_url' => 'int',
-    ];
-    }
-
     protected $fillable = [
         'sid',
         'name',
@@ -57,4 +41,20 @@ class LimeQuotum extends BaseModel
         'active',
         'autoload_url',
     ];
+
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'sid' => 'int',
+            'qlimit' => 'int',
+            'action' => 'int',
+            'active' => 'int',
+            'autoload_url' => 'int',
+        ];
+    }
 }

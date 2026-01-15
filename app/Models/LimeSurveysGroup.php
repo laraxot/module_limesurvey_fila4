@@ -61,8 +61,8 @@ class LimeSurveysGroup extends BaseModel
     protected function casts(): array
     {
         return [
-        'gsid' => 'int', 'name' => 'string', 'title' => 'string', 'template' => 'string', 'description' => 'string', 'sortorder' => 'int', 'owner_id' => 'int', 'parent_id' => 'int', 'created' => 'datetime', 'modified' => 'datetime', 'created_by' => 'int',
-    ];
+            'gsid' => 'int', 'name' => 'string', 'title' => 'string', 'template' => 'string', 'description' => 'string', 'sortorder' => 'int', 'owner_id' => 'int', 'parent_id' => 'int', 'created' => 'datetime', 'modified' => 'datetime', 'created_by' => 'int',
+        ];
     }
 
     // Scopes...

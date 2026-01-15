@@ -43,6 +43,14 @@ class LimeQuotaLanguagesetting extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -52,17 +60,9 @@ class LimeQuotaLanguagesetting extends BaseModel
     protected function casts(): array
     {
         return [
-        'quotals_id' => 'int', 'quotals_quota_id' => 'int', 'quotals_language' => 'string', 'quotals_name' => 'string', 'quotals_message' => 'string', 'quotals_url' => 'string', 'quotals_urldescrip' => 'string',
-    ];
+            'quotals_id' => 'int', 'quotals_quota_id' => 'int', 'quotals_language' => 'string', 'quotals_name' => 'string', 'quotals_message' => 'string', 'quotals_url' => 'string', 'quotals_urldescrip' => 'string',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

@@ -259,12 +259,9 @@ class TypeF extends Widget
      */
     protected function baseSurveyQuery(): Builder
     {
-        $query = SurveyResponse::getResponsesForSurvey($this->surveyId)
+        return SurveyResponse::getResponsesForSurvey($this->surveyId)
             ->whereNotNull('submitdate')
             ->whereBetween('submitdate', [$this->date_from, $this->date_to]);
-
-        /** @var Builder<SurveyResponse> */
-        return $query;
     }
 
     /**

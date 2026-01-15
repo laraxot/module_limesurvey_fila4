@@ -44,19 +44,6 @@ class LimeGroup extends BaseModel
     protected $hidden = [
     ];
 
-    /** @return array<string, string>     */
-    /**
-     * Get the casts for the model.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-        'gid' => 'int', 'language' => 'string', 'sid' => 'int', 'group_name' => 'string', 'group_order' => 'int', 'description' => 'string', 'randomization_group' => 'string', 'grelevance' => 'string',
-    ];
-    }
-
     /**
      * The attributes that should be mutated to dates.
      *
@@ -81,5 +68,18 @@ class LimeGroup extends BaseModel
     public function getGroupNameAttribute(): string
     {
         return $this->labels->group_name ?? '';
+    }
+
+    /** @return array<string, string>     */
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'gid' => 'int', 'language' => 'string', 'sid' => 'int', 'group_name' => 'string', 'group_order' => 'int', 'description' => 'string', 'randomization_group' => 'string', 'grelevance' => 'string',
+        ];
     }
 }

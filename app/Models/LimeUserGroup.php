@@ -43,6 +43,14 @@ class LimeUserGroup extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -52,17 +60,9 @@ class LimeUserGroup extends BaseModel
     protected function casts(): array
     {
         return [
-        'ugid' => 'int', 'name' => 'string', 'description' => 'string', 'owner_id' => 'int',
-    ];
+            'ugid' => 'int', 'name' => 'string', 'description' => 'string', 'owner_id' => 'int',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

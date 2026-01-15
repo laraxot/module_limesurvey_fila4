@@ -43,6 +43,14 @@ class LimeTutorialEntryRelation extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -52,17 +60,9 @@ class LimeTutorialEntryRelation extends BaseModel
     protected function casts(): array
     {
         return [
-        'teid' => 'int', 'tid' => 'int', 'uid' => 'int', 'sid' => 'int',
-    ];
+            'teid' => 'int', 'tid' => 'int', 'uid' => 'int', 'sid' => 'int',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

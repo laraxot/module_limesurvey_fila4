@@ -40,22 +40,6 @@ class LimeAnswer extends BaseModel
 
     protected $primaryKey = 'aid';
 
-    /**
-     * Get the casts for the model.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'qid' => 'int',
-            'sortorder' => 'int',
-            'assessment_value' => 'int',
-            'scale_id' => 'int',
-            'answer' => LimeLangField::class,
-        ];
-    }
-
     /** @var list<string> */
     protected $fillable = [
         'qid',
@@ -94,5 +78,21 @@ class LimeAnswer extends BaseModel
     public function getQueryAttribute(): mixed
     {
         return null;
+    }
+
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'qid' => 'int',
+            'sortorder' => 'int',
+            'assessment_value' => 'int',
+            'scale_id' => 'int',
+            'answer' => LimeLangField::class,
+        ];
     }
 }

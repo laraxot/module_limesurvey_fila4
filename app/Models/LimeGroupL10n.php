@@ -31,6 +31,13 @@ class LimeGroupL10n extends BaseModel
 
     protected $table = 'lime_group_l10ns';
 
+    protected $fillable = [
+        'gid',
+        'group_name',
+        'description',
+        'language',
+    ];
+
     /**
      * Get the casts for the model.
      *
@@ -39,14 +46,7 @@ class LimeGroupL10n extends BaseModel
     protected function casts(): array
     {
         return [
-        'gid' => 'int',
-    ];
+            'gid' => 'int',
+        ];
     }
-
-    protected $fillable = [
-        'gid',
-        'group_name',
-        'description',
-        'language',
-    ];
 }

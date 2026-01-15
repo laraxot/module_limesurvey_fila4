@@ -56,8 +56,8 @@ class LimeSurvey139982 extends BaseModel implements LimeSurveyXXXContract
     protected function casts(): array
     {
         return [
-        'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', 'startdate' => 'datetime', 'datestamp' => 'datetime', 'ipaddr' => 'string', '139982X812X30336SQ001' => 'string', '139982X812X30337' => 'string', '139982X812X30338' => 'string', '139982X812X30339' => 'string', '139982X812X30340' => 'string', '139982X812X30341' => 'string',
-    ];
+            'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', 'startdate' => 'datetime', 'datestamp' => 'datetime', 'ipaddr' => 'string', '139982X812X30336SQ001' => 'string', '139982X812X30337' => 'string', '139982X812X30338' => 'string', '139982X812X30339' => 'string', '139982X812X30340' => 'string', '139982X812X30341' => 'string',
+        ];
     }
 
     // Scopes...

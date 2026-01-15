@@ -67,8 +67,8 @@ class LimeTemplate extends BaseModel
     protected function casts(): array
     {
         return [
-        'id' => 'int', 'name' => 'string', 'folder' => 'string', 'title' => 'string', 'creation_date' => 'datetime', 'author' => 'string', 'author_email' => 'string', 'author_url' => 'string', 'copyright' => 'string', 'license' => 'string', 'version' => 'string', 'api_version' => 'string', 'view_folder' => 'string', 'files_folder' => 'string', 'description' => 'string', 'last_update' => 'datetime', 'owner_id' => 'int', 'extends' => 'string',
-    ];
+            'id' => 'int', 'name' => 'string', 'folder' => 'string', 'title' => 'string', 'creation_date' => 'datetime', 'author' => 'string', 'author_email' => 'string', 'author_url' => 'string', 'copyright' => 'string', 'license' => 'string', 'version' => 'string', 'api_version' => 'string', 'view_folder' => 'string', 'files_folder' => 'string', 'description' => 'string', 'last_update' => 'datetime', 'owner_id' => 'int', 'extends' => 'string',
+        ];
     }
 
     // Scopes...

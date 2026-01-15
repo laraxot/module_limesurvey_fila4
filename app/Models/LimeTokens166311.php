@@ -86,6 +86,15 @@ class LimeTokens166311 extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     *  da fare
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
 
     /**
      * Get the casts for the model.
@@ -96,16 +105,6 @@ class LimeTokens166311 extends BaseModel
     {
         return [];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     *  da fare
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

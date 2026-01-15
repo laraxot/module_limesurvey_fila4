@@ -54,6 +54,15 @@ class LimeSurvey578443 extends BaseModel implements LimeSurveyXXXContract
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     *  da fare
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
 
     /**
      * Get the casts for the model.
@@ -64,16 +73,6 @@ class LimeSurvey578443 extends BaseModel implements LimeSurveyXXXContract
     {
         return [];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     *  da fare
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

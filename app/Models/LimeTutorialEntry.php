@@ -36,6 +36,13 @@ class LimeTutorialEntry extends BaseModel
 
     protected $primaryKey = 'teid';
 
+    protected $fillable = [
+        'ordering',
+        'title',
+        'content',
+        'settings',
+    ];
+
     /**
      * Get the casts for the model.
      *
@@ -44,14 +51,7 @@ class LimeTutorialEntry extends BaseModel
     protected function casts(): array
     {
         return [
-        'ordering' => 'int',
-    ];
+            'ordering' => 'int',
+        ];
     }
-
-    protected $fillable = [
-        'ordering',
-        'title',
-        'content',
-        'settings',
-    ];
 }

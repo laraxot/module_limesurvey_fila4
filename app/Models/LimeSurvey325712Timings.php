@@ -38,6 +38,14 @@ class LimeSurvey325712Timings extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -47,17 +55,9 @@ class LimeSurvey325712Timings extends BaseModel
     protected function casts(): array
     {
         return [
-        'id' => 'int', 'interviewtime' => 'float', '325712X973time' => 'float', '325712X973X32478time' => 'float', '325712X974time' => 'float', '325712X974X32502time' => 'float', '325712X974X32503time' => 'float', '325712X974X32504time' => 'float', '325712X975time' => 'float', '325712X975X32505time' => 'float', '325712X978time' => 'float', '325712X978X32516time' => 'float', '325712X978X32517time' => 'float', '325712X978X32518time' => 'float', '325712X978X32519time' => 'float', '325712X976time' => 'float', '325712X976X32520time' => 'float', '325712X976X32531time' => 'float', '325712X976X32532time' => 'float', '325712X979time' => 'float', '325712X979X32533time' => 'float', '325712X979X32544time' => 'float', '325712X979X32557time' => 'float', '325712X979X32579time' => 'float', '325712X979X32590time' => 'float', '325712X979X32601time' => 'float', '325712X979X32613time' => 'float', '325712X979X32624time' => 'float', '325712X979X32635time' => 'float', '325712X979X32646time' => 'float', '325712X979X32657time' => 'float', '325712X980time' => 'float', '325712X980X32658time' => 'float', '325712X980X32659time' => 'float', '325712X980X32660time' => 'float', '325712X980X32661time' => 'float', '325712X980X32668time' => 'float', '325712X977time' => 'float', '325712X977X32474time' => 'float', '325712X977X32476time' => 'float', '325712X977X32477time' => 'float', '325712X977X32479time' => 'float', '325712X977X32480time' => 'float',
-    ];
+            'id' => 'int', 'interviewtime' => 'float', '325712X973time' => 'float', '325712X973X32478time' => 'float', '325712X974time' => 'float', '325712X974X32502time' => 'float', '325712X974X32503time' => 'float', '325712X974X32504time' => 'float', '325712X975time' => 'float', '325712X975X32505time' => 'float', '325712X978time' => 'float', '325712X978X32516time' => 'float', '325712X978X32517time' => 'float', '325712X978X32518time' => 'float', '325712X978X32519time' => 'float', '325712X976time' => 'float', '325712X976X32520time' => 'float', '325712X976X32531time' => 'float', '325712X976X32532time' => 'float', '325712X979time' => 'float', '325712X979X32533time' => 'float', '325712X979X32544time' => 'float', '325712X979X32557time' => 'float', '325712X979X32579time' => 'float', '325712X979X32590time' => 'float', '325712X979X32601time' => 'float', '325712X979X32613time' => 'float', '325712X979X32624time' => 'float', '325712X979X32635time' => 'float', '325712X979X32646time' => 'float', '325712X979X32657time' => 'float', '325712X980time' => 'float', '325712X980X32658time' => 'float', '325712X980X32659time' => 'float', '325712X980X32660time' => 'float', '325712X980X32661time' => 'float', '325712X980X32668time' => 'float', '325712X977time' => 'float', '325712X977X32474time' => 'float', '325712X977X32476time' => 'float', '325712X977X32477time' => 'float', '325712X977X32479time' => 'float', '325712X977X32480time' => 'float',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

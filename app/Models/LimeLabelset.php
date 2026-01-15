@@ -39,6 +39,14 @@ class LimeLabelset extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -48,17 +56,9 @@ class LimeLabelset extends BaseModel
     protected function casts(): array
     {
         return [
-        'lid' => 'int', 'label_name' => 'string', 'languages' => 'string',
-    ];
+            'lid' => 'int', 'label_name' => 'string', 'languages' => 'string',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

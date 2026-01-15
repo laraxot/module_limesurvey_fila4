@@ -55,8 +55,8 @@ class LimeSurvey417991 extends BaseModel implements LimeSurveyXXXContract
     protected function casts(): array
     {
         return [
-        'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', '417991X1025X33130' => 'string', '417991X1026X331312' => 'string', '417991X1026X331313' => 'string', '417991X1026X331314' => 'string', '417991X1026X331315' => 'string', '417991X1026X331316' => 'string', '417991X1026X331317' => 'string', '417991X1026X331318' => 'string', '417991X1026X331319' => 'string', '417991X1026X3314110' => 'string', '417991X1027X33143' => 'string',
-    ];
+            'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', '417991X1025X33130' => 'string', '417991X1026X331312' => 'string', '417991X1026X331313' => 'string', '417991X1026X331314' => 'string', '417991X1026X331315' => 'string', '417991X1026X331316' => 'string', '417991X1026X331317' => 'string', '417991X1026X331318' => 'string', '417991X1026X331319' => 'string', '417991X1026X3314110' => 'string', '417991X1027X33143' => 'string',
+        ];
     }
 
     // Scopes...

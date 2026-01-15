@@ -39,6 +39,14 @@ class LimeParticipantAttributeNamesLang extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -48,17 +56,9 @@ class LimeParticipantAttributeNamesLang extends BaseModel
     protected function casts(): array
     {
         return [
-        'attribute_id' => 'int', 'lang' => 'string', 'attribute_name' => 'string',
-    ];
+            'attribute_id' => 'int', 'lang' => 'string', 'attribute_name' => 'string',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

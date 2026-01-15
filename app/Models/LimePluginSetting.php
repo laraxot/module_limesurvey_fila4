@@ -42,6 +42,14 @@ class LimePluginSetting extends BaseModel
     protected $hidden = [
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array<string>
+     */
+    protected $dates = [
+    ];
+
     /** @return array<string, string>     */
     /**
      * Get the casts for the model.
@@ -51,17 +59,9 @@ class LimePluginSetting extends BaseModel
     protected function casts(): array
     {
         return [
-        'id' => 'int', 'plugin_id' => 'int', 'model' => 'string', 'model_id' => 'int', 'key' => 'string', 'value' => 'string',
-    ];
+            'id' => 'int', 'plugin_id' => 'int', 'model' => 'string', 'model_id' => 'int', 'key' => 'string', 'value' => 'string',
+        ];
     }
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array<string>
-     */
-    protected $dates = [
-    ];
 
     // Scopes...
 

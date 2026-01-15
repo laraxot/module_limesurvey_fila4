@@ -76,8 +76,8 @@ class LimeSurveymenuEntry extends BaseModel
     protected function casts(): array
     {
         return [
-        'id' => 'int', 'menu_id' => 'int', 'user_id' => 'int', 'ordering' => 'int', 'name' => 'string', 'title' => 'string', 'menu_title' => 'string', 'menu_description' => 'string', 'menu_icon' => 'string', 'menu_icon_type' => 'string', 'menu_class' => 'string', 'menu_link' => 'string', 'action' => 'string', 'template' => 'string', 'partial' => 'string', 'classes' => 'string', 'permission' => 'string', 'permission_grade' => 'string', 'data' => 'string', 'getdatamethod' => 'string', 'language' => 'string', 'showincollapse' => 'int', 'active' => 'int', 'changed_at' => 'datetime', 'changed_by' => 'int', 'created_at' => 'datetime', 'created_by' => 'int',
-    ];
+            'id' => 'int', 'menu_id' => 'int', 'user_id' => 'int', 'ordering' => 'int', 'name' => 'string', 'title' => 'string', 'menu_title' => 'string', 'menu_description' => 'string', 'menu_icon' => 'string', 'menu_icon_type' => 'string', 'menu_class' => 'string', 'menu_link' => 'string', 'action' => 'string', 'template' => 'string', 'partial' => 'string', 'classes' => 'string', 'permission' => 'string', 'permission_grade' => 'string', 'data' => 'string', 'getdatamethod' => 'string', 'language' => 'string', 'showincollapse' => 'int', 'active' => 'int', 'changed_at' => 'datetime', 'changed_by' => 'int', 'created_at' => 'datetime', 'created_by' => 'int',
+        ];
     }
 
     // Scopes...

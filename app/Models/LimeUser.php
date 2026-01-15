@@ -67,8 +67,8 @@ class LimeUser extends BaseModel
     protected function casts(): array
     {
         return [
-        'uid' => 'int', 'users_name' => 'string', 'password' => 'string', 'full_name' => 'string', 'parent_id' => 'int', 'lang' => 'string', 'email' => 'string', 'htmleditormode' => 'string', 'templateeditormode' => 'string', 'questionselectormode' => 'string', 'one_time_pw' => 'string', 'dateformat' => 'int', 'created' => 'datetime', 'modified' => 'datetime',
-    ];
+            'uid' => 'int', 'users_name' => 'string', 'password' => 'string', 'full_name' => 'string', 'parent_id' => 'int', 'lang' => 'string', 'email' => 'string', 'htmleditormode' => 'string', 'templateeditormode' => 'string', 'questionselectormode' => 'string', 'one_time_pw' => 'string', 'dateformat' => 'int', 'created' => 'datetime', 'modified' => 'datetime',
+        ];
     }
 
     // Scopes...
