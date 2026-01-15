@@ -58,9 +58,17 @@ class LimeTokens821676 extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'tid' => 'int', 'participant_id' => 'string', 'firstname' => 'string', 'lastname' => 'string', 'email' => 'string', 'emailstatus' => 'string', 'token' => 'string', 'language' => 'string', 'blacklisted' => 'string', 'sent' => 'string', 'remindersent' => 'string', 'remindercount' => 'int', 'completed' => 'string', 'usesleft' => 'int', 'validfrom' => 'datetime', 'validuntil' => 'datetime', 'mpid' => 'int',
     ];
+    }
 
     // Scopes...
 

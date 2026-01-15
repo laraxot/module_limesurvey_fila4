@@ -42,9 +42,17 @@ class LimeQuestionAttribute extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'qaid' => 'int', 'qid' => 'int', 'attribute' => 'string', 'value' => 'string', 'language' => 'string',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

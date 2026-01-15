@@ -57,9 +57,17 @@ class LimeSurveymenu extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'parent_id' => 'int', 'survey_id' => 'int', 'user_id' => 'int', 'name' => 'string', 'ordering' => 'int', 'level' => 'int', 'title' => 'string', 'position' => 'string', 'description' => 'string', 'showincollapse' => 'int', 'active' => 'int', 'changed_at' => 'datetime', 'changed_by' => 'int', 'created_at' => 'datetime', 'created_by' => 'int',
     ];
+    }
 
     // Scopes...
 

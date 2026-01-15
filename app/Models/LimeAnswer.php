@@ -41,17 +41,20 @@ class LimeAnswer extends BaseModel
     protected $primaryKey = 'aid';
 
     /**
-     * Undocumented variable.
+     * Get the casts for the model.
      *
-     * @var array<string, string>
+     * @return array<string, string>
      */
-    protected $casts = [
-        'qid' => 'int',
-        'sortorder' => 'int',
-        'assessment_value' => 'int',
-        'scale_id' => 'int',
-        'answer' => LimeLangField::class,
-    ];
+    protected function casts(): array
+    {
+        return [
+            'qid' => 'int',
+            'sortorder' => 'int',
+            'assessment_value' => 'int',
+            'scale_id' => 'int',
+            'answer' => LimeLangField::class,
+        ];
+    }
 
     /** @var list<string> */
     protected $fillable = [

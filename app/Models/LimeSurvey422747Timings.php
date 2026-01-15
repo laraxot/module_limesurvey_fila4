@@ -39,9 +39,17 @@ class LimeSurvey422747Timings extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'interviewtime' => 'float', '422747X941time' => 'float', '422747X941X32056time' => 'float', '422747X941X32033time' => 'float', '422747X941X32034time' => 'float', '422747X941X32035time' => 'float', '422747X942time' => 'float', '422747X942X32036time' => 'float', '422747X942X32042time' => 'float', '422747X942X32043time' => 'float', '422747X942X32044time' => 'float', '422747X942X32045time' => 'float', '422747X942X32046time' => 'float', '422747X943time' => 'float', '422747X943X32037time' => 'float', '422747X943X32047time' => 'float', '422747X943X32048time' => 'float', '422747X943X32049time' => 'float', '422747X944time' => 'float', '422747X944X32038time' => 'float', '422747X944X32039time' => 'float', '422747X944X32040time' => 'float', '422747X944X32041time' => 'float', '422747X944X32052time' => 'float', '422747X944X32050time' => 'float', '422747X945time' => 'float', '422747X945X32051time' => 'float', '422747X945X32053time' => 'float', '422747X945X32054time' => 'float', '422747X945X32055time' => 'float', '422747X945X32057time' => 'float', '422747X945X32058time' => 'float',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

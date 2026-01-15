@@ -44,9 +44,17 @@ class LimeTutorialEntryRelation extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'teid' => 'int', 'tid' => 'int', 'uid' => 'int', 'sid' => 'int',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

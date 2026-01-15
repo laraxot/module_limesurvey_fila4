@@ -50,9 +50,17 @@ class LimeSurvey821423 extends BaseModel implements LimeSurveyXXXContract
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', 'startdate' => 'datetime', 'datestamp' => 'datetime', '821423X959X32256' => 'string', '821423X959X32256other' => 'string', '821423X971X32334' => 'string', '821423X972X32257SQ001' => 'string', '821423X972X32257SQ002' => 'string', '821423X972X32257SQ003' => 'string', '821423X972X32257SQ004' => 'string', '821423X972X32257SQ005' => 'string', '821423X972X32257SQ006' => 'string', '821423X972X32257SQ007' => 'string', '821423X972X32257SQ008' => 'string', '821423X972X32257SQ009' => 'string', '821423X972X32257SQ010' => 'string', '821423X972X32257SQ011' => 'string', '821423X972X32347SQ001' => 'string', '821423X972X32347SQ002' => 'string', '821423X972X32347SQ003' => 'string', '821423X972X32347SQ004' => 'string', '821423X972X32347SQ005' => 'string', '821423X972X32347SQ006' => 'string', '821423X972X32347SQ007' => 'string', '821423X972X32347SQ008' => 'string', '821423X972X32347SQ009' => 'string', '821423X972X32347SQ010' => 'string', '821423X972X32347SQ011' => 'string', '821423X972X32359SQ001' => 'string', '821423X972X32372' => 'string', '821423X966X32375' => 'string', '821423X966X32376' => 'string', '821423X966X32376other' => 'string', '821423X966X323771' => 'string', '821423X966X323772' => 'string', '821423X966X323773' => 'string', '821423X966X323774' => 'string', '821423X966X323775' => 'string', '821423X966X323776' => 'string', '821423X966X323777' => 'string', '821423X966X323778' => 'string', '821423X966X323779' => 'string', '821423X966X3237710' => 'string', '821423X966X3237711' => 'string', '821423X966X32612' => 'string', '821423X967X32378SQ001' => 'string', '821423X967X32380' => 'string', '821423X967X32386' => 'string', '821423X967X32395SQ001' => 'string', '821423X967X32395SQ002' => 'string', '821423X967X32395SQ003' => 'string', '821423X967X32395SQ004' => 'string', '821423X968X32401' => 'string', '821423X969X32402SQ001' => 'string', '821423X969X32402SQ002' => 'string', '821423X969X32402SQ003' => 'string', '821423X969X32402SQ004' => 'string', '821423X969X32402SQ005' => 'string', '821423X969X32402SQ006' => 'string', '821423X969X32409' => 'string', '821423X969X32415SQ001' => 'string', '821423X969X32415SQ002' => 'string', '821423X969X32415SQ003' => 'string', '821423X969X32415SQ004' => 'string', '821423X969X32427SQ001' => 'string', '821423X969X32427SQ002' => 'string', '821423X969X32427SQ003' => 'string', '821423X969X32427SQ004' => 'string', '821423X970X32439' => 'string', '821423X970X32440' => 'string', '821423X970X32446' => 'string', '821423X970X32447' => 'string', '821423X970X32448' => 'string', '821423X970X32449' => 'string',
     ];
+    }
 
     // Scopes...
 

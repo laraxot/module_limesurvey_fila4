@@ -48,9 +48,17 @@ class LimeSurvey628829 extends BaseModel implements LimeSurveyXXXContract
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', 'startdate' => 'datetime', 'datestamp' => 'datetime', 'ipaddr' => 'string', '628829X1070X33470' => 'string', '628829X1070X33471' => 'string', '628829X1065X33488' => 'string', '628829X1065X33489' => 'string', '628829X1065X33489other' => 'string', '628829X1065X33398' => 'string', '628829X1065X33399' => 'string', '628829X1065X33400' => 'string', '628829X1065X33401' => 'string', '628829X1065X33474' => 'string', '628829X1065X33473' => 'string', '628829X1066X33490' => 'string', '628829X1066X33465' => 'string', '628829X1066X33426' => 'string', '628829X1066X33448' => 'string', '628829X1066X33449' => 'string', '628829X1066X33456' => 'string', '628829X1066X33457' => 'string', '628829X1067X33466' => 'string', '628829X1068X33404' => 'string', '628829X1068X33405' => 'string', '628829X1068X33406' => 'string', '628829X1068X33406other' => 'string', '628829X1069X33467' => 'string', '628829X1069X33467other' => 'string', '628829X1069X33468' => 'datetime', '628829X1069X33469' => 'string', '628829X1069X33469other' => 'string', '628829X1069X33472' => 'string', '628829X1069X33472other' => 'string',
     ];
+    }
 
     // Scopes...
 

@@ -48,9 +48,17 @@ class LimePermission extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'entity' => 'string', 'entity_id' => 'int', 'uid' => 'int', 'permission' => 'string', 'create_p' => 'int', 'read_p' => 'int', 'update_p' => 'int', 'delete_p' => 'int', 'import_p' => 'int', 'export_p' => 'int',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

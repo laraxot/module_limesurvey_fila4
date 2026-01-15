@@ -59,9 +59,17 @@ class LimeTemplate extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'name' => 'string', 'folder' => 'string', 'title' => 'string', 'creation_date' => 'datetime', 'author' => 'string', 'author_email' => 'string', 'author_url' => 'string', 'copyright' => 'string', 'license' => 'string', 'version' => 'string', 'api_version' => 'string', 'view_folder' => 'string', 'files_folder' => 'string', 'description' => 'string', 'last_update' => 'datetime', 'owner_id' => 'int', 'extends' => 'string',
     ];
+    }
 
     // Scopes...
 

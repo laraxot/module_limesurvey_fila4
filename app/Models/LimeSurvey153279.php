@@ -45,9 +45,17 @@ class LimeSurvey153279 extends BaseModel implements LimeSurveyXXXContract
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', '153279X923X317651' => 'string', '153279X923X317652' => 'string', '153279X923X317653' => 'string', '153279X923X317654' => 'string', '153279X923X317655' => 'string', '153279X923X317656' => 'string', '153279X923X317657' => 'string', '153279X924X31774Q08' => 'string', '153279X925X317759' => 'string', '153279X925X3177510' => 'string', '153279X925X3177511' => 'string', '153279X926X3178112' => 'string', '153279X926X3178113' => 'string', '153279X927X31788' => 'string', '153279X927X31789' => 'string', '153279X927X31790' => 'string', '153279X928X31791' => 'string', '153279X928X31792' => 'string', '153279X928X31793' => 'string', '153279X929X31794' => 'string', '153279X929X31795' => 'string', '153279X929X31796' => 'string', '153279X929X317971' => 'string', '153279X929X317972' => 'string', '153279X929X317973' => 'string', '153279X929X317974' => 'string', '153279X929X317975' => 'string', '153279X929X317976' => 'string', '153279X929X317977' => 'string', '153279X929X317978' => 'string', '153279X929X317979' => 'string', '153279X929X31797other' => 'string', '153279X929X31808Q23' => 'string', '153279X930X31821' => 'string',
     ];
+    }
 
     // Scopes...
 

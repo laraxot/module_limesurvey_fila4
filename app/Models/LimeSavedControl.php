@@ -49,9 +49,17 @@ class LimeSavedControl extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'scid' => 'int', 'sid' => 'int', 'srid' => 'int', 'identifier' => 'string', 'access_code' => 'string', 'email' => 'string', 'ip' => 'string', 'saved_thisstep' => 'string', 'status' => 'string', 'saved_date' => 'datetime', 'refurl' => 'string',
     ];
+    }
 
     // Scopes...
 

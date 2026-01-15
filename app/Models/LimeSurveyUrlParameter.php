@@ -45,9 +45,17 @@ class LimeSurveyUrlParameter extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'sid' => 'int', 'parameter' => 'string', 'targetqid' => 'int', 'targetsqid' => 'int',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

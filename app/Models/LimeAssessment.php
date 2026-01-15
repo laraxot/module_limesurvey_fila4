@@ -46,9 +46,17 @@ class LimeAssessment extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'language' => 'string', 'sid' => 'int', 'scope' => 'string', 'gid' => 'int', 'name' => 'string', 'minimum' => 'string', 'maximum' => 'string', 'message' => 'string',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

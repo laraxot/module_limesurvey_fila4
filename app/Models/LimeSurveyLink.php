@@ -47,9 +47,17 @@ class LimeSurveyLink extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'participant_id' => 'string', 'token_id' => 'int', 'survey_id' => 'int', 'date_created' => 'datetime', 'date_invited' => 'datetime', 'date_completed' => 'datetime',
     ];
+    }
 
     // Scopes...
 

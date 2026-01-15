@@ -53,9 +53,17 @@ class LimeSurveysGroup extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'gsid' => 'int', 'name' => 'string', 'title' => 'string', 'template' => 'string', 'description' => 'string', 'sortorder' => 'int', 'owner_id' => 'int', 'parent_id' => 'int', 'created' => 'datetime', 'modified' => 'datetime', 'created_by' => 'int',
     ];
+    }
 
     // Scopes...
 

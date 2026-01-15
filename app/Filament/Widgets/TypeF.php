@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Modules\Limesurvey\Models\SurveyResponse;
+use Webmozart\Assert\Assert;
 
 class TypeF extends Widget
 {
@@ -258,10 +259,12 @@ class TypeF extends Widget
      */
     protected function baseSurveyQuery(): Builder
     {
-        /** @var Builder<SurveyResponse> $query */
-        return SurveyResponse::getResponsesForSurvey($this->surveyId)
+        $query = SurveyResponse::getResponsesForSurvey($this->surveyId)
             ->whereNotNull('submitdate')
             ->whereBetween('submitdate', [$this->date_from, $this->date_to]);
+
+        /** @var Builder<SurveyResponse> */
+        return $query;
     }
 
     /**
@@ -271,8 +274,9 @@ class TypeF extends Widget
      */
     protected function getTotalAndAverage(): array
     {
-        /** @var array{total: int|float, average: int|float} $stats */
-        return Cache::remember("survey_stats_{$this->surveyId}_{$this->date_from}_{$this->date_to}", now()->addMinutes(5), function (): array {
+        $cacheKey = "survey_stats_{$this->surveyId}_{$this->date_from}_{$this->date_to}";
+
+        $stats = Cache::remember($cacheKey, now()->addMinutes(5), function (): array {
             $result = $this->baseSurveyQuery()
                 ->selectRaw('
                     COUNT('.$this->fieldName.') AS total,
@@ -293,6 +297,11 @@ class TypeF extends Widget
                 'average' => $average,
             ];
         });
+
+        Assert::isArray($stats);
+
+        /** @var array{total: float|int, average: float|int} */
+        return $stats;
     }
 
     /**

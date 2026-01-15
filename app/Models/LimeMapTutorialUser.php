@@ -40,9 +40,17 @@ class LimeMapTutorialUser extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'tid' => 'int', 'uid' => 'int', 'taken' => 'int',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

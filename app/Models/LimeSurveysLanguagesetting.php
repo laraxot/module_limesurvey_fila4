@@ -68,9 +68,17 @@ class LimeSurveysLanguagesetting extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'surveyls_survey_id' => 'int', 'surveyls_language' => 'string', 'surveyls_title' => 'string', 'surveyls_description' => 'string', 'surveyls_welcometext' => 'string', 'surveyls_endtext' => 'string', 'surveyls_policy_notice' => 'string', 'surveyls_policy_error' => 'string', 'surveyls_policy_notice_label' => 'string', 'surveyls_url' => 'string', 'surveyls_urldescription' => 'string', 'surveyls_email_invite_subj' => 'string', 'surveyls_email_invite' => 'string', 'surveyls_email_remind_subj' => 'string', 'surveyls_email_remind' => 'string', 'surveyls_email_register_subj' => 'string', 'surveyls_email_register' => 'string', 'surveyls_email_confirm_subj' => 'string', 'surveyls_email_confirm' => 'string', 'surveyls_dateformat' => 'int', 'surveyls_attributecaptions' => 'string', 'email_admin_notification_subj' => 'string', 'email_admin_notification' => 'string', 'email_admin_responses_subj' => 'string', 'email_admin_responses' => 'string', 'surveyls_numberformat' => 'int', 'attachments' => 'string',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

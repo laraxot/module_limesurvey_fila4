@@ -40,9 +40,17 @@ class LimeParticipantAttribute extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'participant_id' => 'string', 'attribute_id' => 'int', 'value' => 'string',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

@@ -47,9 +47,17 @@ class LimeSurvey723653 extends BaseModel implements LimeSurveyXXXContract
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', 'startdate' => 'datetime', 'datestamp' => 'datetime', '723653X434X26682' => 'string', '723653X434X26683' => 'string', '723653X435X26727' => 'string', '723653X435X26684' => 'string', '723653X435X26685' => 'string', '723653X435X26686' => 'string', '723653X435X26687' => 'string', '723653X435X26688' => 'string', '723653X435X26689' => 'string', '723653X435X26690' => 'string', '723653X435X26691' => 'string', '723653X435X26692SQ001' => 'string', '723653X435X26693' => 'string', '723653X436X26728' => 'string', '723653X436X26694' => 'string', '723653X436X26695' => 'string', '723653X436X26696' => 'string', '723653X436X26697' => 'string', '723653X436X26698' => 'string', '723653X436X26699' => 'string', '723653X436X26700SQ001' => 'string', '723653X436X26701' => 'string', '723653X436X26702SQ001' => 'string', '723653X436X26703' => 'string', '723653X437X26729' => 'string', '723653X437X26704' => 'string', '723653X437X26732SQ001' => 'string', '723653X437X26733' => 'string', '723653X437X26710' => 'string', '723653X437X26706' => 'string', '723653X437X26707' => 'string', '723653X437X26711' => 'string', '723653X437X26712' => 'string', '723653X437X26713' => 'string', '723653X437X26714' => 'string', '723653X437X26708SQ001' => 'string', '723653X437X26709' => 'string', '723653X438X26715' => 'string', '723653X438X26716' => 'string', '723653X438X26716other' => 'string', '723653X438X26717' => 'string', '723653X438X26718SQ001' => 'string', '723653X438X26719' => 'string', '723653X439X26724' => 'string', '723653X439X26720SQ001' => 'string', '723653X439X26721' => 'string', '723653X439X26725SQ001' => 'string', '723653X439X26726' => 'string', '723653X439X26722SQ001' => 'string', '723653X439X26723' => 'string', '723653X440X26731' => 'string', '723653X440X26730' => 'string',
     ];
+    }
 
     // Scopes...
 

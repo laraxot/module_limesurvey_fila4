@@ -43,9 +43,17 @@ class LimeSettingsUser extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'uid' => 'int', 'entity' => 'string', 'entity_id' => 'string', 'stg_name' => 'string', 'stg_value' => 'string',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

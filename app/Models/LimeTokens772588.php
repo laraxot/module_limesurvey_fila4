@@ -78,13 +78,16 @@ class LimeTokens772588 extends BaseModel
     protected $hidden = [
     ];
 
+
     /**
-     * The attributes that should be casted to native types.
-     * da fare.
+     * Get the casts for the model.
      *
-     * @var array<string, string>
+     * @return array<string, string>
      */
-    protected $casts = [];
+    protected function casts(): array
+    {
+        return [];
+    }
 
     /**
      * The attributes that should be mutated to dates.

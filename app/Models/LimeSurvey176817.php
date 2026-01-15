@@ -48,9 +48,17 @@ class LimeSurvey176817 extends BaseModel implements LimeSurveyXXXContract
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', 'startdate' => 'datetime', 'datestamp' => 'datetime', 'ipaddr' => 'string', '176817X795X30223' => 'string', '176817X794X30215' => 'string', '176817X794X30216' => 'string', '176817X794X30217' => 'string', '176817X794X30218' => 'string', '176817X794X30219' => 'string', '176817X794X30220' => 'string', '176817X794X30221' => 'string', '176817X794X30222SQ001' => 'string', '176817X794X30222SQ002' => 'string', '176817X794X30222SQ003' => 'string', '176817X794X30222SQ004' => 'string', '176817X794X30224' => 'string',
     ];
+    }
 
     // Scopes...
 

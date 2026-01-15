@@ -42,9 +42,17 @@ class LimeSurvey799586Timings extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'interviewtime' => 'float', '799586X1018time' => 'float', '799586X1018X33007time' => 'float', '799586X1007time' => 'float', '799586X1007X33041time' => 'float', '799586X1007X33012time' => 'float', '799586X1007X33013time' => 'float', '799586X1007X33014time' => 'float', '799586X1009time' => 'float', '799586X1009X33044time' => 'float', '799586X1008time' => 'float', '799586X1008X33015time' => 'float', '799586X1008X33016time' => 'float', '799586X1008X33017time' => 'float', '799586X1010time' => 'float', '799586X1010X33018time' => 'float', '799586X1010X33043time' => 'float', '799586X1010X33019time' => 'float', '799586X1010X33020time' => 'float', '799586X1011time' => 'float', '799586X1011X33021time' => 'float', '799586X1011X33022time' => 'float', '799586X1011X33023time' => 'float', '799586X1012time' => 'float', '799586X1012X33024time' => 'float', '799586X1012X33025time' => 'float', '799586X1012X33026time' => 'float', '799586X1013time' => 'float', '799586X1013X33027time' => 'float', '799586X1013X33028time' => 'float', '799586X1013X33029time' => 'float', '799586X1014time' => 'float', '799586X1014X33030time' => 'float', '799586X1014X33031time' => 'float', '799586X1015time' => 'float', '799586X1015X33032time' => 'float', '799586X1015X33033time' => 'float', '799586X1015X33034time' => 'float', '799586X1015X33042time' => 'float', '799586X1015X33035time' => 'float', '799586X1015X33036time' => 'float', '799586X1016time' => 'float', '799586X1016X33008time' => 'float', '799586X1016X33009time' => 'float', '799586X1016X33010time' => 'float', '799586X1016X33037time' => 'float', '799586X1016X33011time' => 'float', '799586X1016X33038time' => 'float', '799586X1017time' => 'float', '799586X1017X33006time' => 'float', '799586X1017X33039time' => 'float', '799586X1017X33040time' => 'float', '799586X1017X33045time' => 'float',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

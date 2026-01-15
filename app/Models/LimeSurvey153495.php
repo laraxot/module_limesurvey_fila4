@@ -45,9 +45,17 @@ class LimeSurvey153495 extends BaseModel implements LimeSurveyXXXContract
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', '153495X878X31352' => 'string', '153495X878X31176' => 'string', '153495X878X31177' => 'string', '153495X868X310691_SQ001' => 'string', '153495X868X310691_SQ002' => 'string', '153495X868X310692_SQ001' => 'string', '153495X868X310692_SQ002' => 'string', '153495X868X310693_SQ001' => 'string', '153495X868X310693_SQ002' => 'string', '153495X868X310694_SQ001' => 'string', '153495X868X310694_SQ002' => 'string', '153495X868X310695_SQ001' => 'string', '153495X868X310695_SQ002' => 'string', '153495X868X310696_SQ001' => 'string', '153495X868X310696_SQ002' => 'string', '153495X868X310697_SQ001' => 'string', '153495X868X310697_SQ002' => 'string', '153495X868X310698_SQ001' => 'string', '153495X868X310698_SQ002' => 'string', '153495X868X310699_SQ001' => 'string', '153495X868X310699_SQ002' => 'string', '153495X868X3106910_SQ001' => 'string', '153495X868X3106910_SQ002' => 'string', '153495X868X313381_SQ001' => 'string', '153495X868X313381_SQ002' => 'string', '153495X869X31093' => 'string', '153495X870X31094' => 'string', '153495X870X3109513_SQ001' => 'string', '153495X870X3109513_SQ002' => 'string', '153495X870X31108' => 'string', '153495X870X3110913_SQ001' => 'string', '153495X870X3110913_SQ002' => 'string', '153495X871X31113' => 'string', '153495X871X311141' => 'string', '153495X871X311142' => 'string', '153495X871X311143' => 'string', '153495X871X311144' => 'string', '153495X871X311145' => 'string', '153495X871X311146' => 'string', '153495X871X31114other' => 'string', '153495X871X3112318_SQ001' => 'string', '153495X871X3112318_SQ002' => 'string', '153495X871X3112319_SQ001' => 'string', '153495X871X3112319_SQ002' => 'string', '153495X871X3112320_SQ001' => 'string', '153495X871X3112320_SQ002' => 'string', '153495X871X3112321_SQ001' => 'string', '153495X871X3112321_SQ002' => 'string', '153495X871X3112322_SQ001' => 'string', '153495X871X3112322_SQ002' => 'string', '153495X872X31142' => 'string', '153495X872X311431' => 'string', '153495X872X311432' => 'string', '153495X872X311433' => 'string', '153495X872X31143other' => 'string', '153495X872X3115313_SQ001' => 'string', '153495X872X3115313_SQ002' => 'string', '153495X873X31157' => 'string', '153495X873X3115813_SQ001' => 'string', '153495X873X3115813_SQ002' => 'string', '153495X874X31162' => 'string', '153495X875X31163SQ001' => 'string', '153495X875X31163SQ002' => 'string', '153495X875X31163SQ003' => 'string', '153495X875X31163SQ004' => 'string', '153495X875X31163SQ005' => 'string', '153495X875X31163SQ006' => 'string', '153495X875X31163SQ007' => 'string', '153495X875X31163SQ008' => 'string', '153495X875X31163other' => 'string', '153495X876X31173' => 'string', '153495X877X31174' => 'string', '153495X877X31175' => 'string', '153495X877X31353' => 'string',
     ];
+    }
 
     // Scopes...
 

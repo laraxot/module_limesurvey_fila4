@@ -155,7 +155,14 @@ class LimeQuestion extends BaseTreeModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'qid' => 'int',
         'language' => 'string',
         'parent_qid' => 'int',
@@ -175,6 +182,7 @@ class LimeQuestion extends BaseTreeModel
         'relevance' => 'string',
         'modulename' => 'string',
     ];
+    }
 
     /** @var list<string> */
     protected $with = [

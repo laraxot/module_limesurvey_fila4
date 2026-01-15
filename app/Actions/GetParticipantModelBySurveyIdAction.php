@@ -11,6 +11,7 @@ namespace Modules\Limesurvey\Actions;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Actions\Generate\GenerateModelByModelClass;
 use Spatie\QueueableAction\QueueableAction;
+use Webmozart\Assert\Assert;
 
 class GetParticipantModelBySurveyIdAction
 {
@@ -35,7 +36,9 @@ class GetParticipantModelBySurveyIdAction
                 ->execute($participant_class);
         }
 
-        /** @var Model $model */
-        return app($participant_class);
+        $model = app($participant_class);
+        Assert::isInstanceOf($model, Model::class);
+
+        return $model;
     }
 }

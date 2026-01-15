@@ -39,9 +39,17 @@ class LimeSurvey139982Timings extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'interviewtime' => 'float', '139982X812time' => 'float', '139982X812X30336time' => 'float', '139982X812X30337time' => 'float', '139982X812X30338time' => 'float', '139982X812X30339time' => 'float', '139982X812X30340time' => 'float', '139982X812X30341time' => 'float',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

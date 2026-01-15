@@ -48,9 +48,17 @@ class LimeParticipant extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'participant_id' => 'string', 'firstname' => 'string', 'lastname' => 'string', 'email' => 'string', 'language' => 'string', 'blacklisted' => 'string', 'owner_uid' => 'int', 'created_by' => 'int', 'created' => 'datetime', 'modified' => 'datetime',
     ];
+    }
 
     // Scopes...
 

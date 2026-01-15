@@ -42,9 +42,17 @@ class LimeFailedLoginAttempt extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'ip' => 'string', 'last_attempt' => 'string', 'number_attempts' => 'int',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

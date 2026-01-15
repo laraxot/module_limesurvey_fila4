@@ -60,8 +60,15 @@ class SurveyFlipResponse extends BaseModel
         'feedback',
     ];
 
-    /** @var array<string, string> */
-    protected $casts = [
+
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'survey_id' => 'string',
         'question_id' => 'string',
         'question_type' => 'string',
@@ -73,6 +80,7 @@ class SurveyFlipResponse extends BaseModel
         'old_id' => 'string',
         'feedback' => 'string',
     ];
+    }
 
     /**
      * Relazione con il modello LimeQuestion.

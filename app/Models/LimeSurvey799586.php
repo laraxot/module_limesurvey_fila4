@@ -51,9 +51,17 @@ class LimeSurvey799586 extends BaseModel implements LimeSurveyXXXContract
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', 'startdate' => 'datetime', 'datestamp' => 'datetime', 'ipaddr' => 'string', '799586X1018X33007' => 'string', '799586X1007X33041' => 'string', '799586X1007X33012' => 'string', '799586X1007X33013' => 'string', '799586X1007X33014' => 'string', '799586X1009X33044' => 'string', '799586X1008X33015B01#0' => 'string', '799586X1008X33015B01#1' => 'string', '799586X1008X33015B02#0' => 'string', '799586X1008X33015B02#1' => 'string', '799586X1008X33016' => 'string', '799586X1008X33017' => 'string', '799586X1010X33018B04#0' => 'string', '799586X1010X33018B04#1' => 'string', '799586X1010X33018B05#0' => 'string', '799586X1010X33018B05#1' => 'string', '799586X1010X33018B06#0' => 'string', '799586X1010X33018B06#1' => 'string', '799586X1010X33018B07#0' => 'string', '799586X1010X33018B07#1' => 'string', '799586X1010X33018B09#0' => 'string', '799586X1010X33018B09#1' => 'string', '799586X1010X33018B10#0' => 'string', '799586X1010X33018B10#1' => 'string', '799586X1010X33043B08#0' => 'string', '799586X1010X33043B08#1' => 'string', '799586X1010X33019' => 'string', '799586X1010X33020' => 'string', '799586X1011X33021B12#0' => 'string', '799586X1011X33021B12#1' => 'string', '799586X1011X33021B13#0' => 'string', '799586X1011X33021B13#1' => 'string', '799586X1011X33021B14#0' => 'string', '799586X1011X33021B14#1' => 'string', '799586X1011X33021B15#0' => 'string', '799586X1011X33021B15#1' => 'string', '799586X1011X33022' => 'string', '799586X1011X33023' => 'string', '799586X1012X33024B17#0' => 'string', '799586X1012X33024B17#1' => 'string', '799586X1012X33024B18#0' => 'string', '799586X1012X33024B18#1' => 'string', '799586X1012X33024B19#0' => 'string', '799586X1012X33024B19#1' => 'string', '799586X1012X33024B20#0' => 'string', '799586X1012X33024B20#1' => 'string', '799586X1012X33025' => 'string', '799586X1012X33026' => 'string', '799586X1013X33027B22#0' => 'string', '799586X1013X33027B22#1' => 'string', '799586X1013X33027B23#0' => 'string', '799586X1013X33027B23#1' => 'string', '799586X1013X33028' => 'string', '799586X1013X33029' => 'string', '799586X1014X33030' => 'string', '799586X1014X330311' => 'string', '799586X1014X330312' => 'string', '799586X1014X330313' => 'string', '799586X1014X330314' => 'string', '799586X1014X330315' => 'string', '799586X1015X33032' => 'string', '799586X1015X33033' => 'string', '799586X1015X33034' => 'string', '799586X1015X33042' => 'string', '799586X1015X33035' => 'string', '799586X1015X33036' => 'string', '799586X1015X33036other' => 'string', '799586X1016X33008' => 'string', '799586X1016X33010' => 'string', '799586X1016X33037' => 'string', '799586X1016X33011' => 'string', '799586X1016X33038' => 'string', '799586X1017X33006' => 'string', '799586X1017X33006other' => 'string', '799586X1017X33039' => 'datetime', '799586X1017X33040' => 'datetime',
     ];
+    }
 
     // Scopes...
 

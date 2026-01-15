@@ -48,9 +48,17 @@ class LimeSurvey886589 extends BaseModel implements LimeSurveyXXXContract
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', '886589X223X24551Q1' => 'string', '886589X223X24551Q2' => 'string', '886589X223X24551Q3' => 'string', '886589X223X24551Q4' => 'string', '886589X224X24556' => 'string', '886589X224X24556other' => 'string', '886589X224X24557' => 'string', '886589X224X24558SQ001' => 'string', '886589X225X24560' => 'string', '886589X225X24561' => 'string', '886589X226X24562' => 'string', '886589X226X24562other' => 'string', '886589X226X24563' => 'string',
     ];
+    }
 
     // Scopes...
 

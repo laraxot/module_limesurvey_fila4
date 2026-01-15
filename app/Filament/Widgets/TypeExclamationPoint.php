@@ -88,7 +88,7 @@ class TypeExclamationPoint extends ChartWidget
         // Calcola le percentuali
         $totalResponses = $this->totalResponses;
         $percentages = $res->map(static function (mixed $item) use ($totalResponses): mixed {
-            if (is_object($item) && property_exists($item, 'aggregate')) {
+            if (is_object($item) && isset($item->aggregate)) {
                 /** @phpstan-ignore-next-line */
                 $item->aggregate = $totalResponses > 0
                     ? round((float) $item->aggregate / $totalResponses * 100, 2)

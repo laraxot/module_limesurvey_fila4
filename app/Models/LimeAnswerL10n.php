@@ -30,9 +30,17 @@ class LimeAnswerL10n extends BaseModel
 
     protected $table = 'lime_answer_l10ns';
 
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'aid' => 'int',
     ];
+    }
 
     protected $fillable = [
         'aid',

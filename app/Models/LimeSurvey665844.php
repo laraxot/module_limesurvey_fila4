@@ -45,9 +45,17 @@ class LimeSurvey665844 extends BaseModel implements LimeSurveyXXXContract
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'token' => 'string', 'submitdate' => 'datetime', 'lastpage' => 'int', 'startlanguage' => 'string', 'seed' => 'string', '665844X907X31547' => 'string', '665844X907X31548' => 'string', '665844X907X31549' => 'string', '665844X907X31569' => 'string', '665844X908X31550' => 'string', '665844X908X315511' => 'string', '665844X908X315512' => 'string', '665844X908X31552' => 'string', '665844X908X315531' => 'string', '665844X908X315532' => 'string', '665844X908X31554' => 'string', '665844X908X315551' => 'string', '665844X908X315552' => 'string', '665844X908X31572' => 'string', '665844X908X315731' => 'string', '665844X908X315732' => 'string', '665844X909X31556' => 'string', '665844X909X315571' => 'string', '665844X909X315572' => 'string', '665844X909X315573' => 'string', '665844X909X31558' => 'string', '665844X909X315591' => 'string', '665844X909X315592' => 'string', '665844X909X31560' => 'string', '665844X909X315611' => 'string', '665844X909X315612' => 'string', '665844X909X315613' => 'string', '665844X909X315614' => 'string', '665844X909X31562' => 'string', '665844X909X315631' => 'string', '665844X909X315632' => 'string', '665844X909X315633' => 'string', '665844X910X31564' => 'string', '665844X910X315651' => 'string', '665844X910X315652' => 'string', '665844X910X315653' => 'string', '665844X910X315654' => 'string', '665844X910X31566' => 'string', '665844X910X315671' => 'string', '665844X910X315672' => 'string', '665844X910X31574' => 'string', '665844X910X315751' => 'string', '665844X910X315752' => 'string', '665844X910X315753' => 'string', '665844X910X315754' => 'string', '665844X910X31576' => 'string', '665844X910X315771' => 'string', '665844X910X315772' => 'string', '665844X910X315773' => 'string', '665844X911X31570' => 'string', '665844X911X31571' => 'string', '665844X911X31568' => 'string',
     ];
+    }
 
     // Scopes...
 

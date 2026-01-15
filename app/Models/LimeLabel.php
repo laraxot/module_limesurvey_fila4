@@ -42,9 +42,17 @@ class LimeLabel extends BaseModel
     ];
 
     /** @return array<string, string>     */
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'id' => 'int', 'lid' => 'int', 'code' => 'string', 'title' => 'string', 'sortorder' => 'int', 'language' => 'string', 'assessment_value' => 'int',
     ];
+    }
 
     /**
      * The attributes that should be mutated to dates.

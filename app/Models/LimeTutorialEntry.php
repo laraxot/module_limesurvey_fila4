@@ -36,9 +36,17 @@ class LimeTutorialEntry extends BaseModel
 
     protected $primaryKey = 'teid';
 
-    protected $casts = [
+    /**
+     * Get the casts for the model.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
         'ordering' => 'int',
     ];
+    }
 
     protected $fillable = [
         'ordering',
