@@ -175,7 +175,8 @@ class LimeSurvey extends BaseModel
     public function lang(): HasOne
     {
         return $this->hasOne(LimeSurveysLanguagesetting::class, 'surveyls_survey_id', 'sid')
-            ->whereColumn('surveyls_language', 'language');
+            // ->whereColumn('surveyls_language', app()->getLocale());
+            ->where('surveyls_language', app()->getLocale());
     }
 
     /**
