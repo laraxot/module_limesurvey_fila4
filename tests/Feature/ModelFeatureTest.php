@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+uses(\Modules\Limesurvey\Tests\TestCase::class);
+
 use Modules\Limesurvey\Tests\TestCase;
 use Modules\Limesurvey\Models\LimeSurvey;
 use Modules\Limesurvey\Models\LimeQuestion;
